@@ -1,0 +1,596 @@
+/* Styles go here */
+/*
+REPLACE:
+https://rogerhn.github.io/projects/wildlands/assets
+..
+*/
+    body {margin: 0px;font-family: Roboto;}
+	#map {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: #fbeece;
+	cursor: crosshair;
+    }
+	.sidebar.collapsed {
+    width: 41px;
+	}
+	@media (min-width: 768px) {
+    .sidebar {
+	top: 0px;
+	bottom: 0px;
+	transition: width 500ms;
+	border-radius: 0px; }
+	.sidebar-left {
+      left: 0px; }
+    .sidebar.leaflet-touch {
+    border: none; }
+	}
+	.sidebar-left .sidebar-tabs {
+    background: #d8c8af;
+    background-image: url(https://kingdomcomemap.github.io/assets/images/bg.png);
+    border-right: 1px solid #76643e;
+    z-index: 1000;
+	}
+	.sidebar-pane {
+    padding: 10px 20px 10px 15px;
+	}
+	.left-arrow {
+      background-image: url(https://kingdomcomemap.github.io/assets/images/left-arrow.png);
+    background-size: 28px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+	}
+	.sidebar-header {
+    margin: -10px -20px 0;
+    height: 40px;
+    padding: 0 20px;
+    line-height: 40px;
+    font-size: 14.4pt;
+    color: #fff;
+    background-color: #11110d;
+	}
+	.sidebar-content {
+	background: #d8c8af;
+	background-image: url(https://kingdomcomemap.github.io/assets/images/bg.png);
+	font-family: 'Roboto';
+  font-size: 13px;
+	color: #ddd;
+	}
+	.toggle-title {
+  display: block;
+  margin: 15px 0 0 -20px;
+  font-size: 18px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #101010;
+  padding: 0px 10px 8px 20px;
+  background-color: #c4c4c4;
+  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/dotbg.png);
+  width: 180px;
+  line-height: 25px;
+  position: relative;
+  cursor: pointer;
+	}
+	.toggle-title:before {
+	content: '';
+    width: 180px;
+    height: 8px;
+    position: absolute;
+    top: -8px;
+    background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/topborderdot.png);
+    left: 1px;
+	}
+	.toggle-title:after {
+	content: '';
+    width: 26px;
+    height: 26px;
+    position: absolute;
+	margin-left: 10px;
+    background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/toggle.png);
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: center 0px;
+	-webkit-transition: .2s all ease-in;
+	transition: .2s all ease-in;
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+	}
+	.toggle-title.active:after {
+	content: '';
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/toggle.png);
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: center 0px;
+	-webkit-transition: .2s all ease-in;
+	transition: .2s all ease-in;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	}
+	.list-title {
+  display: block;
+  margin: 0px 0 0 -10px;
+  font-size: 23px;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-weight: bold;
+  color: #222;
+  padding: 0 10px 0px 20px;
+  line-height: 50px;
+  height: 50px;
+	}
+	/*
+	.list-title:before {
+	content: '';
+    width: 180px;
+    height: 8px;
+    position: absolute;
+    top: -8px;
+    background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/topborderdot.png);
+    left: 1px;
+	}*/
+	.markers-list {
+	float: none;
+  border: none;
+  padding: 6px;
+  margin: 0px;
+  display: inline-block;
+  width: 100%;
+	}
+	.markers-list li {
+  display: flex;
+  white-space: normal;
+  width: 100%;
+  overflow: hidden;
+  list-style: none;
+	}
+	.markers-list i {
+	display: flex;
+	flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  margin-top: 4px;
+  line-height: 30px;
+	}
+	.markers-list label {
+	display: flex;
+	align-items: center;
+	font-family: '1529 Champ Fleury W01 Regular';
+	font-size: 16px;
+	color: #1f201b;
+	width: 100%;
+	}
+  .allmarkers {background-image: url(https://kingdomcomemap.github.io/assets/images/allmarkers.png);}
+  .regions {background-image: url(https://rogerhn.github.io/projects/wildlands/assets/icons/regions.png);}
+  .fishing_spot {background-image: url(https://kingdomcomemap.github.io/assets/images/fishing_spot.png);}
+  .combat_arena {background-image: url(https://kingdomcomemap.github.io/assets/images/combat_arena.png);}
+  .archery_range {background-image: url(https://kingdomcomemap.github.io/assets/images/archery_range.png);}
+  .baths {background-image: url(https://kingdomcomemap.github.io/assets/images/baths.png);}
+  .camp {background-image: url(https://kingdomcomemap.github.io/assets/images/camp.png);}
+  .deer_hunting_spot {background-image: url(https://kingdomcomemap.github.io/assets/images/deer_hunting_spot.png);}
+  .boar_hunting_spot {background-image: url(https://kingdomcomemap.github.io/assets/images/boar_hunting_spot.png);}
+  .fish_trap {background-image: url(https://kingdomcomemap.github.io/assets/images/fish_trap.png);}
+  .beehive {background-image: url(https://kingdomcomemap.github.io/assets/images/beehive.png);}
+  .grocer {background-image: url(https://kingdomcomemap.github.io/assets/images/grocer.png);}
+  .woodland_garden {background-image: url(https://kingdomcomemap.github.io/assets/images/woodland_garden.png);}
+  .accident {background-image: url(https://kingdomcomemap.github.io/assets/images/accident.png);}
+  .cave {background-image: url(https://kingdomcomemap.github.io/assets/images/cave.png);}
+  .grave {background-image: url(https://kingdomcomemap.github.io/assets/images/grave.png);}
+  .woodland_garden {background-image: url(https://kingdomcomemap.github.io/assets/images/woodland_garden.png);}
+  .nest {background-image: url(https://kingdomcomemap.github.io/assets/images/nest.png);}
+  .conciliation_cross {background-image: url(https://kingdomcomemap.github.io/assets/images/conciliation_cross.png);}
+  .shrine {background-image: url(https://kingdomcomemap.github.io/assets/images/shrine.png);}
+  .scribe {background-image: url(https://kingdomcomemap.github.io/assets/images/scribe.png);}
+  .baker {background-image: url(https://kingdomcomemap.github.io/assets/images/baker.png);}
+  .tailor {background-image: url(https://kingdomcomemap.github.io/assets/images/tailor.png);}
+  .butcher {background-image: url(https://kingdomcomemap.github.io/assets/images/butcher.png);}
+  .alchemy_bench {background-image: url(https://kingdomcomemap.github.io/assets/images/alchemy_bench.png);}
+  .grindstone {background-image: url(https://kingdomcomemap.github.io/assets/images/grindstone.png);}
+  .trader {background-image: url(https://kingdomcomemap.github.io/assets/images/trader.png);}
+  .blacksmith {background-image: url(https://kingdomcomemap.github.io/assets/images/blacksmith.png);}
+  .armourer {background-image: url(https://kingdomcomemap.github.io/assets/images/armourer.png);}
+  .weaponsmith {background-image: url(https://kingdomcomemap.github.io/assets/images/weaponsmith.png);}
+  .cobbler {background-image: url(https://kingdomcomemap.github.io/assets/images/cobbler.png);}
+  .tavern {background-image: url(https://kingdomcomemap.github.io/assets/images/tavern.png);}
+  .your_bed {background-image: url(https://kingdomcomemap.github.io/assets/images/your_bed.png);}
+  .lodgings {background-image: url(https://kingdomcomemap.github.io/assets/images/lodgings.png);}
+  .apothecary {background-image: url(https://kingdomcomemap.github.io/assets/images/apothecary.png);}
+  .herbalist {background-image: url(https://kingdomcomemap.github.io/assets/images/herbalist.png);}
+  .miller {background-image: url(https://kingdomcomemap.github.io/assets/images/miller.png);}
+  .horse_trader {background-image: url(https://kingdomcomemap.github.io/assets/images/horse_trader.png);}
+  .tanner {background-image: url(https://kingdomcomemap.github.io/assets/images/tanner.png);}
+  .huntsman {background-image: url(https://kingdomcomemap.github.io/assets/images/huntsman.png);}
+  .interesting_site {background-image: url(https://kingdomcomemap.github.io/assets/images/interesting_site.png);}
+  
+  
+
+	.cc {
+  opacity: 0;
+  position: absolute;
+  width: 46px;
+  height: 45px;
+  margin: 0;  
+	}
+	.cc, .cl {
+	display: inline-block;
+	cursor: pointer;
+	}
+	.cl {
+	position: relative;
+	}
+	.cc + .cl:after {
+	content: '';
+	background-image: url('https://kingdomcomemap.github.io/assets/images/eye.png');
+  background-position: center;
+  background-size: auto 100%;
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding: 2px;
+  right: 10px;
+  text-align: center;
+  vertical-align: top;
+  position: absolute;
+	}
+	.cc:checked + .cl:after {
+	background-image: url('https://kingdomcomemap.github.io/assets/images/hide.png');
+	}
+	.cc:focus + .cl {
+	outline: none; /* focus style */
+	}
+	.item-title {
+    background: #d39e35;
+    margin: 10px 0px 5px -15px;
+    padding: 2px 15px;
+    font-size: 15px;
+    color: #101010;
+    font-weight: bold;
+    font-family: 'Roboto';
+	}
+	.items-list {
+	  float: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+	}
+	.items-list li {
+    line-height: 18px;
+    white-space: normal;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    list-style: none;
+	}
+	.toggle-content.title {
+  display: block;
+  background: #d39e35;
+  margin: 10px 0px 5px 0px;
+  padding: 2px 15px;
+  font-size: 15px;
+  color: #101010;
+  font-weight: bold;
+  font-family: 'Roboto';
+  left: -15px;
+  position: relative;
+  cursor: pointer;
+	}
+	.toggle-content.title:after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  margin-left: 10px;
+  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/toggle.png);
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+	}
+	.toggle-content.title.active:after {
+	content: '';
+	-webkit-transition: .2s all ease-in;
+	transition: .2s all ease-in;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	}
+	a.locate {
+    display: inline-block;
+    font-family: 'Roboto';
+    font-size: 13px;
+    color: #e19f28;
+    text-decoration: none;
+}
+a.locate.sidebar-close {
+    position: relative;
+    width: auto;
+    height: auto;
+}
+	
+	
+	
+	
+	
+	.hidden-content {display: none;}
+	.leaflet-popup-content {
+		text-align: center;
+	}
+	.leaflet-popup-content span:nth-child(1) {
+	font-family: 'Roboto';
+    font-size: 13px;
+	}
+
+	/* Sidebar V2 */
+	/*
+	.sidebar-pane p.clear {clear: both;}
+	
+	@media (min-width: 768px) {
+	.sidebar {
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+    border-radius: 0px;
+	} }
+	.sidebar.collapsed {
+	width: 40px; }
+	@media (min-width: 768px) {
+	.sidebar {
+	transition: width 500ms; } }
+	@media (min-width: 320px) and (max-width: 767px) {
+	.sidebar {
+	width: 320px; } }
+	@media (min-width: 768px) and (max-width: 991px) {
+	.sidebar {
+	width: 350px; } }
+	@media (min-width: 992px) and (max-width: 1199px) {
+	.sidebar {
+	width: 390px; } }
+	@media (min-width: 1200px) {
+	.sidebar {
+	width: 400px; } }
+	
+	.sidebar-pane {
+	display: none;
+	left: 0;
+	right: 0;
+	box-sizing: border-box;
+	padding: 10px 20px; }
+	.sidebar-pane.active {
+	display: block; }
+	@media (min-width: 320px) and (max-width: 767px) {
+	.sidebar-pane {
+	min-width: 100%; } }
+	@media (min-width: 768px) and (max-width: 991px) {
+	.sidebar-pane {
+	min-width: 100%; } }
+	@media (min-width: 992px) and (max-width: 1199px) {
+	.sidebar-pane {
+	min-width: 100%; } }
+	@media (min-width: 1200px) {
+	.sidebar-pane {
+	min-width: 100%; } }
+	*/
+	  
+	  
+	.sidebar-tabs > li:hover, .sidebar-tabs > ul > li:hover {
+    background-color: #c2ab81;
+	}
+	.sidebar-tabs > ul > li.active i {
+	-webkit-filter: grayscale(0);
+	background-color: #c2ab81;
+	}
+	.sidebar-tabs i {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    -webkit-filter: grayscale(1);
+	}
+	.sidebar-tabs i:hover {
+	  -webkit-filter: grayscale(0);
+	}
+	.home {background-image: url('https://kingdomcomemap.github.io/assets/images/quest.png');}
+	.settings {background-image: url('https://kingdomcomemap.github.io/assets/images/codex.png');}
+	.medals {background-image: url('https://rogerhn.github.io/projects/wildlands/assets/icons/medals.png');}
+	.skills {background-image: url('https://rogerhn.github.io/projects/wildlands/assets/icons/skill-icon.png');}
+	.accessory {background-image: url('https://rogerhn.github.io/projects/wildlands/assets/icons/accessory.png');}
+	.weapons {background-image: url('https://rogerhn.github.io/projects/wildlands/assets/icons/weapons.png');}
+	.itemids {background-image: url('https://rogerhn.github.io/projects/wildlands/assets/img/info.png');}
+	.info {background-image: url('https://rogerhn.github.io/projects/wildlands/assets/img/info.png');}
+	/*markers tab*/
+	.logo-container {
+    margin: 10px 20px;
+  }
+	img.logo-menu {
+    width: 100%;
+    margin: 0px;
+	}
+	
+	
+	/*Settings tab*/
+.sidebar-pane .text p{
+font-family: arial;
+font-size: 12px;
+}
+.sidebar-pane .text a{
+font-family: arial;
+font-size: 12px;
+}
+.langswitch {
+  display: inline-block;
+  width: 100%;
+}
+.lang {
+  display: flex;
+  margin: 0 auto;
+  color: #1f201b;
+  cursor: pointer;
+  position: relative;
+}
+.lang.active {
+  background-image: url(https://kingdomcomemap.github.io/assets/images/selector_mid.png);
+  background-position: left center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.lang i {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  vertical-align: middle;
+  margin: 0px;
+}
+.lang-text {
+  display: flex;
+  width: 100%;
+  position: relative;
+  line-height: 48px;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 16px;
+  padding: 0 48px 0 15px;
+  -o-transition: .1s ease-out;
+  -ms-transition: .1s ease-out;
+  -moz-transition: .1s ease-out;
+  -webkit-transition: .1s ease-out;
+  transition: .1s ease-out;
+}
+.lang.active {
+  color:#1b1b1b;
+}
+.checkmark {
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  left: 18px;
+  top: 0px;
+  position: absolute;
+  z-index: 2;
+  flex-shrink: 0;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.checkmark.active {
+  background: url('https://kingdomcomemap.github.io/assets/images/check_green.png');
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.en {background: url('https://kingdomcomemap.github.io/assets/flags/en.png');}
+.br {background: url('https://kingdomcomemap.github.io/assets/flags/br.png');}
+.fr {background: url('https://kingdomcomemap.github.io/assets/flags/fr.png');}
+.ru {background: url('https://kingdomcomemap.github.io/assets/flags/ru.png');}
+.de {background: url('https://kingdomcomemap.github.io/assets/flags/de.png');}
+.cn {background: url('https://kingdomcomemap.github.io/assets/flags/cn.png');}
+.nl {background: url('https://kingdomcomemap.github.io/assets/flags/nl.png');}
+.pl {background: url('https://kingdomcomemap.github.io/assets/flags/pl.png');}
+.ro {background: url('https://kingdomcomemap.github.io/assets/flags/ro.png');}
+.tr {background: url('https://kingdomcomemap.github.io/assets/flags/tr.png');}
+.it {background: url('https://kingdomcomemap.github.io/assets/flags/it.png');}
+.es {background: url('https://kingdomcomemap.github.io/assets/flags/es.png');}
+.ko {background: url('https://kingdomcomemap.github.io/assets/flags/ko.png');}
+.ja {background: url('https://kingdomcomemap.github.io/assets/flags/ja.png');}
+.en,.br,.fr,.ru,.de,.cn,.pl,.ro,.tr,.it,.es,.nl,.ko,.ja {
+width: 24px;
+height: 24px;
+display: block;
+float: left;
+margin: 5px 5px 5px 0px;
+cursor: pointer;
+background-repeat: no-repeat;
+border:none;
+background-size: 24px 24px;
+}
+	/*
+	.sidebar-header {
+	font-family: Bebas Neue Bold;
+	font-size: 25px;
+	margin: -10px -20px 0;
+    height: 40px;
+    padding: 0 20px;
+    line-height: 40px;
+    color: #fff;
+    background-color: #555555;
+	}
+	.sidebar-pane p,
+	.sidebar-pane span,
+	.sidebar-pane a {
+	margin: 5px 5px 5px 0px;
+	font-size: 16px;
+	color: #333;
+	}
+	*/
+	
+	.leaflet-control-attribution.leaflet-control {display: none;}
+	
+	
+	@font-face {
+	font-family: 'Bebas Neue Bold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Bebas Neue Bold'), url('https://rogerhn.github.io/projects/wildlands/assets/font/BebasNeueBold.woff') format('woff');
+	}
+	@font-face {
+	font-family: 'Montserrat Medium';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Montserrat Medium'), url('https://rogerhn.github.io/projects/wildlands/assets/font/MontserratAlternates-Medium.otf') format('otf');
+	}
+	@font-face {
+	font-family: 'Roboto Medium';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Roboto Medium'), url('https://rogerhn.github.io/projects/wildlands/assets/font/Roboto-Medium.ttf') format('ttf');
+	}
+	@font-face{
+	font-family:'1529 Champ Fleury W01 Regular';
+	src:local('1529 Champ Fleury W01 Regular'),local('1529-Champ-Fleury-W01-Regular'),url("https://rogerhn.github.io/projects/kcd_assets/fonts/1529Champ.ttf") format('truetype')}
+	
+	
+	
+	/*Sidebar Scroll*/
+	::-webkit-scrollbar {
+		width: 12px;
+	}
+	 
+	/* Track */
+	::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+		-webkit-border-radius: 0px;
+		border-radius: 0px;
+	}
+	 
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		-webkit-border-radius: 0px;
+		border-radius: 0px;
+		background: rgba(49,49,49,1); 
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	}
+	::-webkit-scrollbar-thumb:window-inactive {
+		background: rgba(49,49,49,1); 
+	}
