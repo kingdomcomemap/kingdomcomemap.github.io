@@ -833,3 +833,12 @@ img.logo-menu {
 ::-webkit-scrollbar-thumb:window-inactive {
   background: #76643e; 
 }
+/* Fullscreen control */
+.fullscreen-icon { background-image: url(../assets/images/icon-fullscreen.png); }
+.leaflet-retina .fullscreen-icon { background-image: url(../assets/images/icon-fullscreen-2x.png); background-size: 26px 26px; }
+.leaflet-container:-webkit-full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
+.leaflet-container:-ms-fullscreen { width: 100% !important; height: 100% !important; z-index: 99999; }
+.leaflet-container:full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
+.leaflet-container:fullscreen { width: 100% !important; height: 100% !important; z-index: 99999; }
+.leaflet-pseudo-fullscreen { position: fixed !important; width: 100% !important; height: 100% !important; top: 0px !important; left: 0px !important; z-index: 99999; }
+

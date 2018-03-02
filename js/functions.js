@@ -25,6 +25,10 @@ var map = L.map('map', {
   minZoom: mapMinZoom,
   maxZoom: mapMaxZoom,
   zoomControl: false,
+  fullscreenControl: true,
+  fullscreenControlOptions: {
+    position: 'topright'
+  },
   crs: L.CRS.MySimple,
 
 }).setView([0, 0], 2);
