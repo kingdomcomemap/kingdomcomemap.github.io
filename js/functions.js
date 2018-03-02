@@ -4,8 +4,6 @@ var maxNativeZoom = 5;
 var mapMinZoom = 1;
 var mapMaxZoom = 5;
 var maxNativeZoom = 5;
-var mapMinZoom = 0;
-var mapMaxZoom = 5;
 
 var mapSize = 6144;
 var tileSize = 192;
