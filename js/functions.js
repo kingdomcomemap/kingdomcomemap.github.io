@@ -506,6 +506,10 @@ var mapMarkers =
 	width: "36",
 	height: "36"},
   {
+	icon:"bandit_camp",
+	width: "36",
+	height: "36"},
+  {
 	icon:"baths",
 	width: "36",
 	height: "36"},
@@ -634,6 +638,18 @@ var mapMarkers =
 	width: "36",
 	height: "36"},
   {
+	icon:"treasure_chest",
+	width: "36",
+	height: "36"},
+  {
+	icon:"treasure_map",
+	width: "36",
+	height: "36"},
+  {
+	icon:"treasure_map_alt",
+	width: "36",
+	height: "36"},
+  {
 	icon:"weaponsmith",
 	width: "36",
 	height: "36"},
@@ -641,6 +657,27 @@ var mapMarkers =
 	icon:"woodland_garden",
 	width: "36",
 	height: "36"},
+  {
+	icon:"marker_a",
+	width: "36",
+	height: "36"},
+  {
+	icon:"marker_b",
+	width: "36",
+	height: "36"},
+  {
+	icon:"marker_c",
+	width: "36",
+	height: "36"},
+  {
+	icon:"star",
+	width: "36",
+	height: "36"},
+  {
+	icon:"exclamation",
+	width: "36",
+	height: "36"},
+	
 ]
 
 var markerIconTypes = [];
