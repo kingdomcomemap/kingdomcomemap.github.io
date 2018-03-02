@@ -1,508 +1,366 @@
 <html>
   <head>
-    <title>Wildlands Map - Interactive map for Ghost Recon Wildlands</title>
+    <title>Kingdom Come Deliverance Map - Interactive map for Kingdom Come Deliverance</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Interactive Map for Kingdom Come Deliverance. Now multilanguage">
+    <meta name="description" content="Interactive Map for Kingdom Come Deliverance">
     <meta name="keywords" content="Interactive Map for Kingdom Come Deliverance">
     <meta name="author" content="Roger Nobrega">
     <link type="text/css" rel="stylesheet" href="css/leaflet.css" />
     <link type="text/css" rel="stylesheet" href="css/leaflet-sidebar.css" />
     <link type="text/css" rel="stylesheet" href="css/Leaflet.Coordinates-0.1.3.css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=MedievalSharp&amp;subset=latin-ext" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/style.css" />
     <!--<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />-->
   </head>
-
-  <body>
-    <div id="sidebar" class="sidebar collapsed">
-      <!-- Nav tabs -->
-      <div class="sidebar-tabs">
-        <ul role="tablist">
-          <li><a href="#home" role="tab"><i class="home"></i></a></li>
-          <li><a href="#settings" role="tab"><i class="settings"></i></a></li>
-        </ul>
-        <ul role="tablist"></ul>
-      </div>
-      <!-- Tab panes -->
-      <div class="sidebar-content">
-        <div class="sidebar-pane" id="home">
-          <span class="sidebar-close">
-            <i class="left-arrow"></i>
-          </span>
-          <div class="logo-container">
-            <img class="logo-menu" src="https://kingdomcomemap.github.io/assets/images/kcd-logo-dark.svg" alt="Kingdom Come Deliverance Interactive Map" />
-          </div>
-          <div class="content">
-            <ul class="markers-list">
-              <li>
-                <i class="allmarkers"></i>
-                <input type="checkbox" id="allmarkers" class="cc" />
-                <label for="allmarkers" class="cl" data-i18n="Allmarkers">All markers</label>
-              </li>
-            </ul>
-            <!--
-            <div class="toggle-content">
-              <span class="toggle-title" data-i18n="Provinces">Provinces</span>
-              <div class="hidden-content">
-                <ul class="markers-list">
-                  <li>
-                    <i class="regions"></i>
-                    <input type="checkbox" id="provinces" class="cc" />
-                    <label for="provinces" class="cl" data-i18n="ShowProvinces">Show Provinces</label>
-                  </li>
-                </ul>
-              </div>
-            </div>-->
-            <ul class="markers-list">
-              <li>
-                <i class="fishing_spot"></i>
-                <input type="checkbox" id="fishing_spot" class="cc" />
-                <label for="fishing_spot" class="cl" data-i18n="fishing_spot">Fishing Spot</label>
-              </li>
-              <li>
-                <i class="combat_arena"></i>
-                <input type="checkbox" id="combat_arena" class="cc" />
-                <label for="combat_arena" class="cl" data-i18n="combat_arena Arena">Combat Arena</label>
-              </li>
-              <li>
-                <i class="archery_range"></i>
-                <input type="checkbox" id="archery_range" class="cc" />
-                <label for="archery_range" class="cl" data-i18n="archery_range">Archery Range</label>
-              </li>
-              <li>
-                <i class="baths"></i>
-                <input type="checkbox" id="baths" class="cc" />
-                <label for="baths" class="cl" data-i18n="baths">Baths</label>
-              </li>
-              <li>
-                <i class="camp"></i>
-                <input type="checkbox" id="camp" class="cc" />
-                <label for="camp" class="cl" data-i18n="camp">Camp</label>
-              </li>
-              <li>
-                <i class="deer_hunting_spot"></i>
-                <input type="checkbox" id="deer_hunting_spot" class="cc" />
-                <label for="deer_hunting_spot" class="cl" data-i18n="deer_hunting_spot">Deer Hunting Spot</label>
-              </li>
-              <li>
-                <i class="boar_hunting_spot"></i>
-                <input type="checkbox" id="boar_hunting_spot" class="cc" />
-                <label for="boar_hunting_spot" class="cl" data-i18n="boar_hunting_spot">Boar Hunting Spot</label>
-              </li>
-              <li>
-                <i class="fish_trap"></i>
-                <input type="checkbox" id="fish_trap" class="cc" />
-                <label for="fish_trap" class="cl" data-i18n="fish_trap">Fish Trap</label>
-              </li>
-              <li>
-                <i class="beehive"></i>
-                <input type="checkbox" id="beehive" class="cc" />
-                <label for="beehive" class="cl" data-i18n="beehive">Beehive</label>
-              </li>
-              <li>
-                <i class="grocer"></i>
-                <input type="checkbox" id="grocer" class="cc" />
-                <label for="grocer" class="cl" data-i18n="grocer">Grocer</label>
-              </li>
-              <li>
-                <i class="woodland_garden"></i>
-                <input type="checkbox" id="woodland_garden" class="cc" />
-                <label for="woodland_garden" class="cl" data-i18n="woodland_garden">Woodland Garden</label>
-              </li>
-              <li>
-                <i class="accident"></i>
-                <input type="checkbox" id="accident" class="cc" />
-                <label for="accident" class="cl" data-i18n="accident">Accident</label>
-              </li>
-              <li>
-                <i class="cave"></i>
-                <input type="checkbox" id="cave" class="cc" />
-                <label for="cave" class="cl" data-i18n="cave">Cave</label>
-              </li>
-              <li>
-                <i class="grave"></i>
-                <input type="checkbox" id="grave" class="cc" />
-                <label for="grave" class="cl" data-i18n="grave">Grave</label>
-              </li>
-              <li>
-                <i class="nest"></i>
-                <input type="checkbox" id="nest" class="cc" />
-                <label for="nest" class="cl" data-i18n="nest">Nest</label>
-              </li>
-              <li>
-                <i class="conciliation_cross"></i>
-                <input type="checkbox" id="conciliation_cross" class="cc" />
-                <label for="conciliation_cross" class="cl" data-i18n="conciliation_cross">Conciliation Cross</label>
-              </li>
-              <li>
-                <i class="shrine"></i>
-                <input type="checkbox" id="shrine" class="cc" />
-                <label for="shrine" class="cl" data-i18n="shrine">Shrine</label>
-              </li>
-              <li>
-                <i class="scribe"></i>
-                <input type="checkbox" id="scribe" class="cc" />
-                <label for="scribe" class="cl" data-i18n="scribe">Scribe</label>
-              </li>
-              <li>
-                <i class="baker"></i>
-                <input type="checkbox" id="scribe" class="cc" />
-                <label for="scribe" class="cl" data-i18n="scribe">Scribe</label>
-              </li>
-              <li>
-                <i class="tailor"></i>
-                <input type="checkbox" id="tailor" class="cc" />
-                <label for="tailor" class="cl" data-i18n="tailor">Tailor</label>
-              </li>
-              <li>
-                <i class="butcher"></i>
-                <input type="checkbox" id="butcher" class="cc" />
-                <label for="butcher" class="cl" data-i18n="butcher">Butcher</label>
-              </li>
-              <li>
-                <i class="alchemy_bench"></i>
-                <input type="checkbox" id="alchemy_bench" class="cc" />
-                <label for="alchemy_bench" class="cl" data-i18n="alchemy_bench">Alchemy Bench</label>
-              </li>
-              <li>
-                <i class="grindstone"></i>
-                <input type="checkbox" id="grindstone" class="cc" />
-                <label for="grindstone" class="cl" data-i18n="grindstone">Grindstone</label>
-              </li>
-              <li>
-                <i class="trader"></i>
-                <input type="checkbox" id="trader" class="cc" />
-                <label for="trader" class="cl" data-i18n="trader">Trader</label>
-              </li>
-              <li>
-                <i class="blacksmith"></i>
-                <input type="checkbox" id="blacksmith" class="cc" />
-                <label for="blacksmith" class="cl" data-i18n="blacksmith">Blacksmith</label>
-              </li>
-              <li>
-                <i class="armourer"></i>
-                <input type="checkbox" id="armourer" class="cc" />
-                <label for="armourer" class="cl" data-i18n="armourer">Armourer</label>
-              </li>
-              <li>
-                <i class="weaponsmith"></i>
-                <input type="checkbox" id="weaponsmith" class="cc" />
-                <label for="weaponsmith" class="cl" data-i18n="weaponsmith">Weaponsmith</label>
-              </li>
-              <li>
-                <i class="cobbler"></i>
-                <input type="checkbox" id="cobbler" class="cc" />
-                <label for="cobbler" class="cl" data-i18n="cobbler">Cobbler</label>
-              </li>
-              <li>
-                <i class="tavern"></i>
-                <input type="checkbox" id="tavern" class="cc" />
-                <label for="tavern" class="cl" data-i18n="tavern">Tavern</label>
-              </li>
-              <li>
-                <i class="your_bed"></i>
-                <input type="checkbox" id="your_bed" class="cc" />
-                <label for="your_bed" class="cl" data-i18n="your_bed">Your Bed</label>
-              </li>
-              <li>
-                <i class="lodgings"></i>
-                <input type="checkbox" id="lodgings" class="cc" />
-                <label for="lodgings" class="cl" data-i18n="lodgings">Lodgings</label>
-              </li>
-              <li>
-                <i class="apothecary"></i>
-                <input type="checkbox" id="apothecary" class="cc" />
-                <label for="apothecary" class="cl" data-i18n="apothecary">Apothecary</label>
-              </li>
-              <li>
-                <i class="herbalist"></i>
-                <input type="checkbox" id="herbalist" class="cc" />
-                <label for="herbalist" class="cl" data-i18n="herbalist">Herbalist</label>
-              </li>
-              <li>
-                <i class="miller"></i>
-                <input type="checkbox" id="miller" class="cc" />
-                <label for="miller" class="cl" data-i18n="miller">Miller</label>
-              </li>
-              <li>
-                <i class="horse_trader"></i>
-                <input type="checkbox" id="horse_trader" class="cc" />
-                <label for="horse_trader" class="cl" data-i18n="horse_trader">Horse Trader</label>
-              </li>
-              <li>
-                <i class="tanner"></i>
-                <input type="checkbox" id="tanner" class="cc" />
-                <label for="tanner" class="cl" data-i18n="tanner">Tanner</label>
-              </li>
-
-              <li>
-                <i class="huntsman"></i>
-                <input type="checkbox" id="huntsman" class="cc" />
-                <label for="huntsman" class="cl" data-i18n="huntsman">Huntsman</label>
-              </li>
-              <li>
-                <i class="interesting_site"></i>
-                <input type="checkbox" id="interesting_site" class="cc" />
-                <label for="interesting_site" class="cl" data-i18n="interesting_site">Interesting Site</label>
-              </li>
-              
-            </ul>
-          </div>
-          <!--
-          <div class="content">
-            <p class="list-title" data-i18n="SideMissions">Side Missions</p>
-            <ul class="markers-list">
-              <li>
-                <i class="breachCommCenter"></i>
-                <input type="checkbox" id="breachCommCenter" class="cc" />
-                <label for="breachCommCenter" class="cl" data-i18n="BreachCommCenter">Breach Comm Center</label>
-              </li>
-              <li>
-                <i class="defendRadio"></i>
-                <input type="checkbox" id="defendRadio" class="cc" />
-                <label for="defendRadio" class="cl" data-i18n="DefendRadio">Defend Radio</label>
-              </li>
-              <li>
-                <i class="hackAntenna"></i>
-                <input type="checkbox" id="hackAntenna" class="cc" />
-                <label for="hackAntenna" class="cl" data-i18n="HackAntenna">Hack Antenna</label>
-              </li>
-              <li>
-                <i class="intimidateSicario"></i>
-                <input type="checkbox" id="intimidateSicario" class="cc" />
-                <label for="intimidateSicario" class="cl" data-i18n="IntimidateSicario">Intimidate Sicario</label>
-              </li>
-              <li>
-                <i class="parachuteDrop"></i>
-                <input type="checkbox" id="parachuteDrop" class="cc" />
-                <label for="parachuteDrop" class="cl" data-i18n="ParachuteDrop">Parachute Drop</label>
-              </li>
-              <li>
-                <i class="stealHelicopter"></i>
-                <input type="checkbox" id="stealHelicopter" class="cc" />
-                <label for="stealHelicopter" class="cl" data-i18n="StealTheHelicopter">Steal The Helicopter</label>
-              </li>
-              <li>
-                <i class="stealPlane"></i>
-                <input type="checkbox" id="stealPlane" class="cc" />
-                <label for="stealPlane" class="cl" data-i18n="stealThePlane">Steal The Plane</label>
-              </li>
-            </ul>
-          </div>-->
-        </div>
-        <div class="sidebar-pane" id="medals">
-          <span class="sidebar-close"><i class="left-arrow"></i></span>
-          <p class="list-title" data-i18n="BonusMedals">Bonus Medals</p>
-          <h6 class="item-title">Item</h6>
-        </div>
-        <div class="sidebar-pane" id="skills">
-          <span class="sidebar-close"><i class="left-arrow"></i></span>
-          <p class="list-title" data-i18n="Skills">Skills</p>
-        </div>
-        <div class="sidebar-pane" id="accessory">
-          <span class="sidebar-close"><i class="left-arrow"></i></span>
-          <p class="list-title" data-i18n="Accessories">Accessories</p>
-        </div>
-        <div class="sidebar-pane" id="weapons">
-          <span class="sidebar-close"><i class="left-arrow"></i></span>
-          <p class="list-title" data-i18n="Weapons">Weapons</p>
-          <div class="toggle">
-            <span class="toggle-content title">Assault Rifles</span>
-            <div class="hidden-content">
-              <ul class="items-list">
-                  <li>
-                  <a class="locate" href="#" data-marker="SR3M">SR3M</a>
-                  <span class="text">Found in P.N de Agua Verde</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="556XI">556XI</a>
-                  <span class="text">Found in La Caimanes</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="AK-12">AK-12</a>
-                  <span class="text">Found in Tabacal</span>
-                  </li>
-                  <li>
-                  <a class="locate " href="#" data-marker="AUGA3">AUG A3</a>
-                  <span class="text">Found in Barvechos</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="G2">G2</a>
-                  <span class="text">Found in Inca Camina</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="L85A2">L85A2</a>
-                  <span class="text">Found in Espiritu Santu</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="R5RGP">R5 RGP</a>
-                  <span class="text">Found in Monte Puncu</span>
-                  </li> MONTUYOC
-                  <li>
-                  <a class="locate" href="#" data-marker="ACR">ACR</a>
-                  <span class="text">Found in Media Luna</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="AK-47">AK-47</a>
-                  <span class="text">Found in Libertad</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="M4A1">M4A1</a>
-                  <span class="text">Found in Flor de Oro</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="MK17">MK 17</a>
-                  <span class="text">Found in Flor de Oro</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="805BRENA2">805 BREN A2</a>
-                  <span class="text">Found in Villa Verde</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="TAR-21">TAR-21</a>
-                  <span class="text">Found in Montuyoc</span>
-                  </li>
-                  <li>
-                  </li>
-                </ul>
-            </div>
-          </div>
-          <div class="toggle">
-            <span class="toggle-content title">Sniper Rifles</span>
-            <div class="hidden-content">
-              <ul class="items-list">
-                  <li>
-                  <a class="locate" href="#" data-marker="M40A5">M40A5</a>
-                  <span class="text">Found in Itacua</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="M1891">M1891</a>
-                  <span class="text">Found in La Cruz</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="SR25">SR25</a>
-                  <span class="text">Found in Caimanes</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="Dragunov">Dragunov (SVD)</a>
-                  <span class="text">Found in Caimanes</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="G28">G28</a>
-                  <span class="text">Found in San Mateo</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="SRSA1">SRSA1</a>
-                  <span class="text">Found in Mojocoyo</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="HTI">HTI</a>
-                  <span class="text">Found in Montuyoc</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="L115A3">L115A3</a>
-                  <span class="text">Found in Monte Puncu</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="MK14">MK14</a>
-                  <span class="text">Found in Koani</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="MSR">MSR</a>
-                  <span class="text">Found in Montuyoc</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="SR-1">SR-1</a>
-                  <span class="text">Found in Koani</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="LanzaSagradaExotic">Lanza Sagrada Exotic</a>
-                  <span class="text">Found in La Santera</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="TheWarhawkExotic">The Warhawk Exotic</a>
-                  <span class="text">Found in Boston Reed</span>
-                  </li>
-                  <li>
-                  <a class="locate" href="#" data-marker="SuperShortyShotgun">Super Shorty Shotgun</a>
-                  </li>
-                </ul>
-            </div>
-            <a class="locate" href="#" data-marker="SuperShortyShotgun">Super Shorty Shotgun</a>
-          </div>
-        </div>
-        <div class="sidebar-pane" id="settings">
-          <span class="sidebar-close"><i class="left-arrow"></i></span>
-          <p class="list-title" data-i18n="languagechange">Change Language</p>
-            <div class="langswitch">
-              <a class="lang" data-lang="en">
-                <i class="en"></i>
-                <span class="lang-text" data-i18n="English">English</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang" data-lang="es">
-                <i class="es"></i>
-                <span class="lang-text" data-i18n="Spanish">Spanish</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang" data-lang="br">
-                <i class="br"></i>
-                <span class="lang-text" data-i18n="PortugueseBrazilian">Portuguese Brazilian</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang disabled" data-lang="fr">
-                <i class="fr"></i>
-                <span class="lang-text" data-i18n="French">French</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang disabled" data-lang="it">
-                <i class="it"></i>
-                <span class="lang-text" data-i18n="Italian">Italian</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang disabled" data-lang="de">
-                <i class="de"></i>
-                <span class="lang-text" data-i18n="German">German</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang" data-lang="ru">
-                <i class="ru"></i>
-                <span class="lang-text" data-i18n="Russian">Russian</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang disabled" data-lang="pl">
-                <i class="pl"></i>
-                <span class="lang-text" data-i18n="Polish">Polish</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang disabled" data-lang="nl">
-                <i class="nl"></i>
-                <span class="lang-text" data-i18n="Dutch">Dutch</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang disabled" data-lang="cn">
-                <i class="cn"></i>
-                <span class="lang-text" data-i18n="Chinese">Chinese</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang disabled" data-lang="ko">
-                <i class="ko"></i>
-                <span class="lang-text" data-i18n="Korean">Korean</span>
-                <span class="checkmark"></span>
-              </a>
-              <a class="lang disabled" data-lang="ja">
-                <i class="ja"></i>
-                <span class="lang-text" data-i18n="Japanese">Japanese</span>
-                <span class="checkmark"></span>
-              </a>
-            </div>
-          
-        </div>
-      </div>
+<body>
+  <div id="sidebar" class="sidebar collapsed">
+    <!-- Nav tabs -->
+    <div class="sidebar-tabs">
+      <ul role="tablist">
+        <li><a href="#home" role="tab"><i class="home"></i></a></li>
+        <li><a href="#share" role="tab"><i class="share"></i></a></li>
+        <li><a href="#about" role="tab"><i class="about"></i></a></li>
+        <!--<li class="disabled"><a href="#settings" role="tab"><i class="settings"></i></a></li>-->
+        <li class="disabled"><a href="#beta" role="tab"><i class="beta"></i></a></li>
+      </ul>
+      <ul role="tablist"></ul>
     </div>
-    <div id="map" class="sidebar-map"></div>
+    <!-- Tab panes -->
+    <div class="sidebar-content">
+      <!-- Tab home -->
+      <div class="sidebar-pane" id="home">
+        <span class="sidebar-close">
+          <i class="left-arrow"></i>
+        </span>
+        <div class="logo-container">
+          <img class="logo-menu" src="https://kingdomcomemap.github.io/assets/images/kcdmap.svg" alt="Kingdom Come Deliverance Interactive Map" />
+          <p class="version">v. 1.0</p>
+        </div>
+        <div class="content">
+          <ul class="allmarkers-list">
+            <li>
+              <i class="allmarkers"></i>
+              <input type="checkbox" id="allmarkers" class="cc" />
+              <label for="allmarkers" class="cl" data-i18n="Allmarkers">All markers</label>
+            </li>
+          </ul>
+          <ul class="markers-list">
+            <li>
+              <i class="cities"></i>
+              <input type="checkbox" id="textmarkers" class="cc" checked />
+              <label for="textmarkers" class="cl" data-i18n="citiesNames">Cities Names</label>
+            </li>
+            <li>
+              <i class="fast_travel"></i>
+              <input type="checkbox" id="fast_travel" class="cc" />
+              <label for="fast_travel" class="cl" data-i18n="fast_travel">Fast Travel</label>
+            </li>
+            <li>
+              <i class="fishing_spot"></i>
+              <input type="checkbox" id="fishing_spot" class="cc" />
+              <label for="fishing_spot" class="cl" data-i18n="fishing_spot">Fishing Spot</label>
+            </li>
+            <li>
+              <i class="combat_arena"></i>
+              <input type="checkbox" id="combat_arena" class="cc" />
+              <label for="combat_arena" class="cl" data-i18n="combat_arena Arena">Combat Arena</label>
+            </li>
+            <li>
+              <i class="archery_range"></i>
+              <input type="checkbox" id="archery_range" class="cc" />
+              <label for="archery_range" class="cl" data-i18n="archery_range">Archery Range</label>
+            </li>
+            <li>
+              <i class="baths"></i>
+              <input type="checkbox" id="baths" class="cc" />
+              <label for="baths" class="cl" data-i18n="baths">Baths</label>
+            </li>
+            <li>
+              <i class="camp"></i>
+              <input type="checkbox" id="camp" class="cc" />
+              <label for="camp" class="cl" data-i18n="camp">Camp</label>
+            </li>
+            <li>
+              <i class="deer_hunting_spot"></i>
+              <input type="checkbox" id="deer_hunting_spot" class="cc" />
+              <label for="deer_hunting_spot" class="cl" data-i18n="deer_hunting_spot">Deer Hunting Spot</label>
+            </li>
+            <li>
+              <i class="boar_hunting_spot"></i>
+              <input type="checkbox" id="boar_hunting_spot" class="cc" />
+              <label for="boar_hunting_spot" class="cl" data-i18n="boar_hunting_spot">Boar Hunting Spot</label>
+            </li>
+            <li>
+              <i class="fish_trap"></i>
+              <input type="checkbox" id="fish_trap" class="cc" />
+              <label for="fish_trap" class="cl" data-i18n="fish_trap">Fish Trap</label>
+            </li>
+            <li>
+              <i class="beehive"></i>
+              <input type="checkbox" id="beehive" class="cc" />
+              <label for="beehive" class="cl" data-i18n="beehive">Beehive</label>
+            </li>
+            <li>
+              <i class="grocer"></i>
+              <input type="checkbox" id="grocer" class="cc" />
+              <label for="grocer" class="cl" data-i18n="grocer">Grocer</label>
+            </li>
+            <li>
+              <i class="woodland_garden"></i>
+              <input type="checkbox" id="woodland_garden" class="cc" />
+              <label for="woodland_garden" class="cl" data-i18n="woodland_garden">Woodland Garden</label>
+            </li>
+            <li>
+              <i class="accident"></i>
+              <input type="checkbox" id="accident" class="cc" />
+              <label for="accident" class="cl" data-i18n="accident">Accident</label>
+            </li>
+            <li>
+              <i class="cave"></i>
+              <input type="checkbox" id="cave" class="cc" />
+              <label for="cave" class="cl" data-i18n="cave">Cave</label>
+            </li>
+            <li>
+              <i class="grave"></i>
+              <input type="checkbox" id="grave" class="cc" />
+              <label for="grave" class="cl" data-i18n="grave">Grave</label>
+            </li>
+            <li>
+              <i class="nest"></i>
+              <input type="checkbox" id="nest" class="cc" />
+              <label for="nest" class="cl" data-i18n="nest">Nest</label>
+            </li>
+            <li>
+              <i class="conciliation_cross"></i>
+              <input type="checkbox" id="conciliation_cross" class="cc" />
+              <label for="conciliation_cross" class="cl" data-i18n="conciliation_cross">Conciliation Cross</label>
+            </li>
+            <li>
+              <i class="shrine"></i>
+              <input type="checkbox" id="shrine" class="cc" />
+              <label for="shrine" class="cl" data-i18n="shrine">Shrine</label>
+            </li>
+            <li>
+              <i class="scribe"></i>
+              <input type="checkbox" id="scribe" class="cc" />
+              <label for="scribe" class="cl" data-i18n="scribe">Scribe</label>
+            </li>
+            <li>
+              <i class="baker"></i>
+              <input type="checkbox" id="baker" class="cc" />
+              <label for="baker" class="cl" data-i18n="baker">Baker</label>
+            </li>
+            <li>
+              <i class="tailor"></i>
+              <input type="checkbox" id="tailor" class="cc" />
+              <label for="tailor" class="cl" data-i18n="tailor">Tailor</label>
+            </li>
+            <li>
+              <i class="butcher"></i>
+              <input type="checkbox" id="butcher" class="cc" />
+              <label for="butcher" class="cl" data-i18n="butcher">Butcher</label>
+            </li>
+            <li>
+              <i class="alchemy_bench"></i>
+              <input type="checkbox" id="alchemy_bench" class="cc" />
+              <label for="alchemy_bench" class="cl" data-i18n="alchemy_bench">Alchemy Bench</label>
+            </li>
+            <li>
+              <i class="grindstone"></i>
+              <input type="checkbox" id="grindstone" class="cc" />
+              <label for="grindstone" class="cl" data-i18n="grindstone">Grindstone</label>
+            </li>
+            <li>
+              <i class="trader"></i>
+              <input type="checkbox" id="trader" class="cc" />
+              <label for="trader" class="cl" data-i18n="trader">Trader</label>
+            </li>
+            <li>
+              <i class="blacksmith"></i>
+              <input type="checkbox" id="blacksmith" class="cc" />
+              <label for="blacksmith" class="cl" data-i18n="blacksmith">Blacksmith</label>
+            </li>
+            <li>
+              <i class="armourer"></i>
+              <input type="checkbox" id="armourer" class="cc" />
+              <label for="armourer" class="cl" data-i18n="armourer">Armourer</label>
+            </li>
+            <li>
+              <i class="weaponsmith"></i>
+              <input type="checkbox" id="weaponsmith" class="cc" />
+              <label for="weaponsmith" class="cl" data-i18n="weaponsmith">Weaponsmith</label>
+            </li>
+            <li>
+              <i class="cobbler"></i>
+              <input type="checkbox" id="cobbler" class="cc" />
+              <label for="cobbler" class="cl" data-i18n="cobbler">Cobbler</label>
+            </li>
+            <li>
+              <i class="tavern"></i>
+              <input type="checkbox" id="tavern" class="cc" />
+              <label for="tavern" class="cl" data-i18n="tavern">Tavern</label>
+            </li>
+            <li>
+              <i class="your_bed"></i>
+              <input type="checkbox" id="your_bed" class="cc" />
+              <label for="your_bed" class="cl" data-i18n="your_bed">Your Bed</label>
+            </li>
+            <li>
+              <i class="lodgings"></i>
+              <input type="checkbox" id="lodgings" class="cc" />
+              <label for="lodgings" class="cl" data-i18n="lodgings">Lodgings</label>
+            </li>
+            <li>
+              <i class="apothecary"></i>
+              <input type="checkbox" id="apothecary" class="cc" />
+              <label for="apothecary" class="cl" data-i18n="apothecary">Apothecary</label>
+            </li>
+            <li>
+              <i class="herbalist"></i>
+              <input type="checkbox" id="herbalist" class="cc" />
+              <label for="herbalist" class="cl" data-i18n="herbalist">Herbalist</label>
+            </li>
+            <li>
+              <i class="miller"></i>
+              <input type="checkbox" id="miller" class="cc" />
+              <label for="miller" class="cl" data-i18n="miller">Miller</label>
+            </li>
+            <li>
+              <i class="horse_trader"></i>
+              <input type="checkbox" id="horse_trader" class="cc" />
+              <label for="horse_trader" class="cl" data-i18n="horse_trader">Horse Trader</label>
+            </li>
+            <li>
+              <i class="tanner"></i>
+              <input type="checkbox" id="tanner" class="cc" />
+              <label for="tanner" class="cl" data-i18n="tanner">Tanner</label>
+            </li>
+
+            <li>
+              <i class="huntsman"></i>
+              <input type="checkbox" id="huntsman" class="cc" />
+              <label for="huntsman" class="cl" data-i18n="huntsman">Huntsman</label>
+            </li>
+            <li>
+              <i class="interesting_site"></i>
+              <input type="checkbox" id="interesting_site" class="cc" />
+              <label for="interesting_site" class="cl" data-i18n="interesting_site">Interesting Site</label>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <!-- Tab share -->
+      <div class="sidebar-pane" id="share">
+        <span class="sidebar-close"><i class="left-arrow"></i></span>
+        <p class="list-title" data-i18n="send_markers">Send Markers</p>
+        <div class="content">
+          <p class="text">
+            You can submit your markers in our discord server. We will update markers daily to make this map the most complete possible. Also new features are on the way!
+          </p>
+          <a href="https://discord.gg/7rvUxAC">
+            <img class="discord-img" src="https://kingdomcomemap.github.io/assets/images/discord-dark.svg" alt="Discord" />
+          </a>
+          <p class="text">
+            Or you can submit them in our Reddit thread:
+          </p>
+          <a href="https://www.reddit.com/r/kingdomcome/">
+            <img class="discord-img" src="https://kingdomcomemap.github.io/assets/images/reddit.svg" alt="Reddit Kingdom Come Map" />
+          </a>
+        </div>
+      </div>
+      <!-- Tab about -->
+      <div class="sidebar-pane" id="about">
+        <span class="sidebar-close"><i class="left-arrow"></i></span>
+        <p class="list-title" data-i18n="info">Info</p>
+        <div class="content">
+          <h3>Initial release 1.0</h3>
+          <p class="text">
+            In this version of the map you can place markers around the map and it will save it in the local storage in your browser, even if you close it will remain there. Only if you clear your browser cache that the markers will be lost!
+          </p>
+          <p class="text">
+            You can add a name and a description to your markers, as well choose the marker icon.
+          </p>
+          <p class="text">
+            The map will be updated daily with new markers, and features.
+          </p>
+          <p class="text">
+            Roger
+          </p>
+        </div>
+      </div>
+      <!-- Tab settings -->
+      <div class="sidebar-pane" id="settings">
+        <span class="sidebar-close"><i class="left-arrow"></i></span>
+        <p class="list-title" data-i18n="languagechange">Change Language</p>
+        <div class="langswitch">
+          <a class="lang" data-lang="en">
+            <i class="en"></i>
+            <span class="lang-text" data-i18n="English">English</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang" data-lang="es">
+            <i class="es"></i>
+            <span class="lang-text" data-i18n="Spanish">Spanish</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang" data-lang="br">
+            <i class="br"></i>
+            <span class="lang-text" data-i18n="PortugueseBrazilian">Portuguese Brazilian</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="fr">
+            <i class="fr"></i>
+            <span class="lang-text" data-i18n="French">French</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="it">
+            <i class="it"></i>
+            <span class="lang-text" data-i18n="Italian">Italian</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="de">
+            <i class="de"></i>
+            <span class="lang-text" data-i18n="German">German</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang" data-lang="ru">
+            <i class="ru"></i>
+            <span class="lang-text" data-i18n="Russian">Russian</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="pl">
+            <i class="pl"></i>
+            <span class="lang-text" data-i18n="Polish">Polish</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="nl">
+            <i class="nl"></i>
+            <span class="lang-text" data-i18n="Dutch">Dutch</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="cn">
+            <i class="cn"></i>
+            <span class="lang-text" data-i18n="Chinese">Chinese</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="ko">
+            <i class="ko"></i>
+            <span class="lang-text" data-i18n="Korean">Korean</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="ja">
+            <i class="ja"></i>
+            <span class="lang-text" data-i18n="Japanese">Japanese</span>
+            <span class="checkmark"></span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div id="map" class="sidebar-map"></div>
     <!-- jQuery -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <!-- Leaflet -->
