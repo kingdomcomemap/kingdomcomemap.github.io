@@ -233,13 +233,6 @@ var markers = [
     "icon": iconsUrl+"fast_travel.png",
     "coords": [20000,20000]
   },
-  // SKALITZ
-  {
-    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
-    "group": "fast_travel",
-    "icon": iconsUrl+"fast_travel.png",
-    "coords": [-1663,1897]
-  },
   {
     "name": "<span data-i18n='nest'>Nest</span>",
     "group": "nest",
@@ -336,6 +329,102 @@ var markers = [
     "icon": iconsUrl+"camp.png",
     "coords": [-1779,1095]
   },
-  //X: -1779 Y: 1095
+  // Fast Travel - north to south
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [-559,2264]         // PRIBYSLAVITZ
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [-1663,1897]        // SKALITZ
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [1428,1842]         // UZHITZ
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [-1153,1532]        // ROVNA
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [446,1136]          // TALMBERG
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [-591,817]          // MERHOJED
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [-1297,277]         // SAMOPESH
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [1181,-211]         // INN IN THE GLADE
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [-1604,-642]        // MONASTERY
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [2059,-868]         // NEUHOF
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [12,-1065]          // LEDETCHKO
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [-1646,-1234]       // SASAU
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [-1651,-1729]       // VRANIK
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [574,-1945]         // RATTAY MILL
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [1048,-1963]        // RATTAY UPPER GATE
+  },
+  {
+    "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+    "group": "fast_travel",
+    "icon": iconsUrl+"fast_travel.png",
+    "coords": [674,-2217]         // RATTAY LOWER GATE
+  },
   
 ]
