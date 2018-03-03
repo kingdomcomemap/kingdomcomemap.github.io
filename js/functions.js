@@ -2,8 +2,7 @@ var iconsUrl = './assets/images/';
 var tilesUrl = "./bohemia_map/{z}_{x}_{y}.jpg";
 var maxNativeZoom = 5;
 var mapMinZoom = 1;
-var mapMaxZoom = 5;
-var maxNativeZoom = 5;
+var mapMaxZoom = 6;
 
 var mapSize = 6144;
 var tileSize = 192;
@@ -93,10 +92,10 @@ L.control.coordinates({
 
 var layerGroups = [];
 function getIcon(index) {
-  var iconURL = markers[index].icon;
+  var icon = markers[index].icon;
 
   var markerIcon = L.icon({
-    iconUrl: iconURL,
+    iconUrl: iconsUrl+icon+'.png',
     iconSize: [36,36], // size of the icon
     iconAnchor:   [18, 18], // point of the icon which will correspond to marker's location
     popupAnchor:  [0, -18],
@@ -222,11 +221,19 @@ for (var i = 0; i < markers.length; i++) {
     // Create the group
     layerGroups[markers[i].group] = new L.LayerGroup();
   }
-  if (markers[i].bonus == undefined) {
-    markers[i].bonus = "";
+  if (markers[i].desc == undefined) {
+    markers[i].desc = "";
   }
+  if (markers[i].items == undefined) {
+    markers[i].desc = "";
+  }
+  var ilist = "";
+  for (var c in markers[i].items) {
+    ilist += '<li><i class="'+ markers[i].items[c]+'"></i><span class="iname" data-i18n="'+ markers[i].items[c]+'">'+ markers[i].items[c].replace(/_/gi, " ")+'</span></li>';
+  }
+  console.log(markers[i].items);
   // Add the marker
-  var marker = L.marker([markers[i].coords[1], markers[i].coords[0]], {icon: getIcon(i)}).bindPopup(markers[i].name + "<br>"+ markers[i].bonus).addTo(layerGroups[markers[i].group]);
+  var marker = L.marker([markers[i].coords[1], markers[i].coords[0]], {icon: getIcon(i)}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul>").addTo(layerGroups[markers[i].group]);
   var info = layerGroups[markers[i].group].getLayerId(marker);
 }
 
@@ -300,7 +307,7 @@ markers.forEach(function (items) {
       $('#'+items.group).prop('checked', true);
       map.addLayer(layerGroups[items.group]);
 
-      var locatedMarker = L.marker(items.coords, {icon: locatedMarkerIcon}).bindPopup(items.name + "<br>"+ items.bonus).addTo(map);
+      var locatedMarker = L.marker(items.coords, {icon: locatedMarkerIcon}).bindPopup(items.name + "<br>"+ items.desc).addTo(map);
       map.panTo(locatedMarker.getLatLng());
       locatedMarker.openPopup();
       locatedMarker.on('popupclose', function() {
@@ -659,6 +666,66 @@ var mapMarkers =
 	height: "36"},
   {
 	icon:"woodland_garden",
+	width: "36",
+	height: "36"},
+  {
+	icon:"belladonna",
+	width: "36",
+	height: "36"},
+  {
+	icon:"chamomile",
+	width: "36",
+	height: "36"},
+  {
+	icon:"comfrey",
+	width: "36",
+	height: "36"},
+  {
+	icon:"dandelion",
+	width: "36",
+	height: "36"},
+  {
+	icon:"eyebright",
+	width: "36",
+	height: "36"},
+  {
+	icon:"herb_paris",
+	width: "36",
+	height: "36"},
+  {
+	icon:"marigold",
+	width: "36",
+	height: "36"},
+  {
+	icon:"mint",
+	width: "36",
+	height: "36"},
+  {
+	icon:"nettle",
+	width: "36",
+	height: "36"},
+  {
+	icon:"poppy",
+	width: "36",
+	height: "36"},
+  {
+	icon:"sage",
+	width: "36",
+	height: "36"},
+  {
+	icon:"st_johns_wort",
+	width: "36",
+	height: "36"},
+  {
+	icon:"thistle",
+	width: "36",
+	height: "36"},
+  {
+	icon:"valerian",
+	width: "36",
+	height: "36"},
+  {
+	icon:"wormwood",
 	width: "36",
 	height: "36"},
   {

@@ -216,6 +216,23 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
 .huntsman {background-image: url(../assets/images/huntsman.png);}
 .interesting_site {background-image: url(../assets/images/interesting_site.png);}
 
+.belladonna {background-image: url(../assets/images/belladonna.png);}
+.chamomile {background-image: url(../assets/images/chamomile.png);}
+.comfrey {background-image: url(../assets/images/comfrey.png);}
+.dandelion {background-image: url(../assets/images/dandelion.png);}
+.eyebright {background-image: url(../assets/images/eyebright.png);}
+.herb_paris {background-image: url(../assets/images/herb_paris.png);}
+.marigold {background-image: url(../assets/images/marigold.png);}
+.mint {background-image: url(../assets/images/mint.png);}
+.nettle {background-image: url(../assets/images/nettle.png);}
+.poppy {background-image: url(../assets/images/poppy.png);}
+.sage {background-image: url(../assets/images/sage.png);}
+.st_johns_wort {background-image: url(../assets/images/st_johns_wort.png);}
+.thistle {background-image: url(../assets/images/thistle.png);}
+.valerian {background-image: url(../assets/images/valerian.png);}
+.wormwood {background-image: url(../assets/images/wormwood.png);}
+.book_herbalism {background-image: url(../assets/images/book_herbalism.png);}
+
 .cc {
   opacity: 0;
   position: absolute;
@@ -333,12 +350,31 @@ a.locate.sidebar-close {
 }
 
 .hidden-content {display: none;}
-.leaflet-popup-content {
-  text-align: center;
-  font-family: '1529 Champ Fleury W01 Regular';
-  font-size: 13px;
-  color: #171717;
+
+ul.ilist {
+  list-style: none;
+	margin: 0;
+	padding: 0;
+	display: block;
 }
+ul.ilist li {
+	display: flex;
+}
+.ilist i {
+	display: flex;
+	width: 32px;
+	height: 32px;
+	background-size: contain;
+}
+.ilist .iname {
+	display: flex;
+	align-items: center;
+	text-transform: capitalize;
+	text-align: left;
+	font-size: 13px;
+	margin-left: 10px;
+}
+
 
 button,
 input,
@@ -533,7 +569,11 @@ button.no {
   font-family: '1529 Champ Fleury W01 Regular';
   font-size: 14px;
 }
-.mdesc {}
+.mdesc {
+	display: block;
+	margin: 5px 0px;
+
+}
 .mcoords {
   font-size: 11px;
   text-transform: capitalize;
@@ -558,9 +598,7 @@ button.no {
   display: none;
 }
 
-leaflet-control-attribution {
-  display: none;
-}
+
 .text-label {
   /*visibility: hidden;*/
   border: none;
@@ -601,6 +639,18 @@ leaflet-control-attribution {
 .leaflet-container a.leaflet-popup-close-button,
 .leaflet-container a.leaflet-popup-close-button:hover{
   color: #472a0b;
+}
+.leaflet-popup-content {
+  text-align: center;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 14px;
+  color: #171717;
+}
+.leaflet-popup-content .mtitle {
+	margin: 0px;
+}
+leaflet-control-attribution {
+  display: none;
 }
 .coordsinfo {
   font-family: 'Medieval Sharp';
@@ -792,7 +842,7 @@ img.logo-menu {
   height: 24px;
   display: block;
   float: left;
-  margin: 5px 5px 5px 0px;
+  margin: 5px 5px 0px;
   cursor: pointer;
   background-repeat: no-repeat;
   border:none;
