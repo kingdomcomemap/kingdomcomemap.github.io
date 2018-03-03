@@ -215,6 +215,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
 .tanner {background-image: url(../assets/images/tanner.png);}
 .huntsman {background-image: url(../assets/images/huntsman.png);}
 .interesting_site {background-image: url(../assets/images/interesting_site.png);}
+.treasure_chest {background-image: url(../assets/images/treasure_chest.png);}
 
 .belladonna {background-image: url(../assets/images/belladonna.png);}
 .chamomile {background-image: url(../assets/images/chamomile.png);}
@@ -660,6 +661,10 @@ leaflet-control-attribution {
   color: #000;
 }
 /* Sidebar V2 */
+@media (min-width: 1200px)
+.sidebar-pane {
+    min-width: 380px;
+}
 /*
 .sidebar-pane p.clear {clear: both;}
 @media (min-width: 768px) {
@@ -687,6 +692,7 @@ width: 390px; } }
 .sidebar {
 width: 400px; } }
 
+/*
 .sidebar-pane {
 display: none;
 left: 0;
