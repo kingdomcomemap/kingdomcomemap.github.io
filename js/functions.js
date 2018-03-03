@@ -225,7 +225,7 @@ for (var i = 0; i < markers.length; i++) {
     markers[i].desc = "";
   }
   if (markers[i].items == undefined) {
-    markers[i].desc = "";
+    markers[i].items = "";
   }
   var ilist = "";
   for (var c in markers[i].items) {

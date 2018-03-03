@@ -500,7 +500,7 @@ var markers = [
   },
   {
     "name": "<span data-i18n='conciliation_cross'>Conciliation Cross</span>",
-	"desc": "Michael Kriz",
+		"desc": "Michael Kriz",
     "group": "conciliation_cross",
     "icon": "conciliation_cross",
     "coords": [-1760,413]
