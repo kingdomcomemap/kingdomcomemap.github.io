@@ -289,12 +289,6 @@ var markers = [
     "coords": [-2450,1522]
   },
   {
-    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
-    "group": "boar_hunting_spot",
-    "icon": "boar_hunting_spot",
-    "coords": [-2673,2191]
-  },
-  {
     "name": "<span data-i18n='deer_hunting_spot'>Deer Hunting Spot</span>",
     "group": "deer_hunting_spot",
     "icon": "deer_hunting_spot",
@@ -425,12 +419,6 @@ var markers = [
     "group": "grave",
     "icon": "grave",
     "coords": [-2243,752]
-  },
-  {
-    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
-    "group": "boar_hunting_spot",
-    "icon": "boar_hunting_spot",
-    "coords": [-2126,608]
   },
   {
     "name": "<span data-i18n='grave'>Grave</span>",
@@ -637,6 +625,129 @@ var markers = [
     "group": "fast_travel",
     "icon": "fast_travel",
     "coords": [674,-2217]         // RATTAY LOWER GATE
+  },
+  /*
+  BOAR HUNTING SPOT - NORTH TO SOUTH
+  */
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-2673,2187]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-111,2036]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-840,1929]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-549,1305]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-407,1122]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [1281,601]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-2126,591]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-1816,341]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [313,322]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [2151,10]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-757,-455]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [2491,-607]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-1205,-997]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-324,-1332]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-672,-1562]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-776,-1781]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-1940,-1865]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [2310,-2278]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [-2587,-2281]
+  },
+  {
+    "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
+    "group": "boar_hunting_spot",
+    "icon": "boar_hunting_spot",
+    "coords": [791,-2691]
   },
   /*
   TREASURE CHEST - NORTH TO SOUTH
