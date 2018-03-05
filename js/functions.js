@@ -1,6 +1,5 @@
 var iconsUrl = './assets/images/';
-//var tilesUrl = "./bohemia_map/{z}_{x}_{y}.jpg";
-var tilesUrl = "./kcd_map/{z}_{x}_{y}.jpg";
+var tilesUrl = "./bohemia_map/{z}_{x}_{y}.jpg";
 var maxNativeZoom = 5;
 var mapMinZoom = 1;
 var mapMaxZoom = 6;
