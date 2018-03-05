@@ -21,6 +21,90 @@ var markers = [
 "icon": "interesting_site",
 "coords": [1796.129395,4019.351318],
 },
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [1635.787964,2618.271973],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [3509.145264,1508.523682],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2519.114502,498.302307],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [908.629211,1205.857788],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [951.414063,3807.297607],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [927.872498,1655.786743],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [1241.739380,3118.611816],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [3048.656982,3332.118896],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2453.786133,701.670044],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2359.924316,2844.108398],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [1140.762817,2241.165039],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2776.153809,644.585144],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2044.254517,1335.288330],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2855.358643,1909.928345],
+},
 */
 {	
 "name": "<span data-i18n='bed'>Bed</span>",
@@ -368,6 +452,13 @@ var markers = [
 "icon": "poacher",
 "coords": [1088.163086,482.989655],
 },
+// Skalitz gates
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [864.265320,3381.125244],
+},
 */
 {	
 "name": "<span data-i18n='tavern'>Tavern</span>",
@@ -398,96 +489,6 @@ var markers = [
 "group": "tavern",
 "icon": "tavern",
 "coords": [1158.549438,2248.252441],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [1635.787964,2618.271973],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [3509.145264,1508.523682],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2519.114502,498.302307],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [908.629211,1205.857788],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [951.414063,3807.297607],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [927.872498,1655.786743],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [1241.739380,3118.611816],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [3048.656982,3332.118896],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2453.786133,701.670044],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2359.924316,2844.108398],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [864.265320,3381.125244],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [1140.762817,2241.165039],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2776.153809,644.585144],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2044.254517,1335.288330],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2855.358643,1909.928345],
 },
 /*
 // Windmill needs an icon
