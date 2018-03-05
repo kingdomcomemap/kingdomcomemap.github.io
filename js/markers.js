@@ -272,12 +272,6 @@ var markers = [
 "coords": [2518.414795,499.061035],
 },
 {	
-"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
-"group": "fast_travel",
-"icon": "fast_travel",
-"coords": [2855.358643,1909.928345],
-},
-{	
 "name": "<span data-i18n='lodgings'>Lodgings</span>",
 "group": "lodgings",
 "icon": "lodgings",
@@ -488,6 +482,12 @@ var markers = [
 "group": "unknown",
 "icon": "unknown",
 "coords": [2044.254517,1335.288330],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2855.358643,1909.928345],
 },
 /*
 // Windmill needs an icon
