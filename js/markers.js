@@ -15,6 +15,12 @@ var markers = [
 "icon": "butcher",
 "coords": [5.505254,10.266909],
 },
+{	
+"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
+"group": "interesting_site",
+"icon": "interesting_site",
+"coords": [1796.129395,4019.351318],
+},
 */
 {	
 "name": "<span data-i18n='bed'>Bed</span>",
@@ -1524,12 +1530,6 @@ var markers = [
 "group": "conciliation_cross",
 "icon": "conciliation_cross",
 "coords": [816.027893,2337.213135],
-},
-{	
-"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
-"group": "interesting_site",
-"icon": "interesting_site",
-"coords": [1796.129395,4019.351318],
 },
 {	
 "name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
