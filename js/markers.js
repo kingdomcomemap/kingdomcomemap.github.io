@@ -106,6 +106,267 @@ var markers = [
 "coords": [2855.358643,1909.928345],
 },
 */
+
+// Woodland Gardens
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["belladonna", "herb_paris", "valerian"],
+"coords": [426.735901,3670.262695],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["comfrey", "mint", "nettle"],
+"coords": [127.513657,3326.467041],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3631.555664,2621.792236],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2572.418945,1871.062622],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["herb_paris", "valerian"],
+"coords": [2330.406250,3517.514160],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1102.384766,1252.178223],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1483.661621,1763.639160],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [540.620667,1850.406128],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2159.485840,1523.921753],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1581.446655,1272.240967],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1181.351318,2151.338867],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [792.053284,905.946716],
+},
+{	
+"name": "<span data-i18n='accident'>Accident</span>",
+"group": "accident",
+"icon": "accident",
+"coords": [671.278870,851.093628],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1203.678955,743.668701],
+},
+{	
+"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
+"group": "interesting_site",
+"icon": "interesting_site",
+"coords": [1424.631714,629.960999],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2836.145752,766.281555],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3169.885742,330.571350],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2307.128418,615.796143],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3603.721436,724.813477],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["belladonna", "comfrey", "mint", "valerian"],
+"coords": [992.496460,2321.241943],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["comfrey", "eyebright", "sage", , "valerian"],
+"coords": [957.372559,2275.004883],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["belladonna", "chamomile", "herb_paris", "mint", "st_johns_wort"],
+"coords": [924.192078,2356.219238],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1916.977417,2553.188965],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2559.407471,2031.498413],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2617.020508,2459.062256],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["belladonna", "sage"],
+"coords": [2812.496094,3233.129883],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3092.456055,2675.397461],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["comfrey", "eyebright", "herb_paris", "mint", "nettle", "sage"],
+"coords": [3553.792725,3581.312500],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3142.628662,504.150452],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["belladonna", "comfrey", "mint"],
+"coords": [1731.011719,2976.703369],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1217.688599,2643.694580],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1896.611572,1064.031006],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["comfrey", "herb_paris", "mint", "valerian"],
+"coords": [1630.362305,2867.353516],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3829.841064,1680.792603],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3802.668701,1120.555786],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3279.537842,1979.382324],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2865.751953,1622.923950],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1860.364380,1518.763550],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["herb_paris", "mint", "sage", "valerian"],
+"coords": [1204.653198,3681.477295],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["belladonna", "comfrey", "herb_paris", "mint", "nettle", "valerian"],
+"coords": [973.752380,3895.890381],
+},
+// Bandit Camps
+{	
+"name": "<span data-i18n='bandit_camp'>Bandit Camp</span>",
+"group": "bandit_camp",
+"icon": "bandit_camp",
+"coords": [1748,2979],
+},
 {	
 "name": "<span data-i18n='bed'>Bed</span>",
 "group": "bed",
@@ -582,12 +843,6 @@ var markers = [
 "coords": [3739.174072,1855.790771],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3142.628662,504.150452],
-},
-{	
 "name": "<span data-i18n='conciliation_cross'>Conciliation Cross</span>",
 "group": "conciliation_cross",
 "icon": "conciliation_cross",
@@ -646,12 +901,6 @@ var markers = [
 "group": "baker",
 "icon": "baker",
 "coords": [3080.781250,3330.884521],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1731.011719,2976.703369],
 },
 {	
 "name": "<span data-i18n='nest'>Nest</span>",
@@ -978,12 +1227,6 @@ var markers = [
 "coords": [319.008484,2574.174805],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1217.688599,2643.694580],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -1103,12 +1346,6 @@ var markers = [
 "group": "trader",
 "icon": "trader",
 "coords": [2564.908447,578.937439],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1896.611572,1064.031006],
 },
 {	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
@@ -1400,12 +1637,6 @@ var markers = [
 "coords": [3398.974609,442.320526],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1630.362305,2867.353516],
-},
-{	
 "name": "<span data-i18n='accident'>Accident</span>",
 "group": "accident",
 "icon": "accident",
@@ -1533,12 +1764,6 @@ var markers = [
 "coords": [816.027893,2337.213135],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3829.841064,1680.792603],
-},
-{	
 "name": "<span data-i18n='deer_hunting_spot'>Deer Hunting Spot</span>",
 "group": "deer_hunting_spot",
 "icon": "deer_hunting_spot",
@@ -1585,12 +1810,6 @@ var markers = [
 "group": "shrine",
 "icon": "shrine",
 "coords": [1033.524902,1348.186890],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3802.668701,1120.555786],
 },
 {	
 "name": "<span data-i18n='conciliation_cross'>Conciliation Cross</span>",
@@ -1759,12 +1978,6 @@ var markers = [
 "group": "grave",
 "icon": "grave",
 "coords": [3685.535400,1944.841675],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3279.537842,1979.382324],
 },
 {	
 "name": "<span data-i18n='nest'>Nest</span>",
@@ -2059,12 +2272,6 @@ var markers = [
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [3191.936523,1426.200806],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2865.751953,1622.923950],
 },
 {	
 "name": "<span data-i18n='nest'>Nest</span>",
@@ -2554,12 +2761,6 @@ var markers = [
 "coords": [1530.077637,3385.658691],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1860.364380,1518.763550],
-},
-{	
 "name": "<span data-i18n='shrine'>Shrine</span>",
 "group": "shrine",
 "icon": "shrine",
@@ -2600,18 +2801,6 @@ var markers = [
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [815.154968,715.350830],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1204.653198,3681.477295],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [973.752380,3895.890381],
 },
 {	
 "name": "<span data-i18n='deer_hunting_spot'>Deer Hunting Spot</span>",
@@ -2656,22 +2845,10 @@ var markers = [
 "coords": [3384.359619,621.278320],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [426.735901,3670.262695],
-},
-{	
 "name": "<span data-i18n='grave'>Grave</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1280.584961,718.038208],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [127.513657,3326.467041],
 },
 {	
 "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
@@ -2732,12 +2909,6 @@ var markers = [
 "group": "nest",
 "icon": "nest",
 "coords": [1160.400269,3434.111084],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3631.555664,2621.792236],
 },
 {	
 "name": "<span data-i18n='cave'>Cave</span>",
@@ -2942,12 +3113,6 @@ var markers = [
 "group": "nest",
 "icon": "nest",
 "coords": [945.576355,3018.669434],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2572.418945,1871.062622],
 },
 {	
 "name": "<span data-i18n='cave'>Cave</span>",
@@ -3226,12 +3391,6 @@ var markers = [
 "coords": [2781.588867,622.757996],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2330.406250,3517.514160],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -3364,12 +3523,6 @@ var markers = [
 "coords": [1315.143799,2030.742188],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1102.384766,1252.178223],
-},
-{	
 "name": "<span data-i18n='accident'>Accident</span>",
 "group": "accident",
 "icon": "accident",
@@ -3416,12 +3569,6 @@ var markers = [
 "group": "fish_trap",
 "icon": "fish_trap",
 "coords": [1442.318726,1521.153931],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1483.661621,1763.639160],
 },
 {	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
@@ -3506,12 +3653,6 @@ var markers = [
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [959.328674,1908.736572],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [540.620667,1850.406128],
 },
 {	
 "name": "<span data-i18n='nest'>Nest</span>",
@@ -3880,12 +4021,6 @@ var markers = [
 "coords": [2006.146973,2058.705078],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2159.485840,1523.921753],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -4036,12 +4171,6 @@ var markers = [
 "coords": [1685.630127,938.911682],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1581.446655,1272.240967],
-},
-{	
 "name": "<span data-i18n='cave'>Cave</span>",
 "group": "cave",
 "icon": "cave",
@@ -4082,12 +4211,6 @@ var markers = [
 "group": "shrine",
 "icon": "shrine",
 "coords": [2110.717285,1400.177002],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1181.351318,2151.338867],
 },
 {	
 "name": "<span data-i18n='camp'>Camp</span>",
@@ -4426,18 +4549,6 @@ var markers = [
 "coords": [777.226624,828.035461],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [792.053284,905.946716],
-},
-{	
-"name": "<span data-i18n='accident'>Accident</span>",
-"group": "accident",
-"icon": "accident",
-"coords": [671.278870,851.093628],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -4510,18 +4621,6 @@ var markers = [
 "coords": [2974.416748,1023.781616],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1203.678955,743.668701],
-},
-{	
-"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
-"group": "interesting_site",
-"icon": "interesting_site",
-"coords": [1424.631714,629.960999],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -4570,22 +4669,10 @@ var markers = [
 "coords": [2798.339844,337.530579],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2836.145752,766.281555],
-},
-{	
 "name": "<span data-i18n='shrine'>Shrine</span>",
 "group": "shrine",
 "icon": "shrine",
 "coords": [2176.480957,709.932922],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3169.885742,330.571350],
 },
 {	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
@@ -4763,12 +4850,6 @@ var markers = [
 "coords": [1878.295654,624.537415],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2307.128418,615.796143],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -4827,12 +4908,6 @@ var markers = [
 "group": "grave",
 "icon": "grave",
 "coords": [3909.730469,573.187012],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3603.721436,724.813477],
 },
 {	
 "name": "<span data-i18n='herbalist'>herbalist</span>",
@@ -5075,13 +5150,6 @@ var markers = [
 "coords": [772.394470,2405.230957],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"items": ["belladonna", "comfrey", "mint", , "valerian"],
-"coords": [992.496460,2321.241943],
-},
-{	
 "name": "<span data-i18n='grave'>Grave</span>",
 "group": "grave",
 "icon": "grave",
@@ -5176,26 +5244,6 @@ var markers = [
 "group": "boar_hunting_spot",
 "icon": "boar_hunting_spot",
 "coords": [562.316956,2469.653320],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"items": ["comfrey", "eyebright", "sage", , "valerian"],
-"coords": [957.372559,2275.004883],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"items": ["belladonna", "chamomile", "herb_paris", "mint", "st_johns_wort"],
-"coords": [924.192078,2356.219238],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1916.977417,2553.188965],
 },
 {	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
@@ -5330,12 +5378,6 @@ var markers = [
 "coords": [2355.491943,2087.245361],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2559.407471,2031.498413],
-},
-{	
 "name": "<span data-i18n='accident'>Accident</span>",
 "group": "accident",
 "icon": "accident",
@@ -5442,12 +5484,6 @@ var markers = [
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [2495.326904,2818.712891],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2617.020508,2459.062256],
 },
 {	
 "name": "<span data-i18n='blacksmith'>blacksmith</span>",
@@ -5618,12 +5654,6 @@ var markers = [
 "coords": [2460.353271,3856.896729],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2812.496094,3233.129883],
-},
-{	
 "name": "<span data-i18n='herbalist'>herbalist</span>",
 "group": "herbalist",
 "icon": "herbalist",
@@ -5744,12 +5774,6 @@ var markers = [
 "coords": [3004.545898,2971.418457],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3092.456055,2675.397461],
-},
-{	
 "name": "<span data-i18n='deer_hunting_spot'>Deer Hunting Spot</span>",
 "group": "deer_hunting_spot",
 "icon": "deer_hunting_spot",
@@ -5829,12 +5853,6 @@ var markers = [
 "group": "shrine",
 "icon": "shrine",
 "coords": [3162.839355,2972.470947],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3553.792725,3581.312500],
 },
 {	
 "name": "<span data-i18n='nest'>Nest</span>",
