@@ -395,140 +395,6 @@ function getAObj(obj,name) {
   return 0;
 };
 
-// User added markers
-initUserLayerGroup();
-function initUserLayerGroup() {
-  if (localStorage.mapUserMarkers !== undefined) {
-    var storageMarkers = [];
-    var markersUser = [];
-
-    storageMarkers = JSON.parse(localStorage.mapUserMarkers);
-
-    for (var i = 0; i < storageMarkers.length; i++) {
-      var x = storageMarkers[i].coords.x;
-      var y = storageMarkers[i].coords.y;
-      var name = storageMarkers[i].name;
-      var icon = storageMarkers[i].icon;
-      var title = storageMarkers[i].title;
-      var desc = storageMarkers[i].desc;
-
-      var customIcon = L.icon({
-        iconUrl: storageMarkers[i].icon.options.iconUrl,
-        iconSize: storageMarkers[i].icon.options.iconSize,
-        iconAnchor: [18,18], //storageMarkers[i].icon.options.iconAnchor,
-        popupAnchor:  [0,-18], //storageMarkers[i].icon.options.popupAnchor
-      });
-      var marker = L.marker([x, y], {draggable: false,icon: customIcon}).bindPopup("<span class='mtitle'>"+title+"</span class='mdesc'><br><span class='mdesc'>"+desc+"</span><br><span class='mcoords'>X: "+y+" Y: "+x+"</span><br><button class='remove-marker'>Remove marker</button><div id='remove-dialog' class='hide'><span class='remove-text'>Are you sure?</span><button class='yes'>Yes</button><button class='no'>No</button></div>").addTo(map);
-
-      marker.on("popupopen", onPopupOpen);
-      markersUser.push(marker);
-    }
-    //groupUser = L.layerGroup(markersUser);
-    //map.addLayer(groupUser);
-  }
-}
-// End user added markers
-
-// Change marker background image on select marker
-function iconpref(value) {
-  document.getElementById("iconprev").style.backgroundImage = "url("+markerIconTypes[value].options.iconUrl+")";
-};
-// Change marker name image on select marker
-function titlepref(value) {
-  document.getElementById("titleprev").value = value.replace(/_/gi, " ");
-};
-
-function removeMarkerE(lat,lon) {
-  for(e in markers) {
-    var tmpm = markers[e].getLatLng();
-    if(tmpm.lat == lat && tmpm.lng == lon) {
-      map.removeLayer(markers[e]);
-    };
-  };
-};
-
-function addMarkerText(lat,long) {
-  var message = '<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div><div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div><form id="addmark" method="post" action="#"><select name="icon" onchange="iconpref(this.value); titlepref(this.options[this.selectedIndex].innerHTML);">';
-  for (var i in mapMarkers) {
-    message +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
-  };
-  message = message+'</select><div class="markertitle" data-i18n="marker_title">Marker Title:</div><input type="text" id="titleprev" name="title" value="Arrow"><div class="markerdesc" data-i18n="marker_desc">Marker Description:</div><textarea name="desc" onclick="this.value=\'\'; this.onclick = function(){}"></textarea><table class="coordsinputs"><tr><td>X:<input type="text" readonly="readonly" name="mlon" id="mlon" maxlength="5" value="'+long+'" onKeyPress="return numonly(this,event)"></td><td>Y:<input id="mlat" type="text" readonly="readonly" name="mlat" maxlength="5" value="'+lat+'" onKeyPress="return numonly(this,event)"></td></tr></table><input type="hidden" name="submit" value="true"><button type="submit" class="send" data-i18n="add">Add</button></form>';
-  var ltn = {};
-  ltn.lat = lat;
-  ltn.lng = long;
-  popup.setLatLng(ltn).setContent(message).openOn(map);
-  $('#addmark').submit(function(e){
-
-    var postData = $(this).serializeArray();
-    var lat = Math.round(getAObj(postData,"mlat"));
-    var lon = Math.round(getAObj(postData,"mlon"));
-    postData.push({"name": "lat","value":lat});
-    postData.push({"name": "lon","value":lon});
-
-    var storageMarkers = [];
-    var markersUser = [];
-
-    if (localStorage.mapUserMarkers !== undefined) {
-      storageMarkers = JSON.parse(localStorage.mapUserMarkers);
-    }
-
-    storageMarkers.push({
-      "coords": {
-        "x": lat,
-        "y": lon
-      },
-      "name": getAObj(postData,"title"),
-      "icon": markerIconTypes[getAObj(postData,"icon")],
-      "title": getAObj(postData,"title"),
-      "desc": getAObj(postData,"desc")
-    });
-    popup._close();
-    var newMarker = L.marker({lat: lat, lng: lon},{icon: markerIconTypes[getAObj(postData,"icon")]});
-    newMarker.bindPopup("<span class='mtitle'>"+getAObj(postData,"title")+"</span><br><span class='mdesc'>"+getAObj(postData,"desc")+"</span><br><span class='mcoords'>X: "+getAObj(postData,"mlon")+" Y: "+getAObj(postData,"mlat")+"</span><br><button class='remove-marker' data-i18n='remove_marker'>Remove marker</button><div id='remove-dialog' class='hide'><span class='remove-text' data-i18n='remove_text'>Are you sure?</span><button class='yes' data-i18n='yes'>Yes</button><button class='no' data-i18n='no'>No</button></div>");
-    newMarker.addTo(map);
-    newMarker.on("popupopen", onPopupOpen);
-    markersUser.push(newMarker);
-    localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
-    markers.push(newMarker);
-    e.preventDefault(); 
-  });
-}
-
-function onPopupOpen() {
-  var _this = this;
-  var clickedMarkerCoords = this.getLatLng();
-
-  $('.remove-marker').click(function() {
-    $(this).next('#remove-dialog').removeClass("hide");
-  });
-  $('.no').click(function() {
-    $(this).parent('#remove-dialog').addClass("hide");
-  });
-
-  $('.yes').click(function() {
-    storageMarkers = JSON.parse(localStorage.mapUserMarkers);
-    for(i = storageMarkers.length; i > -1; i--) {
-      if (typeof storageMarkers[i] != 'undefined' && 
-          (clickedMarkerCoords.lat == storageMarkers[i].coords.x &&
-           clickedMarkerCoords.lng == storageMarkers[i].coords.y)
-         ) {
-        storageMarkers.splice(i, 1);
-        localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
-      }
-    }  
-    map.removeLayer(_this);
-  });
-}
-
-map.on('click', function (e) {
-  var lat = Math.round(e.latlng.lat);
-  var long = Math.round(e.latlng.lng);
-
-  message = "<span class='coordsinfo'>X: " +long+ " " + "Y: " +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Add marker</button>';
-  popup.setLatLng(e.latlng).setContent(message).openOn(map);
-
-});
-
 // Available markers to add on click
 var mapMarkers = 
 [
@@ -810,6 +676,352 @@ for (var i in mapMarkers) {
   });
 };
 // End available markers to add on click
+
+// User added markers
+var groupUser = [];
+initUserLayerGroup();
+function initUserLayerGroup() {
+  if (localStorage.mapUserMarkers !== undefined) {
+    var storageMarkers = [];
+    var markersUser = [];
+
+    storageMarkers = JSON.parse(localStorage.mapUserMarkers);
+
+    for (var i = 0; i < storageMarkers.length; i++) {
+      var x = storageMarkers[i].coords.x;
+      var y = storageMarkers[i].coords.y;
+      var name = storageMarkers[i].name;
+      var icon = storageMarkers[i].icon;
+      var iconUrl = storageMarkers[i].icon.options.iconUrl;
+      var title = storageMarkers[i].title;
+      var desc = storageMarkers[i].desc;
+
+      var customIcon = L.icon({
+        iconUrl: storageMarkers[i].icon.options.iconUrl,
+        iconSize: storageMarkers[i].icon.options.iconSize,
+        iconAnchor: [18,18], //storageMarkers[i].icon.options.iconAnchor,
+        popupAnchor:  [0,-18], //storageMarkers[i].icon.options.popupAnchor
+				className: storageMarkers[i].icon.options.className,
+      });
+			
+			var popupcontent = '<div class="popcontent">\
+			<span class="mtitle">'+name+'</span><br>\
+			<span class="mdesc">'+desc+'</span><br>\
+			<span class="mcoords">X: '+y+' Y: '+x+'</span></div>\
+			<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+			<div id="edit-dialog" class="hide">\
+			<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+			<div id="iconprev" style="background-image:url(\''+iconUrl+'\')"></div>\
+			<select id="select_icon" name="icon" onchange="iconpref(this.value);">';
+      for (var j in mapMarkers) {
+        popupcontent +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
+      };
+      popupcontent = popupcontent+'</select>\
+			<input type="text" id="editedtitle" name="title" value="'+title+'">\
+			<textarea id="editeddesc" name="desc">'+desc+'</textarea>\
+			<button class="cancel" data-i18n="cancel">Cancel</button>\
+			<button class="save-marker" data-i18n="Save">Save</button>\
+			</div>\
+			<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+			<div id="remove-dialog" class="hide">\
+			<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
+			<button class="yes" data-i18n="yes">Yes</button>\
+			<button class="no" data-i18n="no">No</button></div>';
+      var marker = L.marker([x, y], {draggable: false,icon: customIcon}).bindPopup(popupcontent);
+
+      marker.on("popupopen", onPopupOpen);
+      markersUser.push(marker);
+    }
+    groupUser = L.layerGroup(markersUser);
+    map.addLayer(groupUser);
+  }
+}
+// End user added markers
+
+// Change marker background image on select marker
+function iconpref(value) {
+  document.getElementById("iconprev").style.backgroundImage = "url("+markerIconTypes[value].options.iconUrl+")";
+};
+// Change marker name image on select marker
+function titlepref(value) {
+  document.getElementById("titleprev").value = value.replace(/_/gi, " ");
+};
+
+function removeMarkerE(lat,lon) {
+  for(e in markers) {
+    var tmpm = markers[e].getLatLng();
+    if(tmpm.lat == lat && tmpm.lng == lon) {
+      map.removeLayer(markers[e]);
+    };
+  };
+};
+
+function addMarkerText(lat,long) {
+  var message = '<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div><div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div><form id="addmark" method="post" action="#"><select name="icon" onchange="iconpref(this.value); titlepref(this.options[this.selectedIndex].innerHTML);">';
+  for (var i in mapMarkers) {
+    message +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
+  };
+  message = message+'</select><div class="markertitle" data-i18n="marker_title">Marker Title:</div><input type="text" id="titleprev" name="title" value="Arrow"><div class="markerdesc" data-i18n="marker_desc">Marker Description:</div><textarea name="desc" onclick="this.value=\'\'; this.onclick = function(){}"></textarea><table class="coordsinputs"><tr><td>X:<input type="text" readonly="readonly" name="mlon" id="mlon" maxlength="5" value="'+long+'" onKeyPress="return numonly(this,event)"></td><td>Y:<input id="mlat" type="text" readonly="readonly" name="mlat" maxlength="5" value="'+lat+'" onKeyPress="return numonly(this,event)"></td></tr></table><input type="hidden" name="submit" value="true"><button type="submit" class="send" data-i18n="add">Add</button></form>';
+  var ltn = {};
+  ltn.lat = lat;
+  ltn.lng = long;
+  popup.setLatLng(ltn).setContent(message).openOn(map);
+  $('#addmark').submit(function(e){
+
+    var postData = $(this).serializeArray();
+    var lat = Math.round(getAObj(postData,"mlat"));
+    var lon = Math.round(getAObj(postData,"mlon"));
+    postData.push({"name": "lat","value":lat});
+    postData.push({"name": "lon","value":lon});
+
+    var storageMarkers = [];
+    var markersUser = [];
+
+    if (localStorage.mapUserMarkers !== undefined) {
+      storageMarkers = JSON.parse(localStorage.mapUserMarkers);
+    }
+
+    storageMarkers.push({
+      "coords": {
+        "x": lat,
+        "y": lon
+      },
+      "name": getAObj(postData,"title"),
+      "icon": markerIconTypes[getAObj(postData,"icon")],
+      "title": getAObj(postData,"title"),
+      "desc": getAObj(postData,"desc")
+    });
+    popup._close();
+    var newMarker = L.marker({lat: lat, lng: lon},{icon: markerIconTypes[getAObj(postData,"icon")]});
+    newMarker.bindPopup("<span class='mtitle'>"+getAObj(postData,"title")+"</span><br><span class='mdesc'>"+getAObj(postData,"desc")+"</span><br><span class='mcoords'>X: "+getAObj(postData,"mlon")+" Y: "+getAObj(postData,"mlat")+"</span><br><button class='remove-marker' data-i18n='remove_marker'>Remove marker</button><div id='remove-dialog' class='hide'><span class='remove-text' data-i18n='remove_text'>Are you sure?</span><button class='yes' data-i18n='yes'>Yes</button><button class='no' data-i18n='no'>No</button></div>");
+    newMarker.addTo(map);
+    newMarker.on("popupopen", onPopupOpen);
+    markersUser.push(newMarker);
+    localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
+    markers.push(newMarker);
+    e.preventDefault(); 
+  });
+}
+
+function addMarkerText(lat,long) {
+  //console.log(markerIconTypes);
+  var message = '<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+  <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
+  <form id="addmark" method="post" action="#">\
+  <select id="select_icon" name="icon" onchange="iconpref(this.value); titlepref(this.options[this.selectedIndex].innerHTML);">';
+  for (var i in mapMarkers) {
+    message +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
+  };
+  message = message+'</select><div class="markertitle" data-i18n="marker_title">Marker Title:</div>\
+  <input type="text" id="titleprev" name="title" value="Arrow">\
+  <div class="markerdesc" data-i18n="marker_desc">Marker Description:</div>\
+  <textarea name="desc" onclick="this.value=\'\'; this.onclick = function(){}"></textarea>\
+  <table class="coordsinputs">\
+  <tr>\
+  <td>X:<input type="text" readonly="readonly" name="mlon" id="mlon" maxlength="5" value="'+long+'" onKeyPress="return numonly(this,event)"></td>\
+  <td>Y:<input id="mlat" type="text" readonly="readonly" name="mlat" maxlength="5" value="'+lat+'" onKeyPress="return numonly(this,event)"></td>\
+  </tr>\
+  </table>\
+  <input type="hidden" name="submit" value="true">\
+  <button type="submit" class="send" data-i18n="add">Add</button>\
+  </form>';
+  // 
+  var ltn = {};
+  ltn.lat = lat;
+  ltn.lng = long;
+  popup.setLatLng(ltn).setContent(message).openOn(map);
+  
+  // Add the mark
+  $('#addmark').submit(function(e){
+    var postData = $(this).serializeArray();
+    var lat = Math.round(getAObj(postData,"mlat"));
+    var lon = Math.round(getAObj(postData,"mlon"));
+    postData.push({"name": "lat","value":lat});
+    postData.push({"name": "lon","value":lon});
+
+    var storageMarkers = [];
+    var markersUser = [];
+
+    if (localStorage.mapUserMarkers !== undefined) {
+      storageMarkers = JSON.parse(localStorage.mapUserMarkers);
+    }
+    storageMarkers.push({
+      "coords": {
+        "x": lat,
+        "y": lon
+      },
+      "name": getAObj(postData,"title"),
+      "icon": markerIconTypes[getAObj(postData,"icon")],
+      "iconvalue": getAObj(postData,"icon"),
+      "title": getAObj(postData,"title"),
+      "desc": getAObj(postData,"desc")
+    });
+    popup._close();
+
+    var popupcontent = '<div class="popcontent">\
+    <span class="mtitle">'+getAObj(postData,'title')+'</span><br>\
+    <span class="mdesc">'+getAObj(postData,'desc')+'</span><br>\
+    <span class="mcoords">[ '+getAObj(postData,'mlon')+' , '+getAObj(postData,'mlat')+']</span></div>\
+    <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+    <div id="edit-dialog" class="hide">\
+    <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+    <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
+    <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
+      for (var i in mapMarkers) {
+      popupcontent +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
+    };
+    popupcontent = popupcontent+'</select>\
+    <input type="text" id="editedtitle" name="title" value="'+getAObj(postData,'title')+'">\
+    <textarea id="editeddesc" name="desc">'+getAObj(postData,'desc')+'</textarea>\
+    <button class="cancel" data-i18n="cancel">Cancel</button>\
+    <button class="save-marker" data-i18n="Save">Save</button>\
+    </div>\
+    <button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+    <div id="remove-dialog" class="hide">\
+    <span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
+    <button class="yes" data-i18n="yes">Yes</button>\
+    <button class="no" data-i18n="no">No</button></div>'
+    //
+    var newMarker = L.marker({lat: lat, lng: lon},{icon: markerIconTypes[getAObj(postData,"icon")]});
+    newMarker.bindPopup(popupcontent);
+    newMarker.addTo(map);
+    newMarker.on("popupopen", onPopupOpen);
+    markersUser.push(newMarker);
+    groupUser.addLayer(newMarker);
+    localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
+    map.addLayer(groupUser);
+    e.preventDefault(); 
+  });
+}
+
+function onPopupOpen() {
+  var _this = this;
+  var clickedMarkerCoords = this.getLatLng();
+  var popup = _this.getPopup();
+
+  $(document).on('click', '.remove-marker', function() {
+    $(this).addClass('hide');
+    $(this).next('#remove-dialog').removeClass('hide');
+    $(this).parent().parent().find('.popcontent').addClass('hide');
+    $(this).parent().parent().find('.edit-marker').addClass('hide');
+  });
+  $(document).on('click', '.no', function() {
+    $(this).parent('#remove-dialog').addClass('hide');
+    $(this).parent().parent().find('.popcontent').removeClass('hide');
+    $(this).parent().parent().find('.edit-marker').removeClass('hide');
+    $(this).parent().parent().find('.remove-marker').removeClass('hide');
+  });
+
+  $(document).on('click', '.yes', function() {
+    storageMarkers = JSON.parse(localStorage.mapUserMarkers);
+    for(i = storageMarkers.length; i > -1; i--) {
+      if (typeof storageMarkers[i] != 'undefined' && 
+          (clickedMarkerCoords.lat == storageMarkers[i].coords.x &&
+           clickedMarkerCoords.lng == storageMarkers[i].coords.y)
+         ) {
+        storageMarkers.splice(i, 1);
+        localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
+      }
+    }  
+    //localStorage.removeItem('userMarkers');
+    map.removeLayer(_this);
+  });
+  
+   //Edit Marker
+  $(document).on('click', '.edit-marker', function() {
+    storageMarkers = JSON.parse(localStorage.mapUserMarkers);
+    for(i = storageMarkers.length; i > -1; i--) {
+      if (typeof storageMarkers[i] != 'undefined' && 
+          (clickedMarkerCoords.lat == storageMarkers[i].coords.x &&
+           clickedMarkerCoords.lng == storageMarkers[i].coords.y)
+         ) {
+        $(this).parent().find('#iconprev').css("background-image", "url("+storageMarkers[i].icon.options.iconUrl+")");
+        $(this).parent().find('#select_icon').val(storageMarkers[i].iconvalue);
+      }
+    }
+    // HERE
+    $(this).addClass('hide');
+    $(this).next('#edit-dialog').removeClass('hide');
+    $(this).parent().parent().find('.popcontent').addClass('hide');
+    $(this).parent().parent().find('.remove-marker').addClass('hide');
+  });
+  $(document).on('click', '.cancel', function() {
+    $(this).parent().parent().find('#edit-dialog').addClass('hide');
+    $(this).parent().parent().find('.popcontent').removeClass('hide');
+    $(this).parent().parent().find('.edit-marker').removeClass('hide');
+    $(this).parent().parent().find('.remove-marker').removeClass('hide');
+  });
+  $(document).on('click', '.save-marker', function() {
+    storageMarkers = JSON.parse(localStorage.mapUserMarkers);
+    for(i = storageMarkers.length; i > -1; i--) {
+      if (typeof storageMarkers[i] != 'undefined' && 
+          (clickedMarkerCoords.lat == storageMarkers[i].coords.x &&
+           clickedMarkerCoords.lng == storageMarkers[i].coords.y)
+         ) {
+        var editedicon = $(this).parent().find('select[name=icon]').val();
+        var editedtitle = $(this).parent().find('#editedtitle').val();
+        var editeddesc = $(this).parent().find('#editeddesc').val();
+        
+        var editedpopup ='<div class="popcontent"><span class="mtitle">'+editedtitle+'</span><br>\
+<span class="mdesc">'+editeddesc+'</span><br>\
+<span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
+<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+<div id="edit-dialog" class="hide">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+  <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
+  <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
+    for (var j in mapMarkers) {
+    editedpopup +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
+  };
+  editedpopup = editedpopup+'</select>\
+<input type="text" id="editedtitle" name="title" value="'+editedtitle+'">\
+<textarea id="editeddesc" name="desc">'+editeddesc+'</textarea>\
+<button class="cancel" data-i18n="cancel">Cancel</button>\
+<button class="save-marker" data-i18n="Save">Save</button>\
+</div>\
+<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+<div id="remove-dialog" class="hide">\
+<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
+<button class="yes" data-i18n="yes">Yes</button><button class="no" data-i18n="no">No</button></div>';
+        popup.setContent(editedpopup);
+
+        //console.log(_this);
+        //markerIconTypes[getAObj(postData,"icon")],
+        _this.setIcon(markerIconTypes[editedicon]);
+        storageMarkers[i].name = editedtitle;
+        storageMarkers[i].title = editedtitle;
+        storageMarkers[i].desc = editeddesc;
+        storageMarkers[i].icon = (markerIconTypes[editedicon]);
+        storageMarkers[i].iconvalue = editedicon;
+        //$(this).parent().find('#select_icon').val(storageMarkers[i].iconvalue);
+        localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
+      }
+    } 
+    popup._close();
+    //localStorage.removeItem('userMarkers');
+    //map.removeLayer(_this);
+  });
+}
+
+$('#usermarkers').click(function(){
+  if($(this).prop("checked") == true){
+    map.addLayer(groupUser);
+  }
+  else if($(this).prop("checked") == false){
+    map.removeLayer(groupUser);
+  }
+});
+// End toggle user markers */
+
+map.on('click', function (e) {
+  var lat = Math.round(e.latlng.lat);
+  var long = Math.round(e.latlng.lng);
+
+  message = "<span class='coordsinfo'>X: " +long+ " " + "Y: " +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Add marker</button>';
+  popup.setLatLng(e.latlng).setContent(message).openOn(map);
+
+});
+
 
 $('.toggle-title').click(function(){
 		$(this).toggleClass('active');

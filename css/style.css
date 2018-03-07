@@ -131,7 +131,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   line-height: 50px;
   height: 50px;
 }
-
+.user-list,
 .allmarkers-list,
 .markers-list {
   float: none;
@@ -141,6 +141,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   display: inline-block;
   width: 100%;
 }
+.user-list li,
 .allmarkers-list li,
 .markers-list li {
   display: flex;
@@ -149,6 +150,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   overflow: hidden;
   list-style: none;
 }
+.user-list i,
 .allmarkers-list i,
 .markers-list i {
   display: flex;
@@ -163,6 +165,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   margin-top: 4px;
   line-height: 30px;
 }
+.user-list label,
 .allmarkers-list label,
 .markers-list label {
   display: flex;
@@ -173,6 +176,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   width: 100%;
   padding-left: 5px;
 }
+.player {background-image: url(../assets/images/player64px.png);}
 .allmarkers {background-image: url(../assets/images/allmarkers.png);}
 .cities {background-image: url(../assets/images/cities.png);}
 .fast_travel {background-image: url(../assets/images/fast_travel.png);}
@@ -526,6 +530,16 @@ textarea:focus {
   border: 2px solid #aa9a88;
   width: 100%;
 }
+#edit-dialog select {
+  text-transform: capitalize;
+  margin: 0px;
+  display: block;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 14px;
+  background-color: #ffead3;
+  border: 2px solid #aa9a88;
+  width: 100%;
+}
 #titleprev {
   text-transform: capitalize;
 }
@@ -566,26 +580,14 @@ button.no {
   border: none;
   color: #fff;
 }
-.leaflet-popup-content .original_coords {
-font-family: Consolas;
-margin: 5px 0 0;
-font-weight: bold;
-font-size: 11px;
-color: #4c2900;
-display: block;
-position: relative;
-}
 .mtitle {
   font-weight: bold;
   text-transform: capitalize;
   font-family: '1529 Champ Fleury W01 Regular';
-  font-size: 14px;
+  font-size: 19px;
+	letter-spacing: 1px;
 }
-.mdesc {
-	display: block;
-	margin: 5px 0px;
-
-}
+.mdesc {}
 .mcoords {
   font-size: 11px;
   text-transform: capitalize;
@@ -595,7 +597,7 @@ position: relative;
   color: #000;
 }
 #remove-dialog {
-  position: absolute;
+  position: relative;
   left: 0px;
   top: 0px;
   background: #ddc7ad;
@@ -606,8 +608,25 @@ position: relative;
   z-index: 1;
   border-radius: 15px;
 }
-.hide {
-  display: none;
+.remove-marker.hide {
+    display: none;
+}
+#edit-dialog {
+  background: #ddc7ad;
+  text-align: center;
+  z-index: 1;
+  border-radius: 15px;
+  height: 100%;
+}
+.hide {display: none;}
+.leaflet-popup-content .original_coords {
+font-family: Consolas;
+margin: 5px 0 0;
+font-weight: bold;
+font-size: 11px;
+color: #4c2900;
+display: block;
+position: relative;
 }
 
 
