@@ -681,9 +681,9 @@ for (var i in mapMarkers) {
 var groupUser = [];
 initUserLayerGroup();
 function initUserLayerGroup() {
+	var markersUser = [];
   if (localStorage.mapUserMarkers !== undefined) {
     var storageMarkers = [];
-    var markersUser = [];
 
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
 
@@ -732,9 +732,11 @@ function initUserLayerGroup() {
       marker.on("popupopen", onPopupOpen);
       markersUser.push(marker);
     }
-    groupUser = L.layerGroup(markersUser);
-    map.addLayer(groupUser);
-  }
+  } else {
+		localStorage.mapUserMarkers = "[]";
+	}
+	groupUser = L.layerGroup(markersUser);
+  map.addLayer(groupUser);
 }
 // End user added markers
 
@@ -756,52 +758,6 @@ function removeMarkerE(lat,lon) {
   };
 };
 
-function addMarkerText(lat,long) {
-  var message = '<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div><div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div><form id="addmark" method="post" action="#"><select name="icon" onchange="iconpref(this.value); titlepref(this.options[this.selectedIndex].innerHTML);">';
-  for (var i in mapMarkers) {
-    message +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
-  };
-  message = message+'</select><div class="markertitle" data-i18n="marker_title">Marker Title:</div><input type="text" id="titleprev" name="title" value="Arrow"><div class="markerdesc" data-i18n="marker_desc">Marker Description:</div><textarea name="desc" onclick="this.value=\'\'; this.onclick = function(){}"></textarea><table class="coordsinputs"><tr><td>X:<input type="text" readonly="readonly" name="mlon" id="mlon" maxlength="5" value="'+long+'" onKeyPress="return numonly(this,event)"></td><td>Y:<input id="mlat" type="text" readonly="readonly" name="mlat" maxlength="5" value="'+lat+'" onKeyPress="return numonly(this,event)"></td></tr></table><input type="hidden" name="submit" value="true"><button type="submit" class="send" data-i18n="add">Add</button></form>';
-  var ltn = {};
-  ltn.lat = lat;
-  ltn.lng = long;
-  popup.setLatLng(ltn).setContent(message).openOn(map);
-  $('#addmark').submit(function(e){
-
-    var postData = $(this).serializeArray();
-    var lat = Math.round(getAObj(postData,"mlat"));
-    var lon = Math.round(getAObj(postData,"mlon"));
-    postData.push({"name": "lat","value":lat});
-    postData.push({"name": "lon","value":lon});
-
-    var storageMarkers = [];
-    var markersUser = [];
-
-    if (localStorage.mapUserMarkers !== undefined) {
-      storageMarkers = JSON.parse(localStorage.mapUserMarkers);
-    }
-
-    storageMarkers.push({
-      "coords": {
-        "x": lat,
-        "y": lon
-      },
-      "name": getAObj(postData,"title"),
-      "icon": markerIconTypes[getAObj(postData,"icon")],
-      "title": getAObj(postData,"title"),
-      "desc": getAObj(postData,"desc")
-    });
-    popup._close();
-    var newMarker = L.marker({lat: lat, lng: lon},{icon: markerIconTypes[getAObj(postData,"icon")]});
-    newMarker.bindPopup("<span class='mtitle'>"+getAObj(postData,"title")+"</span><br><span class='mdesc'>"+getAObj(postData,"desc")+"</span><br><span class='mcoords'>X: "+getAObj(postData,"mlon")+" Y: "+getAObj(postData,"mlat")+"</span><br><button class='remove-marker' data-i18n='remove_marker'>Remove marker</button><div id='remove-dialog' class='hide'><span class='remove-text' data-i18n='remove_text'>Are you sure?</span><button class='yes' data-i18n='yes'>Yes</button><button class='no' data-i18n='no'>No</button></div>");
-    newMarker.addTo(map);
-    newMarker.on("popupopen", onPopupOpen);
-    markersUser.push(newMarker);
-    localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
-    markers.push(newMarker);
-    e.preventDefault(); 
-  });
-}
 
 function addMarkerText(lat,long) {
   //console.log(markerIconTypes);
@@ -887,10 +843,11 @@ function addMarkerText(lat,long) {
     newMarker.addTo(map);
     newMarker.on("popupopen", onPopupOpen);
     markersUser.push(newMarker);
+		console.log(groupUser);
     groupUser.addLayer(newMarker);
     localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
     map.addLayer(groupUser);
-    e.preventDefault(); 
+    e.preventDefault();
   });
 }
 
