@@ -1,5 +1,3 @@
-var iconsUrl = './assets/images/';
-
 var usr_markers = [
 
 // TREASURE CHEST - NORTH TO SOUTH
