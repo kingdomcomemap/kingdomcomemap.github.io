@@ -839,6 +839,62 @@ img.logo-menu {
   background-repeat: no-repeat;
   background-position: center;
 }
+.leaflet-control-coordinates.leaflet-control {
+	background-color: transparent;
+  text-align: center;
+}
+.leaflet-control-coordinates .uiElement input {
+	font-family: 'MedievalSharpBook';
+	border-radius: 0px;
+	border: none;
+	background: #ffead3;
+	color: #171717;
+	font-size: 12px;
+	font-weight: bold;
+}
+.leaflet-control-coordinates .uiElement {
+	margin: 0px;
+	width: 120px;
+	height: 26px;
+	display: flex;
+	align-items: center;
+}
+.uiElement {
+	width: auto;
+	background: url(../assets/images/bg.png);
+	margin: 0px;
+	padding: 2px 5px;
+	box-shadow: inset 0 0px 4px 0px rgb(0, 0, 0);
+	font-family: 'MedievalSharpBook';
+	font-weight: bold;
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+.labelFirst {
+	width: 125px;
+}
+.uiElement.input {
+	width: 120px;
+	text-align: left;
+	height: 26px;
+	display: flex;
+	align-items: center;
+}
+.uiElement span {
+	display: inline-block;
+	margin: 0;
+}
+.leaflet-control-coordinates .uiElement input.inputX {
+	width: 45px;
+	padding: 2px 5px 2px 5px;
+	margin-right: 5px;
+}
+.leaflet-control-coordinates .uiElement input.inputY {
+width: 45px;
+padding: 2px 5px 2px 5px;
+}
+.uiElement.input.uiHidden,
+.leaflet-control-coordinates .uiElement.uiHidden {display: none;}
 
 .en {background: url('../assets/flags/en.png');}
 .br {background: url('../assets/flags/br.png');}
