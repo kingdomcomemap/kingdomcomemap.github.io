@@ -1,5 +1,3 @@
-var iconsUrl = './assets/images/';
-
 // TEXT MARKERS
 var textMarkers = [
   {
