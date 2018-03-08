@@ -104,63 +104,6 @@ function getIcon(index) {
 
   return markerIcon;
 }
-// TEXT MARKERS
-var textMarkers = [
-  {
-    "name": "<span data-i18n='SKALITZ'>SKALITZ</span>",
-    "coords": [2231,-1832]
-  },
-  {
-    "name": "<span data-i18n='PRIBYSLAVITZ'>PRIBYSLAVITZ</span>",
-    "coords": [2471,-735]
-  },
-  {
-    "name": "<span data-i18n='ROVNA'>ROVNA</span>",
-    "coords": [1606,-1073]
-  },
-  {
-    "name": "<span data-i18n='MERHOJED'>MERHOJED</span>",
-    "coords": [980,-685]
-  },
-  {
-    "name": "<span data-i18n='TALMBERG'>TALMBERG</span>",
-    "coords": [1188,330]
-  },
-  {
-    "name": "<span data-i18n='UZHITZ'>UZHITZ</span>",
-    "coords": [1935,1700]
-  },
-  {
-    "name": "<span data-i18n='SAMOPESH'>SAMOPESH</span>",
-    "coords": [78,-1274]
-  },
-  {
-    "name": "<span data-i18n='MONASTERY'>MONASTERY</span>",
-    "coords": [-313,-1693]
-  },
-  {
-    "name": "<span data-i18n='LEDETCHKO'>LEDETCHKO</span>",
-    "coords": [-895,-134]
-  },
-  {
-    "name": "<span data-i18n='SASAU'>SASAU</span>",
-    "coords": [-1451,-1625]
-  },
-  {
-    "name": "<span data-i18n='VRANIK'>VRANIK</span>",
-    "coords": [-1772,-1546]
-  },
-  {
-    "name": "<span data-i18n='RATTAY'>RATTAY</span>",
-    "coords": [-2375,950]
-  },
-  {
-    "name": "<span data-i18n='NEUHOF'>NEUHOF</span>",
-    "coords": [-1100,2100]
-  },
-  
-  
-]
 
 var textLayer = [];
 var transparentMarker = L.icon({

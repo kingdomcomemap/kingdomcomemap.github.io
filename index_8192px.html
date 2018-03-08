@@ -1,0 +1,437 @@
+<html>
+  <head>
+    <title>Kingdom Come Deliverance Map - Interactive map for Kingdom Come Deliverance</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Interactive Map for Kingdom Come Deliverance">
+    <meta name="keywords" content="Interactive Map for Kingdom Come Deliverance">
+    <meta name="author" content="Roger Nobrega">
+    <link type="text/css" rel="stylesheet" href="css/leaflet.css" />
+    <link type="text/css" rel="stylesheet" href="css/leaflet-sidebar.css" />
+    <link type="text/css" rel="stylesheet" href="css/Leaflet.Coordinates-0.1.3.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <!--<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />-->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114930551-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-114930551-1');
+	</script>
+
+  </head>
+<body>
+  <div id="sidebar" class="sidebar collapsed">
+    <!-- Nav tabs -->
+    <div class="sidebar-tabs">
+      <ul role="tablist">
+        <li><a href="#home" role="tab"><i class="home"></i></a></li>
+        <li><a href="#share" role="tab"><i class="share"></i></a></li>
+        <li><a href="#about" role="tab"><i class="about"></i></a></li>
+        <!--<li class="disabled"><a href="#settings" role="tab"><i class="settings"></i></a></li>-->
+        <li class="disabled"><a href="#beta" role="tab"><i class="beta"></i></a></li>
+      </ul>
+      <ul role="tablist"></ul>
+    </div>
+    <!-- Tab panes -->
+    <div class="sidebar-content">
+      <!-- Tab home -->
+      <div class="sidebar-pane" id="home">
+        <span class="sidebar-close">
+          <i class="left-arrow"></i>
+        </span>
+        <div class="logo-container">
+          <img class="logo-menu" src="https://kingdomcomemap.github.io/assets/images/kcdmap.svg" alt="Kingdom Come Deliverance Interactive Map" />
+          <p class="version">v. 1.2</p>
+        </div>
+        <div class="content">
+					<ul class="user-list">
+						<li>
+							<i class="player"></i>
+							<input type="checkbox" id="usermarkers" class="cc" checked />
+							<label for="usermarkers" class="cl" data-i18n="Mymarkers">My Markers</label>
+						</li>
+					</ul>
+          <ul class="allmarkers-list">
+            <li>
+              <i class="allmarkers"></i>
+              <input type="checkbox" id="allmarkers" class="cc" />
+              <label for="allmarkers" class="cl" data-i18n="Allmarkers">All markers</label>
+            </li>
+          </ul>
+          <ul class="markers-list">
+            <li>
+              <i class="cities"></i>
+              <input type="checkbox" id="textmarkers" class="cc" checked />
+              <label for="textmarkers" class="cl" data-i18n="citiesNames">Cities Names</label>
+            </li>
+						<li>
+              <i class="fast_travel"></i>
+              <input type="checkbox" id="fast_travel" class="cc" />
+              <label for="fast_travel" class="cl" data-i18n="fast_travel">Fast Travel</label>
+            </li>
+						<li>
+              <i class="accident"></i>
+              <input type="checkbox" id="accident" class="cc" />
+              <label for="accident" class="cl" data-i18n="accident">Accident</label>
+            </li>
+						<li>
+              <i class="alchemy_bench"></i>
+              <input type="checkbox" id="alchemy_bench" class="cc" />
+              <label for="alchemy_bench" class="cl" data-i18n="alchemy_bench">Alchemy Bench</label>
+            </li>
+						<li>
+              <i class="apothecary"></i>
+              <input type="checkbox" id="apothecary" class="cc" />
+              <label for="apothecary" class="cl" data-i18n="apothecary">Apothecary</label>
+            </li>
+						<li>
+              <i class="archery_range"></i>
+              <input type="checkbox" id="archery_range" class="cc" />
+              <label for="archery_range" class="cl" data-i18n="archery_range">Archery Range</label>
+            </li>
+						<li>
+              <i class="armourer"></i>
+              <input type="checkbox" id="armourer" class="cc" />
+              <label for="armourer" class="cl" data-i18n="armourer">Armourer</label>
+            </li>
+						<li>
+              <i class="bandit_camp"></i>
+              <input type="checkbox" id="bandit_camp" class="cc" />
+              <label for="bandit_camp" class="cl" data-i18n="bandit_camp">Bandit Camp</label>
+            </li>
+						<li>
+              <i class="baker"></i>
+              <input type="checkbox" id="baker" class="cc" />
+              <label for="baker" class="cl" data-i18n="baker">Baker</label>
+            </li>
+						<li>
+              <i class="baths"></i>
+              <input type="checkbox" id="baths" class="cc" />
+              <label for="baths" class="cl" data-i18n="baths">Baths</label>
+            </li>
+						<li>
+              <i class="beehive"></i>
+              <input type="checkbox" id="beehive" class="cc" />
+              <label for="beehive" class="cl" data-i18n="beehive">Beehive</label>
+            </li>
+						<li>
+              <i class="blacksmith"></i>
+              <input type="checkbox" id="blacksmith" class="cc" />
+              <label for="blacksmith" class="cl" data-i18n="blacksmith">Blacksmith</label>
+            </li>
+						<li>
+              <i class="boar_hunting_spot"></i>
+              <input type="checkbox" id="boar_hunting_spot" class="cc" />
+              <label for="boar_hunting_spot" class="cl" data-i18n="boar_hunting_spot">Boar Hunting Spot</label>
+            </li>
+						<li>
+              <i class="butcher"></i>
+              <input type="checkbox" id="butcher" class="cc" />
+              <label for="butcher" class="cl" data-i18n="butcher">Butcher</label>
+            </li>
+						<li>
+              <i class="camp"></i>
+              <input type="checkbox" id="camp" class="cc" />
+              <label for="camp" class="cl" data-i18n="camp">Camp</label>
+            </li>
+						<li>
+              <i class="cave"></i>
+              <input type="checkbox" id="cave" class="cc" />
+              <label for="cave" class="cl" data-i18n="cave">Cave</label>
+            </li>
+						<li>
+              <i class="cobbler"></i>
+              <input type="checkbox" id="cobbler" class="cc" />
+              <label for="cobbler" class="cl" data-i18n="cobbler">Cobbler</label>
+            </li>
+						<li>
+              <i class="combat_arena"></i>
+              <input type="checkbox" id="combat_arena" class="cc" />
+              <label for="combat_arena" class="cl" data-i18n="combat_arena Arena">Combat Arena</label>
+            </li>
+						<li>
+              <i class="conciliation_cross"></i>
+              <input type="checkbox" id="conciliation_cross" class="cc" />
+              <label for="conciliation_cross" class="cl" data-i18n="conciliation_cross">Conciliation Cross</label>
+            </li>
+						<li>
+              <i class="deer_hunting_spot"></i>
+              <input type="checkbox" id="deer_hunting_spot" class="cc" />
+              <label for="deer_hunting_spot" class="cl" data-i18n="deer_hunting_spot">Deer Hunting Spot</label>
+            </li>
+						<li>
+              <i class="fishing_spot"></i>
+              <input type="checkbox" id="fishing_spot" class="cc" />
+              <label for="fishing_spot" class="cl" data-i18n="fishing_spot">Fishing Spot</label>
+            </li>
+						<li>
+              <i class="fish_trap"></i>
+              <input type="checkbox" id="fish_trap" class="cc" />
+              <label for="fish_trap" class="cl" data-i18n="fish_trap">Fish Trap</label>
+            </li>
+						<li>
+              <i class="grave"></i>
+              <input type="checkbox" id="grave" class="cc" />
+              <label for="grave" class="cl" data-i18n="grave">Grave</label>
+            </li>
+						<li>
+              <i class="grindstone"></i>
+              <input type="checkbox" id="grindstone" class="cc" />
+              <label for="grindstone" class="cl" data-i18n="grindstone">Grindstone</label>
+            </li>
+						<li>
+              <i class="vegetable_shop"></i>
+              <input type="checkbox" id="vegetable_shop" class="cc" />
+              <label for="vegetable_shop" class="cl" data-i18n="vegetable_shop">Grocer</label>
+            </li>
+						<li>
+              <i class="herbalist"></i>
+              <input type="checkbox" id="herbalist" class="cc" />
+              <label for="herbalist" class="cl" data-i18n="herbalist">Herbalist</label>
+            </li>
+						<li>
+              <i class="horse_trader"></i>
+              <input type="checkbox" id="horse_trader" class="cc" />
+              <label for="horse_trader" class="cl" data-i18n="horse_trader">Horse Trader</label>
+            </li>
+						<li>
+              <i class="huntsman"></i>
+              <input type="checkbox" id="huntsman" class="cc" />
+              <label for="huntsman" class="cl" data-i18n="huntsman">Huntsman</label>
+            </li>
+						<li>
+              <i class="interesting_site"></i>
+              <input type="checkbox" id="interesting_site" class="cc" />
+              <label for="interesting_site" class="cl" data-i18n="interesting_site">Interesting Site</label>
+            </li>
+						<li>
+              <i class="lodgings"></i>
+              <input type="checkbox" id="lodgings" class="cc" />
+              <label for="lodgings" class="cl" data-i18n="lodgings">Lodgings</label>
+            </li>
+						<li>
+              <i class="miller"></i>
+              <input type="checkbox" id="miller" class="cc" />
+              <label for="miller" class="cl" data-i18n="miller">Miller</label>
+            </li>
+									<li>
+              <i class="nest"></i>
+              <input type="checkbox" id="nest" class="cc" />
+              <label for="nest" class="cl" data-i18n="nest">Nest</label>
+            </li>
+						<li>
+              <i class="scribe"></i>
+              <input type="checkbox" id="scribe" class="cc" />
+              <label for="scribe" class="cl" data-i18n="scribe">Scribe</label>
+            </li>
+						<li>
+              <i class="shrine"></i>
+              <input type="checkbox" id="shrine" class="cc" />
+              <label for="shrine" class="cl" data-i18n="shrine">Shrine</label>
+            </li>
+						<li>
+              <i class="tailor"></i>
+              <input type="checkbox" id="tailor" class="cc" />
+              <label for="tailor" class="cl" data-i18n="tailor">Tailor</label>
+            </li>
+						<li>
+              <i class="tanner"></i>
+              <input type="checkbox" id="tanner" class="cc" />
+              <label for="tanner" class="cl" data-i18n="tanner">Tanner</label>
+            </li>
+						<li>
+              <i class="tavern"></i>
+              <input type="checkbox" id="tavern" class="cc" />
+              <label for="tavern" class="cl" data-i18n="tavern">Tavern</label>
+            </li>
+						<li>
+              <i class="trader"></i>
+              <input type="checkbox" id="trader" class="cc" />
+              <label for="trader" class="cl" data-i18n="trader">Trader</label>
+            </li>
+						<li>
+              <i class="treasure_chest"></i>
+              <input type="checkbox" id="treasure_chest" class="cc" />
+              <label for="treasure_chest" class="cl" data-i18n="treasure_chest">Treasure Chest</label>
+            </li>
+						<li>
+              <i class="weaponsmith"></i>
+              <input type="checkbox" id="weaponsmith" class="cc" />
+              <label for="weaponsmith" class="cl" data-i18n="weaponsmith">Weaponsmith</label>
+            </li>
+						<li>
+              <i class="woodland_garden"></i>
+              <input type="checkbox" id="woodland_garden" class="cc" />
+              <label for="woodland_garden" class="cl" data-i18n="woodland_garden">Woodland Garden</label>
+            </li>
+            <li>
+              <i class="your_bed"></i>
+              <input type="checkbox" id="bed" class="cc" />
+              <label for="bed" class="cl" data-i18n="bed">Your Bed</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Tab share -->
+      <div class="sidebar-pane" id="share">
+        <span class="sidebar-close"><i class="left-arrow"></i></span>
+        <p class="list-title" data-i18n="send_markers">Send Markers</p>
+        <div class="content">
+          <p class="text">
+            You can submit your markers in our discord server. We will update markers daily to make this map the most complete possible. Also new features are on the way!
+          </p>
+          <a href="https://discord.gg/7rvUxAC">
+            <img class="discord-img" src="https://kingdomcomemap.github.io/assets/images/discord-dark.svg" alt="Discord" />
+          </a>
+          <p class="text">
+            Or you can submit them in our Reddit thread:
+          </p>
+          <a href="https://www.reddit.com/r/kingdomcome/comments/81aaov/interactive_map_live/">
+            <img class="discord-img" src="https://kingdomcomemap.github.io/assets/images/reddit.svg" alt="Reddit Kingdom Come Map" />
+          </a>
+        </div>
+      </div>
+      <!-- Tab about -->
+      <div class="sidebar-pane" id="about">
+        <span class="sidebar-close"><i class="left-arrow"></i></span>
+        <p class="list-title" data-i18n="info">Info</p>
+        <div class="content">
+          <h3>Initial release 1.0</h3>
+          <p class="text">
+            In this version of the map you can place markers around the map and it will save it in the local storage in your browser, even if you close it will remain there. Only if you clear your browser cache that the markers will be lost!
+          </p>
+          <p class="text">
+            You can add a name and a description to your markers, as well choose the marker icon.
+          </p>
+          <p class="text">
+            The map will be updated daily with new markers, and features.
+          </p>
+          <p class="text">
+            Roger
+          </p>
+					
+					<h3>Update 1.2</h3>
+          <p class="text">
+            All markers extracted from the game.
+          </p>
+          <p class="text">
+            You can add a name and a description to your markers, as well choose the marker icon.
+          </p>
+          <p class="text">
+            You will notice coordinates inside the popup of the markers, these coordinates are the ingame coordinates.
+          </p>
+					<p class="text">
+            If you have more information about a specific marker, use that coordinates to help me locate the marker.
+          </p>
+					<p class="text">
+            Some Woodland gardens have information of what herbs you can find there.
+          </p>
+					<p class="text">
+            More to come!
+          </p>
+          <p class="text">
+            Roger
+          </p>
+					
+					
+					
+        </div>
+      </div>
+      <!-- Tab settings -->
+      <div class="sidebar-pane" id="settings">
+        <span class="sidebar-close"><i class="left-arrow"></i></span>
+        <p class="list-title" data-i18n="languagechange">Change Language</p>
+        <div class="langswitch">
+          <a class="lang" data-lang="en">
+            <i class="en"></i>
+            <span class="lang-text" data-i18n="English">English</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang" data-lang="es">
+            <i class="es"></i>
+            <span class="lang-text" data-i18n="Spanish">Spanish</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang" data-lang="br">
+            <i class="br"></i>
+            <span class="lang-text" data-i18n="PortugueseBrazilian">Portuguese Brazilian</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="fr">
+            <i class="fr"></i>
+            <span class="lang-text" data-i18n="French">French</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="it">
+            <i class="it"></i>
+            <span class="lang-text" data-i18n="Italian">Italian</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="de">
+            <i class="de"></i>
+            <span class="lang-text" data-i18n="German">German</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang" data-lang="ru">
+            <i class="ru"></i>
+            <span class="lang-text" data-i18n="Russian">Russian</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="pl">
+            <i class="pl"></i>
+            <span class="lang-text" data-i18n="Polish">Polish</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="nl">
+            <i class="nl"></i>
+            <span class="lang-text" data-i18n="Dutch">Dutch</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="cn">
+            <i class="cn"></i>
+            <span class="lang-text" data-i18n="Chinese">Chinese</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="ko">
+            <i class="ko"></i>
+            <span class="lang-text" data-i18n="Korean">Korean</span>
+            <span class="checkmark"></span>
+          </a>
+          <a class="lang disabled" data-lang="ja">
+            <i class="ja"></i>
+            <span class="lang-text" data-i18n="Japanese">Japanese</span>
+            <span class="checkmark"></span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div id="map" class="sidebar-map"></div>
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Leaflet -->
+    <script src="js/leaflet.js"></script>
+    <!-- Leaflet Coordinates -->
+    <script src="js/Leaflet.Coordinates-0.1.3.min.js" charset="utf-8"></script>
+    <!-- Leaflet Hash -->
+    <script src="js/leaflet-hash.min.js" charset="utf-8"></script>
+	<!-- Fullscren Control -->
+    <script src="js/FullScreen.js" charset="utf-8"></script>
+    <!-- Sidebar v2 -->
+    <script src="js/leaflet-sidebar.js" type="text/javascript"></script>
+    <!-- i18next -->
+    <script src="js/i18next-1.6.3.js"></script>
+    <!-- JS -->
+    <script src="js/markers.js" type="text/javascript"></script>
+		<script src="js/usr_markers.js" type="text/javascript"></script>
+    <script src="js/lang.js"></script>
+    <!-- js -->
+    <script src="js/functions_8192.js" type="text/javascript"></script>
+  </body>
+
+</html>
