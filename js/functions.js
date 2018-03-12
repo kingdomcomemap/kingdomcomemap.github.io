@@ -89,6 +89,20 @@ L.control.coordinates({
 	markerProps: {} //optional default {}
 }).addTo(map);
 
+// Fix for the 1px white border
+function gridfix(){
+  var originalInitTile = L.GridLayer.prototype._initTile
+  L.GridLayer.include({
+    _initTile: function (tile) {
+      originalInitTile.call(this, tile);
+      var tileSize = this.getTileSize();
+      tile.style.width = tileSize.x + 1 + 'px';
+      tile.style.height = tileSize.y + 1 + 'px';
+    }
+  });
+};
+gridfix();
+
 var layerGroups = [];
 
 var textLayer = [];
