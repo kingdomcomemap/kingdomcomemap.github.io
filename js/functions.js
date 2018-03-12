@@ -109,7 +109,7 @@ for (var i = 0; i < textMarkers.length; i++) {
   var textMarker = new L.marker(textMarkers[i].coords, { opacity: 0.0, icon: transparentMarker }); //opacity may be set to zero
   textMarker.bindTooltip(textMarkers[i].name, {permanent: true, direction: "top", className: "text-label", offset: [0, 0] });
   textMarker.addTo(layerGroups.textmarkers); // Adds the text markers to map.
-  //layerGroups.textmarkers.addTo(map);
+  layerGroups.textmarkers.addTo(map);
 }
 
 map.on('zoomend', function(e) {
