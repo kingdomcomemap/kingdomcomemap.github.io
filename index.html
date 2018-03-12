@@ -31,7 +31,7 @@
         <li><a href="#share" role="tab"><i class="share"></i></a></li>
         <li><a href="#about" role="tab"><i class="about"></i></a></li>
         <!--<li class="disabled"><a href="#settings" role="tab"><i class="settings"></i></a></li>-->
-        <li class="disabled"><a href="#beta" role="tab"><i class="beta"></i></a></li>
+        <li><a href="#backup" role="tab"><i class="inventory"></i></a></li>
       </ul>
       <ul role="tablist"></ul>
     </div>
@@ -44,7 +44,7 @@
         </span>
         <div class="logo-container">
           <img class="logo-menu" src="https://kingdomcomemap.github.io/assets/images/kcdmap.svg" alt="Kingdom Come Deliverance Interactive Map" />
-          <p class="version">v. 1.2</p>
+          <p class="version">v. 1.3</p>
         </div>
         <div class="content">
 					<ul class="user-list">
@@ -64,7 +64,7 @@
           <ul class="markers-list">
             <li>
               <i class="cities"></i>
-              <input type="checkbox" id="textmarkers" class="cc" checked />
+              <input type="checkbox" id="textmarkers" class="cc" />
               <label for="textmarkers" class="cl" data-i18n="citiesNames">Cities Names</label>
             </li>
 						<li>
@@ -294,6 +294,32 @@
           </a>
         </div>
       </div>
+			<!-- Tab backup -->
+			<div class="sidebar-pane" id="backup">
+          <span class="sidebar-close"><i class="left-arrow"></i></span>
+          <p class="list-title" data-i18n="ImportExportmarkers">Import/Export markers</p>
+          <div class="content mtop15px">
+            <a class="btn backupls" href="#">
+              <i class="export"></i>
+              <span class="btn-text">Export markers</span>
+            </a>
+            <a class="btn restorels" href="#">
+              <i class="import"></i>
+              <span class="btn-text">Import markers</span>
+            </a>
+            <div class="dialog">
+            <a class="btn clearls" href="#">
+              <i class="erase"></i>
+              <span class="btn-text">Clear markers</span>
+            </a>
+              <div class="prompt hide">
+                <p class="text">This will delete all markers from the map, are you sure?</p>
+                <button class="clearyes" data-i18n="yes">Yes</button>
+			<button class="clearno" data-i18n="no">No</button>
+              </div>
+            </div>
+          </div>
+        </div>
       <!-- Tab about -->
       <div class="sidebar-pane" id="about">
         <span class="sidebar-close"><i class="left-arrow"></i></span>

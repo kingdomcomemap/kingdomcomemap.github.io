@@ -44,9 +44,16 @@
         </span>
         <div class="logo-container">
           <img class="logo-menu" src="https://kingdomcomemap.github.io/assets/images/kcdmap.svg" alt="Kingdom Come Deliverance Interactive Map" />
-          <p class="version">v. 1.0</p>
+          <p class="version">v. 1.2</p>
         </div>
         <div class="content">
+					<ul class="user-list">
+						<li>
+							<i class="player"></i>
+							<input type="checkbox" id="usermarkers" class="cc" checked />
+							<label for="usermarkers" class="cl" data-i18n="Mymarkers">My Markers</label>
+						</li>
+					</ul>
           <ul class="allmarkers-list">
             <li>
               <i class="allmarkers"></i>
@@ -89,6 +96,11 @@
               <i class="armourer"></i>
               <input type="checkbox" id="armourer" class="cc" />
               <label for="armourer" class="cl" data-i18n="armourer">Armourer</label>
+            </li>
+						<li>
+              <i class="bandit_camp"></i>
+              <input type="checkbox" id="bandit_camp" class="cc" />
+              <label for="bandit_camp" class="cl" data-i18n="bandit_camp">Bandit Camp</label>
             </li>
 						<li>
               <i class="baker"></i>
@@ -246,11 +258,6 @@
               <label for="treasure_chest" class="cl" data-i18n="treasure_chest">Treasure Chest</label>
             </li>
 						<li>
-              <i class="unknown"></i>
-              <input type="checkbox" id="unknown" class="cc" />
-              <label for="unknown" class="cl" data-i18n="unknown">Unknown</label>
-            </li>
-						<li>
               <i class="weaponsmith"></i>
               <input type="checkbox" id="weaponsmith" class="cc" />
               <label for="weaponsmith" class="cl" data-i18n="weaponsmith">Weaponsmith</label>
@@ -305,6 +312,32 @@
           <p class="text">
             Roger
           </p>
+					
+					<h3>Update 1.2</h3>
+          <p class="text">
+            All markers extracted from the game.
+          </p>
+          <p class="text">
+            You can add a name and a description to your markers, as well choose the marker icon.
+          </p>
+          <p class="text">
+            You will notice coordinates inside the popup of the markers, these coordinates are the ingame coordinates.
+          </p>
+					<p class="text">
+            If you have more information about a specific marker, use that coordinates to help me locate the marker.
+          </p>
+					<p class="text">
+            Some Woodland gardens have information of what herbs you can find there.
+          </p>
+					<p class="text">
+            More to come!
+          </p>
+          <p class="text">
+            Roger
+          </p>
+					
+					
+					
         </div>
       </div>
       <!-- Tab settings -->
@@ -388,7 +421,7 @@
     <!-- Leaflet Hash -->
     <script src="js/leaflet-hash.min.js" charset="utf-8"></script>
 	<!-- Fullscren Control -->
-    <script src="js/fullScreen.js" charset="utf-8"></script>
+    <script src="js/FullScreen.js" charset="utf-8"></script>
     <!-- Sidebar v2 -->
     <script src="js/leaflet-sidebar.js" type="text/javascript"></script>
     <!-- i18next -->

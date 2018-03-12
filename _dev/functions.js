@@ -1,22 +1,23 @@
-var version = 1.3;
 var iconsUrl = './assets/images/';
-var tilesUrl = "./map/{z}_{x}_{y}.jpg";
+var tilesUrl = "./bohemia_map/{z}_{x}_{y}.jpg";
 var maxNativeZoom = 5;
 var mapMinZoom = 1;
 var mapMaxZoom = 6;
 
-var mapSize = 8192;
-var tileSize = 256;
-var mapScale = mapSize / tileSize;
-var mapOffset = mapSize / mapScale / 2;
+var mapSize = 6144;
+var tileSize = 192;
+var mapScale = mapSize / tileSize; // 6144 / 192 = 32.
+var mapOffset = mapSize / mapScale / 2; //192
 var halfTile = tileSize / 2;
-var mapBounds = 4096;
 
 L.CRS.MySimple = L.extend({}, L.CRS.Simple, {
-	transformation: new L.Transformation(1 / 16, 0, -1 / 16, 256)
+  // At zoom 0, tile 192px x 192px should represent the entire "world" of size 6144 x 6144.
+  // Scale is therefore 6144 / 192 = 32 (use the reverse in transformation, i.e. 1 / 32).
+  // We want the center of tile 0/0/0 to be coordinates [0, 0], so offset is 6144 * 1 / 32 / 2 = 192.
+	transformation: new L.Transformation(1 / mapScale, halfTile, -1 / mapScale, halfTile)
 });
 
-var myBounds = [[0,0],[mapBounds, mapBounds]];
+var myBounds = [[-mapSize/2, -mapSize/2],[mapSize/2, mapSize/2]];
 
 var map = L.map('map', {
   maxNativeZoom: maxNativeZoom,
@@ -29,7 +30,7 @@ var map = L.map('map', {
   },
   crs: L.CRS.MySimple,
 
-}).setView([2932,2932], 2);
+}).setView([0, 0], 2);
 
 L.tileLayer(tilesUrl, {
   maxNativeZoom: maxNativeZoom,
@@ -42,7 +43,7 @@ L.tileLayer(tilesUrl, {
   continuousWorld: true
 }).addTo(map);
 
-map.setMaxBounds([[-4000, -4000], [10000, 10000]]);
+map.setMaxBounds([[-8000, -8000], [8000, 8000]]);
 
 window.latLngToPixels = function(latlng) {
   return window.map.project([latlng.lat, latlng.lng], window.map.getMaxZoom());
@@ -90,6 +91,19 @@ L.control.coordinates({
 }).addTo(map);
 
 var layerGroups = [];
+function getIcon(index) {
+  var icon = markers[index].icon;
+
+  var markerIcon = L.icon({
+    iconUrl: iconsUrl+icon+'.png',
+    iconSize: [36,36], // size of the icon
+    iconAnchor:   [18, 18], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, -18],
+    // point from which the popup should open relative to the iconAnchor
+  });
+
+  return markerIcon;
+}
 
 var textLayer = [];
 var transparentMarker = L.icon({
@@ -109,7 +123,7 @@ for (var i = 0; i < textMarkers.length; i++) {
   var textMarker = new L.marker(textMarkers[i].coords, { opacity: 0.0, icon: transparentMarker }); //opacity may be set to zero
   textMarker.bindTooltip(textMarkers[i].name, {permanent: true, direction: "top", className: "text-label", offset: [0, 0] });
   textMarker.addTo(layerGroups.textmarkers); // Adds the text markers to map.
-  //layerGroups.textmarkers.addTo(map);
+  layerGroups.textmarkers.addTo(map);
 }
 
 map.on('zoomend', function(e) {
@@ -142,21 +156,6 @@ map.on('zoomend', function(e) {
       $('.text-label.secondary').css('visibility', 'hidden'); break;
   }
 });
-
-function getIcon(index) {
-  var icon = markers[index].icon;
-	
-  var markerIcon = L.icon({
-    iconUrl: iconsUrl+icon+'.png',
-    iconSize: [36,36], // size of the icon
-    iconAnchor:   [18, 18], // point of the icon which will correspond to marker's location
-    popupAnchor:  [0, -18],
-    // point from which the popup should open relative to the iconAnchor
-  });
-
-  return markerIcon;
-}
-
 // GAME MARKERS
 
 for (var i = 0; i < markers.length; i++) {
@@ -171,22 +170,20 @@ for (var i = 0; i < markers.length; i++) {
   if (markers[i].items == undefined) {
     markers[i].items = "";
   }
-	if (markers[i].kcditems == undefined) {
-    markers[i].kcditems = "";
-  }
   var ilist = "";
-  for (var h in markers[i].kcditems) {
-		var kcditems =  markers[i].kcditems[h];
-    ilist += '<li><i class="'+ markers[i].kcditems[h].item+'"></i><span class="iname" data-i18n="'+ markers[i].kcditems[h].item+'">'+ markers[i].kcditems[h].item.replace(/_/gi, " ")+'</span><span class="qnt">'+markers[i].kcditems[h].qnt+'</span></li>';
+  for (var c in markers[i].items) {
+    ilist += '<li><i class="'+ markers[i].items[c]+'"></i><span class="iname" data-i18n="'+ markers[i].items[c]+'">'+ markers[i].items[c].replace(/_/gi, " ")+'</span></li>';
   }
-  var x = (markers[i].coords[1]).toFixed(0);
-  var y = (markers[i].coords[0]).toFixed(0);
-  
-  var origin_x = (markers[i].coords[1]);
+  var x = (markers[i].coords[1].toFixed(0));
+  var y = (markers[i].coords[0].toFixed(0));
+	
+	var origin_x = (markers[i].coords[1]);
   var origin_y = (markers[i].coords[0]);
+	
+	var original_coords = '<p class="original_coords">'+origin_x+','+origin_y+'</p>';
 
-  // Add the marker
-  var marker = L.marker([x, y], {icon: getIcon(i)}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p>").addTo(layerGroups[markers[i].group]);
+  // Add the marker  [x/4096 *5862 -2931, y/4096 *5862 -2931]
+  var marker = L.marker([x/4096 *5862 -2931, y/4096 *5862 -2931], {icon: getIcon(i)}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p>").addTo(layerGroups[markers[i].group]);
 }
 
 function getIconUsr(index) {
@@ -205,31 +202,26 @@ function getIconUsr(index) {
 
 // USER MARKERS
 for (var i = 0; i < usr_markers.length; i++) {
-	var imarkers = usr_markers[i]
   // if the group doesn't exists in layergroups
-  if (layerGroups[imarkers.group] == undefined) {
+  if (layerGroups[usr_markers[i].group] == undefined) {
     // Create the group
-    layerGroups[imarkers.group] = new L.LayerGroup();
+    layerGroups[usr_markers[i].group] = new L.LayerGroup();
   }
-  if (imarkers.desc == undefined) {
-    imarkers.desc = "";
+  if (usr_markers[i].desc == undefined) {
+    usr_markers[i].desc = "";
   }
-  if (imarkers.items == undefined) {
-    imarkers.items = "";
+  if (usr_markers[i].items == undefined) {
+    usr_markers[i].items = "";
   }
-	imarkers.req = (imarkers.req == undefined) ? "" : imarkers.req;
-	imarkers.level = (imarkers.level == undefined) ? "" : imarkers.level;
   var ilist = "";
-  for (var c in imarkers.items) {
-    ilist += '<li><i class="'+ imarkers.items[c]+'"></i><span class="iname" data-i18n="'+ imarkers.items[c]+'">'+ imarkers.items[c].replace(/_/gi, " ")+'</span></li>';
+  for (var c in usr_markers[i].items) {
+    ilist += '<li><i class="'+ usr_markers[i].items[c]+'"></i><span class="iname" data-i18n="'+ usr_markers[i].items[c]+'">'+ usr_markers[i].items[c].replace(/_/gi, " ")+'</span></li>';
   }
-	var req = '<p class="req" data-i18n="req">Requirements:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+imarkers.req.replace(/_/gi, " ")+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+imarkers.level.replace(/_/gi, " ")+'</span></li>';
-	
-  var x = (imarkers.coords[1]);
-  var y = (imarkers.coords[0]);
+  var x = (usr_markers[i].coords[1]);
+  var y = (usr_markers[i].coords[0]);
 
   // Add the marker
-  var marker = L.marker([x, y], {icon: getIconUsr(i)}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><span class='mdesc'>"+ imarkers.desc +"</span>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p>").addTo(layerGroups[imarkers.group]);
+  var marker = L.marker([usr_markers[i].coords[1], usr_markers[i].coords[0]], {icon: getIconUsr(i)}).bindPopup("<p class='mtitle'>"+usr_markers[i].name + "</p><span class='mdesc'>"+ usr_markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul>").addTo(layerGroups[usr_markers[i].group]);
 }
 
 function toggle(element, layer) {
@@ -633,9 +625,6 @@ var groupUser = [];
 initUserLayerGroup();
 function initUserLayerGroup() {
 	var markersUser = [];
-	if (localStorage.mapUserMarkers == "undefined") {
-		localStorage.mapUserMarkers = "[]";
-	}
   if (localStorage.mapUserMarkers !== undefined) {
     var storageMarkers = [];
 
@@ -693,26 +682,6 @@ function initUserLayerGroup() {
   map.addLayer(groupUser);
 }
 // End user added markers
-
-// Patch coordinates if old version
-var actualversion = localStorage.getItem('version');
-if (actualversion === null || actualversion < version) {
-  localStorage.setItem('version', version);
-  console.log("version outdated")
-  storageMarkers = JSON.parse(localStorage.mapUserMarkers);
-  for (var i = 0; i < storageMarkers.length; i++) {
-    var x = storageMarkers[i].coords.x;
-    var y = storageMarkers[i].coords.y;
-    x = (x/2932*2048 + 2048).toFixed(0);
-    y = (y/2932*2048 + 2048).toFixed(0);
-    storageMarkers[i].coords.x = x
-    storageMarkers[i].coords.y = y
-    localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
-    map.removeLayer(groupUser);
-    initUserLayerGroup();
-  };
-} else {};
-// End Patch
 
 // Change marker background image on select marker
 function iconpref(value) {
@@ -856,7 +825,6 @@ function onPopupOpen() {
     }  
     //localStorage.removeItem('userMarkers');
     map.removeLayer(_this);
-		groupUser.removeLayer(_this);
   });
   
    //Edit Marker
@@ -948,103 +916,11 @@ $('#usermarkers').click(function(){
 map.on('click', function (e) {
   var lat = Math.round(e.latlng.lat);
   var long = Math.round(e.latlng.lng);
-  if (long < 0 || long > 4095 || lat < 0 || lat > 4095) {
-   console.log("lat: "+lat+ "long: "+long);
-  } else {
-    message = '<span class="coordsinfo">X: ' +long+ '' + 'Y: ' +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Add marker</button>';
-    popup.setLatLng(e.latlng).setContent(message).openOn(map);
-  }
+
+  message = "<span class='coordsinfo'>X: " +long+ " " + "Y: " +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Add marker</button>';
+  popup.setLatLng(e.latlng).setContent(message).openOn(map);
+
 });
-
-function getFormattedTime() {
-    var today = new Date();
-    var y = today.getFullYear();
-    var m = ("0" + (today.getMonth() + 1)).slice(-2)
-    var d = today.getDate();
-    var hour = today.getHours();
-    var min = today.getMinutes();
-    var s = today.getSeconds();
-    return y + "-" + m + "-" + d + "_" + hour + "." + min;
-}
-
-
-// Backup Restore 
-$(document).on('click', '.clearls', function() {
-  $(this).addClass('hide');
-  $(this).next('.prompt').removeClass('hide');
-});
-$(document).on('click', '.clearyes', function() {
-  $(this).parent('.prompt').addClass('hide');
-  localStorage.setItem('mapUserMarkers', '[]');
-  map.removeLayer(groupUser);
-  initUserLayerGroup();
-});
-$(document).on('click', '.clearno', function() {
-  $(this).parent('.prompt').addClass('hide');
-});
-
-$('.backupls').on('click', function(e) {
-  var backup = {};
-  var mapUserMarkers = localStorage.mapUserMarkers;
-  var langactive = localStorage.langactive;
-  backup.markers = mapUserMarkers;
-  backup.langactive = langactive;
-
-  var json = JSON.stringify(backup);
-  var base = btoa(json);
-  var href = 'data:text/javascript;charset=utf-8;base64,' + base;
-  var link = document.createElement('a');
-    link.setAttribute('download', 'kcdmap_'+getFormattedTime()+'.json');
-  link.setAttribute('href', href);
-  document.querySelector('body').appendChild(link);
-  link.click();
-  link.remove();
-});
-
-$('.restorels').on('click', function(e) {
-	var w = document.createElement('div');
-  w.className = "restoreWindowOverlay";
-  var t = document.createElement('div');
-  t.className = "restoreWindow";
-  var a = document.createElement('a');
-  a.className = "restoreWindowX";
-  a.appendChild(document.createTextNode('×'));
-  a.setAttribute('href', '#');
-  t.appendChild(a);
-  a.onclick = function() {
-      w.remove();
-  };
-
-  var l = document.createElement('input');
-  l.setAttribute('type', 'file');
-  l.setAttribute('id', 'fileinput');
-  l.onchange = function(e) {
-			w.remove();
-      var f = e.target.files[0];
-      if (f) {
-          var reader = new FileReader();
-          reader.onload = function(e) {
-              var text = e.target.result;
-            text = JSON.parse(text);
-            localStorage.setItem('mapUserMarkers', text.markers);
-            localStorage.setItem('langactive', text.langactive);
-            initUserLayerGroup();
-              alert('Imported markers from backup.')
-          };
-          reader.readAsText(f);
-      } else {
-        alert('Failed to load file');
-      }
-  };
-  var a = document.createElement('h3');
-  a.className = "restoreTitle";
-  a.appendChild(document.createTextNode('Select file with backup'));
-  t.appendChild(a);
-  t.appendChild(l);
-	w.appendChild(t);
-  document.querySelector('body').appendChild(w);
-});
-// End Backup Restore 
 
 
 $('.toggle-title').click(function(){
