@@ -428,6 +428,21 @@ a.locate.sidebar-close {
   font-size: 14px;
   margin:5px 10px 10px;
 }
+.update h3 {
+	margin: 10px 0 5px;
+}
+.update .text {
+  font-family: Consolas;
+  color: #1f201b;
+  font-size: 13px;
+  margin:5px 10px 5px 0px;
+}
+.update i {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    background-size: contain;
+}
 
 .hidden-content {display: none;}
 
@@ -922,7 +937,7 @@ min-width: 100%; } }
 .settings {background-image: url('../assets/images/codex.png');}
 /*markers tab*/
 .logo-container {
-  margin: 5px 20px;
+  margin: 5px 30px 5px 10px;
   position: relative;
 }
 img.logo-menu {
