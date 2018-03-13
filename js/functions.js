@@ -965,7 +965,7 @@ map.on('click', function (e) {
   if (long < 0 || long > 4095 || lat < 0 || lat > 4095) {
    console.log("lat: "+lat+ "long: "+long);
   } else {
-    message = '<span class="coordsinfo">X: ' +long+ '' + 'Y: ' +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Add marker</button>';
+    message = '<span class="coordsinfo">X: ' +long+ ' ' + 'Y: ' +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Add marker</button>';
     popup.setLatLng(e.latlng).setContent(message).openOn(map);
   }
 });
