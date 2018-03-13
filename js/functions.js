@@ -1094,6 +1094,7 @@ $('.toggle-title').click(function(){
     $(this).parent().find(".checkmark").removeClass("active");
     $(this).find(".checkmark").addClass("active");
   });
+<<<<<<< HEAD
 	
 	// Save toggle state
 $('.markers-list input').on('change', function() {
@@ -1116,3 +1117,5 @@ if (localStorage.activemarkers !== undefined) {
   };
 };
 // end toggle state
+=======
+>>>>>>> 05ab6dc4ae812ad051c33447a38db314c7322c9c
