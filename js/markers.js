@@ -469,7 +469,22 @@ Spade to bury Henry's parents
 "name": "<span data-i18n='bandit_camp'>Bandit Camp</span>",
 "group": "bandit_camp",
 "icon": "bandit_camp",
+"coords": [1735,720],
+},
+{	
+"name": "<span data-i18n='bandit_camp'>Bandit Camp</span>",
+"group": "bandit_camp",
+"icon": "bandit_camp",
 "coords": [1748,2979],
+},
+{	
+"name": "<span data-i18n='bandit_camp'>Bandit Camp</span>",
+"group": "bandit_camp",
+"icon": "bandit_camp",
+"chest": "",
+"req": "lockpicking",
+"level": "very_hard",
+"coords": [1674,988],
 },
 {	
 "name": "<span data-i18n='bed'>Bed</span>",

@@ -696,7 +696,7 @@ button.no {
   font-size: 19px;
 	letter-spacing: 1px;
 }
-.mdesc {}
+p.mdesc {margin: 0;}
 .mcoords {
   font-size: 11px;
   text-transform: capitalize;
