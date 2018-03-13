@@ -228,6 +228,9 @@ for (var i = 0; i < usr_markers.length; i++) {
   if (imarkers.desc == undefined) {
     imarkers.desc = "";
   }
+	if (imarkers.desc2 == undefined) {
+    imarkers.desc2 = "";
+  }
   if (imarkers.items == undefined) {
     imarkers.items = "";
   }
@@ -243,7 +246,7 @@ for (var i = 0; i < usr_markers.length; i++) {
   var y = (imarkers.coords[0]);
 
   // Add the marker
-  var marker = L.marker([x, y], {icon: getIconUsr(i)}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><span class='mdesc'>"+ imarkers.desc +"</span>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p>").addTo(layerGroups[imarkers.group]);
+  var marker = L.marker([x, y], {icon: getIconUsr(i)}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p>").addTo(layerGroups[imarkers.group]);
 }
 
 function toggle(element, layer) {
@@ -965,7 +968,7 @@ map.on('click', function (e) {
   if (long < 0 || long > 4095 || lat < 0 || lat > 4095) {
    console.log("lat: "+lat+ "long: "+long);
   } else {
-    message = '<span class="coordsinfo">X: ' +long+ '' + 'Y: ' +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Add marker</button>';
+    message = '<span class="coordsinfo">X: ' +long+ ' ' + 'Y: ' +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Add marker</button>';
     popup.setLatLng(e.latlng).setContent(message).openOn(map);
   }
 });
@@ -1091,3 +1094,25 @@ $('.toggle-title').click(function(){
     $(this).parent().find(".checkmark").removeClass("active");
     $(this).find(".checkmark").addClass("active");
   });
+	
+	// Save toggle state
+$('.markers-list input').on('change', function() {
+  var toggled, activemarkers = [];
+  $('.markers-list input').each(function() { // run through each of the checkboxes
+    toggled = {id: $(this).attr('id'), value: $(this).prop('checked')};
+    activemarkers.push(toggled);
+  });
+  localStorage.setItem("activemarkers", JSON.stringify(activemarkers));
+});
+
+var activemarkers = JSON.parse(localStorage.getItem('activemarkers'));
+if (localStorage.activemarkers !== undefined) {
+  for (var i=0; i<activemarkers.length; i++) {
+    $('#' + activemarkers[i].id ).prop('checked', activemarkers[i].value);
+    if (activemarkers[i].value) {
+      $('#allmarkers').prop('checked', false);
+      map.addLayer(layerGroups[activemarkers[i].id]);
+    };
+  };
+};
+// end toggle state
