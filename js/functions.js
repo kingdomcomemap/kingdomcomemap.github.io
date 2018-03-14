@@ -60,7 +60,7 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 sidebar.open('home');
 
-var hash = new L.Hash(map);
+// var hash = new L.Hash(map);
 
 L.Control.Coordinates.include({
 	_update: function(evt) {
@@ -106,6 +106,8 @@ gridfix();
 var layerGroups = [];
 
 var textLayer = [];
+
+var globalMarkers = [];
 var transparentMarker = L.icon({
         iconUrl: iconsUrl+'alpha_marker.png',
         iconSize: [1, 1],
@@ -204,6 +206,7 @@ for (var i = 0; i < markers.length; i++) {
 
   // Add the marker
   var marker = L.marker([x, y], {icon: getIcon(i)}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[markers[i].group]);
+	globalMarkers.push(marker);
 }
 
 function getIconUsr(index) {
@@ -253,6 +256,7 @@ for (var i = 0; i < usr_markers.length; i++) {
 
   // Add the marker
   var marker = L.marker([x, y], {icon: getIconUsr(i)}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
+	globalMarkers.push(marker);
 }
 
 function toggle(element, layer) {
