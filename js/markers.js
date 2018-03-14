@@ -1655,7 +1655,7 @@ Spade to bury Henry's parents
 "coords": [2627.584717,646.821106],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'Alchemy Bench/span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [952.196899,2345.984619],
@@ -2550,7 +2550,7 @@ Spade to bury Henry's parents
 "coords": [684.996094,1758.320557],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'Alchemy Bench/span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [3256.170166,1522.979004],
@@ -3391,7 +3391,7 @@ Spade to bury Henry's parents
 "coords": [295.109650,3350.917969],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'Alchemy Bench/span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [2312.275879,3308.354492],
@@ -3577,7 +3577,7 @@ Spade to bury Henry's parents
 "coords": [2792.712158,1257.559326],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'Alchemy Bench/span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [984.154785,1644.878418],
@@ -5815,7 +5815,7 @@ Spade to bury Henry's parents
 "coords": [2773.617920,3612.769531],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'Alchemy Bench/span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [899.154175,1682.904419],
@@ -6124,7 +6124,7 @@ Spade to bury Henry's parents
 "coords": [2682.136475,2934.708984],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'Alchemy Bench/span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [1965.719116,1611.107544],
@@ -6334,7 +6334,7 @@ Spade to bury Henry's parents
 "coords": [1625.810913,2668.803955],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'Alchemy Bench/span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [2503.195557,550.376160],
