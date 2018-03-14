@@ -313,6 +313,7 @@ return vars;
 
 var urlCoordinates = getUrlVars()["marker"];
 if (urlCoordinates != undefined) {
+	sidebar.close();
   for (var l in globalMarkers){
     var markerX = globalMarkers[l]._latlng.lat;
     var markerY = globalMarkers[l]._latlng.lng;
