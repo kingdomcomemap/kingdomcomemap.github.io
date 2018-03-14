@@ -60,7 +60,7 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 sidebar.open('home');
 
-var hash = new L.Hash(map);
+// var hash = new L.Hash(map);
 
 L.Control.Coordinates.include({
 	_update: function(evt) {
@@ -313,18 +313,42 @@ return vars;
 
 var urlCoordinates = getUrlVars()["marker"];
 if (urlCoordinates != undefined) {
-	sidebar.close();
+  var markFound = false;
+
+  if (getUrlVars()["sidebar"]=="false") sidebar.close();
+  if (getUrlVars()["zoom"]>=1 && getUrlVars()["zoom"]<=4) {
+      var urlZoom = getUrlVars()["zoom"];
+    } else {
+      var urlZoom = 4;
+    }
+
   for (var l in globalMarkers){
     var markerX = globalMarkers[l]._latlng.lat;
     var markerY = globalMarkers[l]._latlng.lng;
-    var markerdata = (markerY+','+markerX);
+    var markerdata = (markerY+','+markerX);    
+
     if (markerdata == urlCoordinates){
       $('#'+globalMarkers[l].options.title).prop('checked', true);
       map.addLayer(layerGroups[globalMarkers[l].options.title]);
-      map.flyTo(globalMarkers[l].getLatLng(),4);
-      globalMarkers[l].openPopup();
+      map.flyTo(globalMarkers[l].getLatLng(),urlZoom);
+      if (getUrlVars()["popup"]!="false") globalMarkers[l].openPopup();
+      markFound = true;
     };
   };
+
+  if (markFound==false) {
+      var aux_y = urlCoordinates.split(",")[1];
+      var aux_x = urlCoordinates.split(",")[0];
+      if ((aux_y <= mapBounds && aux_y>0) && (aux_x<=mapBounds && aux_x>0)) {
+        var aux_marker = L.marker([aux_y, aux_x]);        
+        map.flyTo(aux_marker.getLatLng(), urlZoom);
+        aux_marker = null;
+      }
+      aux_y = null;
+      aux_x = null;
+      
+  }
+
 }
 
 // Copy function
