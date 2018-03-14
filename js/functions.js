@@ -198,9 +198,12 @@ for (var i = 0; i < markers.length; i++) {
   
   var origin_x = (markers[i].coords[1]);
   var origin_y = (markers[i].coords[0]);
+	
+	var url = ('http://' + window.location.hostname + '/');
+  var markerUrl = (url+"?marker="+y+","+x);
 
   // Add the marker
-  var marker = L.marker([x, y], {icon: getIcon(i)}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p>").addTo(layerGroups[markers[i].group]);
+  var marker = L.marker([x, y], {icon: getIcon(i)}).bindPopup("<p class='markerlink hide'>"+markerUrl+"</p><p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[markers[i].group]);
 }
 
 function getIconUsr(index) {
@@ -244,9 +247,12 @@ for (var i = 0; i < usr_markers.length; i++) {
 	
   var x = (imarkers.coords[1]);
   var y = (imarkers.coords[0]);
+	
+	var url = ('http://' + window.location.hostname + '/');
+  var markerUrl = (url+"?marker="+y+","+x);
 
   // Add the marker
-  var marker = L.marker([x, y], {icon: getIconUsr(i)}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p>").addTo(layerGroups[imarkers.group]);
+  var marker = L.marker([x, y], {icon: getIconUsr(i)}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
 }
 
 function toggle(element, layer) {
@@ -291,6 +297,51 @@ $('.markers-list input').each(function() {
     }
   };
 });
+
+// URL Function
+function getUrlVars() {
+var vars = {};
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+vars[key] = value;
+});
+return vars;
+}
+
+var urlCoordinates = getUrlVars()["marker"];
+if (urlCoordinates != undefined) {
+  for (var l in globalMarkers){
+    var markerX = globalMarkers[l]._latlng.lat;
+    var markerY = globalMarkers[l]._latlng.lng;
+    var markerdata = (markerY+','+markerX);
+    if (markerdata == urlCoordinates){
+      $('#'+globalMarkers[l].options.title).prop('checked', true);
+      map.addLayer(layerGroups[globalMarkers[l].options.title]);
+      map.flyTo(globalMarkers[l].getLatLng(),4);
+      globalMarkers[l].openPopup();
+    };
+  };
+}
+
+// Copy function
+
+function copy(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+$(document).on('click', '.copymarkerurl', function() {
+  var copy = $(this).parent().find('.markerlink');
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(copy).text()).select();
+  document.execCommand("copy");
+  $('.copiedmsg').fadeIn({queue: false, duration: '300'});
+  $('.copiedmsg').delay(1000).fadeOut(300);
+  $temp.remove();
+})
+
 
 var locatedGroup = L.layerGroup();
 markers.forEach(function (items) {

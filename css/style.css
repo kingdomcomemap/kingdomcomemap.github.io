@@ -727,6 +727,26 @@ p.mdesc {margin: 0;}
   border-radius: 15px;
   height: 100%;
 }
+.edit-marker {
+  margin: 5px 0;
+}
+.copymarkerurl {
+  position: relative;
+}
+.copiedmsg {
+  position: absolute;
+  bottom: 0px;
+  background: #4e9006;
+  padding: 4px 7px;
+  font-size: 12px;
+  font-family: consolas;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  left: 0;
+  right: 0;
+  border: 1px solid #2f5405;
+}
 .hide {display: none;}
 .leaflet-popup-content .original_coords {
 font-family: Consolas;
