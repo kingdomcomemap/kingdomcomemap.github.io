@@ -60,7 +60,7 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 sidebar.open('home');
 
-// var hash = new L.Hash(map);
+var hash = new L.Hash(map);
 
 L.Control.Coordinates.include({
 	_update: function(evt) {
