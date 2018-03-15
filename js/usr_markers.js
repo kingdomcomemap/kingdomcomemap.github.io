@@ -223,4 +223,12 @@ var usr_markers =
     "icon": "treasure_chest",
     "coords": [871,270],
 
+}, {
+    "name": "<span data-i18n='treasure_map'>Treasure Map</span>",
+    "desc": "Treasure Map I",
+    "desc2": "In a mill on a barrel after climbing up a ladder",
+    "group": "treasure_map",
+    "icon": "treasure_map",
+    "coords": [1397,1446],
+
 }]
