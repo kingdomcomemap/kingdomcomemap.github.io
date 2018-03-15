@@ -516,8 +516,14 @@ ul.ilist li {
 	font-size: 14px;
 	margin-left: 10px;
 }
+.ilevel.easy {
+	color: #00ff00;
+}
+.ilevel.hard {
+	color: #ff6600;
+}
 .ilevel.very_hard {
-	color: #ce0e00;
+	color: #ce0000;
 }
 .ilist .qnt {
 	display: flex;
