@@ -759,8 +759,8 @@ function initUserLayerGroup() {
       });
 			
 			var popupcontent = '<div class="popcontent">\
-			<span class="mtitle">'+name+'</span><br>\
-			<span class="mdesc">'+desc+'</span><br>\
+			<p class="mtitle">'+name+'</p>\
+			<p class="mdesc">'+desc+'</p>\
 			<span class="mcoords">X: '+y+' Y: '+x+'</span></div>\
       <span class="markerlink hide">'+markerlink+'</span>\
       <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\

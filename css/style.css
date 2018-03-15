@@ -722,8 +722,9 @@ button.add-marker {
   margin: 5px auto;
 }
 button.remove-marker {
-  display: block;
-  margin: 0 auto;
+	display: block;
+	margin: 0 auto;
+	width: auto;
 }
 .remove-text {
   display: block;
@@ -789,10 +790,14 @@ p.mdesc {margin: 0;}
   height: 100%;
 }
 .edit-marker {
-  margin: 5px 0;
+	margin: 5px auto;
+	width: auto;
+	display: block;
 }
 .copymarkerurl {
-  position: relative;
+	width: auto;
+	display: block;
+	margin: 0 auto;
 }
 .copiedmsg {
   position: absolute;
