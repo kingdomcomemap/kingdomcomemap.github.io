@@ -1209,7 +1209,8 @@ function onPopupOpenShared() {
 
         _this.setIcon(markerIconTypes[editedicon]);
         localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
-
+				map.removeLayer(_this);
+				initUserLayerGroup();
     popup._close();
   });
 }
