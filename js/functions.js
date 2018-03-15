@@ -444,7 +444,7 @@ var mapMarkers =
 [
   {
 	icon:"arrow",
-	width: "18",
+	width: "36",
 	height: "36"},
   {
 	icon:"accident",
