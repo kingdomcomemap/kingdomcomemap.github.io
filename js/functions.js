@@ -898,7 +898,7 @@ function addMarkerText(lat,long) {
 
     var popupcontent = '<div class="popcontent">\
     <p class="mtitle">'+getAObj(postData,'title')+'</p>\
-    <p class="mtitle">'+getAObj(postData,'desc')+'</p>\
+    <p class="mdesc">'+getAObj(postData,'desc')+'</p>\
     <span class="mcoords">[ '+getAObj(postData,'mlon')+' , '+getAObj(postData,'mlat')+']</span></div>\
     <span class="markerlink hide">'+markerlink+'</span>\
     <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
@@ -1013,7 +1013,7 @@ function onPopupOpen() {
 				markerUrl = encodeURI(markerUrl);
         
         var editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
-<p class="mtitle">'+editeddesc+'</p>\
+<p class="mdesc">'+editeddesc+'</p>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
 <span class="markerlink hide">'+markerlink+'</span>\
 <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
@@ -1173,7 +1173,7 @@ function onPopupOpenShared() {
         var editeddesc = $(this).parent().find('#editeddesc').val();
         
         var editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
-<p class="mtitle">'+editeddesc+'</p>\
+<p class="mdesc">'+editeddesc+'</p>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
 <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
 <div id="edit-dialog" class="hide">\
