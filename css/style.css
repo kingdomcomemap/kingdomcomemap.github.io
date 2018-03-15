@@ -798,6 +798,7 @@ p.mdesc {margin: 0;}
 	width: auto;
 	display: block;
 	margin: 0 auto;
+	position: relative;
 }
 .copiedmsg {
   position: absolute;
