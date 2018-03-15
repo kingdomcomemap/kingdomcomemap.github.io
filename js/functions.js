@@ -203,6 +203,7 @@ for (var i = 0; i < markers.length; i++) {
   var origin_y = (markers[i].coords[0]);
 	
   var markerUrl = (url+"?marker="+y+","+x);
+	markerUrl = encodeURI(markerUrl);
 
   // Add the marker
   var marker = L.marker([x, y], {icon: getIcon(i),title: markers[i].group}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='copylink'>Copy link</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[markers[i].group]);
@@ -254,6 +255,7 @@ if (imarkers.req != undefined) {
   var y = (imarkers.coords[0]);
 	
   var markerUrl = (url+"?marker="+y+","+x);
+	markerUrl = encodeURI(markerUrl);
 
   // Add the marker
   var marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.group}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
@@ -747,6 +749,7 @@ function initUserLayerGroup() {
       var desc = storageMarkers[i].desc;
 			
 			var markerlink = (url+"?m="+y+","+x+"&title="+name+"&desc="+desc+"&icon="+iconvalue+"&");
+			markerUrl = encodeURI(markerUrl);
 
       var customIcon = L.icon({
         iconUrl: storageMarkers[i].icon.options.iconUrl,
@@ -891,6 +894,7 @@ function addMarkerText(lat,long) {
     popup._close();
 		
 		var markerlink = (url+"?m="+lon+","+lat+"&title="+getAObj(postData,"title")+"&desc="+getAObj(postData,"desc")+"&icon="+getAObj(postData,"icon")+"&");
+		markerUrl = encodeURI(markerUrl);
 
     var popupcontent = '<div class="popcontent">\
     <p class="mtitle">'+getAObj(postData,'title')+'</p>\
@@ -1006,6 +1010,7 @@ function onPopupOpen() {
         var editeddesc = $(this).parent().find('#editeddesc').val();
 				
 				var markerlink = (url+"?m="+clickedMarkerCoords.lng+","+clickedMarkerCoords.lat+"&title="+editedtitle+"&desc="+editeddesc+"&icon="+editedicon+"&");
+				markerUrl = encodeURI(markerUrl);
         
         var editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
 <p class="mtitle">'+editeddesc+'</p>\
