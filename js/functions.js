@@ -240,13 +240,17 @@ for (var i = 0; i < usr_markers.length; i++) {
   if (imarkers.items == undefined) {
     imarkers.items = "";
   }
-	imarkers.req = (imarkers.req == undefined) ? "" : imarkers.req;
-	imarkers.level = (imarkers.level == undefined) ? "" : imarkers.level;
+if (imarkers.req != undefined) {
+  imarkers.req = (imarkers.req == undefined) ? "" : imarkers.req;
+  imarkers.level = (imarkers.level == undefined) ? "" : imarkers.level;
+    var req = '<p class="req" data-i18n="req">Requirements:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+imarkers.req.replace(/_/gi, " ")+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+imarkers.level.replace(/_/gi, " ")+'</span></li>';
+  } else {req = ""; }
   var ilist = "";
   for (var c in imarkers.items) {
     ilist += '<li><i class="'+ imarkers.items[c]+'"></i><span class="iname" data-i18n="'+ imarkers.items[c]+'">'+ imarkers.items[c].replace(/_/gi, " ")+'</span></li>';
   }
-	var req = '<p class="req" data-i18n="req">Requirements:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+imarkers.req.replace(/_/gi, " ")+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+imarkers.level.replace(/_/gi, " ")+'</span></li>';
+  console.log(imarkers.req)
+	
 	
   var x = (imarkers.coords[1]);
   var y = (imarkers.coords[0]);
@@ -254,7 +258,7 @@ for (var i = 0; i < usr_markers.length; i++) {
   var markerUrl = (url+"?marker="+y+","+x);
 
   // Add the marker
-  var marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.group}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='copylink'>Copy link</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
+  var marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.group}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
 	globalMarkers.push(marker);
 }
 

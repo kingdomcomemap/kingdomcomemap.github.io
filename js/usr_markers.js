@@ -265,7 +265,7 @@ var usr_markers =
     "desc2": "Bought from one of the Wayfarers you can only encounter while fast-travelling",
     "group": "treasure_map",
     "icon": "treasure_map_alt",
-    "coords": [1973,2048],                                           // -! WAYFARER MAP !-
+    "coords": [1630,2246],                                           // -! WAYFARER MAP !-
 }, {
     "name": "<span data-i18n='treasure_map'>Treasure Map</span>",
     "desc": "Treasure Map VII",
@@ -323,7 +323,7 @@ var usr_markers =
     "desc2": "Bought from one of the Wayfarers you can only encounter while fast-travelling",
     "group": "treasure_map",
     "icon": "treasure_map_alt",
-    "coords": [2023,2048],                                           // -! WAYFARER MAP !-
+    "coords": [2016,2178],                                           // -! WAYFARER MAP !-
 }, {
     "name": "<span data-i18n='treasure_map'>Treasure Map</span>",
     "desc": "Treasure Map XV",
@@ -358,7 +358,7 @@ var usr_markers =
     "desc2": "Bought from one of the Wayfarers you can only encounter while fast-travelling",
     "group": "treasure_map",
     "icon": "treasure_map_alt",
-    "coords": [2073,2048],                                           // -! WAYFARER MAP !-
+    "coords": [2286,2174],                                           // -! WAYFARER MAP !-
 }, {
     "name": "<span data-i18n='treasure_map'>Treasure Map</span>",
     "desc": "Treasure Map XX",
@@ -395,7 +395,7 @@ var usr_markers =
     "desc2": "Bought from one of the Wayfarers you can only encounter while fast-travelling",
     "group": "treasure_map",
     "icon": "treasure_map_alt",
-    "coords": [2123,2048],                                           // -! WAYFARER MAP !-
+    "coords": [2642,2010],                                           // -! WAYFARER MAP !-
 }, {
     "name": "<span data-i18n='treasure_map'>Treasure Map</span>",
     "desc": "Treasure Map XXV",
