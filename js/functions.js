@@ -249,8 +249,6 @@ if (imarkers.req != undefined) {
   for (var c in imarkers.items) {
     ilist += '<li><i class="'+ imarkers.items[c]+'"></i><span class="iname" data-i18n="'+ imarkers.items[c]+'">'+ imarkers.items[c].replace(/_/gi, " ")+'</span></li>';
   }
-  console.log(imarkers.req)
-	
 	
   var x = (imarkers.coords[1]);
   var y = (imarkers.coords[0]);
