@@ -125,7 +125,7 @@ body a {text-decoration: none;}
 .list-title {
 	display: block;
 	margin: 0px 10px 0 0px;
-	font-size: 16px;
+	font-size: 22px;
 	font-family: '1529 Champ Fleury W01 Regular';
 	color: #422500;
 	padding: 0;
@@ -429,19 +429,64 @@ a.locate.sidebar-close {
   margin:5px 10px 10px;
 }
 .update h3 {
-	margin: 10px 0 5px;
+	margin: 10px 15px 10px;
+	display: inline-block;
+	font-size: 17px;
+	color: #6d0809;
+}
+.updateday {
+	font-family: Consolas;
+	font-weight: bold;
+	color: #1f201b;
+	font-size: 11px;
 }
 .update .text {
   font-family: Consolas;
   color: #1f201b;
   font-size: 13px;
-  margin:5px 10px 5px 0px;
+  margin:5px 0;
 }
 .update i {
     width: 36px;
     height: 36px;
     display: inline-block;
     background-size: contain;
+}
+.update-list {
+	margin: 5px 0;
+	padding: 0;
+	list-style: none;
+}
+.update-list li {
+	padding-left: 20px;
+	position: relative;
+}
+.update-list li:before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background-image: url(../assets/images/lvlupstar.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0;
+}
+
+.legalinfo {
+    margin: 10px 0;
+    text-align: center;
+}
+.legalinfo .text.creator {
+font-size: 15px;
+}
+.legalinfo .text {
+	font-family: '1529 Champ Fleury W01 Regular';
+	color: #1f201b;
+}
+.sidebar-pane .text a.link {
+	font-family: '1529 Champ Fleury W01 Regular';
+	color: #1f201b;
+	text-decoration: underline;
 }
 
 .hidden-content {display: none;}
@@ -641,13 +686,22 @@ textarea:focus {
 }
 #edit-dialog select {
   text-transform: capitalize;
-  margin: 0px;
+  margin: 0px 0 5px;
   display: block;
   font-family: '1529 Champ Fleury W01 Regular';
   font-size: 14px;
   background-color: #ffead3;
   border: 2px solid #aa9a88;
   width: 100%;
+}
+#editedtitle {
+    margin: 2px 0 5px;
+}
+#editeddesc {
+    margin: 2px 0 5px;
+}
+button.cancel {
+    margin: 5px 0;
 }
 #titleprev {
   text-transform: capitalize;

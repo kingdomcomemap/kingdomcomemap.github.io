@@ -1,4 +1,5 @@
 var version = 1.3;
+var url = ('http://' + window.location.hostname + '/');
 var iconsUrl = './assets/images/';
 var tilesUrl = "./map/{z}_{x}_{y}.jpg";
 var maxNativeZoom = 5;
@@ -201,11 +202,10 @@ for (var i = 0; i < markers.length; i++) {
   var origin_x = (markers[i].coords[1]);
   var origin_y = (markers[i].coords[0]);
 	
-	var url = ('http://' + window.location.hostname + '/');
   var markerUrl = (url+"?marker="+y+","+x);
 
   // Add the marker
-  var marker = L.marker([x, y], {icon: getIcon(i),title: markers[i].group}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[markers[i].group]);
+  var marker = L.marker([x, y], {icon: getIcon(i),title: markers[i].group}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='copylink'>Copy link</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[markers[i].group]);
 	globalMarkers.push(marker);
 }
 
@@ -251,11 +251,10 @@ for (var i = 0; i < usr_markers.length; i++) {
   var x = (imarkers.coords[1]);
   var y = (imarkers.coords[0]);
 	
-	var url = ('http://' + window.location.hostname + '/');
   var markerUrl = (url+"?marker="+y+","+x);
 
   // Add the marker
-  var marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.group}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
+  var marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.group}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='copylink'>Copy link</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
 	globalMarkers.push(marker);
 }
 
@@ -313,19 +312,40 @@ return vars;
 
 var urlCoordinates = getUrlVars()["marker"];
 if (urlCoordinates != undefined) {
-	sidebar.close();
+  var markFound = false;
+  sidebar.close();
+  if (getUrlVars()["zoom"]>=1 && getUrlVars()["zoom"]<=4) {
+    var urlZoom = getUrlVars()["zoom"];
+  } else {
+    var urlZoom = 4;
+  }
+
   for (var l in globalMarkers){
     var markerX = globalMarkers[l]._latlng.lat;
     var markerY = globalMarkers[l]._latlng.lng;
-    var markerdata = (markerY+','+markerX);
+    var markerdata = (markerY+','+markerX);    
+
     if (markerdata == urlCoordinates){
       $('#'+globalMarkers[l].options.title).prop('checked', true);
       map.addLayer(layerGroups[globalMarkers[l].options.title]);
-      map.flyTo(globalMarkers[l].getLatLng(),4);
-      globalMarkers[l].openPopup();
+      map.flyTo(globalMarkers[l].getLatLng(),urlZoom);
+      if (getUrlVars()["popup"]!="false") globalMarkers[l].openPopup();
+      markFound = true;
     };
   };
-}
+
+  if (markFound==false) {
+    var aux_y = urlCoordinates.split(",")[1];
+    var aux_x = urlCoordinates.split(",")[0];
+    if ((aux_y <= mapBounds && aux_y>0) && (aux_x<=mapBounds && aux_x>0)) {
+      var aux_marker = L.marker([aux_y, aux_x]);        
+      map.flyTo(aux_marker.getLatLng(), urlZoom);
+      aux_marker = null;
+    }
+    aux_y = null;
+    aux_x = null;
+  };
+};
 
 // Copy function
 
@@ -719,9 +739,12 @@ function initUserLayerGroup() {
       var y = storageMarkers[i].coords.y;
       var name = storageMarkers[i].name;
       var icon = storageMarkers[i].icon;
+			var iconvalue = storageMarkers[i].iconvalue;
       var iconUrl = storageMarkers[i].icon.options.iconUrl;
       var title = storageMarkers[i].title;
       var desc = storageMarkers[i].desc;
+			
+			var markerlink = (url+"?m="+y+","+x+"&title="+name+"&desc="+desc+"&icon="+iconvalue+"&");
 
       var customIcon = L.icon({
         iconUrl: storageMarkers[i].icon.options.iconUrl,
@@ -735,6 +758,9 @@ function initUserLayerGroup() {
 			<span class="mtitle">'+name+'</span><br>\
 			<span class="mdesc">'+desc+'</span><br>\
 			<span class="mcoords">X: '+y+' Y: '+x+'</span></div>\
+      <span class="markerlink hide">'+markerlink+'</span>\
+      <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
+      <span class="copiedmsg hide">Copied</span></button>\
 			<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
 			<div id="edit-dialog" class="hide">\
 			<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
@@ -836,6 +862,7 @@ function addMarkerText(lat,long) {
   
   // Add the mark
   $('#addmark').submit(function(e){
+		var selectedIcon = $(this).find("#select_icon option:selected").text();
     var postData = $(this).serializeArray();
     var lat = Math.round(getAObj(postData,"mlat"));
     var lon = Math.round(getAObj(postData,"mlon"));
@@ -860,11 +887,16 @@ function addMarkerText(lat,long) {
       "desc": getAObj(postData,"desc")
     });
     popup._close();
+		
+		var markerlink = (url+"?m="+lon+","+lat+"&title="+getAObj(postData,"title")+"&desc="+getAObj(postData,"desc")+"&icon="+getAObj(postData,"icon")+"&");
 
     var popupcontent = '<div class="popcontent">\
     <span class="mtitle">'+getAObj(postData,'title')+'</span><br>\
-    <span class="mdesc">'+getAObj(postData,'desc')+'</span><br>\
+    <span class="mtitle">'+getAObj(postData,'desc')+'</span><br>\
     <span class="mcoords">[ '+getAObj(postData,'mlon')+' , '+getAObj(postData,'mlat')+']</span></div>\
+    <span class="markerlink hide">'+markerlink+'</span>\
+    <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
+    <span class="copiedmsg hide">Copied</span></button>\
     <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
     <div id="edit-dialog" class="hide">\
     <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
@@ -908,12 +940,14 @@ function onPopupOpen() {
     $(this).next('#remove-dialog').removeClass('hide');
     $(this).parent().parent().find('.popcontent').addClass('hide');
     $(this).parent().parent().find('.edit-marker').addClass('hide');
+		$(this).parent().parent().find('.copymarkerurl').addClass('hide');
   });
   $(document).on('click', '.no', function() {
     $(this).parent('#remove-dialog').addClass('hide');
     $(this).parent().parent().find('.popcontent').removeClass('hide');
     $(this).parent().parent().find('.edit-marker').removeClass('hide');
     $(this).parent().parent().find('.remove-marker').removeClass('hide');
+		$(this).parent().parent().find('.copymarkerurl').removeClass('hide');
   });
 
   $(document).on('click', '.yes', function() {
@@ -949,12 +983,14 @@ function onPopupOpen() {
     $(this).next('#edit-dialog').removeClass('hide');
     $(this).parent().parent().find('.popcontent').addClass('hide');
     $(this).parent().parent().find('.remove-marker').addClass('hide');
+		$(this).parent().parent().find('.copymarkerurl').addClass('hide');
   });
   $(document).on('click', '.cancel', function() {
     $(this).parent().parent().find('#edit-dialog').addClass('hide');
     $(this).parent().parent().find('.popcontent').removeClass('hide');
     $(this).parent().parent().find('.edit-marker').removeClass('hide');
     $(this).parent().parent().find('.remove-marker').removeClass('hide');
+		$(this).parent().parent().find('.copymarkerurl').removeClass('hide');
   });
   $(document).on('click', '.save-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
@@ -966,10 +1002,15 @@ function onPopupOpen() {
         var editedicon = $(this).parent().find('select[name=icon]').val();
         var editedtitle = $(this).parent().find('#editedtitle').val();
         var editeddesc = $(this).parent().find('#editeddesc').val();
+				
+				var markerlink = (url+"?m="+clickedMarkerCoords.lng+","+clickedMarkerCoords.lat+"&title="+editedtitle+"&desc="+editeddesc+"&icon="+editedicon+"&");
         
         var editedpopup ='<div class="popcontent"><span class="mtitle">'+editedtitle+'</span><br>\
-<span class="mdesc">'+editeddesc+'</span><br>\
+<span class="mtitle">'+editeddesc+'</span><br>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
+<span class="markerlink hide">'+markerlink+'</span>\
+<button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
+<span class="copiedmsg hide">Copied</span></button>\
 <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
 <div id="edit-dialog" class="hide">\
 <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
@@ -990,21 +1031,16 @@ function onPopupOpen() {
 <button class="yes" data-i18n="yes">Yes</button><button class="no" data-i18n="no">No</button></div>';
         popup.setContent(editedpopup);
 
-        //console.log(_this);
-        //markerIconTypes[getAObj(postData,"icon")],
         _this.setIcon(markerIconTypes[editedicon]);
         storageMarkers[i].name = editedtitle;
         storageMarkers[i].title = editedtitle;
         storageMarkers[i].desc = editeddesc;
         storageMarkers[i].icon = (markerIconTypes[editedicon]);
         storageMarkers[i].iconvalue = editedicon;
-        //$(this).parent().find('#select_icon').val(storageMarkers[i].iconvalue);
         localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
       }
     } 
     popup._close();
-    //localStorage.removeItem('userMarkers');
-    //map.removeLayer(_this);
   });
 }
 
@@ -1028,6 +1064,148 @@ map.on('click', function (e) {
     popup.setLatLng(e.latlng).setContent(message).openOn(map);
   }
 });
+
+var sharedMarker = getUrlVars()["m"];
+if (sharedMarker != undefined) {
+  sidebar.close();
+  var smIcon = getUrlVars()["icon"];
+  var smTitle = getUrlVars()["title"];
+  smTitle = decodeURIComponent(smTitle);
+  var smDesc = getUrlVars()["desc"];
+  smDesc = decodeURIComponent(smDesc);
+  var smY = sharedMarker.split(",")[1];
+  var smX = sharedMarker.split(",")[0];
+  console.log(smTitle);
+  console.log(smDesc);
+  var icoUrl = (markerIconTypes[smIcon].options.iconUrl);
+
+  var popupcontent = '<div class="popcontent">\
+<span class="mtitle">'+smTitle+'</span><br>\
+<span class="mdesc">'+smDesc+'</span><br>\
+<span class="mcoords">X: '+smY+' Y: '+smX+'</span></div>\
+<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+<div id="edit-dialog" class="hide">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div id="iconprev" style="background-image:url(\''+icoUrl+'\')"></div>\
+<select id="select_icon" name="icon" onchange="iconpref(this.value);">';
+  for (var k in mapMarkers) {
+    popupcontent +='<option value="'+k+'">'+mapMarkers[k].icon.replace(/_/gi, " ")+'</option>';
+  };
+  popupcontent = popupcontent+'</select>\
+<input type="text" id="editedtitle" name="title" value="'+smTitle+'">\
+<textarea id="editeddesc" name="desc">'+smDesc+'</textarea>\
+<button class="cancel" data-i18n="cancel">Cancel</button>\
+<button class="save-marker" data-i18n="Save">Save</button>\
+</div>\
+<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+<div id="remove-dialog" class="hide">\
+<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
+<button class="yes" data-i18n="yes">Yes</button>\
+<button class="no" data-i18n="no">No</button></div>';
+
+  if ((smY <= mapBounds && smY>0) && (smX<=mapBounds && smX>0)) {
+    var sm_marker = L.marker([smY,smX], {icon: markerIconTypes[smIcon]}).bindPopup(popupcontent).addTo(map);       
+    map.flyTo(sm_marker.getLatLng(), 4);
+    sm_marker.on("popupopen", onPopupOpenShared);
+    sm_marker.openPopup();
+  }
+};
+
+// Edit and save shared marker
+function onPopupOpenShared() {
+  var _this = this;
+  var clickedMarkerCoords = this.getLatLng();
+  var popup = _this.getPopup();
+  var smIcon = getUrlVars()["icon"];
+  var smTitle = getUrlVars()["title"];
+  smTitle = decodeURIComponent(smTitle);
+  var smDesc = getUrlVars()["desc"];
+  smDesc = decodeURIComponent(smDesc);
+  var smY = sharedMarker.split(",")[1];
+  var smX = sharedMarker.split(",")[0];
+  var icoUrl = (markerIconTypes[smIcon].options.iconUrl);
+
+  $(document).on('click', '.remove-marker', function() {
+    $(this).addClass('hide');
+    $(this).next('#remove-dialog').removeClass('hide');
+    $(this).parent().parent().find('.popcontent').addClass('hide');
+    $(this).parent().parent().find('.edit-marker').addClass('hide');
+  });
+  $(document).on('click', '.no', function() {
+    $(this).parent('#remove-dialog').addClass('hide');
+    $(this).parent().parent().find('.popcontent').removeClass('hide');
+    $(this).parent().parent().find('.edit-marker').removeClass('hide');
+    $(this).parent().parent().find('.remove-marker').removeClass('hide');
+  });
+
+  $(document).on('click', '.yes', function() {
+    map.removeLayer(_this);
+  });
+  
+   //Edit Marker
+  $(document).on('click', '.edit-marker', function() {
+    storageMarkers = JSON.parse(localStorage.mapUserMarkers);
+        $(this).parent().find('#iconprev').css("background-image", "url("+icoUrl+")");
+        $(this).parent().find('#select_icon').val(smIcon);
+    // HERE
+    $(this).addClass('hide');
+    $(this).next('#edit-dialog').removeClass('hide');
+    $(this).parent().parent().find('.popcontent').addClass('hide');
+    $(this).parent().parent().find('.remove-marker').addClass('hide');
+  });
+  $(document).on('click', '.cancel', function() {
+    $(this).parent().parent().find('#edit-dialog').addClass('hide');
+    $(this).parent().parent().find('.popcontent').removeClass('hide');
+    $(this).parent().parent().find('.edit-marker').removeClass('hide');
+    $(this).parent().parent().find('.remove-marker').removeClass('hide');
+  });
+  $(document).on('click', '.save-marker', function() {
+    storageMarkers = JSON.parse(localStorage.mapUserMarkers);
+        var editedicon = $(this).parent().find('select[name=icon]').val();
+        var editedtitle = $(this).parent().find('#editedtitle').val();
+        var editeddesc = $(this).parent().find('#editeddesc').val();
+        
+        var editedpopup ='<div class="popcontent"><span class="mtitle">'+editedtitle+'</span><br>\
+<span class="mtitle">'+editeddesc+'</span><br>\
+<span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
+<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+<div id="edit-dialog" class="hide">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+  <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
+  <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
+    for (var j in mapMarkers) {
+    editedpopup +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
+  };
+  editedpopup = editedpopup+'</select>\
+<input type="text" id="editedtitle" name="title" value="'+editedtitle+'">\
+<textarea id="editeddesc" name="desc">'+editeddesc+'</textarea>\
+<button class="cancel" data-i18n="cancel">Cancel</button>\
+<button class="save-marker" data-i18n="Save">Save</button>\
+</div>\
+<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+<div id="remove-dialog" class="hide">\
+<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
+<button class="yes" data-i18n="yes">Yes</button><button class="no" data-i18n="no">No</button></div>';
+        popup.setContent(editedpopup);
+    
+        storageMarkers.push({
+          "coords": {
+            "x": smY,
+            "y": smX
+          },
+          "name": editedtitle,
+          "icon": (markerIconTypes[editedicon]),
+          "iconvalue": editedicon,
+          "title": editedtitle,
+          "desc": editeddesc
+        });
+
+        _this.setIcon(markerIconTypes[editedicon]);
+        localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
+
+    popup._close();
+  });
+}
 
 function getFormattedTime() {
     var today = new Date();
