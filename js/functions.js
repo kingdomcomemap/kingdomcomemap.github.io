@@ -895,8 +895,8 @@ function addMarkerText(lat,long) {
 		var markerlink = (url+"?m="+lon+","+lat+"&title="+getAObj(postData,"title")+"&desc="+getAObj(postData,"desc")+"&icon="+getAObj(postData,"icon")+"&");
 
     var popupcontent = '<div class="popcontent">\
-    <span class="mtitle">'+getAObj(postData,'title')+'</span><br>\
-    <span class="mtitle">'+getAObj(postData,'desc')+'</span><br>\
+    <p class="mtitle">'+getAObj(postData,'title')+'</p>\
+    <p class="mtitle">'+getAObj(postData,'desc')+'</p>\
     <span class="mcoords">[ '+getAObj(postData,'mlon')+' , '+getAObj(postData,'mlat')+']</span></div>\
     <span class="markerlink hide">'+markerlink+'</span>\
     <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
@@ -1009,8 +1009,8 @@ function onPopupOpen() {
 				
 				var markerlink = (url+"?m="+clickedMarkerCoords.lng+","+clickedMarkerCoords.lat+"&title="+editedtitle+"&desc="+editeddesc+"&icon="+editedicon+"&");
         
-        var editedpopup ='<div class="popcontent"><span class="mtitle">'+editedtitle+'</span><br>\
-<span class="mtitle">'+editeddesc+'</span><br>\
+        var editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
+<p class="mtitle">'+editeddesc+'</p>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
 <span class="markerlink hide">'+markerlink+'</span>\
 <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
@@ -1084,8 +1084,8 @@ if (sharedMarker != undefined) {
   var icoUrl = (markerIconTypes[smIcon].options.iconUrl);
 
   var popupcontent = '<div class="popcontent">\
-<span class="mtitle">'+smTitle+'</span><br>\
-<span class="mdesc">'+smDesc+'</span><br>\
+<p class="mtitle">'+smTitle+'</p>\
+<p class="mdesc">'+smDesc+'</p>\
 <span class="mcoords">X: '+smY+' Y: '+smX+'</span></div>\
 <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
 <div id="edit-dialog" class="hide">\
@@ -1169,8 +1169,8 @@ function onPopupOpenShared() {
         var editedtitle = $(this).parent().find('#editedtitle').val();
         var editeddesc = $(this).parent().find('#editeddesc').val();
         
-        var editedpopup ='<div class="popcontent"><span class="mtitle">'+editedtitle+'</span><br>\
-<span class="mtitle">'+editeddesc+'</span><br>\
+        var editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
+<p class="mtitle">'+editeddesc+'</p>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
 <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
 <div id="edit-dialog" class="hide">\
