@@ -289,6 +289,21 @@ function toggleAll(element) {
 
 allmarkers.onchange = function() {toggleAll(this)};
 
+$(allmarkers).click(function(){
+  if($(this).prop("checked") == true){
+    var toggled, activemarkers = [];
+    $('.markers-list input').each(function() {
+      toggled = {id: $(this).attr('id'), value: $(this).prop('checked')};
+      activemarkers.push(toggled);
+    });
+    localStorage.setItem("activemarkers", JSON.stringify(activemarkers));
+
+  }
+  else if($(this).prop("checked") == false){
+    localStorage.setItem("activemarkers", "[]");
+  }
+});
+
 $('.markers-list input').each(function() {
   this.onchange = function() {
     toggle(this, this.id);
