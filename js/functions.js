@@ -764,7 +764,7 @@ function initUserLayerGroup() {
       var desc = storageMarkers[i].desc;
 			
 			var markerlink = (url+"?m="+y+","+x+"&title="+name+"&desc="+desc+"&icon="+iconvalue+"&");
-			markerUrl = encodeURI(markerUrl);
+			markerlink = encodeURI(markerlink);
 
       var customIcon = L.icon({
         iconUrl: storageMarkers[i].icon.options.iconUrl,
@@ -909,7 +909,7 @@ function addMarkerText(lat,long) {
     popup._close();
 		
 		var markerlink = (url+"?m="+lon+","+lat+"&title="+getAObj(postData,"title")+"&desc="+getAObj(postData,"desc")+"&icon="+getAObj(postData,"icon")+"&");
-		markerUrl = encodeURI(markerUrl);
+		markerlink = encodeURI(markerlink);
 
     var popupcontent = '<div class="popcontent">\
     <p class="mtitle">'+getAObj(postData,'title')+'</p>\
@@ -1025,7 +1025,7 @@ function onPopupOpen() {
         var editeddesc = $(this).parent().find('#editeddesc').val();
 				
 				var markerlink = (url+"?m="+clickedMarkerCoords.lng+","+clickedMarkerCoords.lat+"&title="+editedtitle+"&desc="+editeddesc+"&icon="+editedicon+"&");
-				markerUrl = encodeURI(markerUrl);
+				markerlink = encodeURI(markerlink);
         
         var editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
 <p class="mdesc">'+editeddesc+'</p>\
