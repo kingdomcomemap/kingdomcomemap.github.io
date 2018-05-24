@@ -951,10 +951,36 @@ leaflet-control-attribution {
 }
 
 /* Sidebar V2 */
-@media (min-width: 1200px)
-.sidebar-pane {
-    min-width: 380px;
-}
+	@media (max-width: 360px) {
+    .sidebar {
+      width: 100%; } }
+  @media (min-width: 361px) and (max-width: 991px) {
+    .sidebar {
+      width: 340px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar {
+      width: 340px; } }
+  @media (min-width: 1200px) {
+    .sidebar {
+      width: 340px;
+      } }
+			
+@media (max-width: 320px) {
+    .sidebar-pane {
+      min-width: 268px; } }
+@media (max-width: 360px) {
+    .sidebar-pane {
+      width: 100%; } }
+@media (min-width: 361px) and (max-width: 991px) {
+  .sidebar-pane {
+		min-width: 300px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar-pane {
+    min-width: 300px; } }
+@media (min-width: 1200px) {
+  .sidebar-pane {
+		min-width: 300px;
+    } }
 /*
 .sidebar-pane p.clear {clear: both;}
 @media (min-width: 768px) {
