@@ -31,7 +31,7 @@
         <li><a href="#share" role="tab"><i class="share"></i></a></li>
         <li><a href="#about" role="tab"><i class="about"></i></a></li>
         <!--<li class="disabled"><a href="#settings" role="tab"><i class="settings"></i></a></li>-->
-        <li class="disabled"><a href="#beta" role="tab"><i class="beta"></i></a></li>
+        <li><a href="#backup" role="tab"><i class="inventory"></i></a></li>
       </ul>
       <ul role="tablist"></ul>
     </div>
@@ -44,7 +44,7 @@
         </span>
         <div class="logo-container">
           <img class="logo-menu" src="https://kingdomcomemap.github.io/assets/images/kcdmap.svg" alt="Kingdom Come Deliverance Interactive Map" />
-          <p class="version">v. 1.2</p>
+          <p class="version">v. 1.3.1</p>
         </div>
         <div class="content">
 					<ul class="user-list">
@@ -217,7 +217,12 @@
               <input type="checkbox" id="miller" class="cc" />
               <label for="miller" class="cl" data-i18n="miller">Miller</label>
             </li>
-									<li>
+						<li>
+              <i class="mine"></i>
+              <input type="checkbox" id="mine" class="cc" />
+              <label for="mine" class="cl" data-i18n="mine">Mine</label>
+            </li>
+						<li>
               <i class="nest"></i>
               <input type="checkbox" id="nest" class="cc" />
               <label for="nest" class="cl" data-i18n="nest">Nest</label>
@@ -258,6 +263,11 @@
               <label for="treasure_chest" class="cl" data-i18n="treasure_chest">Treasure Chest</label>
             </li>
 						<li>
+              <i class="treasure_map"></i>
+              <input type="checkbox" id="treasure_map" class="cc" />
+              <label for="treasure_map" class="cl" data-i18n="treasure_map">Treasure Map</label>
+            </li>
+						<li>
               <i class="weaponsmith"></i>
               <input type="checkbox" id="weaponsmith" class="cc" />
               <label for="weaponsmith" class="cl" data-i18n="weaponsmith">Weaponsmith</label>
@@ -294,50 +304,125 @@
           </a>
         </div>
       </div>
+			<!-- Tab backup -->
+			<div class="sidebar-pane" id="backup">
+          <span class="sidebar-close"><i class="left-arrow"></i></span>
+          <p class="list-title" data-i18n="ImportExportmarkers">Import/Export markers</p>
+          <div class="content mtop15px">
+            <a class="btn backupls" href="#">
+              <i class="export"></i>
+              <span class="btn-text">Export markers</span>
+            </a>
+            <a class="btn restorels" href="#">
+              <i class="import"></i>
+              <span class="btn-text">Import markers</span>
+            </a>
+            <div class="dialog">
+            <a class="btn clearls" href="#">
+              <i class="erase"></i>
+              <span class="btn-text">Clear markers</span>
+            </a>
+              <div class="prompt hide">
+                <p class="text">This will delete all markers from the map, are you sure?</p>
+                <button class="clearyes" data-i18n="yes">Yes</button>
+			<button class="clearno" data-i18n="no">No</button>
+              </div>
+            </div>
+          </div>
+        </div>
       <!-- Tab about -->
       <div class="sidebar-pane" id="about">
         <span class="sidebar-close"><i class="left-arrow"></i></span>
-        <p class="list-title" data-i18n="info">Info</p>
-        <div class="content">
-          <h3>Initial release 1.0</h3>
-          <p class="text">
-            In this version of the map you can place markers around the map and it will save it in the local storage in your browser, even if you close it will remain there. Only if you clear your browser cache that the markers will be lost!
-          </p>
-          <p class="text">
-            You can add a name and a description to your markers, as well choose the marker icon.
-          </p>
-          <p class="text">
-            The map will be updated daily with new markers, and features.
-          </p>
-          <p class="text">
-            Roger
-          </p>
-					
+        <h3 class="list-title" data-i18n="info">Info</h3>
+        <div class="content update">
+					<h3>Update 1.3.1</h3>
+					<span class="updateday">15/03/2018</span>
+					<ul class="update-list">
+          <li class="text">
+            Added shareable markers.
+          </li>
+          <li class="text">
+            All map markers have a link now which will direct to them if visited.
+          </li>
+          <li class="text">
+            Now you can share the markers you add, just add a marker on the map and copy the marker link.
+          </li>
+					<li class="text">
+            Markers shared with you can be added to your markers. Just click edit and save.
+          </li>
+					</ul>
+				
+					<h3>Update 1.3</h3>
+					<span class="updateday">11/03/2018</span>
+					<ul class="update-list">
+          <li class="text">
+            Changed the map resolution to 8192px.
+          </li>
+          <li class="text">
+            Map coordinates now match ingame coordinates.
+          </li>
+          <li class="text">
+            If you had markers on the map with the previous coordinates system, they will be automatically converted to the new one.
+          </li>
+					<li class="text">
+            New option to export/import and clear the markers you added. (Fourth tab in the left menu).
+          </li>
+					<li class="text">
+            Markers content will be updated with more details!
+          </li>
+					</ul>
+
 					<h3>Update 1.2</h3>
-          <p class="text">
+					<span class="updateday">04/03/2018</span>
+					<ul class="update-list">
+          <li class="text">
             All markers extracted from the game.
-          </p>
-          <p class="text">
+          </li>
+          <li class="text">
             You can add a name and a description to your markers, as well choose the marker icon.
-          </p>
-          <p class="text">
+          </li>
+          <li class="text">
             You will notice coordinates inside the popup of the markers, these coordinates are the ingame coordinates.
-          </p>
-					<p class="text">
+          </li>
+					<li class="text">
             If you have more information about a specific marker, use that coordinates to help me locate the marker.
-          </p>
-					<p class="text">
+          </li>
+					<li class="text">
             Some Woodland gardens have information of what herbs you can find there.
-          </p>
-					<p class="text">
+          </li>
+					<li class="text">
             More to come!
-          </p>
-          <p class="text">
-            Roger
-          </p>
+          </li>
+					</ul>
 					
+          <h3>Initial release 1.0</h3>
+					<span class="updateday">01/03/2018</span>
+					<ul class="update-list">
+          <li class="text">
+            In this version of the map you can place markers around the map and it will save it in the local storage in your browser, even if you close it will remain there. Only if you clear your browser cache that the markers will be lost!
+          </li>
+          <li class="text">
+            You can add a name and a description to your markers, as well choose the marker icon.
+          </li>
+          <li class="text">
+            The map will be updated daily with new markers, and features.
+          </li>
+          </ul>
 					
-					
+					<div class="legalinfo">
+					<p class="text creator">
+					Kingdom Come Deliverance Map
+					</p>
+					<p class="text creator">
+					Created by RogerHN.
+					</p>
+					<p class="text">
+					Big thanks to Talys and POiZiE for the help with the markers.
+					</p>
+					<p class="text">
+					The <a class="link" href="https://www.kingdomcomerpg.com" target="_blank">Kingdom Come: Deliverance</a> logo, icons and the map are copyright and property of <a class="link" href="https://warhorsestudios.cz/" target="_blank">Warhorse Studios</a>.
+					</p>
+					</div>
         </div>
       </div>
       <!-- Tab settings -->
@@ -428,6 +513,7 @@
     <script src="js/i18next-1.6.3.js"></script>
     <!-- JS -->
     <script src="js/markers.js" type="text/javascript"></script>
+		<script src="js/herb_paris.js" type="text/javascript"></script>
 		<script src="js/usr_markers.js" type="text/javascript"></script>
     <script src="js/lang.js"></script>
     <!-- js -->

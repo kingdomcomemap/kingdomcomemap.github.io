@@ -1,5 +1,5 @@
-body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
-
+body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:13px;}
+body a {text-decoration: none;}
 #map {
   position: absolute;
   width: 100%;
@@ -66,6 +66,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   font-family: '1529 Champ Fleury W01 Regular';
   font-size: 13px;
   color: #1f201b;
+	border-right: 1px solid #76643e;
 }
 .toggle-title {
   display: block;
@@ -122,16 +123,16 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   transform: rotate(45deg);
 }
 .list-title {
-  display: block;
-  margin: 0px 0 0 -10px;
-  font-size: 24px;
-  font-family: '1529 Champ Fleury W01 Regular';
-  color: #222;
-  padding: 0 10px 0px 20px;
-  line-height: 50px;
-  height: 50px;
+	display: block;
+	margin: 0px 10px 0 0px;
+	font-size: 22px;
+	font-family: '1529 Champ Fleury W01 Regular';
+	color: #422500;
+	padding: 0;
+	line-height: 26px;
+	font-weight: bold;
 }
-
+.user-list,
 .allmarkers-list,
 .markers-list {
   float: none;
@@ -141,6 +142,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   display: inline-block;
   width: 100%;
 }
+.user-list li,
 .allmarkers-list li,
 .markers-list li {
   display: flex;
@@ -149,6 +151,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   overflow: hidden;
   list-style: none;
 }
+.user-list i,
 .allmarkers-list i,
 .markers-list i {
   display: flex;
@@ -163,6 +166,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   margin-top: 4px;
   line-height: 30px;
 }
+.user-list label,
 .allmarkers-list label,
 .markers-list label {
   display: flex;
@@ -173,6 +177,77 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
   width: 100%;
   padding-left: 5px;
 }
+.mtop15px {margin-top: 15px;}
+a.btn {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+a.btn:hover .btn-text {
+  background-color: #d0ba69;
+  color: #171717;
+  border: 1px solid #715a32;
+  border-left: none;
+}
+.btn i {
+  display: flex;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.btn-text {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #171717;
+  background: #eed67d;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #c09e64;
+  border-left: none;
+  margin-left: -4px;
+}
+.dialog{
+  position: relative;
+}
+.prompt {
+  position: absolute;
+  top: 0;
+  background: #dac5ad;
+  text-align: center;
+  border: 1px solid #76643e;
+  padding: 10px;
+  box-shadow: 0px 3px 1px #76643e;
+}
+.prompt .text {
+  display: block;
+  margin: 0px;
+}
+.prompt .clearyes,
+.prompt .patchyes{
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  background: #456513;
+  width: 50px;
+  border: none;
+  color: #fff;
+}
+.prompt .clearno,
+.prompt .patchno{
+  display: inline-block;
+  margin: 10px 0px 0 0px;
+  background: #F44336;
+  width: 50px;
+  border: none;
+  color: #fff;
+}
+.inventory {background-image: url(../assets/images/inventory.png);}
+.import {background-image: url(../assets/images/import.png);}
+.export {background-image: url(../assets/images/export.png);}
+.erase {background-image: url(../assets/images/erase.png);}
+.player {background-image: url(../assets/images/player64px.png);}
 .allmarkers {background-image: url(../assets/images/allmarkers.png);}
 .cities {background-image: url(../assets/images/cities.png);}
 .fast_travel {background-image: url(../assets/images/fast_travel.png);}
@@ -181,6 +256,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
 .archery_range {background-image: url(../assets/images/archery_range.png);}
 .baths {background-image: url(../assets/images/baths.png);}
 .camp {background-image: url(../assets/images/camp.png);}
+.bandit_camp {background-image: url(../assets/images/bandit_camp.png);}
 .deer_hunting_spot {background-image: url(../assets/images/deer_hunting_spot.png);}
 .boar_hunting_spot {background-image: url(../assets/images/boar_hunting_spot.png);}
 .fish_trap {background-image: url(../assets/images/fish_trap.png);}
@@ -189,6 +265,7 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
 .woodland_garden {background-image: url(../assets/images/woodland_garden.png);}
 .accident {background-image: url(../assets/images/accident.png);}
 .cave {background-image: url(../assets/images/cave.png);}
+.mine {background-image: url(../assets/images/mine.png);}
 .grave {background-image: url(../assets/images/grave.png);}
 .woodland_garden {background-image: url(../assets/images/woodland_garden.png);}
 .nest {background-image: url(../assets/images/nest.png);}
@@ -217,6 +294,9 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
 .unknown {background-image: url(../assets/images/unknown.png);}
 .interesting_site {background-image: url(../assets/images/interesting_site.png);}
 .treasure_chest {background-image: url(../assets/images/treasure_chest.png);}
+.treasure_map {background-image: url(../assets/images/treasure_map.png);}
+.spade {background-image: url(../assets/images/spade.png);}
+.lockpicking {background-image: url(../assets/images/lockpicking.png);}
 
 .belladonna {background-image: url(../assets/images/belladonna.png);}
 .chamomile {background-image: url(../assets/images/chamomile.png);}
@@ -233,7 +313,13 @@ body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:14px;}
 .thistle {background-image: url(../assets/images/thistle.png);}
 .valerian {background-image: url(../assets/images/valerian.png);}
 .wormwood {background-image: url(../assets/images/wormwood.png);}
+.book_vitality {background-image: url(../assets/images/book_herbalism.png);}
 .book_herbalism {background-image: url(../assets/images/book_herbalism.png);}
+.book_lockpicking {background-image: url(../assets/images/book_lockpicking.png);}
+
+.amanita {background-image: url(../assets/images/fly_agaric.png);}
+.dandelion {background-image: url(../assets/images/dandelion.png);}
+.herb_paris {background-image: url(../assets/images/herb_paris.png);}
 
 .cc {
   opacity: 0;
@@ -350,6 +436,66 @@ a.locate.sidebar-close {
   font-size: 14px;
   margin:5px 10px 10px;
 }
+.update h3 {
+	margin: 10px 15px 10px;
+	display: inline-block;
+	font-size: 17px;
+	color: #6d0809;
+}
+.updateday {
+	font-family: Consolas;
+	font-weight: bold;
+	color: #1f201b;
+	font-size: 11px;
+}
+.update .text {
+  font-family: Consolas;
+  color: #1f201b;
+  font-size: 13px;
+  margin:5px 0;
+}
+.update i {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    background-size: contain;
+}
+.update-list {
+	margin: 5px 0;
+	padding: 0;
+	list-style: none;
+}
+.update-list li {
+	padding-left: 20px;
+	position: relative;
+}
+.update-list li:before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background-image: url(../assets/images/lvlupstar.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0;
+}
+
+.legalinfo {
+    margin: 10px 0;
+    text-align: center;
+}
+.legalinfo .text.creator {
+font-size: 15px;
+}
+.legalinfo .text {
+	font-family: '1529 Champ Fleury W01 Regular';
+	color: #1f201b;
+}
+.sidebar-pane .text a.link {
+	font-family: '1529 Champ Fleury W01 Regular';
+	color: #1f201b;
+	text-decoration: underline;
+}
 
 .hidden-content {display: none;}
 
@@ -368,13 +514,40 @@ ul.ilist li {
 	height: 32px;
 	background-size: contain;
 }
-.ilist .iname {
+.ilist .iname,
+.ilist .ilevel {
 	display: flex;
 	align-items: center;
 	text-transform: capitalize;
 	text-align: left;
+	font-size: 14px;
+	margin-left: 10px;
+}
+.ilevel.easy {
+	color: #008000;
+}
+.ilevel.hard {
+	color: #ff6600;
+}
+.ilevel.very_hard {
+	color: #ce0000;
+}
+.ilist .qnt {
+	display: flex;
+	align-items: center;
+	text-align: left;
 	font-size: 13px;
 	margin-left: 10px;
+	font-family: 'MedievalSharpBook';
+	color: #4c2900;
+	font-weight: bold;
+	margin-top: 3px;
+}
+p.req {
+	color: #4c2900;
+	margin: 5px 0;
+	padding: 0;
+	text-align: left;
 }
 
 
@@ -519,11 +692,30 @@ textarea:focus {
   text-transform: capitalize;
   margin: 0px;
   display: block;
-  font-family: 'MedievalSharpBook';
+  font-family: '1529 Champ Fleury W01 Regular';
   font-size: 14px;
   background-color: #ffead3;
   border: 2px solid #aa9a88;
   width: 100%;
+}
+#edit-dialog select {
+  text-transform: capitalize;
+  margin: 0px 0 5px;
+  display: block;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 14px;
+  background-color: #ffead3;
+  border: 2px solid #aa9a88;
+  width: 100%;
+}
+#editedtitle {
+    margin: 2px 0 5px;
+}
+#editeddesc {
+    margin: 2px 0 5px;
+}
+button.cancel {
+    margin: 5px 0;
 }
 #titleprev {
   text-transform: capitalize;
@@ -537,8 +729,9 @@ button.add-marker {
   margin: 5px auto;
 }
 button.remove-marker {
-  display: block;
-  margin: 0 auto;
+	display: block;
+	margin: 0 auto;
+	width: auto;
 }
 .remove-text {
   display: block;
@@ -565,26 +758,14 @@ button.no {
   border: none;
   color: #fff;
 }
-.leaflet-popup-content .original_coords {
-font-family: Consolas;
-margin: 5px 0 0;
-font-weight: bold;
-font-size: 11px;
-color: #4c2900;
-display: block;
-position: relative;
-}
 .mtitle {
   font-weight: bold;
   text-transform: capitalize;
   font-family: '1529 Champ Fleury W01 Regular';
-  font-size: 14px;
+  font-size: 19px;
+	letter-spacing: 1px;
 }
-.mdesc {
-	display: block;
-	margin: 5px 0px;
-
-}
+p.mdesc {margin: 0;}
 .mcoords {
   font-size: 11px;
   text-transform: capitalize;
@@ -594,7 +775,7 @@ position: relative;
   color: #000;
 }
 #remove-dialog {
-  position: absolute;
+  position: relative;
   left: 0px;
   top: 0px;
   background: #ddc7ad;
@@ -605,8 +786,50 @@ position: relative;
   z-index: 1;
   border-radius: 15px;
 }
-.hide {
-  display: none;
+.remove-marker.hide {
+    display: none;
+}
+#edit-dialog {
+  background: #ddc7ad;
+  text-align: center;
+  z-index: 1;
+  border-radius: 15px;
+  height: 100%;
+}
+.edit-marker {
+	margin: 5px auto;
+	width: auto;
+	display: block;
+}
+.copymarkerurl {
+	width: auto;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+.copiedmsg {
+  position: absolute;
+  bottom: 0px;
+  background: #4e9006;
+  padding: 4px 7px;
+  font-size: 12px;
+  font-family: consolas;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  left: 0;
+  right: 0;
+  border: 1px solid #2f5405;
+}
+.hide {display: none;}
+.leaflet-popup-content .original_coords {
+font-family: Consolas;
+margin: 5px 0 0;
+font-weight: bold;
+font-size: 11px;
+color: #4c2900;
+display: block;
+position: relative;
 }
 
 
@@ -670,6 +893,63 @@ leaflet-control-attribution {
   letter-spacing: 1px;
   color: #000;
 }
+.restoreWindowOverlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	text-align: center;
+	z-index: 10000;
+}
+.restoreWindow {
+  width: 50%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  background-color: rgb(162, 121, 91);
+  text-align: center;
+  padding: 50px;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(118, 100, 62);
+  z-index: 10000;
+}
+.restoreTitle {
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 17px;
+  margin: 10px 0;
+  letter-spacing: 1px;
+}
+.restoreWindowX {
+	position: absolute;
+	top: 0px;
+	right: 5px;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	font-size: 25px;
+	font-family: verdana;
+	font-weight: bold;
+	width: 36px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.restoreWindowX:hover,
+.restoreWindowX:active {
+  color: #000;
+}
+#fileinput {
+  padding: 5px;
+}
+
+.original_coords {
+  font-family: Arial;
+}
+
 /* Sidebar V2 */
 @media (min-width: 1200px)
 .sidebar-pane {
@@ -751,7 +1031,7 @@ min-width: 100%; } }
 .settings {background-image: url('../assets/images/codex.png');}
 /*markers tab*/
 .logo-container {
-  margin: 5px 20px;
+  margin: 5px 30px 5px 10px;
   position: relative;
 }
 img.logo-menu {
@@ -838,6 +1118,62 @@ img.logo-menu {
   background-repeat: no-repeat;
   background-position: center;
 }
+.leaflet-control-coordinates.leaflet-control {
+	background-color: transparent;
+  text-align: center;
+}
+.leaflet-control-coordinates .uiElement input {
+	font-family: 'MedievalSharpBook';
+	border-radius: 0px;
+	border: none;
+	background: #ffead3;
+	color: #171717;
+	font-size: 12px;
+	font-weight: bold;
+}
+.leaflet-control-coordinates .uiElement {
+	margin: 0px;
+	width: 120px;
+	height: 26px;
+	display: flex;
+	align-items: center;
+}
+.uiElement {
+	width: auto;
+	background: url(../assets/images/bg.png);
+	margin: 0px;
+	padding: 2px 5px;
+	box-shadow: inset 0 0px 4px 0px rgb(0, 0, 0);
+	font-family: 'MedievalSharpBook';
+	font-weight: bold;
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+.labelFirst {
+	width: 125px;
+}
+.uiElement.input {
+	width: 120px;
+	text-align: left;
+	height: 26px;
+	display: flex;
+	align-items: center;
+}
+.uiElement span {
+	display: inline-block;
+	margin: 0;
+}
+.leaflet-control-coordinates .uiElement input.inputX {
+	width: 45px;
+	padding: 2px 5px 2px 5px;
+	margin-right: 5px;
+}
+.leaflet-control-coordinates .uiElement input.inputY {
+width: 45px;
+padding: 2px 5px 2px 5px;
+}
+.uiElement.input.uiHidden,
+.leaflet-control-coordinates .uiElement.uiHidden {display: none;}
 
 .en {background: url('../assets/flags/en.png');}
 .br {background: url('../assets/flags/br.png');}

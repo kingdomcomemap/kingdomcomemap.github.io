@@ -1,7 +1,54 @@
-var iconsUrl = './assets/images/';
-
+// TEXT MARKERS
+var textMarkers = 
+[{
+    "name": "<span data-i18n='SKALITZ'>SKALITZ</span>",
+    "coords": [3606,768]
+}, {
+    "name": "<span data-i18n='PRIBYSLAVITZ'>PRIBYSLAVITZ</span>",
+    "coords": [3774,1535]
+}, {
+    "name": "<span data-i18n='ROVNA'>ROVNA</span>",
+    "coords": [3170,1299]
+}, {
+    "name": "<span data-i18n='MERHOJED'>MERHOJED</span>",
+    "coords": [2733,1570]
+}, {
+    "name": "<span data-i18n='TALMBERG'>TALMBERG</span>",
+    "coords": [2878,2279]
+}, {
+    "name": "<span data-i18n='UZHITZ'>UZHITZ</span>",
+    "coords": [3400,3235]
+}, {
+    "name": "<span data-i18n='SAMOPESH'>SAMOPESH</span>",
+    "coords": [2102,1158]
+}, {
+    "name": "<span data-i18n='MONASTERY'>MONASTERY</span>",
+    "coords": [1829,865]
+}, {
+    "name": "<span data-i18n='LEDETCHKO'>LEDETCHKO</span>",
+    "coords": [1423,1954]
+}, {
+    "name": "<span data-i18n='SASAU'>SASAU</span>",
+    "coords": [1034,913]
+}, {
+    "name": "<span data-i18n='VRANIK'>VRANIK</span>",
+    "coords": [810,968]
+}, {
+    "name": "<span data-i18n='RATTAY'>RATTAY</span>",
+    "coords": [389,2712]
+}, {
+    "name": "<span data-i18n='NEUHOF'>NEUHOF</span>",
+    "coords": [1280,3515]
+}]
+//Game Markers
 var markers = [
 /*
+
+Spade
+Spade to bury Henry's parents
+[ 795 , 3520]
+
+
 {	
 "name": "<span data-i18n='execution_stand'>Execution Stand</span>",
 "group": "execution_stand",
@@ -15,7 +62,394 @@ var markers = [
 "icon": "butcher",
 "coords": [5.505254,10.266909],
 },
+{	
+"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
+"group": "interesting_site",
+"icon": "interesting_site",
+"coords": [1796.129395,4019.351318],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [3509.145264,1508.523682],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [908.629211,1205.857788],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [951.414063,3807.297607],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [927.872498,1655.786743],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2453.786133,701.670044],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2776.153809,644.585144],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2044.254517,1335.288330],
+},
+{	
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2855.358643,1909.928345],
+},
 */
+
+// Woodland Gardens
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"belladonna","qnt":""},
+			{"item":"herb_paris","qnt":""},
+			{"item":"valerian","qnt":""}],
+"coords": [426.735901,3670.262695],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"comfrey","qnt":"27"},
+			{"item":"mint","qnt":"45"},
+			{"item":"nettle","qnt":"11"}],
+"coords": [127.513657,3326.467041],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3631.555664,2621.792236],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2572.418945,1871.062622],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["herb_paris", "valerian"],
+"coords": [2330.406250,3517.514160],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1102.384766,1252.178223],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1483.661621,1763.639160],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [540.620667,1850.406128],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2159.485840,1523.921753],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1581.446655,1272.240967],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1181.351318,2151.338867],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [792.053284,905.946716],
+},
+{	
+"name": "<span data-i18n='accident'>Accident</span>",
+"group": "accident",
+"icon": "accident",
+"coords": [671.278870,851.093628],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1203.678955,743.668701],
+},
+{	
+"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
+"group": "interesting_site",
+"icon": "interesting_site",
+"coords": [1424.631714,629.960999],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"marigold","qnt":"13"},
+			{"item":"nettle","qnt":"11"}],
+"coords": [2836.145752,766.281555],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3169.885742,330.571350],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"herb_paris","qnt":"56"},
+			{"item":"marigold","qnt":"10"},
+			{"item":"mint","qnt":"60"},
+			{"item":"sage","qnt":"5"},
+			{"item":"wormwood","qnt":"10"}],
+"coords": [2307.128418,615.796143],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3603.721436,724.813477],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"belladonna","qnt":""},
+			{"item":"comfrey","qnt":""},
+			{"item":"mint","qnt":""},
+			{"item":"valerian","qnt":""}],
+"coords": [992.496460,2321.241943],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"comfrey","qnt":""},
+			{"item":"eyebright","qnt":""},
+			{"item":"sage","qnt":""},
+			{"item":"valerian","qnt":""}],
+"coords": [957.372559,2275.004883],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"belladonna","qnt":""},
+			{"item":"chamomile","qnt":""},
+			{"item":"herb_paris","qnt":""},
+			{"item":"mint","qnt":""},
+			{"item":"st_johns_wort","qnt":""}],
+"coords": [924.192078,2356.219238],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1916.977417,2553.188965],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2559.407471,2031.498413],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2617.020508,2459.062256],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"items": ["belladonna", "sage"],
+"coords": [2812.496094,3233.129883],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3092.456055,2675.397461],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"comfrey","qnt":""},
+			{"item":"eyebright","qnt":""},
+			{"item":"herb_paris","qnt":""},
+			{"item":"mint","qnt":""},
+			{"item":"nettle","qnt":""},
+			{"item":"sage","qnt":""}],
+"coords": [3553.792725,3581.312500],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3142.628662,504.150452],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"belladonna","qnt":"15"},
+			{"item":"comfrey","qnt":"15"},
+			{"item":"mint","qnt":"15"}],
+"coords": [1731.011719,2976.703369],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems":[
+      {"item":"belladonna","qnt":"15"},
+      {"item":"comfrey","qnt":"24"},
+			{"item":"herb_paris","qnt":"39"},
+      {"item":"mint","qnt":"57"}
+			],
+"coords": [1217.688599,2643.694580],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1896.611572,1064.031006],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"comfrey","qnt":""},
+			{"item":"herb_paris","qnt":""},
+			{"item":"mint","qnt":""},
+			{"item":"valerian","qnt":""}],
+"coords": [1630.362305,2867.353516],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3829.841064,1680.792603],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3802.668701,1120.555786],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [3279.537842,1979.382324],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [2865.751953,1622.923950],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"coords": [1860.364380,1518.763550],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"herb_paris","qnt":""},
+			{"item":"mint","qnt":""},
+			{"item":"sage","qnt":""},
+			{"item":"valerian","qnt":""}],
+"coords": [1204.653198,3681.477295],
+},
+{	
+"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
+"group": "woodland_garden",
+"icon": "woodland_garden",
+"kcditems": [
+			{"item":"belladonna","qnt":""},
+			{"item":"comfrey","qnt":""},
+			{"item":"herb_paris","qnt":""},
+			{"item":"mint","qnt":""},
+			{"item":"nettle","qnt":""},
+			{"item":"valerian","qnt":""}],
+"coords": [973.752380,3895.890381],
+},
+// Bandit Camps
+{	
+"name": "<span data-i18n='bandit_camp'>Bandit Camp</span>",
+"group": "bandit_camp",
+"icon": "bandit_camp",
+"coords": [1735,720],
+},
+{	
+"name": "<span data-i18n='bandit_camp'>Bandit Camp</span>",
+"group": "bandit_camp",
+"icon": "bandit_camp",
+"coords": [1748,2979],
+},
+{	
+"name": "<span data-i18n='bandit_camp'>Bandit Camp</span>",
+"group": "bandit_camp",
+"icon": "bandit_camp",
+"chest": "",
+"req": "lockpicking",
+"level": "very_hard",
+"coords": [1674,988],
+},
 {	
 "name": "<span data-i18n='bed'>Bed</span>",
 "group": "bed",
@@ -170,107 +604,160 @@ var markers = [
 },
 */
 {	
+//FT NEUHOF
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [3485.825195,1444.598633],
 },
 {	
+//FT SKALITZ
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [885.976624,3376.271240],
 },
 {	
+//FT TALMBERG
+"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"group": "fast_travel",
+"icon": "fast_travel",
+"coords": [2359.924316,2844.108398],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2359.892090,2845.200195],
-},
+},*/
 {	
+//FT SAMOPESH
+"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"group": "fast_travel",
+"icon": "fast_travel",
+"coords": [1140.762817,2241.165039],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [1141.026855,2241.849609],
-},
+},*/
 {	
+//FT VRANIK
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [891.638367,844.487000],
 },
 {	
+//FT UZHITZ
+"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"group": "fast_travel",
+"icon": "fast_travel",
+"coords": [3048.656982,3332.118896],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [3047.200195,3333.661377],
-},
+},*/
 {	
+//FT RATTAY UPPER
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2777.149414,678.113220],
 },
 {	
+//FT PRIBYSLAVITZ
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [1656.810181,3628.977783],
 },
 {	
+//FT ROVNA
+"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"group": "fast_travel",
+"icon": "fast_travel",
+"coords": [1241.739380,3118.611816],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [1241.644165,3118.362793],
-},
+},*/
 {	
+//FT RATTAY MILL
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"desc": "<span data-i18n='rattay_mill'>Rattay Mill</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2445.578125,690.725647],
 },
 {	
+//FT INN AT THE GLADES
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2871.031006,1905.019409],
 },
 {	
+//FT MERHOJED
+"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"group": "fast_travel",
+"icon": "fast_travel",
+"coords": [1635.787964,2618.271973],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [1636.226440,2618.788086],
-},
+},*/
 {	
+//FT SASAU
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [896.831543,1185.912720],
 },
 {	
+//FT MONASTERY
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [928.943237,1601.125122],
 },
 {	
+//FT LEDETCHKO
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2056.820313,1306.923462],
 },
 {	
+//FT RATTAY LOWER
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2519.114502,498.302307],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2518.414795,499.061035],
-},
-{	
-"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
-"group": "fast_travel",
-"icon": "fast_travel",
-"coords": [2855.358643,1909.928345],
-},
+},*/
 {	
 "name": "<span data-i18n='lodgings'>Lodgings</span>",
 "group": "lodgings",
@@ -362,11 +849,12 @@ var markers = [
 "icon": "pillory",
 "coords": [3042.645752,3322.318115],
 },
+// Skalitz gates
 {	
-"name": "<span data-i18n='poacher'>Poacher</span>",
-"group": "poacher",
-"icon": "poacher",
-"coords": [1088.163086,482.989655],
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [864.265320,3381.125244],
 },
 */
 {	
@@ -398,90 +886,6 @@ var markers = [
 "group": "tavern",
 "icon": "tavern",
 "coords": [1158.549438,2248.252441],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [1635.787964,2618.271973],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [3509.145264,1508.523682],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2519.114502,498.302307],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [908.629211,1205.857788],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [951.414063,3807.297607],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [927.872498,1655.786743],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [1241.739380,3118.611816],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [3048.656982,3332.118896],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2453.786133,701.670044],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2359.924316,2844.108398],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [864.265320,3381.125244],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [1140.762817,2241.165039],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2776.153809,644.585144],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2044.254517,1335.288330],
 },
 /*
 // Windmill needs an icon
@@ -575,10 +979,10 @@ var markers = [
 "coords": [3739.174072,1855.790771],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3142.628662,504.150452],
+"name": "<span data-i18n='accident'>Accident</span>",
+"group": "accident",
+"icon": "accident",
+"coords": [1322.662354,2762.956543],
 },
 {	
 "name": "<span data-i18n='conciliation_cross'>Conciliation Cross</span>",
@@ -639,12 +1043,6 @@ var markers = [
 "group": "baker",
 "icon": "baker",
 "coords": [3080.781250,3330.884521],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1731.011719,2976.703369],
 },
 {	
 "name": "<span data-i18n='nest'>Nest</span>",
@@ -821,9 +1219,10 @@ var markers = [
 "coords": [3013.256592,3347.702637],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [509.006653,3271.981445],
 },
 {	
@@ -971,12 +1370,6 @@ var markers = [
 "coords": [319.008484,2574.174805],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1217.688599,2643.694580],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -1098,12 +1491,6 @@ var markers = [
 "coords": [2564.908447,578.937439],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1896.611572,1064.031006],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -1219,6 +1606,7 @@ var markers = [
 "coords": [845.636353,1964.855591],
 },
 {	
+//Unofficial Marker
 "name": "<span data-i18n='accident'>Accident</span>",
 "group": "accident",
 "icon": "accident",
@@ -1285,21 +1673,22 @@ var markers = [
 "coords": [1198.446167,3185.930176],
 },
 {	
-"name": "<span data-i18n='huntsman'>carpenter</span>",
+"name": "<span data-i18n='huntsman'>Huntsman</span>",
 "group": "huntsman",
 "icon": "huntsman",
 "coords": [2627.584717,646.821106],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [952.196899,2345.984619],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [1031.129639,2703.688965],
 },
 {	
@@ -1393,10 +1782,10 @@ var markers = [
 "coords": [3398.974609,442.320526],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1630.362305,2867.353516],
+"name": "<span data-i18n='conciliation_cross'>Conciliation Cross</span>",
+"group": "conciliation_cross",
+"icon": "conciliation_cross",
+"coords": [1490.01062,3134.510498],
 },
 {	
 "name": "<span data-i18n='accident'>Accident</span>",
@@ -1483,6 +1872,13 @@ var markers = [
 "coords": [2574.207764,2252.767334],
 },
 {	
+//Unofficial Marker
+"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
+"group": "interesting_site",
+"icon": "interesting_site",
+"coords": [1088.163086,482.989655],
+},
+{	
 "name": "<span data-i18n='grave'>Grave</span>",
 "group": "grave",
 "icon": "grave",
@@ -1524,18 +1920,6 @@ var markers = [
 "group": "conciliation_cross",
 "icon": "conciliation_cross",
 "coords": [816.027893,2337.213135],
-},
-{	
-"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
-"group": "interesting_site",
-"icon": "interesting_site",
-"coords": [1796.129395,4019.351318],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3829.841064,1680.792603],
 },
 {	
 "name": "<span data-i18n='deer_hunting_spot'>Deer Hunting Spot</span>",
@@ -1586,12 +1970,6 @@ var markers = [
 "coords": [1033.524902,1348.186890],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3802.668701,1120.555786],
-},
-{	
 "name": "<span data-i18n='conciliation_cross'>Conciliation Cross</span>",
 "group": "conciliation_cross",
 "icon": "conciliation_cross",
@@ -1634,7 +2012,7 @@ var markers = [
 "coords": [3757.291016,1190.316772],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1267.830566,1074.262817],
@@ -1760,12 +2138,6 @@ var markers = [
 "coords": [3685.535400,1944.841675],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3279.537842,1979.382324],
-},
-{	
 "name": "<span data-i18n='nest'>Nest</span>",
 "group": "nest",
 "icon": "nest",
@@ -1799,7 +2171,7 @@ var markers = [
 "name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
-"coords": [3283.240723,2157.410400],
+"coords": [3283.323486,2158.355469],
 },
 {	
 "name": "<span data-i18n='archery_range'>Archery Range</span>",
@@ -1820,7 +2192,7 @@ var markers = [
 "coords": [3555.410400,1618.969482],
 },
 {	
-"name": "<span data-i18n='huntsman'>carpenter</span>",
+"name": "<span data-i18n='huntsman'>Huntsman</span>",
 "group": "huntsman",
 "icon": "huntsman",
 "coords": [2444.702881,2643.914063],
@@ -1952,7 +2324,7 @@ var markers = [
 "coords": [3222.244385,2013.071045],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [2317.873047,1367.402954],
@@ -2058,12 +2430,6 @@ var markers = [
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [3191.936523,1426.200806],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2865.751953,1622.923950],
 },
 {	
 "name": "<span data-i18n='nest'>Nest</span>",
@@ -2222,7 +2588,7 @@ var markers = [
 "coords": [684.996094,1758.320557],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [3256.170166,1522.979004],
@@ -2553,12 +2919,6 @@ var markers = [
 "coords": [1530.077637,3385.658691],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1860.364380,1518.763550],
-},
-{	
 "name": "<span data-i18n='shrine'>Shrine</span>",
 "group": "shrine",
 "icon": "shrine",
@@ -2599,18 +2959,6 @@ var markers = [
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [815.154968,715.350830],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1204.653198,3681.477295],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [973.752380,3895.890381],
 },
 {	
 "name": "<span data-i18n='deer_hunting_spot'>Deer Hunting Spot</span>",
@@ -2655,24 +3003,13 @@ var markers = [
 "coords": [3384.359619,621.278320],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [426.735901,3670.262695],
-},
-{	
 "name": "<span data-i18n='grave'>Grave</span>",
 "group": "grave",
 "icon": "grave",
 "coords": [1280.584961,718.038208],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [127.513657,3326.467041],
-},
-{	
+//Unofficial
 "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
 "group": "boar_hunting_spot",
 "icon": "boar_hunting_spot",
@@ -2733,15 +3070,10 @@ var markers = [
 "coords": [1160.400269,3434.111084],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3631.555664,2621.792236],
-},
-{	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [982.328857,2668.793213],
 },
 {	
@@ -2751,7 +3083,7 @@ var markers = [
 "coords": [2791.122803,3348.604004],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1170.426392,2036.477905],
@@ -2943,15 +3275,10 @@ var markers = [
 "coords": [945.576355,3018.669434],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2572.418945,1871.062622],
-},
-{	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [552.094788,3222.113770],
 },
 {	
@@ -2961,9 +3288,10 @@ var markers = [
 "coords": [2887.950684,2268.526367],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [705.003052,2723.492188],
 },
 {	
@@ -2973,9 +3301,10 @@ var markers = [
 "coords": [1505.805542,813.653503],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [412.883850,3299.285645],
 },
 {	
@@ -2985,6 +3314,7 @@ var markers = [
 "coords": [2131.418945,1291.042114],
 },
 {	
+//Unofficial
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -2995,6 +3325,12 @@ var markers = [
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [2612.703369,3701.972900],
+},
+{	
+"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
+"group": "interesting_site",
+"icon": "interesting_site",
+"coords": [2684.97876,312.259827],
 },
 {	
 "name": "<span data-i18n='camp'>Camp</span>",
@@ -3009,9 +3345,10 @@ var markers = [
 "coords": [2625.123291,1400.102539],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [884.615540,2945.972412],
 },
 {	
@@ -3021,9 +3358,10 @@ var markers = [
 "coords": [525.020325,2344.737305],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [859.313354,2663.604736],
 },
 {	
@@ -3033,6 +3371,7 @@ var markers = [
 "coords": [2029.417480,1821.266113],
 },
 {	
+//Unofficial
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -3051,9 +3390,10 @@ var markers = [
 "coords": [817.196472,2558.515625],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [751.556152,3243.532959],
 },
 {	
@@ -3075,9 +3415,10 @@ var markers = [
 "coords": [942.865723,1984.426392],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [1089.735962,2769.016357],
 },
 {	
@@ -3099,13 +3440,14 @@ var markers = [
 "coords": [2911.676758,3690.712891],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [295.109650,3350.917969],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [2312.275879,3308.354492],
@@ -3129,6 +3471,7 @@ var markers = [
 "coords": [1003.789124,2060.626709],
 },
 {	
+//UNOFFICIAL, MINE ENTRANCE?
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -3147,9 +3490,10 @@ var markers = [
 "coords": [2105.925049,2986.559326],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [1135.702393,2832.732910],
 },
 {	
@@ -3207,13 +3551,13 @@ var markers = [
 "coords": [511.142670,3469.593018],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [2355.233643,2709.070557],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [694.187927,3706.392822],
@@ -3223,12 +3567,6 @@ var markers = [
 "group": "camp",
 "icon": "camp",
 "coords": [2781.588867,622.757996],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2330.406250,3517.514160],
 },
 {	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
@@ -3255,7 +3593,7 @@ var markers = [
 "coords": [355.190308,1957.720093],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [751.698425,2467.141846],
@@ -3297,7 +3635,7 @@ var markers = [
 "coords": [2792.712158,1257.559326],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [984.154785,1644.878418],
@@ -3309,7 +3647,7 @@ var markers = [
 "coords": [3191.401611,3005.828369],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1179.208618,1126.973877],
@@ -3351,7 +3689,7 @@ var markers = [
 "coords": [1216.665527,1935.329224],
 },
 {	
-"name": "<span data-i18n='carpenter'>Cobbler</span>",
+"name": "<span data-i18n='cobbler'>Cobbler</span>",
 "group": "cobbler",
 "icon": "cobbler",
 "coords": [2681.631592,610.337402],
@@ -3361,12 +3699,6 @@ var markers = [
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [1315.143799,2030.742188],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1102.384766,1252.178223],
 },
 {	
 "name": "<span data-i18n='accident'>Accident</span>",
@@ -3417,12 +3749,6 @@ var markers = [
 "coords": [1442.318726,1521.153931],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1483.661621,1763.639160],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -3435,7 +3761,7 @@ var markers = [
 "coords": [1078.129517,1674.936523],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1583.692871,1896.262085],
@@ -3505,12 +3831,6 @@ var markers = [
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [959.328674,1908.736572],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [540.620667,1850.406128],
 },
 {	
 "name": "<span data-i18n='nest'>Nest</span>",
@@ -3627,7 +3947,7 @@ var markers = [
 "coords": [3460.616455,499.774841],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [2417.741699,2427.091797],
@@ -3651,7 +3971,7 @@ var markers = [
 "coords": [2819.578613,2786.989502],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [758.761353,1390.114868],
@@ -3723,7 +4043,7 @@ var markers = [
 "coords": [947.315552,1818.303345],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1061.191162,1486.582031],
@@ -3750,6 +4070,11 @@ var markers = [
 "name": "<span data-i18n='baths'>Baths</span>",
 "group": "baths",
 "icon": "baths",
+"skillbook": [
+			{"skill":"vitality",
+			"name": "marathon",
+			"length":"40",
+			"price": "33"}],
 "coords": [2381.991943,605.561951],
 },
 {	
@@ -3849,7 +4174,7 @@ var markers = [
 "coords": [182.948746,1431.496582],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [330.448242,1554.151367],
@@ -3877,12 +4202,6 @@ var markers = [
 "group": "nest",
 "icon": "nest",
 "coords": [2006.146973,2058.705078],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2159.485840,1523.921753],
 },
 {	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
@@ -4035,12 +4354,6 @@ var markers = [
 "coords": [1685.630127,938.911682],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1581.446655,1272.240967],
-},
-{	
 "name": "<span data-i18n='cave'>Cave</span>",
 "group": "cave",
 "icon": "cave",
@@ -4071,7 +4384,7 @@ var markers = [
 "coords": [2074.861084,1420.755859],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1945.183228,1223.881104],
@@ -4081,12 +4394,6 @@ var markers = [
 "group": "shrine",
 "icon": "shrine",
 "coords": [2110.717285,1400.177002],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1181.351318,2151.338867],
 },
 {	
 "name": "<span data-i18n='camp'>Camp</span>",
@@ -4137,7 +4444,7 @@ var markers = [
 "coords": [2352.951660,1507.841187],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [971.729675,741.435608],
@@ -4305,7 +4612,7 @@ var markers = [
 "coords": [3603.499023,715.825745],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [264.314148,894.982727],
@@ -4425,18 +4732,6 @@ var markers = [
 "coords": [777.226624,828.035461],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [792.053284,905.946716],
-},
-{	
-"name": "<span data-i18n='accident'>Accident</span>",
-"group": "accident",
-"icon": "accident",
-"coords": [671.278870,851.093628],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -4461,7 +4756,7 @@ var markers = [
 "coords": [1376.516724,970.463928],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [1847.307129,733.316040],
@@ -4507,18 +4802,6 @@ var markers = [
 "group": "grave",
 "icon": "grave",
 "coords": [2974.416748,1023.781616],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1203.678955,743.668701],
-},
-{	
-"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
-"group": "interesting_site",
-"icon": "interesting_site",
-"coords": [1424.631714,629.960999],
 },
 {	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
@@ -4569,22 +4852,10 @@ var markers = [
 "coords": [2798.339844,337.530579],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2836.145752,766.281555],
-},
-{	
 "name": "<span data-i18n='shrine'>Shrine</span>",
 "group": "shrine",
 "icon": "shrine",
 "coords": [2176.480957,709.932922],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3169.885742,330.571350],
 },
 {	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
@@ -4762,12 +5033,6 @@ var markers = [
 "coords": [1878.295654,624.537415],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2307.128418,615.796143],
-},
-{	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -4828,12 +5093,6 @@ var markers = [
 "coords": [3909.730469,573.187012],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3603.721436,724.813477],
-},
-{	
 "name": "<span data-i18n='herbalist'>herbalist</span>",
 "group": "herbalist",
 "icon": "herbalist",
@@ -4852,7 +5111,7 @@ var markers = [
 "coords": [3098.576904,1109.197144],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [2458.522705,815.897034],
@@ -5074,13 +5333,6 @@ var markers = [
 "coords": [772.394470,2405.230957],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"items": ["belladonna", "comfrey", "mint", , "valerian"],
-"coords": [992.496460,2321.241943],
-},
-{	
 "name": "<span data-i18n='grave'>Grave</span>",
 "group": "grave",
 "icon": "grave",
@@ -5105,6 +5357,7 @@ var markers = [
 "coords": [782.744812,2564.107178],
 },
 {	
+//Unofficial
 "name": "<span data-i18n='tanner'>Tanner</span>",
 "group": "tanner",
 "icon": "tanner",
@@ -5141,7 +5394,7 @@ var markers = [
 "coords": [886.308960,2520.134521],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [3284.710449,3260.779297],
@@ -5175,26 +5428,6 @@ var markers = [
 "group": "boar_hunting_spot",
 "icon": "boar_hunting_spot",
 "coords": [562.316956,2469.653320],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"items": ["comfrey", "eyebright", "sage", , "valerian"],
-"coords": [957.372559,2275.004883],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"items": ["belladonna", "chamomile", "herb_paris", "mint", "st_johns_wort"],
-"coords": [924.192078,2356.219238],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [1916.977417,2553.188965],
 },
 {	
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
@@ -5329,12 +5562,6 @@ var markers = [
 "coords": [2355.491943,2087.245361],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2559.407471,2031.498413],
-},
-{	
 "name": "<span data-i18n='accident'>Accident</span>",
 "group": "accident",
 "icon": "accident",
@@ -5383,7 +5610,7 @@ var markers = [
 "coords": [926.714233,1189.069702],
 },
 {	
-"name": "<span data-i18n='carpenter'>Fishing Spot</span>",
+"name": "<span data-i18n='fishing_spot'>Fishing Spot</span>",
 "group": "fishing_spot",
 "icon": "fishing_spot",
 "coords": [2628.812256,3004.440674],
@@ -5441,12 +5668,6 @@ var markers = [
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [2495.326904,2818.712891],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2617.020508,2459.062256],
 },
 {	
 "name": "<span data-i18n='blacksmith'>blacksmith</span>",
@@ -5617,12 +5838,6 @@ var markers = [
 "coords": [2460.353271,3856.896729],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [2812.496094,3233.129883],
-},
-{	
 "name": "<span data-i18n='herbalist'>herbalist</span>",
 "group": "herbalist",
 "icon": "herbalist",
@@ -5659,7 +5874,7 @@ var markers = [
 "coords": [2773.617920,3612.769531],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [899.154175,1682.904419],
@@ -5743,12 +5958,6 @@ var markers = [
 "coords": [3004.545898,2971.418457],
 },
 {	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3092.456055,2675.397461],
-},
-{	
 "name": "<span data-i18n='deer_hunting_spot'>Deer Hunting Spot</span>",
 "group": "deer_hunting_spot",
 "icon": "deer_hunting_spot",
@@ -5828,12 +6037,6 @@ var markers = [
 "group": "shrine",
 "icon": "shrine",
 "coords": [3162.839355,2972.470947],
-},
-{	
-"name": "<span data-i18n='woodland_garden'>Woodland Garden</span>",
-"group": "woodland_garden",
-"icon": "woodland_garden",
-"coords": [3553.792725,3581.312500],
 },
 {	
 "name": "<span data-i18n='nest'>Nest</span>",
@@ -5980,7 +6183,7 @@ var markers = [
 "coords": [2682.136475,2934.708984],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [1965.719116,1611.107544],
@@ -6097,7 +6300,7 @@ var markers = [
 "name": "<span data-i18n='miller'>Miller</span>",
 "group": "miller",
 "icon": "miller",
-"coords": [1030.949707,1605.811035],
+"coords": [1030.632935,1617.124023],
 },
 {	
 "name": "<span data-i18n='combat_arena'>Combat Arena</span>",
@@ -6172,7 +6375,7 @@ var markers = [
 "coords": [2830.649658,2410.163086],
 },
 {	
-"name": "<span data-i18n='carpenter'>Cobbler</span>",
+"name": "<span data-i18n='cobbler'>Cobbler</span>",
 "group": "cobbler",
 "icon": "cobbler",
 "coords": [818.695129,1175.518066],
@@ -6190,7 +6393,7 @@ var markers = [
 "coords": [1625.810913,2668.803955],
 },
 {	
-"name": "<span data-i18n='alchemy_bench'>alchemy_bench</span>",
+"name": "<span data-i18n='alchemy_bench'>Alchemy Bench</span>",
 "group": "alchemy_bench",
 "icon": "alchemy_bench",
 "coords": [2503.195557,550.376160],
