@@ -1,0 +1,1272 @@
+body {margin: 0px;font-family: '1529 Champ Fleury W01 Regular';font-size:13px;}
+body a {text-decoration: none;}
+#map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fbeece;
+  cursor: crosshair;
+}
+.version {
+  color: #171717;
+  position: absolute;
+  margin: 0;
+  left: 5px;
+  bottom: 10px;
+  font-family: 'MedievalSharpBook';
+  font-weight: bold;
+  font-size: 12px;
+}
+.sidebar.collapsed {
+  width: 41px;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    top: 0px;
+    bottom: 0px;
+    transition: width 500ms;
+    border-radius: 0px; }
+  .sidebar-left {
+    left: 0px; }
+  .sidebar.leaflet-touch {
+    border: none; }
+}
+.sidebar-left .sidebar-tabs {
+  background: #d8c8af;
+  background-image: url(../assets/images/bg.png);
+  border-right: 1px solid #76643e;
+  z-index: 1000;
+}
+.sidebar-pane {
+  padding: 10px 20px 10px 15px;
+}
+.left-arrow {
+  background-image: url(../assets/images/left-arrow.png);
+  background-size: 28px;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.sidebar-header {
+  margin: -10px -20px 0;
+  height: 40px;
+  padding: 0 20px;
+  line-height: 40px;
+  font-size: 14.4pt;
+  color: #fff;
+  background-color: #11110d;
+}
+.sidebar-content {
+  background: #d8c8af;
+  background-image: url(../assets/images/bg.png);
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 13px;
+  color: #1f201b;
+	border-right: 1px solid #76643e;
+}
+.toggle-title {
+  display: block;
+  margin: 15px 0 0 -20px;
+  font-size: 18px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #101010;
+  padding: 0px 10px 8px 20px;
+  background-color: #c4c4c4;
+  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/dotbg.png);
+  width: 180px;
+  line-height: 25px;
+  position: relative;
+  cursor: pointer;
+}
+.toggle-title:before {
+  content: '';
+  width: 180px;
+  height: 8px;
+  position: absolute;
+  top: -8px;
+  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/topborderdot.png);
+  left: 1px;
+}
+.toggle-title:after {
+  content: '';
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  margin-left: 10px;
+  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/toggle.png);
+  background-size: 22px;
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.toggle-title.active:after {
+  content: '';
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/toggle.png);
+  background-size: 22px;
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.list-title {
+	display: block;
+	margin: 0px 10px 0 0px;
+	font-size: 22px;
+	font-family: '1529 Champ Fleury W01 Regular';
+	color: #422500;
+	padding: 0;
+	line-height: 26px;
+	font-weight: bold;
+}
+.user-list,
+.allmarkers-list,
+.markers-list {
+  float: none;
+  border: none;
+  padding: 6px;
+  margin: 0px;
+  display: inline-block;
+  width: 100%;
+}
+.user-list li,
+.allmarkers-list li,
+.markers-list li {
+  display: flex;
+  white-space: normal;
+  width: 100%;
+  overflow: hidden;
+  list-style: none;
+}
+.user-list i,
+.allmarkers-list i,
+.markers-list i {
+  display: flex;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  float: left;
+  margin-right: 2px;
+  margin-bottom: 5px;
+  margin-top: 4px;
+  line-height: 30px;
+}
+.user-list label,
+.allmarkers-list label,
+.markers-list label {
+  display: flex;
+  align-items: center;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 16px;
+  color: #1f201b;
+  width: 100%;
+  padding-left: 5px;
+}
+.mtop15px {margin-top: 15px;}
+a.btn {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+a.btn:hover .btn-text {
+  background-color: #d0ba69;
+  color: #171717;
+  border: 1px solid #715a32;
+  border-left: none;
+}
+.btn i {
+  display: flex;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.btn-text {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #171717;
+  background: #eed67d;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #c09e64;
+  border-left: none;
+  margin-left: -4px;
+}
+.dialog{
+  position: relative;
+}
+.prompt {
+  position: absolute;
+  top: 0;
+  background: #dac5ad;
+  text-align: center;
+  border: 1px solid #76643e;
+  padding: 10px;
+  box-shadow: 0px 3px 1px #76643e;
+}
+.prompt .text {
+  display: block;
+  margin: 0px;
+}
+.prompt .clearyes,
+.prompt .patchyes{
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  background: #456513;
+  width: 50px;
+  border: none;
+  color: #fff;
+}
+.prompt .clearno,
+.prompt .patchno{
+  display: inline-block;
+  margin: 10px 0px 0 0px;
+  background: #F44336;
+  width: 50px;
+  border: none;
+  color: #fff;
+}
+.inventory {background-image: url(../assets/images/inventory.png);}
+.import {background-image: url(../assets/images/import.png);}
+.export {background-image: url(../assets/images/export.png);}
+.erase {background-image: url(../assets/images/erase.png);}
+.player {background-image: url(../assets/images/player64px.png);}
+.allmarkers {background-image: url(../assets/images/allmarkers.png);}
+.cities {background-image: url(../assets/images/cities.png);}
+.fast_travel {background-image: url(../assets/images/fast_travel.png);}
+.fishing_spot {background-image: url(../assets/images/fishing_spot.png);}
+.combat_arena {background-image: url(../assets/images/combat_arena.png);}
+.archery_range {background-image: url(../assets/images/archery_range.png);}
+.baths {background-image: url(../assets/images/baths.png);}
+.camp {background-image: url(../assets/images/camp.png);}
+.bandit_camp {background-image: url(../assets/images/bandit_camp.png);}
+.deer_hunting_spot {background-image: url(../assets/images/deer_hunting_spot.png);}
+.boar_hunting_spot {background-image: url(../assets/images/boar_hunting_spot.png);}
+.fish_trap {background-image: url(../assets/images/fish_trap.png);}
+.beehive {background-image: url(../assets/images/beehive.png);}
+.vegetable_shop {background-image: url(../assets/images/vegetable_shop.png);}
+.woodland_garden {background-image: url(../assets/images/woodland_garden.png);}
+.accident {background-image: url(../assets/images/accident.png);}
+.cave {background-image: url(../assets/images/cave.png);}
+.mine {background-image: url(../assets/images/mine.png);}
+.grave {background-image: url(../assets/images/grave.png);}
+.woodland_garden {background-image: url(../assets/images/woodland_garden.png);}
+.nest {background-image: url(../assets/images/nest.png);}
+.conciliation_cross {background-image: url(../assets/images/conciliation_cross.png);}
+.shrine {background-image: url(../assets/images/shrine.png);}
+.scribe {background-image: url(../assets/images/scribe.png);}
+.baker {background-image: url(../assets/images/baker.png);}
+.tailor {background-image: url(../assets/images/tailor.png);}
+.butcher {background-image: url(../assets/images/butcher.png);}
+.alchemy_bench {background-image: url(../assets/images/alchemy_bench.png);}
+.grindstone {background-image: url(../assets/images/grindstone.png);}
+.trader {background-image: url(../assets/images/trader.png);}
+.blacksmith {background-image: url(../assets/images/blacksmith.png);}
+.armourer {background-image: url(../assets/images/armourer.png);}
+.weaponsmith {background-image: url(../assets/images/weaponsmith.png);}
+.cobbler {background-image: url(../assets/images/cobbler.png);}
+.tavern {background-image: url(../assets/images/tavern.png);}
+.your_bed {background-image: url(../assets/images/your_bed.png);}
+.lodgings {background-image: url(../assets/images/lodgings.png);}
+.apothecary {background-image: url(../assets/images/apothecary.png);}
+.herbalist {background-image: url(../assets/images/herbalist.png);}
+.miller {background-image: url(../assets/images/miller.png);}
+.horse_trader {background-image: url(../assets/images/horse_trader.png);}
+.tanner {background-image: url(../assets/images/tanner.png);}
+.huntsman {background-image: url(../assets/images/huntsman.png);}
+.unknown {background-image: url(../assets/images/unknown.png);}
+.interesting_site {background-image: url(../assets/images/interesting_site.png);}
+.treasure_chest {background-image: url(../assets/images/treasure_chest.png);}
+.treasure_map {background-image: url(../assets/images/treasure_map.png);}
+.spade {background-image: url(../assets/images/spade.png);}
+.lockpicking {background-image: url(../assets/images/lockpicking.png);}
+
+.belladonna {background-image: url(../assets/images/belladonna.png);}
+.chamomile {background-image: url(../assets/images/chamomile.png);}
+.comfrey {background-image: url(../assets/images/comfrey.png);}
+.dandelion {background-image: url(../assets/images/dandelion.png);}
+.eyebright {background-image: url(../assets/images/eyebright.png);}
+.herb_paris {background-image: url(../assets/images/herb_paris.png);}
+.marigold {background-image: url(../assets/images/marigold.png);}
+.mint {background-image: url(../assets/images/mint.png);}
+.nettle {background-image: url(../assets/images/nettle.png);}
+.poppy {background-image: url(../assets/images/poppy.png);}
+.sage {background-image: url(../assets/images/sage.png);}
+.st_johns_wort {background-image: url(../assets/images/st_johns_wort.png);}
+.thistle {background-image: url(../assets/images/thistle.png);}
+.valerian {background-image: url(../assets/images/valerian.png);}
+.wormwood {background-image: url(../assets/images/wormwood.png);}
+.book_vitality {background-image: url(../assets/images/book_herbalism.png);}
+.book_herbalism {background-image: url(../assets/images/book_herbalism.png);}
+.book_lockpicking {background-image: url(../assets/images/book_lockpicking.png);}
+
+.amanita {background-image: url(../assets/images/fly_agaric.png);}
+.dandelion {background-image: url(../assets/images/dandelion.png);}
+.herb_paris {background-image: url(../assets/images/herb_paris.png);}
+
+.cc {
+  opacity: 0;
+  position: absolute;
+  width: 46px;
+  height: 45px;
+  margin: 0 15px 0 0;
+  right: 0px; 
+}
+.cc, .cl {
+  display: inline-block;
+  cursor: pointer;
+}
+.cl {
+  position: relative;
+}
+.cl::-moz-selection { background: transparent; }
+.cl::selection { background: transparent; }
+.cc + .cl:after {
+  content: '';
+  background-image: url('../assets/images/hide.png');
+  background-position: center;
+  background-size: auto 100%;
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding: 2px;
+  right: 10px;
+  text-align: center;
+  vertical-align: top;
+  position: absolute;
+}
+.cc:checked + .cl:after {
+  background-image: url('../assets/images/eye.png');
+}
+.cc:focus + .cl {
+  outline: none; /* focus style */
+}
+.item-title {
+  background: #d39e35;
+  margin: 10px 0px 5px -15px;
+  padding: 2px 15px;
+  font-size: 15px;
+  color: #101010;
+  font-weight: bold;
+  font-family: 'Roboto';
+}
+.items-list {
+  float: none;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+}
+.items-list li {
+  line-height: 18px;
+  white-space: normal;
+  width: 100%;
+  overflow: hidden;
+  float: left;
+  list-style: none;
+}
+.toggle-content.title {
+  display: block;
+  background: #d39e35;
+  margin: 10px 0px 5px 0px;
+  padding: 2px 15px;
+  font-size: 15px;
+  color: #101010;
+  font-weight: bold;
+  font-family: 'Roboto';
+  left: -15px;
+  position: relative;
+  cursor: pointer;
+}
+.toggle-content.title:after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  margin-left: 10px;
+  background-image: url(https://rogerhn.github.io/projects/wildlands/assets/img/toggle.png);
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.toggle-content.title.active:after {
+  content: '';
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+a.locate {
+  display: inline-block;
+  font-family: 'Roboto';
+  font-size: 13px;
+  color: #e19f28;
+  text-decoration: none;
+}
+a.locate.sidebar-close {
+  position: relative;
+  width: auto;
+  height: auto;
+}
+.text {
+  font-family: '1529 Champ Fleury W01 Regular';
+  color: #1f201b;
+  font-size: 14px;
+  margin:5px 10px 10px;
+}
+.update h3 {
+	margin: 10px 15px 10px;
+	display: inline-block;
+	font-size: 17px;
+	color: #6d0809;
+}
+.updateday {
+	font-family: Consolas;
+	font-weight: bold;
+	color: #1f201b;
+	font-size: 11px;
+}
+.update .text {
+  font-family: Consolas;
+  color: #1f201b;
+  font-size: 13px;
+  margin:5px 0;
+}
+.update i {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    background-size: contain;
+}
+.update-list {
+	margin: 5px 0;
+	padding: 0;
+	list-style: none;
+}
+.update-list li {
+	padding-left: 20px;
+	position: relative;
+}
+.update-list li:before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background-image: url(../assets/images/lvlupstar.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0;
+}
+
+.legalinfo {
+    margin: 10px 0;
+    text-align: center;
+}
+.legalinfo .text.creator {
+font-size: 15px;
+}
+.legalinfo .text {
+	font-family: '1529 Champ Fleury W01 Regular';
+	color: #1f201b;
+}
+.sidebar-pane .text a.link {
+	font-family: '1529 Champ Fleury W01 Regular';
+	color: #1f201b;
+	text-decoration: underline;
+}
+
+.hidden-content {display: none;}
+
+ul.ilist {
+  list-style: none;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+ul.ilist li {
+	display: flex;
+}
+.ilist i {
+	display: flex;
+	width: 32px;
+	height: 32px;
+	background-size: contain;
+}
+.ilist .iname,
+.ilist .ilevel {
+	display: flex;
+	align-items: center;
+	text-transform: capitalize;
+	text-align: left;
+	font-size: 14px;
+	margin-left: 10px;
+}
+.ilevel.easy {
+	color: #008000;
+}
+.ilevel.hard {
+	color: #ff6600;
+}
+.ilevel.very_hard {
+	color: #ce0000;
+}
+.ilist .qnt {
+	display: flex;
+	align-items: center;
+	text-align: left;
+	font-size: 13px;
+	margin-left: 10px;
+	font-family: 'MedievalSharpBook';
+	color: #4c2900;
+	font-weight: bold;
+	margin-top: 3px;
+}
+p.req {
+	color: #4c2900;
+	margin: 5px 0;
+	padding: 0;
+	text-align: left;
+}
+
+
+button,
+input,
+select,
+textarea {
+  background-color: #f7f7f7;
+  border-radius: 0;
+  font-size: 1.000em;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 100%;
+  vertical-align: baseline; }
+
+button,
+input {
+  line-height: normal; }
+
+input,
+textarea {
+  background-color: #ffead3;
+  border: 1px solid #aa9a88;
+  color: #171717;
+  font-family: '1529 Champ Fleury W01 Regular';
+}
+
+input:focus,
+textarea:focus {
+  background-color: #ffead3;
+  border: 1px solid #aa9a88;
+  color: #171717;} 
+
+input:focus,
+select:focus {
+  outline: 2px solid #c1c1c1;
+  outline: 2px solid rgba(51, 51, 51, 0.3); }
+
+button[disabled],
+input[disabled],
+select[disabled],
+textarea[disabled] {
+  cursor: default;
+  opacity: 1; }
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  background-color: #eed67d;
+  border: 1px solid #c09e64;
+  color: #171717;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 10px 2px;
+  text-transform: capitalize;
+  font-family: 'MedievalSharpBook';
+  box-sizing: border-box;
+  width: 100%;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus {
+  background-color: #d0ba69;
+  outline: 0;
+  color: #171717;
+  border: 1px solid #715a32;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type="text"],
+textarea {
+  padding: 0px 2px 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+  outline: 0;
+}
+.coordsinputs {
+  text-align: center;
+}
+#mlon, #mlat {
+  border: none;
+  width: 50px;
+  font-family: 'MedievalSharpBook';
+  font-size: 12px;
+  padding: 2px 5px 0;
+  font-weight: bold;
+  margin: 0 2px;
+  background: transparent;
+}
+.chooseIcon {
+  display: block;
+  text-align: center;
+  font-family: 'MedievalSharpBook';
+  font-size: 17px;
+  font-weight: bold;
+  color: #171717;
+}
+#iconprev {
+  width: 32px;
+  height: 32px;
+  background-size: auto 32px;
+  background-repeat: no-repeat;
+  margin: 3px auto;
+  background-position: center;
+}
+#addmark {
+  text-align: center;
+  min-width: 150px;
+  font-family: 'MedievalSharpBook';
+  font-weight: bold;
+  font-size: 14px;
+  color: #171717;
+}
+#addmark select {
+  text-transform: capitalize;
+  margin: 0px;
+  display: block;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 14px;
+  background-color: #ffead3;
+  border: 2px solid #aa9a88;
+  width: 100%;
+}
+#edit-dialog select {
+  text-transform: capitalize;
+  margin: 0px 0 5px;
+  display: block;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 14px;
+  background-color: #ffead3;
+  border: 2px solid #aa9a88;
+  width: 100%;
+}
+#editedtitle {
+    margin: 2px 0 5px;
+}
+#editeddesc {
+    margin: 2px 0 5px;
+}
+button.cancel {
+    margin: 5px 0;
+}
+#titleprev {
+  text-transform: capitalize;
+}
+.markertitle, .markerdesc {
+  text-align: center;
+  margin: 5px 2px 2px;
+}
+button.add-marker {
+  display: block;
+  margin: 5px auto;
+}
+button.remove-marker {
+	display: block;
+	margin: 0 auto;
+	width: auto;
+}
+.remove-text {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  margin: 20px 0 5px;
+  font-family: 'MedievalSharpBook';
+  font-weight: bold;
+  color: #000;
+}
+button.yes {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  background: #456513;
+  width: 50px;
+  border: none;
+  color: #fff;
+}
+button.no {
+  display: inline-block;
+  margin: 10px 0px 0 0px;
+  background: #F44336;
+  width: 50px;
+  border: none;
+  color: #fff;
+}
+.mtitle {
+  font-weight: bold;
+  text-transform: capitalize;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 19px;
+	letter-spacing: 1px;
+}
+p.mdesc {margin: 0;}
+.mcoords {
+  font-size: 11px;
+  text-transform: capitalize;
+  font-family: 'MedievalSharpBook';
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #000;
+}
+#remove-dialog {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  background: #ddc7ad;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+  z-index: 1;
+  border-radius: 15px;
+}
+.remove-marker.hide {
+    display: none;
+}
+#edit-dialog {
+  background: #ddc7ad;
+  text-align: center;
+  z-index: 1;
+  border-radius: 15px;
+  height: 100%;
+}
+.edit-marker {
+	margin: 5px auto;
+	width: auto;
+	display: block;
+}
+.copymarkerurl {
+	width: auto;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+.copiedmsg {
+  position: absolute;
+  bottom: 0px;
+  background: #4e9006;
+  padding: 4px 7px;
+  font-size: 12px;
+  font-family: consolas;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  left: 0;
+  right: 0;
+  border: 1px solid #2f5405;
+}
+.hide {display: none;}
+.leaflet-popup-content .original_coords {
+font-family: Consolas;
+margin: 5px 0 0;
+font-weight: bold;
+font-size: 11px;
+color: #4c2900;
+display: block;
+position: relative;
+}
+
+
+.text-label {
+  /*visibility: hidden;*/
+  border: none;
+  box-shadow: none;
+  text-transform: capitalize;
+  opacity: 1;
+  font-family: '1529 Champ Fleury W01 Regular';
+}
+.text-label:before {
+  margin: 0;
+  border-top-color: #76643e;
+}
+
+.text-label:after {
+  border: none;
+}
+
+.text-label span {
+  padding: 6px 10px 4px;
+  margin-bottom: 6px;
+  display: block;
+  color: #000;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: capitalize;
+  opacity: 1;
+  font-family: '1529 Champ Fleury W01 Regular';
+  background-image: url(../assets/images/bg.png);
+  border: 2px solid #76643e;
+}
+.leaflet-tooltip {background-color: rgba(255, 255, 255, 0);}
+.leaflet-popup-content-wrapper {
+  background-image: url(../assets/images/bg.png);
+}
+.leaflet-popup-tip {
+  background-color: #ddc7b3;
+}
+.leaflet-container a.leaflet-popup-close-button,
+.leaflet-container a.leaflet-popup-close-button:hover{
+  color: #472a0b;
+}
+.leaflet-popup-content {
+  text-align: center;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 14px;
+  color: #171717;
+}
+.leaflet-popup-content .mtitle {
+	margin: 0px;
+}
+leaflet-control-attribution {
+  display: none;
+}
+.coordsinfo {
+  font-family: 'MedievalSharpBook';
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #000;
+}
+.restoreWindowOverlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	text-align: center;
+	z-index: 10000;
+}
+.restoreWindow {
+  width: 50%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  background-color: rgb(162, 121, 91);
+  text-align: center;
+  padding: 50px;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(118, 100, 62);
+  z-index: 10000;
+}
+.restoreTitle {
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 17px;
+  margin: 10px 0;
+  letter-spacing: 1px;
+}
+.restoreWindowX {
+	position: absolute;
+	top: 0px;
+	right: 5px;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	font-size: 25px;
+	font-family: verdana;
+	font-weight: bold;
+	width: 36px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.restoreWindowX:hover,
+.restoreWindowX:active {
+  color: #000;
+}
+#fileinput {
+  padding: 5px;
+}
+
+.original_coords {
+  font-family: Arial;
+}
+
+/* Sidebar V2 */
+	@media (max-width: 360px) {
+    .sidebar {
+      width: 100%; } }
+  @media (min-width: 361px) and (max-width: 991px) {
+    .sidebar {
+      width: 340px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar {
+      width: 340px; } }
+  @media (min-width: 1200px) {
+    .sidebar {
+      width: 340px;
+      } }
+			
+@media (max-width: 320px) {
+    .sidebar-pane {
+      min-width: 268px; } }
+@media (max-width: 360px) {
+    .sidebar-pane {
+      width: 100%; } }
+@media (min-width: 361px) and (max-width: 991px) {
+  .sidebar-pane {
+		min-width: 300px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar-pane {
+    min-width: 300px; } }
+@media (min-width: 1200px) {
+  .sidebar-pane {
+		min-width: 300px;
+    } }
+/*
+.sidebar-pane p.clear {clear: both;}
+@media (min-width: 768px) {
+.sidebar {
+top: 0px;
+bottom: 0px;
+left: 0px;
+border-radius: 0px;
+} }
+.sidebar.collapsed {
+width: 40px; }
+@media (min-width: 768px) {
+.sidebar {
+transition: width 500ms; } }
+@media (min-width: 320px) and (max-width: 767px) {
+.sidebar {
+width: 320px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+.sidebar {
+width: 350px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+.sidebar {
+width: 390px; } }
+@media (min-width: 1200px) {
+.sidebar {
+width: 400px; } }
+
+/*
+.sidebar-pane {
+display: none;
+left: 0;
+right: 0;
+box-sizing: border-box;
+padding: 10px 20px; }
+.sidebar-pane.active {
+display: block; }
+@media (min-width: 320px) and (max-width: 767px) {
+.sidebar-pane {
+min-width: 100%; } }
+@media (min-width: 768px) and (max-width: 991px) {
+.sidebar-pane {
+min-width: 100%; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+.sidebar-pane {
+min-width: 100%; } }
+@media (min-width: 1200px) {
+.sidebar-pane {
+min-width: 100%; } }
+*/
+
+
+.sidebar-tabs > li:hover, .sidebar-tabs > ul > li:hover {
+  background-color: #c2ab81;
+}
+.sidebar-tabs > ul > li.active i {
+  -webkit-filter: grayscale(0);
+  background-color: #c2ab81;
+}
+.sidebar-tabs i {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  -webkit-filter: grayscale(1);
+}
+.sidebar-tabs i:hover {
+  -webkit-filter: grayscale(0);
+}
+.home {background-image: url('../assets/images/kcd-dark.png');}
+.share {background-image: url('../assets/images/codex.png');}
+.about {background-image: url('../assets/images/quest.png');}
+.settings {background-image: url('../assets/images/codex.png');}
+/*markers tab*/
+.logo-container {
+  margin: 5px 30px 5px 10px;
+  position: relative;
+}
+img.logo-menu {
+  width: 100%;
+  margin: 0px;
+}
+.discord-img {
+  width: 100%;
+  max-width: 200px;
+  margin: 0px;
+}
+
+
+/*Settings tab*/
+.sidebar-pane .text p{
+  font-family: arial;
+  font-size: 12px;
+}
+.sidebar-pane .text a{
+  font-family: arial;
+  font-size: 12px;
+}
+.langswitch {
+  display: inline-block;
+  width: 100%;
+}
+.lang {
+  display: flex;
+  margin: 0 auto;
+  color: #1f201b;
+  cursor: pointer;
+  position: relative;
+}
+.lang.active {
+  background-image: url(../assets/images/selector_mid.png);
+  background-position: left center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.lang i {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  vertical-align: middle;
+  margin: 0px;
+}
+.lang-text {
+  display: flex;
+  width: 100%;
+  position: relative;
+  font-family: '1529 Champ Fleury W01 Regular';
+  font-size: 16px;
+  padding: 0 5px 0 5px;
+  -o-transition: .1s ease-out;
+  -ms-transition: .1s ease-out;
+  -moz-transition: .1s ease-out;
+  -webkit-transition: .1s ease-out;
+  transition: .1s ease-out;
+  align-items: center;
+}
+.lang.active {
+  color:#1b1b1b;
+}
+.checkmark {
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  left: 18px;
+  top: 0px;
+  position: absolute;
+  z-index: 2;
+  flex-shrink: 0;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.checkmark.active {
+  background: url('../assets/images/check_green.png');
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.leaflet-control-coordinates.leaflet-control {
+	background-color: transparent;
+  text-align: center;
+}
+.leaflet-control-coordinates .uiElement input {
+	font-family: 'MedievalSharpBook';
+	border-radius: 0px;
+	border: none;
+	background: #ffead3;
+	color: #171717;
+	font-size: 12px;
+	font-weight: bold;
+}
+.leaflet-control-coordinates .uiElement {
+	margin: 0px;
+	width: 120px;
+	height: 26px;
+	display: flex;
+	align-items: center;
+}
+.uiElement {
+	width: auto;
+	background: url(../assets/images/bg.png);
+	margin: 0px;
+	padding: 2px 5px;
+	box-shadow: inset 0 0px 4px 0px rgb(0, 0, 0);
+	font-family: 'MedievalSharpBook';
+	font-weight: bold;
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+.labelFirst {
+	width: 125px;
+}
+.uiElement.input {
+	width: 120px;
+	text-align: left;
+	height: 26px;
+	display: flex;
+	align-items: center;
+}
+.uiElement span {
+	display: inline-block;
+	margin: 0;
+}
+.leaflet-control-coordinates .uiElement input.inputX {
+	width: 45px;
+	padding: 2px 5px 2px 5px;
+	margin-right: 5px;
+}
+.leaflet-control-coordinates .uiElement input.inputY {
+width: 45px;
+padding: 2px 5px 2px 5px;
+}
+.uiElement.input.uiHidden,
+.leaflet-control-coordinates .uiElement.uiHidden {display: none;}
+
+.en {background: url('../assets/flags/en.png');}
+.br {background: url('../assets/flags/br.png');}
+.fr {background: url('../assets/flags/fr.png');}
+.ru {background: url('../assets/flags/ru.png');}
+.de {background: url('../assets/flags/de.png');}
+.cn {background: url('../assets/flags/cn.png');}
+.nl {background: url('../assets/flags/nl.png');}
+.pl {background: url('../assets/flags/pl.png');}
+.ro {background: url('../assets/flags/ro.png');}
+.tr {background: url('../assets/flags/tr.png');}
+.it {background: url('../assets/flags/it.png');}
+.es {background: url('../assets/flags/es.png');}
+.ko {background: url('../assets/flags/ko.png');}
+.ja {background: url('../assets/flags/ja.png');}
+.en,.br,.fr,.ru,.de,.cn,.pl,.ro,.tr,.it,.es,.nl,.ko,.ja {
+  width: 24px;
+  height: 24px;
+  display: block;
+  float: left;
+  margin: 5px 5px 0px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  border:none;
+  background-size: 24px 24px;
+}
+
+.leaflet-control-attribution.leaflet-control {display: none;}
+@font-face {
+    font-family: 'MedievalSharpBook';
+        src: url('../assets/fonts/MedievalSharpBook.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+@font-face{
+  font-family:'1529 Champ Fleury W01 Regular';
+  src:local('1529 Champ Fleury W01 Regular'),
+  local('1529-Champ-Fleury-W01-Regular'),url("../assets/fonts/1529Champ.ttf") format('truetype')}
+
+/*Sidebar Scroll*/
+::-webkit-scrollbar {
+  width: 12px;
+  background: #ccb190;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  background: #76643e; 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #76643e; 
+}
+/* Fullscreen control */
+.fullscreen-icon { background-image: url(../assets/images/icon-fullscreen.png); }
+.leaflet-retina .fullscreen-icon { background-image: url(../assets/images/icon-fullscreen-2x.png); background-size: 26px 26px; }
+.leaflet-container:-webkit-full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
+.leaflet-container:-ms-fullscreen { width: 100% !important; height: 100% !important; z-index: 99999; }
+.leaflet-container:full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
+.leaflet-container:fullscreen { width: 100% !important; height: 100% !important; z-index: 99999; }
+.leaflet-pseudo-fullscreen { position: fixed !important; width: 100% !important; height: 100% !important; top: 0px !important; left: 0px !important; z-index: 99999; }
+
