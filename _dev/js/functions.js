@@ -43,7 +43,7 @@ L.tileLayer(tilesUrl, {
   continuousWorld: true
 }).addTo(map);
 
-map.setMaxBounds([[-4000, -4000], [10000, 10000]]);
+map.setMaxBounds([[-3000, -3000], [7000, 7000]]);
 
 window.latLngToPixels = function(latlng) {
   return window.map.project([latlng.lat, latlng.lng], window.map.getMaxZoom());
@@ -128,7 +128,7 @@ for (var i = 0; i < textMarkers.length; i++) {
   var textMarker = new L.marker(textMarkers[i].coords, { opacity: 0.0, icon: transparentMarker }); //opacity may be set to zero
   textMarker.bindTooltip(textMarkers[i].name, {permanent: true, direction: "top", className: "text-label", offset: [0, 0] });
   textMarker.addTo(layerGroups.textmarkers); // Adds the text markers to map.
-  layerGroups.textmarkers.addTo(map);
+  //layerGroups.textmarkers.addTo(map);
 }
 
 map.on('zoomend', function(e) {

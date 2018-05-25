@@ -3472,9 +3472,9 @@ Spade to bury Henry's parents
 },
 {	
 //UNOFFICIAL, MINE ENTRANCE?
-"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
-"group": "interesting_site",
-"icon": "interesting_site",
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [625.334473,3104.312500],
 },
 {	
