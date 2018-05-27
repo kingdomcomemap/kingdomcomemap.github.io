@@ -2,43 +2,43 @@
 var textMarkers = 
 [{
     "name": "<span data-i18n='SKALITZ'>SKALITZ</span>",
-    "coords": ["3606", "768"]
+    "coords": [3606,768]
 }, {
     "name": "<span data-i18n='PRIBYSLAVITZ'>PRIBYSLAVITZ</span>",
-    "coords": ["3774", "1535"]
+    "coords": [3774,1535]
 }, {
     "name": "<span data-i18n='ROVNA'>ROVNA</span>",
-    "coords": ["3170", "1299"]
+    "coords": [3170,1299]
 }, {
     "name": "<span data-i18n='MERHOJED'>MERHOJED</span>",
-    "coords": ["2733", "1570"]
+    "coords": [2733,1570]
 }, {
     "name": "<span data-i18n='TALMBERG'>TALMBERG</span>",
-    "coords": ["2878", "2279"]
+    "coords": [2878,2279]
 }, {
     "name": "<span data-i18n='UZHITZ'>UZHITZ</span>",
-    "coords": ["3400", "3235"]
+    "coords": [3400,3235]
 }, {
     "name": "<span data-i18n='SAMOPESH'>SAMOPESH</span>",
-    "coords": ["2102", "1158"]
+    "coords": [2102,1158]
 }, {
     "name": "<span data-i18n='MONASTERY'>MONASTERY</span>",
-    "coords": ["1829", "865"]
+    "coords": [1829,865]
 }, {
     "name": "<span data-i18n='LEDETCHKO'>LEDETCHKO</span>",
-    "coords": ["1423", "1954"]
+    "coords": [1423,1954]
 }, {
     "name": "<span data-i18n='SASAU'>SASAU</span>",
-    "coords": ["1034", "913"]
+    "coords": [1034,913]
 }, {
     "name": "<span data-i18n='VRANIK'>VRANIK</span>",
-    "coords": ["810", "968"]
+    "coords": [810,968]
 }, {
     "name": "<span data-i18n='RATTAY'>RATTAY</span>",
-    "coords": ["389", "2712"]
+    "coords": [389,2712]
 }, {
     "name": "<span data-i18n='NEUHOF'>NEUHOF</span>",
-    "coords": ["1280", "3515"]
+    "coords": [1280,3515]
 }]
 //Game Markers
 var markers = [
@@ -72,19 +72,7 @@ Spade to bury Henry's parents
 "name": "<span data-i18n='unknown'>Unknown</span>",
 "group": "unknown",
 "icon": "unknown",
-"coords": [1635.787964,2618.271973],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
 "coords": [3509.145264,1508.523682],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2519.114502,498.302307],
 },
 {	
 "name": "<span data-i18n='unknown'>Unknown</span>",
@@ -108,31 +96,7 @@ Spade to bury Henry's parents
 "name": "<span data-i18n='unknown'>Unknown</span>",
 "group": "unknown",
 "icon": "unknown",
-"coords": [1241.739380,3118.611816],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [3048.656982,3332.118896],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
 "coords": [2453.786133,701.670044],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [2359.924316,2844.108398],
-},
-{	
-"name": "<span data-i18n='unknown'>Unknown</span>",
-"group": "unknown",
-"icon": "unknown",
-"coords": [1140.762817,2241.165039],
 },
 {	
 "name": "<span data-i18n='unknown'>Unknown</span>",
@@ -640,60 +604,98 @@ Spade to bury Henry's parents
 },
 */
 {	
+//FT NEUHOF
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [3485.825195,1444.598633],
 },
 {	
+//FT SKALITZ
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [885.976624,3376.271240],
 },
 {	
+//FT TALMBERG
+"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"group": "fast_travel",
+"icon": "fast_travel",
+"coords": [2359.924316,2844.108398],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2359.892090,2845.200195],
-},
+},*/
 {	
+//FT SAMOPESH
+"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"group": "fast_travel",
+"icon": "fast_travel",
+"coords": [1140.762817,2241.165039],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [1141.026855,2241.849609],
-},
+},*/
 {	
+//FT VRANIK
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [891.638367,844.487000],
 },
 {	
+//FT UZHITZ
+"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"group": "fast_travel",
+"icon": "fast_travel",
+"coords": [3048.656982,3332.118896],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [3047.200195,3333.661377],
-},
+},*/
 {	
+//FT RATTAY UPPER
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2777.149414,678.113220],
 },
 {	
+//FT PRIBYSLAVITZ
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [1656.810181,3628.977783],
 },
 {	
+//FT ROVNA
+"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"group": "fast_travel",
+"icon": "fast_travel",
+"coords": [1241.739380,3118.611816],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [1241.644165,3118.362793],
-},
+},*/
 {	
+//FT RATTAY MILL
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "desc": "<span data-i18n='rattay_mill'>Rattay Mill</span>",
 "group": "fast_travel",
@@ -701,41 +703,61 @@ Spade to bury Henry's parents
 "coords": [2445.578125,690.725647],
 },
 {	
+//FT INN AT THE GLADES
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2871.031006,1905.019409],
 },
 {	
+//FT MERHOJED
+"name": "<span data-i18n='fast_travel'>Fast Travel</span>",
+"group": "fast_travel",
+"icon": "fast_travel",
+"coords": [1635.787964,2618.271973],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [1636.226440,2618.788086],
-},
+},*/
 {	
+//FT SASAU
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [896.831543,1185.912720],
 },
 {	
+//FT MONASTERY
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [928.943237,1601.125122],
 },
 {	
+//FT LEDETCHKO
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2056.820313,1306.923462],
 },
 {	
+//FT RATTAY LOWER
+"name": "<span data-i18n='unknown'>Unknown</span>",
+"group": "unknown",
+"icon": "unknown",
+"coords": [2519.114502,498.302307],
+},
+/*{	
+//replaced by former "unknown" above
 "name": "<span data-i18n='fast_travel'>Fast Travel</span>",
 "group": "fast_travel",
 "icon": "fast_travel",
 "coords": [2518.414795,499.061035],
-},
+},*/
 {	
 "name": "<span data-i18n='lodgings'>Lodgings</span>",
 "group": "lodgings",
@@ -826,12 +848,6 @@ Spade to bury Henry's parents
 "group": "pillory",
 "icon": "pillory",
 "coords": [3042.645752,3322.318115],
-},
-{	
-"name": "<span data-i18n='poacher'>Poacher</span>",
-"group": "poacher",
-"icon": "poacher",
-"coords": [1088.163086,482.989655],
 },
 // Skalitz gates
 {	
@@ -961,6 +977,12 @@ Spade to bury Henry's parents
 "group": "accident",
 "icon": "accident",
 "coords": [3739.174072,1855.790771],
+},
+{	
+"name": "<span data-i18n='accident'>Accident</span>",
+"group": "accident",
+"icon": "accident",
+"coords": [1322.662354,2762.956543],
 },
 {	
 "name": "<span data-i18n='conciliation_cross'>Conciliation Cross</span>",
@@ -1197,9 +1219,10 @@ Spade to bury Henry's parents
 "coords": [3013.256592,3347.702637],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [509.006653,3271.981445],
 },
 {	
@@ -1583,6 +1606,7 @@ Spade to bury Henry's parents
 "coords": [845.636353,1964.855591],
 },
 {	
+//Unofficial Marker
 "name": "<span data-i18n='accident'>Accident</span>",
 "group": "accident",
 "icon": "accident",
@@ -1661,9 +1685,10 @@ Spade to bury Henry's parents
 "coords": [952.196899,2345.984619],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [1031.129639,2703.688965],
 },
 {	
@@ -1757,6 +1782,12 @@ Spade to bury Henry's parents
 "coords": [3398.974609,442.320526],
 },
 {	
+"name": "<span data-i18n='conciliation_cross'>Conciliation Cross</span>",
+"group": "conciliation_cross",
+"icon": "conciliation_cross",
+"coords": [1490.01062,3134.510498],
+},
+{	
 "name": "<span data-i18n='accident'>Accident</span>",
 "group": "accident",
 "icon": "accident",
@@ -1839,6 +1870,13 @@ Spade to bury Henry's parents
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [2574.207764,2252.767334],
+},
+{	
+//Unofficial Marker
+"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
+"group": "interesting_site",
+"icon": "interesting_site",
+"coords": [1088.163086,482.989655],
 },
 {	
 "name": "<span data-i18n='grave'>Grave</span>",
@@ -2133,7 +2171,7 @@ Spade to bury Henry's parents
 "name": "<span data-i18n='fish_trap'>Fishing Trap</span>",
 "group": "fish_trap",
 "icon": "fish_trap",
-"coords": [3283.240723,2157.410400],
+"coords": [3283.323486,2158.355469],
 },
 {	
 "name": "<span data-i18n='archery_range'>Archery Range</span>",
@@ -2971,6 +3009,7 @@ Spade to bury Henry's parents
 "coords": [1280.584961,718.038208],
 },
 {	
+//Unofficial
 "name": "<span data-i18n='boar_hunting_spot'>Boar Hunting Spot</span>",
 "group": "boar_hunting_spot",
 "icon": "boar_hunting_spot",
@@ -3031,9 +3070,10 @@ Spade to bury Henry's parents
 "coords": [1160.400269,3434.111084],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [982.328857,2668.793213],
 },
 {	
@@ -3235,9 +3275,10 @@ Spade to bury Henry's parents
 "coords": [945.576355,3018.669434],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [552.094788,3222.113770],
 },
 {	
@@ -3247,9 +3288,10 @@ Spade to bury Henry's parents
 "coords": [2887.950684,2268.526367],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [705.003052,2723.492188],
 },
 {	
@@ -3259,9 +3301,10 @@ Spade to bury Henry's parents
 "coords": [1505.805542,813.653503],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [412.883850,3299.285645],
 },
 {	
@@ -3271,6 +3314,7 @@ Spade to bury Henry's parents
 "coords": [2131.418945,1291.042114],
 },
 {	
+//Unofficial
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -3281,6 +3325,12 @@ Spade to bury Henry's parents
 "group": "interesting_site",
 "icon": "interesting_site",
 "coords": [2612.703369,3701.972900],
+},
+{	
+"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
+"group": "interesting_site",
+"icon": "interesting_site",
+"coords": [2684.97876,312.259827],
 },
 {	
 "name": "<span data-i18n='camp'>Camp</span>",
@@ -3295,9 +3345,10 @@ Spade to bury Henry's parents
 "coords": [2625.123291,1400.102539],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [884.615540,2945.972412],
 },
 {	
@@ -3307,9 +3358,10 @@ Spade to bury Henry's parents
 "coords": [525.020325,2344.737305],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [859.313354,2663.604736],
 },
 {	
@@ -3319,6 +3371,7 @@ Spade to bury Henry's parents
 "coords": [2029.417480,1821.266113],
 },
 {	
+//Unofficial
 "name": "<span data-i18n='interesting_site'>Interesting Site</span>",
 "group": "interesting_site",
 "icon": "interesting_site",
@@ -3337,9 +3390,10 @@ Spade to bury Henry's parents
 "coords": [817.196472,2558.515625],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [751.556152,3243.532959],
 },
 {	
@@ -3361,9 +3415,10 @@ Spade to bury Henry's parents
 "coords": [942.865723,1984.426392],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [1089.735962,2769.016357],
 },
 {	
@@ -3385,9 +3440,10 @@ Spade to bury Henry's parents
 "coords": [2911.676758,3690.712891],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [295.109650,3350.917969],
 },
 {	
@@ -3415,9 +3471,10 @@ Spade to bury Henry's parents
 "coords": [1003.789124,2060.626709],
 },
 {	
-"name": "<span data-i18n='interesting_site'>Interesting Site</span>",
-"group": "interesting_site",
-"icon": "interesting_site",
+//UNOFFICIAL, MINE ENTRANCE?
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [625.334473,3104.312500],
 },
 {	
@@ -3433,9 +3490,10 @@ Spade to bury Henry's parents
 "coords": [2105.925049,2986.559326],
 },
 {	
-"name": "<span data-i18n='cave'>Cave</span>",
-"group": "cave",
-"icon": "cave",
+
+"name": "<span data-i18n='mine'>Mine</span>",
+"group": "mine",
+"icon": "mine",
 "coords": [1135.702393,2832.732910],
 },
 {	
@@ -5299,6 +5357,7 @@ Spade to bury Henry's parents
 "coords": [782.744812,2564.107178],
 },
 {	
+//Unofficial
 "name": "<span data-i18n='tanner'>Tanner</span>",
 "group": "tanner",
 "icon": "tanner",
@@ -6241,7 +6300,7 @@ Spade to bury Henry's parents
 "name": "<span data-i18n='miller'>Miller</span>",
 "group": "miller",
 "icon": "miller",
-"coords": [1030.949707,1605.811035],
+"coords": [1030.632935,1617.124023],
 },
 {	
 "name": "<span data-i18n='combat_arena'>Combat Arena</span>",

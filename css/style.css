@@ -265,6 +265,7 @@ a.btn:hover .btn-text {
 .woodland_garden {background-image: url(../assets/images/woodland_garden.png);}
 .accident {background-image: url(../assets/images/accident.png);}
 .cave {background-image: url(../assets/images/cave.png);}
+.mine {background-image: url(../assets/images/mine.png);}
 .grave {background-image: url(../assets/images/grave.png);}
 .woodland_garden {background-image: url(../assets/images/woodland_garden.png);}
 .nest {background-image: url(../assets/images/nest.png);}
@@ -312,7 +313,13 @@ a.btn:hover .btn-text {
 .thistle {background-image: url(../assets/images/thistle.png);}
 .valerian {background-image: url(../assets/images/valerian.png);}
 .wormwood {background-image: url(../assets/images/wormwood.png);}
+.book_vitality {background-image: url(../assets/images/book_herbalism.png);}
 .book_herbalism {background-image: url(../assets/images/book_herbalism.png);}
+.book_lockpicking {background-image: url(../assets/images/book_lockpicking.png);}
+
+.amanita {background-image: url(../assets/images/fly_agaric.png);}
+.dandelion {background-image: url(../assets/images/dandelion.png);}
+.herb_paris {background-image: url(../assets/images/herb_paris.png);}
 
 .cc {
   opacity: 0;
@@ -944,10 +951,36 @@ leaflet-control-attribution {
 }
 
 /* Sidebar V2 */
-@media (min-width: 1200px)
-.sidebar-pane {
-    min-width: 380px;
-}
+	@media (max-width: 360px) {
+    .sidebar {
+      width: 100%; } }
+  @media (min-width: 361px) and (max-width: 991px) {
+    .sidebar {
+      width: 340px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar {
+      width: 340px; } }
+  @media (min-width: 1200px) {
+    .sidebar {
+      width: 340px;
+      } }
+			
+@media (max-width: 320px) {
+    .sidebar-pane {
+      min-width: 268px; } }
+@media (max-width: 360px) {
+    .sidebar-pane {
+      width: 100%; } }
+@media (min-width: 361px) and (max-width: 991px) {
+  .sidebar-pane {
+		min-width: 300px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar-pane {
+    min-width: 300px; } }
+@media (min-width: 1200px) {
+  .sidebar-pane {
+		min-width: 300px;
+    } }
 /*
 .sidebar-pane p.clear {clear: both;}
 @media (min-width: 768px) {
