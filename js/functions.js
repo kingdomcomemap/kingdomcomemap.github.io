@@ -961,6 +961,7 @@ function onPopupOpen(e) {
 	console.log("clickedMarkerCoordsNew= "+clickedMarkerCoordsNew);
   var popup = _this.getPopup();
 
+  $(document).off('click', '.remove-marker')
   $(document).on('click', '.remove-marker', function() {
     $(this).addClass('hide');
     $(this).next('#remove-dialog').removeClass('hide');
@@ -968,6 +969,7 @@ function onPopupOpen(e) {
     $(this).parent().parent().find('.edit-marker').addClass('hide');
 		$(this).parent().parent().find('.copymarkerurl').addClass('hide');
   });
+  $(document).off('click', '.no')
   $(document).on('click', '.no', function() {
     $(this).parent('#remove-dialog').addClass('hide');
     $(this).parent().parent().find('.popcontent').removeClass('hide');
@@ -976,6 +978,7 @@ function onPopupOpen(e) {
 		$(this).parent().parent().find('.copymarkerurl').removeClass('hide');
   });
 
+  $(document).off('click', '.yes')
   $(document).on('click', '.yes', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
     for(i = storageMarkers.length; i > -1; i--) {
@@ -994,6 +997,7 @@ function onPopupOpen(e) {
   });
   
    //Edit Marker
+   $(document).off('click', '.edit-marker')
   $(document).on('click', '.edit-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
 		for(i = storageMarkers.length; i > -1; i--) {
@@ -1013,6 +1017,7 @@ function onPopupOpen(e) {
     $(this).parent().parent().find('.remove-marker').addClass('hide');
 		$(this).parent().parent().find('.copymarkerurl').addClass('hide');
   });
+  $(document).off('click', '.cancel')
   $(document).on('click', '.cancel', function() {
     $(this).parent().parent().find('#edit-dialog').addClass('hide');
     $(this).parent().parent().find('.popcontent').removeClass('hide');
@@ -1021,6 +1026,7 @@ function onPopupOpen(e) {
 		$(this).parent().parent().find('.copymarkerurl').removeClass('hide');
 		popup._close();
   });
+  $(document).off('click', '.save-marker')
   $(document).on('click', '.save-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
     for(i = storageMarkers.length; i > -1; i--) {
@@ -1155,12 +1161,14 @@ function onPopupOpenShared() {
   var smX = sharedMarker.split(",")[0];
   var icoUrl = (markerIconTypes[smIcon].options.iconUrl);
 
+  $(document).off('click', '.remove-marker')
   $(document).on('click', '.remove-marker', function() {
     $(this).addClass('hide');
     $(this).next('#remove-dialog').removeClass('hide');
     $(this).parent().parent().find('.popcontent').addClass('hide');
     $(this).parent().parent().find('.edit-marker').addClass('hide');
   });
+  $(document).off('click', '.no')
   $(document).on('click', '.no', function() {
     $(this).parent('#remove-dialog').addClass('hide');
     $(this).parent().parent().find('.popcontent').removeClass('hide');
@@ -1168,11 +1176,13 @@ function onPopupOpenShared() {
     $(this).parent().parent().find('.remove-marker').removeClass('hide');
   });
 
+  $(document).off('click', '.yes')
   $(document).on('click', '.yes', function() {
     map.removeLayer(_this);
   });
   
    //Edit Marker
+   $(document).off('click', '.edit-marker')
   $(document).on('click', '.edit-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
         $(this).parent().find('#iconprev').css("background-image", "url("+icoUrl+")");
@@ -1183,12 +1193,14 @@ function onPopupOpenShared() {
     $(this).parent().parent().find('.popcontent').addClass('hide');
     $(this).parent().parent().find('.remove-marker').addClass('hide');
   });
+  $(document).off('click', '.cancel')
   $(document).on('click', '.cancel', function() {
     $(this).parent().parent().find('#edit-dialog').addClass('hide');
     $(this).parent().parent().find('.popcontent').removeClass('hide');
     $(this).parent().parent().find('.edit-marker').removeClass('hide');
     $(this).parent().parent().find('.remove-marker').removeClass('hide');
   });
+  $(document).off('click', '.save-marker')
   $(document).on('click', '.save-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
         var editedicon = $(this).parent().find('select[name=icon]').val();
