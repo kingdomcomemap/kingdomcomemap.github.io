@@ -4,7 +4,7 @@ var iconsUrl = './assets/images/';
 var tilesUrl = "./map/{z}_{x}_{y}.jpg";
 var maxNativeZoom = 5;
 var mapMinZoom = 1;
-var mapMaxZoom = 6;
+var mapMaxZoom = 8;
 
 var mapSize = 8192;
 var tileSize = 256;
@@ -30,7 +30,7 @@ var map = L.map('map', {
   },
   crs: L.CRS.MySimple,
 
-}).setView([2932,2932], 2);
+}).setView([2048,2048], 2);
 
 L.tileLayer(tilesUrl, {
   maxNativeZoom: maxNativeZoom,
@@ -91,6 +91,7 @@ L.control.coordinates({
 }).addTo(map);
 
 // Fix for the 1px white border
+
 function gridfix(){
   var originalInitTile = L.GridLayer.prototype._initTile
   L.GridLayer.include({
@@ -103,6 +104,7 @@ function gridfix(){
   });
 };
 gridfix();
+
 
 var layerGroups = [];
 
@@ -258,7 +260,7 @@ if (imarkers.req != undefined) {
 	markerUrl = encodeURI(markerUrl);
 
   // Add the marker
-  var marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.group}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
+  var marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.name}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
 	globalMarkers.push(marker);
 }
 
@@ -951,9 +953,12 @@ function addMarkerText(lat,long) {
   });
 }
 
-function onPopupOpen() {
+function onPopupOpen(e) {
   var _this = this;
-  var clickedMarkerCoords = this.getLatLng();
+  var clickedMarkerCoords = _this.getLatLng();
+	console.log("clickedMarkerCoords= "+clickedMarkerCoords);
+  var clickedMarkerCoordsNew = e.target.getLatLng();
+	console.log("clickedMarkerCoordsNew= "+clickedMarkerCoordsNew);
   var popup = _this.getPopup();
 
   $(document).on('click', '.remove-marker', function() {
@@ -978,6 +983,7 @@ function onPopupOpen() {
           (clickedMarkerCoords.lat == storageMarkers[i].coords.x &&
            clickedMarkerCoords.lng == storageMarkers[i].coords.y)
          ) {
+				//console.log(storageMarkers[i]);
         storageMarkers.splice(i, 1);
         localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
       }
@@ -990,11 +996,12 @@ function onPopupOpen() {
    //Edit Marker
   $(document).on('click', '.edit-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
-    for(i = storageMarkers.length; i > -1; i--) {
+		for(i = storageMarkers.length; i > -1; i--) {
       if (typeof storageMarkers[i] != 'undefined' && 
           (clickedMarkerCoords.lat == storageMarkers[i].coords.x &&
            clickedMarkerCoords.lng == storageMarkers[i].coords.y)
          ) {
+					 //console.log(storageMarkers[i]);
         $(this).parent().find('#iconprev').css("background-image", "url("+storageMarkers[i].icon.options.iconUrl+")");
         $(this).parent().find('#select_icon').val(storageMarkers[i].iconvalue);
       }
@@ -1012,6 +1019,7 @@ function onPopupOpen() {
     $(this).parent().parent().find('.edit-marker').removeClass('hide');
     $(this).parent().parent().find('.remove-marker').removeClass('hide');
 		$(this).parent().parent().find('.copymarkerurl').removeClass('hide');
+		popup._close();
   });
   $(document).on('click', '.save-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
@@ -1136,7 +1144,7 @@ if (sharedMarker != undefined) {
 // Edit and save shared marker
 function onPopupOpenShared() {
   var _this = this;
-  var clickedMarkerCoords = this.getLatLng();
+  var clickedMarkerCoords = _this.getLatLng();
   var popup = _this.getPopup();
   var smIcon = getUrlVars()["icon"];
   var smTitle = getUrlVars()["title"];
