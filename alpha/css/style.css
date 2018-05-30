@@ -66,7 +66,7 @@ body a {text-decoration: none;}
   font-family: '1529 Champ Fleury W01 Regular';
   font-size: 13px;
   color: #1f201b;
-	border-right: 1px solid #76643e;
+  border-right: 1px solid #76643e;
 }
 .toggle-title {
   display: block;
@@ -123,14 +123,14 @@ body a {text-decoration: none;}
   transform: rotate(45deg);
 }
 .list-title {
-	display: block;
-	margin: 0px 10px 0 0px;
-	font-size: 22px;
-	font-family: '1529 Champ Fleury W01 Regular';
-	color: #422500;
-	padding: 0;
-	line-height: 26px;
-	font-weight: bold;
+  display: block;
+  margin: 0px 10px 0 0px;
+  font-size: 22px;
+  font-family: '1529 Champ Fleury W01 Regular';
+  color: #422500;
+  padding: 0;
+  line-height: 26px;
+  font-weight: bold;
 }
 .user-list,
 .allmarkers-list,
@@ -250,77 +250,84 @@ a.btn:hover .btn-text {
 .player {background-image: url(../assets/images/player64px.png);}
 .allmarkers {background-image: url(../assets/images/allmarkers.png);}
 .cities {background-image: url(../assets/images/cities.png);}
-.fast_travel {background-image: url(../assets/images/fast_travel.png);}
-.fishing_spot {background-image: url(../assets/images/fishing_spot.png);}
-.combat_arena {background-image: url(../assets/images/combat_arena.png);}
-.archery_range {background-image: url(../assets/images/archery_range.png);}
-.baths {background-image: url(../assets/images/baths.png);}
-.camp {background-image: url(../assets/images/camp.png);}
-.bandit_camp {background-image: url(../assets/images/bandit_camp.png);}
-.deer_hunting_spot {background-image: url(../assets/images/deer_hunting_spot.png);}
-.boar_hunting_spot {background-image: url(../assets/images/boar_hunting_spot.png);}
-.fish_trap {background-image: url(../assets/images/fish_trap.png);}
-.beehive {background-image: url(../assets/images/beehive.png);}
-.vegetable_shop {background-image: url(../assets/images/vegetable_shop.png);}
-.woodland_garden {background-image: url(../assets/images/woodland_garden.png);}
-.accident {background-image: url(../assets/images/accident.png);}
-.cave {background-image: url(../assets/images/cave.png);}
-.mine {background-image: url(../assets/images/mine.png);}
-.grave {background-image: url(../assets/images/grave.png);}
-.woodland_garden {background-image: url(../assets/images/woodland_garden.png);}
-.nest {background-image: url(../assets/images/nest.png);}
-.conciliation_cross {background-image: url(../assets/images/conciliation_cross.png);}
-.shrine {background-image: url(../assets/images/shrine.png);}
-.scribe {background-image: url(../assets/images/scribe.png);}
-.baker {background-image: url(../assets/images/baker.png);}
-.tailor {background-image: url(../assets/images/tailor.png);}
-.butcher {background-image: url(../assets/images/butcher.png);}
-.alchemy_bench {background-image: url(../assets/images/alchemy_bench.png);}
-.grindstone {background-image: url(../assets/images/grindstone.png);}
-.trader {background-image: url(../assets/images/trader.png);}
-.blacksmith {background-image: url(../assets/images/blacksmith.png);}
-.armourer {background-image: url(../assets/images/armourer.png);}
-.weaponsmith {background-image: url(../assets/images/weaponsmith.png);}
-.cobbler {background-image: url(../assets/images/cobbler.png);}
-.tavern {background-image: url(../assets/images/tavern.png);}
-.your_bed {background-image: url(../assets/images/your_bed.png);}
-.lodgings {background-image: url(../assets/images/lodgings.png);}
-.apothecary {background-image: url(../assets/images/apothecary.png);}
-.herbalist {background-image: url(../assets/images/herbalist.png);}
-.miller {background-image: url(../assets/images/miller.png);}
-.horse_trader {background-image: url(../assets/images/horse_trader.png);}
-.tanner {background-image: url(../assets/images/tanner.png);}
-.huntsman {background-image: url(../assets/images/huntsman.png);}
 .unknown {background-image: url(../assets/images/unknown.png);}
-.interesting_site {background-image: url(../assets/images/interesting_site.png);}
-.treasure_chest {background-image: url(../assets/images/treasure_chest.png);}
-.treasure_map {background-image: url(../assets/images/treasure_map.png);}
+.your_bed {background-image: url(../assets/images/your_bed.png);}
+
+.arrow {background-image:url(../assets/images/arrow.png);}
+.accident {background-image:url(../assets/images/accident.png);}
+.alchemy_bench {background-image:url(../assets/images/alchemy_bench.png);}
+.apothecary {background-image:url(../assets/images/apothecary.png);}
+.archery_range {background-image:url(../assets/images/archery_range.png);}
+.armourer {background-image:url(../assets/images/armourer.png);}
+.baker {background-image:url(../assets/images/baker.png);}
+.bandit_camp {background-image:url(../assets/images/bandit_camp.png);}
+.baths {background-image:url(../assets/images/baths.png);}
+.beehive {background-image:url(../assets/images/beehive.png);}
+.blacksmith {background-image:url(../assets/images/blacksmith.png);}
+.boar_hunting_spot {background-image:url(../assets/images/boar_hunting_spot.png);}
+.butcher {background-image:url(../assets/images/butcher.png);}
+.camp {background-image:url(../assets/images/camp.png);}
+.cave {background-image:url(../assets/images/cave.png);}
+.charcoal_burner {background-image:url(../assets/images/charcoal_burner.png);}
+.cobbler {background-image:url(../assets/images/cobbler.png);}
+.combat_arena {background-image:url(../assets/images/combat_arena.png);}
+.conciliation_cross {background-image:url(../assets/images/conciliation_cross.png);}
+.deer_hunting_spot {background-image:url(../assets/images/deer_hunting_spot.png);}
+.fast_travel {background-image:url(../assets/images/fast_travel.png);}
+.fish_trap {background-image:url(../assets/images/fish_trap.png);}
+.fishing_spot {background-image:url(../assets/images/fishing_spot.png);}
+.grave {background-image:url(../assets/images/grave.png);}
+.grindstone {background-image:url(../assets/images/grindstone.png);}
+.grocer {background-image:url(../assets/images/grocer.png);}
+.herbalist {background-image:url(../assets/images/herbalist.png);}
+.home {background-image:url(../assets/images/home.png);}
+.horse_trader {background-image:url(../assets/images/horse_trader.png);}
+.huntsman {background-image:url(../assets/images/huntsman.png);}
+.interesting_site {background-image:url(../assets/images/interesting_site.png);}
+.lodgings {background-image:url(../assets/images/lodgings.png);}
+.miller {background-image:url(../assets/images/miller.png);}
+.mine {background-image:url(../assets/images/mine.png);}
+.nest {background-image:url(../assets/images/nest.png);}
+.scribe {background-image:url(../assets/images/scribe.png);}
+.shrine {background-image:url(../assets/images/shrine.png);}
+.tailor {background-image:url(../assets/images/tailor.png);}
+.tanner {background-image:url(../assets/images/tanner.png);}
+.tavern {background-image:url(../assets/images/tavern.png);}
+.trader {background-image:url(../assets/images/trader.png);}
+.treasure_chest {background-image:url(../assets/images/treasure_chest.png);}
+.treasure_map {background-image:url(../assets/images/treasure_map.png);}
+.treasure_map_alt {background-image:url(../assets/images/treasure_map_alt.png);}
+.vegetable_shop {background-image:url(../assets/images/vegetable_shop.png);}
+.weaponsmith {background-image:url(../assets/images/weaponsmith.png);}
+.woodland_garden {background-image:url(../assets/images/woodland_garden.png);}
+.amanita {background-image:url(../assets/images/fly_agaric.png);}
+.belladonna {background-image:url(../assets/images/belladonna.png);}
+.chamomile {background-image:url(../assets/images/chamomile.png);}
+.comfrey {background-image:url(../assets/images/comfrey.png);}
+.dandelion {background-image:url(../assets/images/dandelion.png);}
+.eyebright {background-image:url(../assets/images/eyebright.png);}
+.herb_paris {background-image:url(../assets/images/herb_paris.png);}
+.marigold {background-image:url(../assets/images/marigold.png);}
+.mint {background-image:url(../assets/images/mint.png);}
+.nettle {background-image:url(../assets/images/nettle.png);}
+.poppy {background-image:url(../assets/images/poppy.png);}
+.sage {background-image:url(../assets/images/sage.png);}
+.st_johns_wort {background-image:url(../assets/images/st_johns_wort.png);}
+.thistle {background-image:url(../assets/images/thistle.png);}
+.valerian {background-image:url(../assets/images/valerian.png);}
+.wormwood {background-image:url(../assets/images/wormwood.png);}
+.marker_a {background-image:url(../assets/images/marker_a.png);}
+.marker_b {background-image:url(../assets/images/marker_b.png);}
+.marker_c {background-image:url(../assets/images/marker_c.png);}
+.star {background-image:url(../assets/images/star.png);}
+.exclamation {background-image:url(../assets/images/exclamation.png);}
+
+
 .spade {background-image: url(../assets/images/spade.png);}
 .lockpicking {background-image: url(../assets/images/lockpicking.png);}
-
-.belladonna {background-image: url(../assets/images/belladonna.png);}
-.chamomile {background-image: url(../assets/images/chamomile.png);}
-.comfrey {background-image: url(../assets/images/comfrey.png);}
-.dandelion {background-image: url(../assets/images/dandelion.png);}
-.eyebright {background-image: url(../assets/images/eyebright.png);}
-.herb_paris {background-image: url(../assets/images/herb_paris.png);}
-.marigold {background-image: url(../assets/images/marigold.png);}
-.mint {background-image: url(../assets/images/mint.png);}
-.nettle {background-image: url(../assets/images/nettle.png);}
-.poppy {background-image: url(../assets/images/poppy.png);}
-.sage {background-image: url(../assets/images/sage.png);}
-.st_johns_wort {background-image: url(../assets/images/st_johns_wort.png);}
-.thistle {background-image: url(../assets/images/thistle.png);}
-.valerian {background-image: url(../assets/images/valerian.png);}
-.wormwood {background-image: url(../assets/images/wormwood.png);}
 .book_vitality {background-image: url(../assets/images/book_herbalism.png);}
 .book_herbalism {background-image: url(../assets/images/book_herbalism.png);}
 .book_lockpicking {background-image: url(../assets/images/book_lockpicking.png);}
-
-.amanita {background-image: url(../assets/images/fly_agaric.png);}
-.dandelion {background-image: url(../assets/images/dandelion.png);}
-.herb_paris {background-image: url(../assets/images/herb_paris.png);}
-
 .cc {
   opacity: 0;
   position: absolute;
@@ -437,16 +444,16 @@ a.locate.sidebar-close {
   margin:5px 10px 10px;
 }
 .update h3 {
-	margin: 10px 15px 10px;
-	display: inline-block;
-	font-size: 17px;
-	color: #6d0809;
+  margin: 10px 15px 10px;
+  display: inline-block;
+  font-size: 17px;
+  color: #6d0809;
 }
 .updateday {
-	font-family: Consolas;
-	font-weight: bold;
-	color: #1f201b;
-	font-size: 11px;
+  font-family: Consolas;
+  font-weight: bold;
+  color: #1f201b;
+  font-size: 11px;
 }
 .update .text {
   font-family: Consolas;
@@ -455,99 +462,99 @@ a.locate.sidebar-close {
   margin:5px 0;
 }
 .update i {
-    width: 36px;
-    height: 36px;
-    display: inline-block;
-    background-size: contain;
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  background-size: contain;
 }
 .update-list {
-	margin: 5px 0;
-	padding: 0;
-	list-style: none;
+  margin: 5px 0;
+  padding: 0;
+  list-style: none;
 }
 .update-list li {
-	padding-left: 20px;
-	position: relative;
+  padding-left: 20px;
+  position: relative;
 }
 .update-list li:before {
-	content: "";
-	width: 16px;
-	height: 16px;
-	background-image: url(../assets/images/lvlupstar.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-	position: absolute;
-	left: 0;
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url(../assets/images/lvlupstar.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
 }
 
 .legalinfo {
-    margin: 10px 0;
-    text-align: center;
+  margin: 10px 0;
+  text-align: center;
 }
 .legalinfo .text.creator {
-font-size: 15px;
+  font-size: 15px;
 }
 .legalinfo .text {
-	font-family: '1529 Champ Fleury W01 Regular';
-	color: #1f201b;
+  font-family: '1529 Champ Fleury W01 Regular';
+  color: #1f201b;
 }
 .sidebar-pane .text a.link {
-	font-family: '1529 Champ Fleury W01 Regular';
-	color: #1f201b;
-	text-decoration: underline;
+  font-family: '1529 Champ Fleury W01 Regular';
+  color: #1f201b;
+  text-decoration: underline;
 }
 
 .hidden-content {display: none;}
 
 ul.ilist {
   list-style: none;
-	margin: 0;
-	padding: 0;
-	display: block;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 ul.ilist li {
-	display: flex;
+  display: flex;
 }
 .ilist i {
-	display: flex;
-	width: 32px;
-	height: 32px;
-	background-size: contain;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  background-size: contain;
 }
 .ilist .iname,
 .ilist .ilevel {
-	display: flex;
-	align-items: center;
-	text-transform: capitalize;
-	text-align: left;
-	font-size: 14px;
-	margin-left: 10px;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  text-align: left;
+  font-size: 14px;
+  margin-left: 10px;
 }
 .ilevel.easy {
-	color: #008000;
+  color: #008000;
 }
 .ilevel.hard {
-	color: #ff6600;
+  color: #ff6600;
 }
 .ilevel.very_hard {
-	color: #ce0000;
+  color: #ce0000;
 }
 .ilist .qnt {
-	display: flex;
-	align-items: center;
-	text-align: left;
-	font-size: 13px;
-	margin-left: 10px;
-	font-family: 'MedievalSharpBook';
-	color: #4c2900;
-	font-weight: bold;
-	margin-top: 3px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-size: 13px;
+  margin-left: 10px;
+  font-family: 'MedievalSharpBook';
+  color: #4c2900;
+  font-weight: bold;
+  margin-top: 3px;
 }
 p.req {
-	color: #4c2900;
-	margin: 5px 0;
-	padding: 0;
-	text-align: left;
+  color: #4c2900;
+  margin: 5px 0;
+  padding: 0;
+  text-align: left;
 }
 
 
@@ -666,6 +673,7 @@ textarea:focus {
 }
 .chooseIcon {
   display: block;
+  width: 200px;
   text-align: center;
   font-family: 'MedievalSharpBook';
   font-size: 17px;
@@ -709,13 +717,13 @@ textarea:focus {
   width: 100%;
 }
 #editedtitle {
-    margin: 2px 0 5px;
+  margin: 2px 0 5px;
 }
 #editeddesc {
-    margin: 2px 0 5px;
+  margin: 2px 0 5px;
 }
 button.cancel {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 #titleprev {
   text-transform: capitalize;
@@ -729,9 +737,9 @@ button.add-marker {
   margin: 5px auto;
 }
 button.remove-marker {
-	display: block;
-	margin: 0 auto;
-	width: auto;
+  display: block;
+  margin: 0 auto;
+  width: auto;
 }
 .remove-text {
   display: block;
@@ -763,7 +771,7 @@ button.no {
   text-transform: capitalize;
   font-family: '1529 Champ Fleury W01 Regular';
   font-size: 19px;
-	letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 p.mdesc {margin: 0;}
 .mcoords {
@@ -787,7 +795,7 @@ p.mdesc {margin: 0;}
   border-radius: 15px;
 }
 .remove-marker.hide {
-    display: none;
+  display: none;
 }
 #edit-dialog {
   background: #ddc7ad;
@@ -797,15 +805,15 @@ p.mdesc {margin: 0;}
   height: 100%;
 }
 .edit-marker {
-	margin: 5px auto;
-	width: auto;
-	display: block;
+  margin: 5px auto;
+  width: auto;
+  display: block;
 }
 .copymarkerurl {
-	width: auto;
-	display: block;
-	margin: 0 auto;
-	position: relative;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  position: relative;
 }
 .copiedmsg {
   position: absolute;
@@ -823,13 +831,13 @@ p.mdesc {margin: 0;}
 }
 .hide {display: none;}
 .leaflet-popup-content .original_coords {
-font-family: Consolas;
-margin: 5px 0 0;
-font-weight: bold;
-font-size: 11px;
-color: #4c2900;
-display: block;
-position: relative;
+  font-family: Consolas;
+  margin: 5px 0 0;
+  font-weight: bold;
+  font-size: 11px;
+  color: #4c2900;
+  display: block;
+  position: relative;
 }
 
 
@@ -881,7 +889,7 @@ position: relative;
   color: #171717;
 }
 .leaflet-popup-content .mtitle {
-	margin: 0px;
+  margin: 0px;
 }
 leaflet-control-attribution {
   display: none;
@@ -894,14 +902,14 @@ leaflet-control-attribution {
   color: #000;
 }
 .restoreWindowOverlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.6);
-	text-align: center;
-	z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  z-index: 10000;
 }
 .restoreWindow {
   width: 50%;
@@ -924,19 +932,19 @@ leaflet-control-attribution {
   letter-spacing: 1px;
 }
 .restoreWindowX {
-	position: absolute;
-	top: 0px;
-	right: 5px;
-	text-decoration: none;
-	color: rgb(255, 255, 255);
-	font-size: 25px;
-	font-family: verdana;
-	font-weight: bold;
-	width: 36px;
-	height: 36px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  font-family: verdana;
+  font-weight: bold;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .restoreWindowX:hover,
 .restoreWindowX:active {
@@ -951,36 +959,36 @@ leaflet-control-attribution {
 }
 
 /* Sidebar V2 */
-	@media (max-width: 360px) {
-    .sidebar {
-      width: 100%; } }
-  @media (min-width: 361px) and (max-width: 991px) {
-    .sidebar {
-      width: 340px; } }
-  @media (min-width: 992px) and (max-width: 1199px) {
-    .sidebar {
-      width: 340px; } }
-  @media (min-width: 1200px) {
-    .sidebar {
-      width: 340px;
-      } }
-			
-@media (max-width: 320px) {
-    .sidebar-pane {
-      min-width: 268px; } }
 @media (max-width: 360px) {
-    .sidebar-pane {
-      width: 100%; } }
+  .sidebar {
+    width: 100%; } }
+@media (min-width: 361px) and (max-width: 991px) {
+  .sidebar {
+    width: 340px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar {
+    width: 340px; } }
+@media (min-width: 1200px) {
+  .sidebar {
+    width: 340px;
+  } }
+
+@media (max-width: 320px) {
+  .sidebar-pane {
+    min-width: 268px; } }
+@media (max-width: 360px) {
+  .sidebar-pane {
+    width: 100%; } }
 @media (min-width: 361px) and (max-width: 991px) {
   .sidebar-pane {
-		min-width: 300px; } }
+    min-width: 300px; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   .sidebar-pane {
     min-width: 300px; } }
 @media (min-width: 1200px) {
   .sidebar-pane {
-		min-width: 300px;
-    } }
+    min-width: 300px;
+  } }
 /*
 .sidebar-pane p.clear {clear: both;}
 @media (min-width: 768px) {
@@ -1145,58 +1153,58 @@ img.logo-menu {
   background-position: center;
 }
 .leaflet-control-coordinates.leaflet-control {
-	background-color: transparent;
+  background-color: transparent;
   text-align: center;
 }
 .leaflet-control-coordinates .uiElement input {
-	font-family: 'MedievalSharpBook';
-	border-radius: 0px;
-	border: none;
-	background: #ffead3;
-	color: #171717;
-	font-size: 12px;
-	font-weight: bold;
+  font-family: 'MedievalSharpBook';
+  border-radius: 0px;
+  border: none;
+  background: #ffead3;
+  color: #171717;
+  font-size: 12px;
+  font-weight: bold;
 }
 .leaflet-control-coordinates .uiElement {
-	margin: 0px;
-	width: 120px;
-	height: 26px;
-	display: flex;
-	align-items: center;
+  margin: 0px;
+  width: 120px;
+  height: 26px;
+  display: flex;
+  align-items: center;
 }
 .uiElement {
-	width: auto;
-	background: url(../assets/images/bg.png);
-	margin: 0px;
-	padding: 2px 5px;
-	box-shadow: inset 0 0px 4px 0px rgb(0, 0, 0);
-	font-family: 'MedievalSharpBook';
-	font-weight: bold;
-	font-size: 12px;
-	letter-spacing: 1px;
+  width: auto;
+  background: url(../assets/images/bg.png);
+  margin: 0px;
+  padding: 2px 5px;
+  box-shadow: inset 0 0px 4px 0px rgb(0, 0, 0);
+  font-family: 'MedievalSharpBook';
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 .labelFirst {
-	width: 125px;
+  width: 125px;
 }
 .uiElement.input {
-	width: 120px;
-	text-align: left;
-	height: 26px;
-	display: flex;
-	align-items: center;
+  width: 120px;
+  text-align: left;
+  height: 26px;
+  display: flex;
+  align-items: center;
 }
 .uiElement span {
-	display: inline-block;
-	margin: 0;
+  display: inline-block;
+  margin: 0;
 }
 .leaflet-control-coordinates .uiElement input.inputX {
-	width: 45px;
-	padding: 2px 5px 2px 5px;
-	margin-right: 5px;
+  width: 45px;
+  padding: 2px 5px 2px 5px;
+  margin-right: 5px;
 }
 .leaflet-control-coordinates .uiElement input.inputY {
-width: 45px;
-padding: 2px 5px 2px 5px;
+  width: 45px;
+  padding: 2px 5px 2px 5px;
 }
 .uiElement.input.uiHidden,
 .leaflet-control-coordinates .uiElement.uiHidden {display: none;}
@@ -1229,15 +1237,15 @@ padding: 2px 5px 2px 5px;
 
 .leaflet-control-attribution.leaflet-control {display: none;}
 @font-face {
-    font-family: 'MedievalSharpBook';
-        src: url('../assets/fonts/MedievalSharpBook.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-      }
+  font-family: 'MedievalSharpBook';
+  src: url('../assets/fonts/MedievalSharpBook.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 @font-face{
   font-family:'1529 Champ Fleury W01 Regular';
   src:local('1529 Champ Fleury W01 Regular'),
-  local('1529-Champ-Fleury-W01-Regular'),url("../assets/fonts/1529Champ.ttf") format('truetype')}
+    local('1529-Champ-Fleury-W01-Regular'),url("../assets/fonts/1529Champ.ttf") format('truetype')}
 
 /*Sidebar Scroll*/
 ::-webkit-scrollbar {
@@ -1270,3 +1278,63 @@ padding: 2px 5px 2px 5px;
 .leaflet-container:fullscreen { width: 100% !important; height: 100% !important; z-index: 99999; }
 .leaflet-pseudo-fullscreen { position: fixed !important; width: 100% !important; height: 100% !important; top: 0px !important; left: 0px !important; z-index: 99999; }
 
+
+
+
+.icn_menu {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+}
+.icn_menu.hide {display:none;}
+
+.icn_list {
+  height: 175px;
+  overflow-y: scroll;
+}
+.icn_selection {
+  display: inline-block;
+  padding: 0px;
+  margin: 5px;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid #76643e;
+}
+
+.icn_selection i {
+  background-size: contain;
+  width: 32px;
+  height: 32px;
+  display: block;
+  margin: 5px auto 0;
+}
+.icn_selection .icn_name {
+  font-family: 'Roboto', Microsoft YaHei;
+  -webkit-font-smoothing: antialiased;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  height: 31px;
+  display: table-cell;
+  vertical-align: middle;
+  width: 75px;
+  text-transform: capitalize;
+  text-align: center;
+  white-space: normal;
+}
+.icn_selected {
+  display:block;
+}
+.icn_selected i {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-size: auto 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 3px auto;
+}
+.icn_menu_cancel {
+    margin-top: 2px;
+}
+.popcontent {width: 200px;}

@@ -14,7 +14,7 @@ var halfTile = tileSize / 2;
 var mapBounds = 4096;
 
 L.CRS.MySimple = L.extend({}, L.CRS.Simple, {
-	transformation: new L.Transformation(1 / 16, 0, -1 / 16, 256)
+  transformation: new L.Transformation(1 / 16, 0, -1 / 16, 256)
 });
 
 var myBounds = [[0,0],[mapBounds, mapBounds]];
@@ -64,34 +64,34 @@ sidebar.open('home');
 var hash = new L.Hash(map);
 
 L.Control.Coordinates.include({
-	_update: function(evt) {
-		var pos = evt.latlng,
-		opts = this.options;
-		if (pos) {
-			//pos = pos.wrap(); // Remove that instruction
-			this._currentPos = pos;
-			this._inputY.value = L.NumberFormatter.round(pos.lat, opts.decimals, opts.decimalSeperator);
-			this._inputX.value = L.NumberFormatter.round(pos.lng, opts.decimals, opts.decimalSeperator);
-			this._label.innerHTML = this._createCoordinateLabel(pos);
-		}
-	}
+  _update: function(evt) {
+    var pos = evt.latlng,
+        opts = this.options;
+    if (pos) {
+      //pos = pos.wrap(); // Remove that instruction
+      this._currentPos = pos;
+      this._inputY.value = L.NumberFormatter.round(pos.lat, opts.decimals, opts.decimalSeperator);
+      this._inputX.value = L.NumberFormatter.round(pos.lng, opts.decimals, opts.decimalSeperator);
+      this._label.innerHTML = this._createCoordinateLabel(pos);
+    }
+  }
 });
 
 L.control.coordinates({
-	position: "bottomright",
-	decimals: 0, //optional default 4
-	decimalSeperator: ".", //optional default "."
-	labelTemplateLat: "Y: {y}", //optional default "Lat: {y}"
-	labelTemplateLng: "X: {x}", //optional default "Lng: {x}"
-	enableUserInput: true, //optional default true
-	useDMS: false, //optional default false
-	useLatLngOrder: false, //ordering of labels, default false -> lng-lat
-	markerType: L.marker, //optional default L.marker
-	markerProps: {} //optional default {}
+  position: "bottomright",
+  decimals: 0, //optional default 4
+  decimalSeperator: ".", //optional default "."
+  labelTemplateLat: "Y: {y}", //optional default "Lat: {y}"
+  labelTemplateLng: "X: {x}", //optional default "Lng: {x}"
+  enableUserInput: true, //optional default true
+  useDMS: false, //optional default false
+  useLatLngOrder: false, //ordering of labels, default false -> lng-lat
+  markerType: L.marker, //optional default L.marker
+  markerProps: {} //optional default {}
 }).addTo(map);
 
 // Fix for the 1px white border
-/*
+
 function gridfix(){
   var originalInitTile = L.GridLayer.prototype._initTile
   L.GridLayer.include({
@@ -104,7 +104,7 @@ function gridfix(){
   });
 };
 gridfix();
-*/
+
 
 var layerGroups = [];
 
@@ -112,11 +112,11 @@ var textLayer = [];
 
 var globalMarkers = [];
 var transparentMarker = L.icon({
-        iconUrl: iconsUrl+'alpha_marker.png',
-        iconSize: [1, 1],
-        iconAnchor: [iWidth, iHeight],
-        popupAnchor: [0, -iHeight]
-      });
+  iconUrl: iconsUrl+'alpha_marker.png',
+  iconSize: [1, 1],
+  iconAnchor: [32, 32],
+  popupAnchor: [0, -32]
+});
 
 for (var i = 0; i < textMarkers.length; i++) {
   // If the group doesn't exists
@@ -164,7 +164,7 @@ map.on('zoomend', function(e) {
 
 function getIcon(index) {
   var icon = markers[index].icon;
-	
+
   var markerIcon = L.icon({
     iconUrl: iconsUrl+icon+'.png',
     iconSize: [36,36], // size of the icon
@@ -190,58 +190,27 @@ for (var i = 0; i < markers.length; i++) {
   if (markers[i].items == undefined) {
     markers[i].items = "";
   }
-	if (markers[i].kcditems == undefined) {
+  if (markers[i].kcditems == undefined) {
     markers[i].kcditems = "";
   }
   var ilist = "";
   for (var h in markers[i].kcditems) {
-		var kcditems =  markers[i].kcditems[h];
+    var kcditems =  markers[i].kcditems[h];
     ilist += '<li><i class="'+ markers[i].kcditems[h].item+'"></i><span class="iname" data-i18n="'+ markers[i].kcditems[h].item+'">'+ markers[i].kcditems[h].item.replace(/_/gi, " ")+'</span><span class="qnt">'+markers[i].kcditems[h].qnt+'</span></li>';
   }
   var x = (markers[i].coords[1]).toFixed(0);
   var y = (markers[i].coords[0]).toFixed(0);
-  
+
   var origin_x = (markers[i].coords[1]);
   var origin_y = (markers[i].coords[0]);
-	
+
   var markerUrl = (url+"?marker="+y+","+x);
-	markerUrl = encodeURI(markerUrl);
+  markerUrl = encodeURI(markerUrl);
 
   // Add the marker
   var marker = L.marker([x, y], {icon: getIcon(i),title: markers[i].group}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='copylink'>Copy link</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[markers[i].group]);
-	globalMarkers.push(marker);
+  globalMarkers.push(marker);
 }
-
-// HERBS
-/*
-var renderCanvas = L.canvas({ padding: 0.5 });
-for (var i = 0; i < herb_paris.length; i++) {
-  // Se o grupo não existir em layerGroups...
-  if (layerGroups.herb_paris == undefined) {
-    // Cria o grupo
-    layerGroups.herb_paris = new L.LayerGroup();
-  }
-  
-  var x = herb_paris[i].coords[1];
-  var y = herb_paris[i].coords[0];
-  var mSize = (herb_paris[i].items["0"].qty);
-  if (mSize < 2) mSize = 2;
-  // Adiciona a marcação
-  var herbMarker = L.circleMarker([x, y], {
-  color: '#29a249',
-  renderer: renderCanvas,
-  fillColor: '#29a249',
-  fillOpacity: 0.4,
-  weight: 0,
-  radius:  mSize * 2
-});
-  herbMarker.bindPopup("<span class='herbname'>"+herb_paris[i].items["0"].id+"</span><span class='herbcount'>("+herb_paris[i].items["0"].qty+")</span>");
-  herbMarker.addTo(layerGroups.herb_paris); // Adds the text markers to map.
-  //layerGroups.amanita.addTo(map);
-  //layerGroups.textmarkers.addTo(map);
-  //console.log(layerGroups.textmarkers);
-};
-*/
 
 function getIconUsr(index) {
   var icon = usr_markers[index].icon;
@@ -256,6 +225,7 @@ function getIconUsr(index) {
 
   return markerIcon;
 }
+
 
 // USER MARKERS
 for (var i = 0; i < usr_markers.length; i++) {
@@ -283,10 +253,10 @@ if (imarkers.req != undefined) {
   for (var c in imarkers.items) {
     ilist += '<li><i class="'+ imarkers.items[c]+'"></i><span class="iname" data-i18n="'+ imarkers.items[c]+'">'+ imarkers.items[c].replace(/_/gi, " ")+'</span></li>';
   }
-	
+
   var x = (imarkers.coords[1]);
   var y = (imarkers.coords[0]);
-	
+
   var markerUrl = (url+"?marker="+y+","+x);
 	markerUrl = encodeURI(markerUrl);
 
@@ -294,6 +264,7 @@ if (imarkers.req != undefined) {
   var marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.name}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
 	globalMarkers.push(marker);
 }
+
 
 function toggle(element, layer) {
   if (element.checked) {
@@ -307,18 +278,18 @@ function toggle(element, layer) {
 // TOGGLE ALL LAYERS
 var allmarkers = document.getElementById('allmarkers');
 function toggleAll(element) {
-		if (element.checked) {
-			$('.markers-list input').prop('checked', true);
-			for (var key in layerGroups) {
-				map.addLayer(layerGroups[key]);
-			}
-		} else {
-			$('.markers-list input').prop('checked', false);
-			for (var keys in layerGroups) {
-				map.removeLayer(layerGroups[keys]);
-			}
-		}
-	}
+  if (element.checked) {
+    $('.markers-list input').prop('checked', true);
+    for (var key in layerGroups) {
+      map.addLayer(layerGroups[key]);
+    }
+  } else {
+    $('.markers-list input').prop('checked', false);
+    for (var keys in layerGroups) {
+      map.removeLayer(layerGroups[keys]);
+    }
+  }
+}
 
 allmarkers.onchange = function() {toggleAll(this)};
 
@@ -355,11 +326,11 @@ $('.markers-list input').each(function() {
 
 // URL Function
 function getUrlVars() {
-var vars = {};
-var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-vars[key] = value;
-});
-return vars;
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    vars[key] = value;
+  });
+  return vars;
 }
 
 var urlCoordinates = getUrlVars()["marker"];
@@ -492,295 +463,31 @@ function getAObj(obj,name) {
 };
 
 // Available markers to add on click
-var mapMarkers = 
-[
-  {
-	icon:"arrow",
-	width: "36",
-	height: "36"},
-  {
-	icon:"accident",
-	width: "36",
-	height: "36"},
-  {
-	icon:"alchemy_bench",
-	width: "36",
-	height: "36"},
-  {
-	icon:"apothecary",
-	width: "36",
-	height: "36"},
-  {
-	icon:"archery_range",
-	width: "36",
-	height: "36"},
-  {
-	icon:"armourer",
-	width: "36",
-	height: "36"},
-  {
-	icon:"baker",
-	width: "36",
-	height: "36"},
-  {
-	icon:"bandit_camp",
-	width: "36",
-	height: "36"},
-  {
-	icon:"baths",
-	width: "36",
-	height: "36"},
-  {
-	icon:"beehive",
-	width: "36",
-	height: "36"},
-  {
-	icon:"blacksmith",
-	width: "36",
-	height: "36"},
-  {
-	icon:"boar_hunting_spot",
-	width: "36",
-	height: "36"},
-  {
-	icon:"butcher",
-	width: "36",
-	height: "36"},
-  {
-	icon:"camp",
-	width: "36",
-	height: "36"},
-  {
-	icon:"cave",
-	width: "36",
-	height: "36"},
-  {
-	icon:"charcoal_burner",
-	width: "36",
-	height: "36"},
-  {
-	icon:"cobbler",
-	width: "36",
-	height: "36"},
-  {
-	icon:"combat_arena",
-	width: "36",
-	height: "36"},
-  {
-	icon:"conciliation_cross",
-	width: "36",
-	height: "36"},
-  {
-	icon:"deer_hunting_spot",
-	width: "36",
-	height: "36"},
-  {
-	icon:"fast_travel",
-	width: "64",
-	height: "64"},
-  {
-	icon:"fish_trap",
-	width: "36",
-	height: "36"},
-  {
-	icon:"fishing_spot",
-	width: "36",
-	height: "36"},
-  {
-	icon:"grave",
-	width: "36",
-	height: "36"},
-  {
-	icon:"grindstone",
-	width: "36",
-	height: "36"},
-  {
-	icon:"grocer",
-	width: "36",
-	height: "36"},
-  {
-	icon:"herbalist",
-	width: "36",
-	height: "36"},
-  {
-	icon:"home",
-	width: "36",
-	height: "36"},
-  {
-	icon:"horse_trader",
-	width: "36",
-	height: "36"},
-  {
-	icon:"huntsman",
-	width: "36",
-	height: "36"},
-  {
-	icon:"interesting_site",
-	width: "36",
-	height: "36"},
-  {
-	icon:"lodgings",
-	width: "36",
-	height: "36"},
-  {
-	icon:"miller",
-	width: "36",
-	height: "36"},
-  {
-	icon:"nest",
-	width: "36",
-	height: "36"},
-  {
-	icon:"scribe",
-	width: "36",
-	height: "36"},
-  {
-	icon:"shrine",
-	width: "36",
-	height: "36"},
-  {
-	icon:"tailor",
-	width: "36",
-	height: "36"},
-  {
-	icon:"tanner",
-	width: "36",
-	height: "36"},
-  {
-	icon:"tavern",
-	width: "36",
-	height: "36"},
-  {
-	icon:"trader",
-	width: "36",
-	height: "36"},
-  {
-	icon:"treasure_chest",
-	width: "36",
-	height: "36"},
-  {
-	icon:"treasure_map",
-	width: "36",
-	height: "36"},
-  {
-	icon:"treasure_map_alt",
-	width: "36",
-	height: "36"},
-  {
-	icon:"weaponsmith",
-	width: "36",
-	height: "36"},
-  {
-	icon:"woodland_garden",
-	width: "36",
-	height: "36"},
-  {
-	icon:"belladonna",
-	width: "36",
-	height: "36"},
-  {
-	icon:"chamomile",
-	width: "36",
-	height: "36"},
-  {
-	icon:"comfrey",
-	width: "36",
-	height: "36"},
-  {
-	icon:"dandelion",
-	width: "36",
-	height: "36"},
-  {
-	icon:"eyebright",
-	width: "36",
-	height: "36"},
-  {
-	icon:"herb_paris",
-	width: "36",
-	height: "36"},
-  {
-	icon:"marigold",
-	width: "36",
-	height: "36"},
-  {
-	icon:"mint",
-	width: "36",
-	height: "36"},
-  {
-	icon:"nettle",
-	width: "36",
-	height: "36"},
-  {
-	icon:"poppy",
-	width: "36",
-	height: "36"},
-  {
-	icon:"sage",
-	width: "36",
-	height: "36"},
-  {
-	icon:"st_johns_wort",
-	width: "36",
-	height: "36"},
-  {
-	icon:"thistle",
-	width: "36",
-	height: "36"},
-  {
-	icon:"valerian",
-	width: "36",
-	height: "36"},
-  {
-	icon:"wormwood",
-	width: "36",
-	height: "36"},
-  {
-	icon:"marker_a",
-	width: "36",
-	height: "36"},
-  {
-	icon:"marker_b",
-	width: "36",
-	height: "36"},
-  {
-	icon:"marker_c",
-	width: "36",
-	height: "36"},
-  {
-	icon:"star",
-	width: "36",
-	height: "36"},
-  {
-	icon:"exclamation",
-	width: "36",
-	height: "36"},
-	
-]
+var mapMarkers=["arrow","accident","alchemy_bench","apothecary","archery_range","armourer","baker","bandit_camp","baths","beehive","blacksmith","boar_hunting_spot","butcher","camp","cave","charcoal_burner","cobbler","combat_arena","conciliation_cross","deer_hunting_spot","fast_travel","fish_trap","fishing_spot","grave","grindstone","grocer","herbalist","home","horse_trader","huntsman","interesting_site","lodgings","miller","mine","nest","scribe","shrine","tailor","tanner","tavern","trader","treasure_chest","treasure_map","treasure_map_alt","vegetable_shop","weaponsmith","woodland_garden","amanita","belladonna","chamomile","comfrey","dandelion","eyebright","herb_paris","marigold","mint","nettle","poppy","sage","st_johns_wort","thistle","valerian","wormwood","marker_a","marker_b","marker_c","star","exclamation", "unknown"];
 
-var markerIconTypes = [];
-for (var i in mapMarkers) {
-  var icon = mapMarkers[i].icon;
-  var iWidth = mapMarkers[i].width;
-  var iHeight = mapMarkers[i].height;
-  // make the icon while we are here
-  markerIconTypes[i] = L.icon({
-    className: "",
-    iconUrl: iconsUrl + icon.replace(/ /g, "") + '.png',
-    iconSize: [iWidth, iHeight],
-    iconAnchor: [iWidth / 2, iHeight / 2,],
-    popupAnchor: [0, -iHeight / 2]
-  });
+var icn_saved;
+
+var customIcon = L.icon({
+  iconUrl: iconsUrl + icn_saved + '.png',
+  iconSize: [36,36],
+  iconAnchor: [18,18], //storageMarkers[i].icon.options.iconAnchor,
+  popupAnchor:  [0,-18], //storageMarkers[i].icon.options.popupAnchor
+  className: "",
+});
+
+var iconSelection = "";
+for (var k = 0; k < mapMarkers.length; k++) {
+  iconSelection += '<div class="icn_selection"><i class="'+mapMarkers[k]+'"></i><p class="icn_name">'+mapMarkers[k].replace(/_/gi, " ")+'</p></div>';
 };
-// End available markers to add on click
 
 // User added markers
 var groupUser = [];
 initUserLayerGroup();
 function initUserLayerGroup() {
-	var markersUser = [];
-	if (localStorage.mapUserMarkers == "undefined") {
-		localStorage.mapUserMarkers = "[]";
-	}
+  var markersUser = [];
+  if (localStorage.mapUserMarkers == "undefined") {
+    localStorage.mapUserMarkers = "[]";
+  }
   if (localStorage.mapUserMarkers !== undefined) {
     var storageMarkers = [];
 
@@ -790,58 +497,59 @@ function initUserLayerGroup() {
       var x = storageMarkers[i].coords.x;
       var y = storageMarkers[i].coords.y;
       var name = storageMarkers[i].name;
-      var icon = storageMarkers[i].icon;
-			var iconvalue = storageMarkers[i].iconvalue;
-      var iconUrl = storageMarkers[i].icon.options.iconUrl;
+      var icon = storageMarkers[i].icn_saved;
       var title = storageMarkers[i].title;
       var desc = storageMarkers[i].desc;
-			
-			var markerlink = (url+"?m="+y+","+x+"&title="+name+"&desc="+desc+"&icon="+iconvalue+"&");
-			markerlink = encodeURI(markerlink);
+
+      var markerlink = (url+"?m="+y+","+x+"&title="+name+"&desc="+desc+"&icon="+icon+"&");
+      markerlink = encodeURI(markerlink);
 
       var customIcon = L.icon({
-        iconUrl: storageMarkers[i].icon.options.iconUrl,
-        iconSize: storageMarkers[i].icon.options.iconSize,
+        iconUrl: iconsUrl + icon + '.png',
+        iconSize: [36,36],
         iconAnchor: [18,18], //storageMarkers[i].icon.options.iconAnchor,
         popupAnchor:  [0,-18], //storageMarkers[i].icon.options.popupAnchor
-				className: storageMarkers[i].icon.options.className,
+        className: "",
       });
-			
-			var popupcontent = '<div class="popcontent">\
-			<p class="mtitle">'+name+'</p>\
-			<p class="mdesc">'+desc+'</p>\
-			<span class="mcoords">X: '+y+' Y: '+x+'</span></div>\
-      <span class="markerlink hide">'+markerlink+'</span>\
-      <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
-      <span class="copiedmsg hide">Copied</span></button>\
-			<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
-			<div id="edit-dialog" class="hide">\
-			<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
-			<div id="iconprev" style="background-image:url(\''+iconUrl+'\')"></div>\
-			<select id="select_icon" name="icon" onchange="iconpref(this.value);">';
-      for (var j in mapMarkers) {
-        popupcontent +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
-      };
-      popupcontent = popupcontent+'</select>\
-			<input type="text" id="editedtitle" name="title" value="'+title+'">\
-			<textarea id="editeddesc" name="desc">'+desc+'</textarea>\
-			<button class="cancel" data-i18n="cancel">Cancel</button>\
-			<button class="save-marker" data-i18n="Save">Save</button>\
-			</div>\
-			<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
-			<div id="remove-dialog" class="hide">\
-			<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
-			<button class="yes" data-i18n="yes">Yes</button>\
-			<button class="no" data-i18n="no">No</button></div>';
+
+      var popupcontent = '<div class="popcontent">\
+<p class="mtitle">'+name+'</p>\
+<p class="mdesc">'+desc+'</p>\
+<span class="mcoords">X: '+y+' Y: '+x+'</span></div>\
+<span class="markerlink hide">'+markerlink+'</span>\
+<button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
+<span class="copiedmsg hide">Copied</span></button>\
+<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+<div id="edit-dialog" class="hide">\
+<div class="icn_menu hide">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="icn_list">'+iconSelection+'</div>\
+<button class="icn_menu_cancel" data-i18n="cancel">Cancel</button></div>\
+<div class="edited_content">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="icn_selected"><i name="slt_icon" class="'+icon+'"></i></div>\
+<input type="hidden" id="icn_saved" name="icn_saved" value="'+icon+'">\
+<input type="text" id="editedtitle" name="title" value="'+title+'">\
+<textarea id="editeddesc" name="desc">'+desc+'</textarea>\
+<button class="cancel" data-i18n="cancel">Cancel</button>\
+<button class="save-marker" data-i18n="Save">Save</button>\
+</div>\
+</div>\
+<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+<div id="remove-dialog" class="hide">\
+<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
+<button class="yes" data-i18n="yes">Yes</button>\
+<button class="no" data-i18n="no">No</button>\
+</div>';
       var marker = L.marker([x, y], {draggable: false,icon: customIcon}).bindPopup(popupcontent);
 
       marker.on("popupopen", onPopupOpen);
       markersUser.push(marker);
     }
   } else {
-		localStorage.mapUserMarkers = "[]";
-	}
-	groupUser = L.layerGroup(markersUser);
+    localStorage.mapUserMarkers = "[]";
+  }
+  groupUser = L.layerGroup(markersUser);
   map.addLayer(groupUser);
 }
 // End user added markers
@@ -886,36 +594,57 @@ function removeMarkerE(lat,lon) {
 
 
 function addMarkerText(lat,long) {
-  //console.log(markerIconTypes);
-  var message = '<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
-  <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
-  <form id="addmark" method="post" action="#">\
-  <select id="select_icon" name="icon" onchange="iconpref(this.value); titlepref(this.options[this.selectedIndex].innerHTML);">';
-  for (var i in mapMarkers) {
-    message +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
-  };
-  message = message+'</select><div class="markertitle" data-i18n="marker_title">Marker Title:</div>\
-  <input type="text" id="titleprev" name="title" value="Arrow">\
-  <div class="markerdesc" data-i18n="marker_desc">Marker Description:</div>\
-  <textarea name="desc" onclick="this.value=\'\'; this.onclick = function(){}"></textarea>\
-  <table class="coordsinputs">\
-  <tr>\
-  <td>X:<input type="text" readonly="readonly" name="mlon" id="mlon" maxlength="5" value="'+long+'" onKeyPress="return numonly(this,event)"></td>\
-  <td>Y:<input id="mlat" type="text" readonly="readonly" name="mlat" maxlength="5" value="'+lat+'" onKeyPress="return numonly(this,event)"></td>\
-  </tr>\
-  </table>\
-  <input type="hidden" name="submit" value="true">\
-  <button type="submit" class="send" data-i18n="add">Add</button>\
-  </form>';
+  var message = '<div class="icn_menu hide">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="icn_list">'+iconSelection+'</div>\
+<button class="icn_menu_cancel" data-i18n="cancel">Cancel</button></div>\
+<div class="popcontent">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<form id="addmark" method="post" action="#">\
+<div class="icn_selected"><i name="slt_icon" class="arrow"></i></div>\
+<input type="hidden" id="icn_saved" name="icn_saved" value="arrow">\
+<div class="markertitle" data-i18n="marker_title">Marker Title:</div>\
+<input type="text" id="titleprev" name="title" value="Arrow">\
+<div class="markerdesc" data-i18n="marker_desc">Marker Description:</div>\
+<textarea name="desc" onclick="this.value=\'\'; this.onclick = function(){}"></textarea>\
+<table class="coordsinputs">\
+<tr>\
+<td>X:<input type="text" readonly="readonly" name="mlon" id="mlon" maxlength="5" value="'+long+'" onKeyPress="return numonly(this,event)"></td>\
+<td>Y:<input id="mlat" type="text" readonly="readonly" name="mlat" maxlength="5" value="'+lat+'" onKeyPress="return numonly(this,event)"></td>\
+</tr>\
+</table>\
+<input type="hidden" name="submit" value="true">\
+<button type="submit" class="send" data-i18n="add">Add</button>\
+</form>';
   // 
   var ltn = {};
   ltn.lat = lat;
   ltn.lng = long;
   popup.setLatLng(ltn).setContent(message).openOn(map);
-  
+
+  $('.icn_selected i').click(function(){
+    $(this).parents('.leaflet-popup-content').find('.icn_menu').removeClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.popcontent').addClass('hide');
+  });
+  $('.icn_menu_cancel').click(function(){
+    $(this).parents('.leaflet-popup-content').find('.icn_menu').addClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.popcontent').removeClass('hide');
+  })
+  $('.icn_selection').click(function(){
+    var icn_selected = $(this).find('i').attr('class');
+    var icn_prev = $(this).parents('.leaflet-popup-content').find('.icn_selected i');
+    icn_prev.attr('class', '').addClass(icn_selected);
+    var icn_name = $(this).find('.icn_name').html();
+    var icn_name_prev = $(this).parents('.leaflet-popup-content').find('#titleprev');
+    icn_name_prev.val(icn_name);
+    var icn_saved = $(this).parents('.leaflet-popup-content').find('#icn_saved');
+    icn_saved.val(icn_selected);
+    $(this).parents('.leaflet-popup-content').find('.icn_menu').addClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.popcontent').removeClass('hide');
+  })
+
   // Add the mark
   $('#addmark').submit(function(e){
-		var selectedIcon = $(this).find("#select_icon option:selected").text();
     var postData = $(this).serializeArray();
     var lat = Math.round(getAObj(postData,"mlat"));
     var lon = Math.round(getAObj(postData,"mlon"));
@@ -934,49 +663,60 @@ function addMarkerText(lat,long) {
         "y": lon
       },
       "name": getAObj(postData,"title"),
-      "icon": markerIconTypes[getAObj(postData,"icon")],
       "iconvalue": getAObj(postData,"icon"),
       "title": getAObj(postData,"title"),
-      "desc": getAObj(postData,"desc")
+      "desc": getAObj(postData,"desc"),
+      "icn_saved": getAObj(postData,"icn_saved")
     });
     popup._close();
-		
-		var markerlink = (url+"?m="+lon+","+lat+"&title="+getAObj(postData,"title")+"&desc="+getAObj(postData,"desc")+"&icon="+getAObj(postData,"icon")+"&");
-		markerlink = encodeURI(markerlink);
+
+    var markerlink = (url+"?m="+lon+","+lat+"&title="+getAObj(postData,"title")+"&desc="+getAObj(postData,"desc")+"&icon="+getAObj(postData,"icn_saved")+"&");
+    markerlink = encodeURI(markerlink);
 
     var popupcontent = '<div class="popcontent">\
-    <p class="mtitle">'+getAObj(postData,'title')+'</p>\
-    <p class="mdesc">'+getAObj(postData,'desc')+'</p>\
-    <span class="mcoords">[ '+getAObj(postData,'mlon')+' , '+getAObj(postData,'mlat')+']</span></div>\
-    <span class="markerlink hide">'+markerlink+'</span>\
-    <button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
-    <span class="copiedmsg hide">Copied</span></button>\
-    <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
-    <div id="edit-dialog" class="hide">\
-    <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
-    <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
-    <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
-      for (var i in mapMarkers) {
-      popupcontent +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
-    };
-    popupcontent = popupcontent+'</select>\
-    <input type="text" id="editedtitle" name="title" value="'+getAObj(postData,'title')+'">\
-    <textarea id="editeddesc" name="desc">'+getAObj(postData,'desc')+'</textarea>\
-    <button class="cancel" data-i18n="cancel">Cancel</button>\
-    <button class="save-marker" data-i18n="Save">Save</button>\
-    </div>\
-    <button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
-    <div id="remove-dialog" class="hide">\
-    <span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
-    <button class="yes" data-i18n="yes">Yes</button>\
-    <button class="no" data-i18n="no">No</button></div>'
+<p class="mtitle">'+getAObj(postData,'title')+'</p>\
+<p class="mdesc">'+getAObj(postData,'desc')+'</p>\
+<span class="mcoords">[ '+getAObj(postData,'mlon')+' , '+getAObj(postData,'mlat')+']</span></div>\
+<span class="markerlink hide">'+markerlink+'</span>\
+<button class="copymarkerurl"><span class="sharetext" data-i18n="copylink">Copy link</span>\
+<span class="copiedmsg hide">Copied</span></button>\
+<button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
+<div id="edit-dialog" class="hide">\
+<div class="icn_menu hide">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="icn_list">'+iconSelection+'</div>\
+<button class="icn_menu_cancel" data-i18n="cancel">Cancel</button></div>\
+<div class="edited_content">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="icn_selected"><i name="slt_icon" class="'+getAObj(postData,"icn_saved")+'"></i></div>\
+<input type="hidden" id="icn_saved" name="icn_saved" value="'+getAObj(postData,"icn_saved")+'">\
+<input type="text" id="editedtitle" name="title" value="'+getAObj(postData,'title')+'">\
+<textarea id="editeddesc" name="desc">'+getAObj(postData,'desc')+'</textarea>\
+<button class="cancel" data-i18n="cancel">Cancel</button>\
+<button class="save-marker" data-i18n="Save">Save</button>\
+</div>\
+</div>\
+<button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
+<div id="remove-dialog" class="hide">\
+<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
+<button class="yes" data-i18n="yes">Yes</button>\
+<button class="no" data-i18n="no">No</button></div>'
     //
-    var newMarker = L.marker({lat: lat, lng: lon},{icon: markerIconTypes[getAObj(postData,"icon")]});
+    var iconsaved = getAObj(postData,"icn_saved");
+
+    var newIcon = L.icon({
+      iconUrl: iconsUrl + iconsaved + '.png',
+      iconSize: [36,36],
+      iconAnchor: [18,18], //storageMarkers[i].icon.options.iconAnchor,
+      popupAnchor:  [0,-18], //storageMarkers[i].icon.options.popupAnchor
+      className: "",
+    });
+
+    var newMarker = L.marker({lat: lat, lng: lon},{icon: newIcon});
     newMarker.bindPopup(popupcontent);
     newMarker.addTo(map);
     newMarker.on("popupopen", onPopupOpen);
     markersUser.push(newMarker);
-		console.log(groupUser);
     groupUser.addLayer(newMarker);
     localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
     map.addLayer(groupUser);
@@ -984,26 +724,29 @@ function addMarkerText(lat,long) {
   });
 }
 
-function onPopupOpen() {
+function onPopupOpen(e) {
   var _this = this;
-  var clickedMarkerCoords = this.getLatLng();
+  var clickedMarkerCoords = _this.getLatLng();
   var popup = _this.getPopup();
 
+  $(document).off('click', '.remove-marker')
   $(document).on('click', '.remove-marker', function() {
     $(this).addClass('hide');
     $(this).next('#remove-dialog').removeClass('hide');
     $(this).parent().parent().find('.popcontent').addClass('hide');
     $(this).parent().parent().find('.edit-marker').addClass('hide');
-		$(this).parent().parent().find('.copymarkerurl').addClass('hide');
+    $(this).parent().parent().find('.copymarkerurl').addClass('hide');
   });
+  $(document).off('click', '.no')
   $(document).on('click', '.no', function() {
     $(this).parent('#remove-dialog').addClass('hide');
     $(this).parent().parent().find('.popcontent').removeClass('hide');
     $(this).parent().parent().find('.edit-marker').removeClass('hide');
     $(this).parent().parent().find('.remove-marker').removeClass('hide');
-		$(this).parent().parent().find('.copymarkerurl').removeClass('hide');
+    $(this).parent().parent().find('.copymarkerurl').removeClass('hide');
   });
 
+  $(document).off('click', '.yes')
   $(document).on('click', '.yes', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
     for(i = storageMarkers.length; i > -1; i--) {
@@ -1011,16 +754,18 @@ function onPopupOpen() {
           (clickedMarkerCoords.lat == storageMarkers[i].coords.x &&
            clickedMarkerCoords.lng == storageMarkers[i].coords.y)
          ) {
+        //console.log(storageMarkers[i]);
         storageMarkers.splice(i, 1);
         localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
       }
     }  
     //localStorage.removeItem('userMarkers');
     map.removeLayer(_this);
-		groupUser.removeLayer(_this);
+    groupUser.removeLayer(_this);
   });
-  
-   //Edit Marker
+
+  //Edit Marker
+  $(document).off('click', '.edit-marker')
   $(document).on('click', '.edit-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
     for(i = storageMarkers.length; i > -1; i--) {
@@ -1028,24 +773,50 @@ function onPopupOpen() {
           (clickedMarkerCoords.lat == storageMarkers[i].coords.x &&
            clickedMarkerCoords.lng == storageMarkers[i].coords.y)
          ) {
-        $(this).parent().find('#iconprev').css("background-image", "url("+storageMarkers[i].icon.options.iconUrl+")");
-        $(this).parent().find('#select_icon').val(storageMarkers[i].iconvalue);
+        $(this).parent().find('.icn_selected i').attr('class', '').addClass(storageMarkers[i].icn_saved);
       }
     }
-    // HERE
+
     $(this).addClass('hide');
     $(this).next('#edit-dialog').removeClass('hide');
     $(this).parent().parent().find('.popcontent').addClass('hide');
     $(this).parent().parent().find('.remove-marker').addClass('hide');
-		$(this).parent().parent().find('.copymarkerurl').addClass('hide');
+    $(this).parent().parent().find('.copymarkerurl').addClass('hide');
   });
+  $(document).off('click', '.icn_selected')
+  $(document).on('click', '.icn_selected', function() {
+    $(this).parents('.leaflet-popup-content').find('.icn_menu').removeClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.edited_content').addClass('hide');
+  });
+  $(document).off('click', '.icn_menu_cancel')
+  $(document).on('click', '.icn_menu_cancel', function() {
+    $(this).parents('.leaflet-popup-content').find('.icn_menu').addClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.edited_content').removeClass('hide');
+  })
+  $(document).off('click', '.icn_selection')
+  $(document).on('click', '.icn_selection', function() {
+    var icn_selected = $(this).find('i').attr('class');
+    var icn_prev = $(this).parents('.leaflet-popup-content').find('.icn_selected i');
+    icn_prev.attr('class', '').addClass(icn_selected);
+    var icn_name = $(this).find('.icn_name').html();
+    var icn_name_prev = $(this).parents('.leaflet-popup-content').find('#titleprev');
+    icn_name_prev.val(icn_name);
+    var icn_saved = $(this).parents('.leaflet-popup-content').find('#icn_saved');
+    icn_saved.val(icn_selected);
+
+    $(this).parents('.leaflet-popup-content').find('.icn_menu').addClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.edited_content').removeClass('hide');
+  })
+
+  $(document).off('click', '.cancel')
   $(document).on('click', '.cancel', function() {
-    $(this).parent().parent().find('#edit-dialog').addClass('hide');
-    $(this).parent().parent().find('.popcontent').removeClass('hide');
-    $(this).parent().parent().find('.edit-marker').removeClass('hide');
-    $(this).parent().parent().find('.remove-marker').removeClass('hide');
-		$(this).parent().parent().find('.copymarkerurl').removeClass('hide');
+    $(this).parents('.leaflet-popup-content').find('#edit-dialog').addClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.popcontent').removeClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.edit-marker').removeClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.remove-marker').removeClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.copymarkerurl').removeClass('hide');
   });
+  $(document).off('click', '.save-marker')
   $(document).on('click', '.save-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
     for(i = storageMarkers.length; i > -1; i--) {
@@ -1053,14 +824,15 @@ function onPopupOpen() {
           (clickedMarkerCoords.lat == storageMarkers[i].coords.x &&
            clickedMarkerCoords.lng == storageMarkers[i].coords.y)
          ) {
-        var editedicon = $(this).parent().find('select[name=icon]').val();
+        var icn_saved = $(this).parent().find('.icn_selected i').attr('class');
         var editedtitle = $(this).parent().find('#editedtitle').val();
         var editeddesc = $(this).parent().find('#editeddesc').val();
-				
-				var markerlink = (url+"?m="+clickedMarkerCoords.lng+","+clickedMarkerCoords.lat+"&title="+editedtitle+"&desc="+editeddesc+"&icon="+editedicon+"&");
-				markerlink = encodeURI(markerlink);
-        
-        var editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
+
+        var markerlink = (url+"?m="+clickedMarkerCoords.lng+","+clickedMarkerCoords.lat+"&title="+editedtitle+"&desc="+editeddesc+"&icon="+icn_saved+"&");
+        markerlink = encodeURI(markerlink);
+
+        var editedpopup ='<div class="popcontent">\
+<p class="mtitle">'+editedtitle+'</p>\
 <p class="mdesc">'+editeddesc+'</p>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
 <span class="markerlink hide">'+markerlink+'</span>\
@@ -1068,17 +840,19 @@ function onPopupOpen() {
 <span class="copiedmsg hide">Copied</span></button>\
 <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
 <div id="edit-dialog" class="hide">\
+<div class="icn_menu hide">\
 <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
-  <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
-  <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
-    for (var j in mapMarkers) {
-    editedpopup +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
-  };
-  editedpopup = editedpopup+'</select>\
+<div class="icn_list">'+iconSelection+'</div>\
+<button class="icn_menu_cancel" data-i18n="cancel">Cancel</button></div>\
+<div class="edited_content">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="icn_selected"><i name="slt_icon" class="'+icn_saved+'"></i></div>\
+<input type="hidden" id="icn_saved" name="icn_saved" value="'+icn_saved+'">\
 <input type="text" id="editedtitle" name="title" value="'+editedtitle+'">\
 <textarea id="editeddesc" name="desc">'+editeddesc+'</textarea>\
 <button class="cancel" data-i18n="cancel">Cancel</button>\
 <button class="save-marker" data-i18n="Save">Save</button>\
+</div>\
 </div>\
 <button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
 <div id="remove-dialog" class="hide">\
@@ -1086,16 +860,23 @@ function onPopupOpen() {
 <button class="yes" data-i18n="yes">Yes</button><button class="no" data-i18n="no">No</button></div>';
         popup.setContent(editedpopup);
 
-        _this.setIcon(markerIconTypes[editedicon]);
+        var newIcon = L.icon({
+          iconUrl: iconsUrl + icn_saved + '.png',
+          iconSize: [36,36],
+          iconAnchor: [18,18], //storageMarkers[i].icon.options.iconAnchor,
+          popupAnchor:  [0,-18], //storageMarkers[i].icon.options.popupAnchor
+          className: "",
+        });
+
+        _this.setIcon(newIcon);
         storageMarkers[i].name = editedtitle;
         storageMarkers[i].title = editedtitle;
         storageMarkers[i].desc = editeddesc;
-        storageMarkers[i].icon = (markerIconTypes[editedicon]);
-        storageMarkers[i].iconvalue = editedicon;
+        storageMarkers[i].icn_saved = icn_saved;
         localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
       }
     } 
-    popup._close();
+    //popup._close();
   });
 }
 
@@ -1113,7 +894,7 @@ map.on('click', function (e) {
   var lat = Math.round(e.latlng.lat);
   var long = Math.round(e.latlng.lng);
   if (long < 0 || long > 4095 || lat < 0 || lat > 4095) {
-   console.log("lat: "+lat+ "long: "+long);
+    console.log("lat: "+lat+ "long: "+long);
   } else {
     message = '<span class="coordsinfo">X: ' +long+ ' ' + 'Y: ' +lat+ '</span><br><button class="add-marker" data-i18n="add_marker" onclick="addMarkerText('+lat+','+long+')">Add marker</button>';
     popup.setLatLng(e.latlng).setContent(message).openOn(map);
@@ -1132,34 +913,44 @@ if (sharedMarker != undefined) {
   var smX = sharedMarker.split(",")[0];
   console.log(smTitle);
   console.log(smDesc);
-  var icoUrl = (markerIconTypes[smIcon].options.iconUrl);
 
   var popupcontent = '<div class="popcontent">\
-<p class="mtitle">'+smTitle+'</p>\
-<p class="mdesc">'+smDesc+'</p>\
+<span class="mtitle">'+smTitle+'</span><br>\
+<span class="mdesc">'+smDesc+'</span><br>\
 <span class="mcoords">X: '+smY+' Y: '+smX+'</span></div>\
 <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
 <div id="edit-dialog" class="hide">\
+<div class="icn_menu hide">\
 <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
-<div id="iconprev" style="background-image:url(\''+icoUrl+'\')"></div>\
-<select id="select_icon" name="icon" onchange="iconpref(this.value);">';
-  for (var k in mapMarkers) {
-    popupcontent +='<option value="'+k+'">'+mapMarkers[k].icon.replace(/_/gi, " ")+'</option>';
-  };
-  popupcontent = popupcontent+'</select>\
+<div class="icn_list">'+iconSelection+'</div>\
+<button class="icn_menu_cancel" data-i18n="cancel">Cancel</button></div>\
+<div class="edited_content">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="icn_selected"><i name="slt_icon" class="'+smIcon+'"></i></div>\
+<input type="hidden" id="icn_saved" name="icn_saved" value="'+smIcon+'">\
 <input type="text" id="editedtitle" name="title" value="'+smTitle+'">\
 <textarea id="editeddesc" name="desc">'+smDesc+'</textarea>\
 <button class="cancel" data-i18n="cancel">Cancel</button>\
 <button class="save-marker" data-i18n="Save">Save</button>\
 </div>\
+</div>\
 <button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
 <div id="remove-dialog" class="hide">\
 <span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
 <button class="yes" data-i18n="yes">Yes</button>\
-<button class="no" data-i18n="no">No</button></div>';
+<button class="no" data-i18n="no">No</button>\
+</div>';
+
+  var newIcon = L.icon({
+    iconUrl: iconsUrl + smIcon + '.png',
+    iconSize: [36,36],
+    iconAnchor: [18,18], //storageMarkers[i].icon.options.iconAnchor,
+    popupAnchor:  [0,-18], //storageMarkers[i].icon.options.popupAnchor
+    className: "",
+  });
 
   if ((smY <= mapBounds && smY>0) && (smX<=mapBounds && smX>0)) {
-    var sm_marker = L.marker([smY,smX], {icon: markerIconTypes[smIcon]}).bindPopup(popupcontent).addTo(map);       
+    var sm_marker = L.marker([smY,smX], {icon: newIcon}).bindPopup(popupcontent).addTo(map);       
     map.flyTo(sm_marker.getLatLng(), 4);
     sm_marker.on("popupopen", onPopupOpenShared);
     sm_marker.openPopup();
@@ -1169,7 +960,7 @@ if (sharedMarker != undefined) {
 // Edit and save shared marker
 function onPopupOpenShared() {
   var _this = this;
-  var clickedMarkerCoords = this.getLatLng();
+  var clickedMarkerCoords = _this.getLatLng();
   var popup = _this.getPopup();
   var smIcon = getUrlVars()["icon"];
   var smTitle = getUrlVars()["title"];
@@ -1178,14 +969,15 @@ function onPopupOpenShared() {
   smDesc = decodeURIComponent(smDesc);
   var smY = sharedMarker.split(",")[1];
   var smX = sharedMarker.split(",")[0];
-  var icoUrl = (markerIconTypes[smIcon].options.iconUrl);
 
+  $(document).off('click', '.remove-marker')
   $(document).on('click', '.remove-marker', function() {
     $(this).addClass('hide');
     $(this).next('#remove-dialog').removeClass('hide');
     $(this).parent().parent().find('.popcontent').addClass('hide');
     $(this).parent().parent().find('.edit-marker').addClass('hide');
   });
+  $(document).off('click', '.no')
   $(document).on('click', '.no', function() {
     $(this).parent('#remove-dialog').addClass('hide');
     $(this).parent().parent().find('.popcontent').removeClass('hide');
@@ -1193,99 +985,137 @@ function onPopupOpenShared() {
     $(this).parent().parent().find('.remove-marker').removeClass('hide');
   });
 
+  $(document).off('click', '.yes')
   $(document).on('click', '.yes', function() {
     map.removeLayer(_this);
   });
-  
-   //Edit Marker
+
+  //Edit Marker
+  $(document).off('click', '.edit-marker')
   $(document).on('click', '.edit-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
-        $(this).parent().find('#iconprev').css("background-image", "url("+icoUrl+")");
-        $(this).parent().find('#select_icon').val(smIcon);
-    // HERE
+    $(this).parent().find('.icn_selected i').attr('class', '').addClass(storageMarkers[i].icn_saved);
     $(this).addClass('hide');
     $(this).next('#edit-dialog').removeClass('hide');
     $(this).parent().parent().find('.popcontent').addClass('hide');
     $(this).parent().parent().find('.remove-marker').addClass('hide');
   });
+  $(document).off('click', '.icn_selected')
+  $(document).on('click', '.icn_selected', function() {
+    $(this).parents('.leaflet-popup-content').find('.icn_menu').removeClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.edited_content').addClass('hide');
+  });
+  $(document).off('click', '.icn_menu_cancel')
+  $(document).on('click', '.icn_menu_cancel', function() {
+    $(this).parents('.leaflet-popup-content').find('.icn_menu').addClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.edited_content').removeClass('hide');
+  })
+  $(document).off('click', '.icn_selection')
+  $(document).on('click', '.icn_selection', function() {
+    var icn_selected = $(this).find('i').attr('class');
+    var icn_prev = $(this).parents('.leaflet-popup-content').find('.icn_selected i');
+    icn_prev.attr('class', '').addClass(icn_selected);
+    var icn_name = $(this).find('.icn_name').html();
+    var icn_name_prev = $(this).parents('.leaflet-popup-content').find('#titleprev');
+    icn_name_prev.val(icn_name);
+    var icn_saved = $(this).parents('.leaflet-popup-content').find('#icn_saved');
+    icn_saved.val(icn_selected);
+    $(this).parents('.leaflet-popup-content').find('.icn_menu').addClass('hide');
+    $(this).parents('.leaflet-popup-content').find('.edited_content').removeClass('hide');
+  })
+  $(document).off('click', '.cancel')
   $(document).on('click', '.cancel', function() {
     $(this).parent().parent().find('#edit-dialog').addClass('hide');
     $(this).parent().parent().find('.popcontent').removeClass('hide');
     $(this).parent().parent().find('.edit-marker').removeClass('hide');
     $(this).parent().parent().find('.remove-marker').removeClass('hide');
   });
+  $(document).off('click', '.save-marker')
   $(document).on('click', '.save-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
-        var editedicon = $(this).parent().find('select[name=icon]').val();
-        var editedtitle = $(this).parent().find('#editedtitle').val();
-        var editeddesc = $(this).parent().find('#editeddesc').val();
-        
-        var editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
+    var icn_saved = $(this).parent().find('.icn_selected i').attr('class');
+    var editedtitle = $(this).parent().find('#editedtitle').val();
+    var editeddesc = $(this).parent().find('#editeddesc').val();
+
+    var editedpopup ='<div class="popcontent">\
+<p class="mtitle">'+editedtitle+'</p>\
 <p class="mdesc">'+editeddesc+'</p>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
 <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
 <div id="edit-dialog" class="hide">\
+<div class="icn_menu hide">\
 <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
-  <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
-  <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
-    for (var j in mapMarkers) {
-    editedpopup +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
-  };
-  editedpopup = editedpopup+'</select>\
+<div class="icn_list">'+iconSelection+'</div>\
+<button class="icn_menu_cancel" data-i18n="cancel">Cancel</button></div>\
+<div class="edited_content">\
+<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+<div class="icn_selected"><i name="slt_icon" class="'+icn_saved+'"></i></div>\
+<input type="hidden" id="icn_saved" name="icn_saved" value="'+icn_saved+'">\
 <input type="text" id="editedtitle" name="title" value="'+editedtitle+'">\
 <textarea id="editeddesc" name="desc">'+editeddesc+'</textarea>\
 <button class="cancel" data-i18n="cancel">Cancel</button>\
 <button class="save-marker" data-i18n="Save">Save</button>\
 </div>\
+</div>\
 <button class="remove-marker" data-i18n="remove_marker">Remove marker</button>\
 <div id="remove-dialog" class="hide">\
 <span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
 <button class="yes" data-i18n="yes">Yes</button><button class="no" data-i18n="no">No</button></div>';
-        popup.setContent(editedpopup);
-    
-        storageMarkers.push({
-          "coords": {
-            "x": smY,
-            "y": smX
-          },
-          "name": editedtitle,
-          "icon": (markerIconTypes[editedicon]),
-          "iconvalue": editedicon,
-          "title": editedtitle,
-          "desc": editeddesc
-        });
+    popup.setContent(editedpopup);
 
-        _this.setIcon(markerIconTypes[editedicon]);
-        localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
-				map.removeLayer(_this);
-				initUserLayerGroup();
+    storageMarkers.push({
+      "coords": {
+        "x": smY,
+        "y": smX
+      },
+      "name": editedtitle,
+      "icn_saved": icn_saved,
+      "title": editedtitle,
+      "desc": editeddesc
+    });
+
+    var newIcon = L.icon({
+      iconUrl: iconsUrl + icn_saved + '.png',
+      iconSize: [36,36],
+      iconAnchor: [18,18], //storageMarkers[i].icon.options.iconAnchor,
+      popupAnchor:  [0,-18], //storageMarkers[i].icon.options.popupAnchor
+      className: "",
+    });
+
+    _this.setIcon(newIcon);
+    localStorage.mapUserMarkers = JSON.stringify(storageMarkers);
+    map.removeLayer(_this);
+    initUserLayerGroup();
     popup._close();
   });
 }
 
 function getFormattedTime() {
-    var today = new Date();
-    var y = today.getFullYear();
-    var m = ("0" + (today.getMonth() + 1)).slice(-2)
-    var d = today.getDate();
-    var hour = today.getHours();
-    var min = today.getMinutes();
-    var s = today.getSeconds();
-    return y + "-" + m + "-" + d + "_" + hour + "." + min;
+  var today = new Date();
+  var y = today.getFullYear();
+  var m = ("0" + (today.getMonth() + 1)).slice(-2)
+  var d = today.getDate();
+  var hour = today.getHours();
+  var min = today.getMinutes();
+  var s = today.getSeconds();
+  return y + "-" + m + "-" + d + "_" + hour + "." + min;
 }
 
 
 // Backup Restore 
+$(document).off('click', '.clearls');
 $(document).on('click', '.clearls', function() {
   $(this).addClass('hide');
   $(this).next('.prompt').removeClass('hide');
 });
+$(document).off('click', '.clearyes');
 $(document).on('click', '.clearyes', function() {
   $(this).parent('.prompt').addClass('hide');
   localStorage.setItem('mapUserMarkers', '[]');
   map.removeLayer(groupUser);
   initUserLayerGroup();
 });
+$(document).off('click', '.clearno');
 $(document).on('click', '.clearno', function() {
   $(this).parent('.prompt').addClass('hide');
 });
@@ -1301,7 +1131,7 @@ $('.backupls').on('click', function(e) {
   var base = btoa(json);
   var href = 'data:text/javascript;charset=utf-8;base64,' + base;
   var link = document.createElement('a');
-    link.setAttribute('download', 'kcdmap_'+getFormattedTime()+'.json');
+  link.setAttribute('download', 'kcdmap_'+getFormattedTime()+'.json');
   link.setAttribute('href', href);
   document.querySelector('body').appendChild(link);
   link.click();
@@ -1309,7 +1139,7 @@ $('.backupls').on('click', function(e) {
 });
 
 $('.restorels').on('click', function(e) {
-	var w = document.createElement('div');
+  var w = document.createElement('div');
   w.className = "restoreWindowOverlay";
   var t = document.createElement('div');
   t.className = "restoreWindow";
@@ -1319,73 +1149,73 @@ $('.restorels').on('click', function(e) {
   a.setAttribute('href', '#');
   t.appendChild(a);
   a.onclick = function() {
-      w.remove();
+    w.remove();
   };
 
   var l = document.createElement('input');
   l.setAttribute('type', 'file');
   l.setAttribute('id', 'fileinput');
   l.onchange = function(e) {
-			w.remove();
-      var f = e.target.files[0];
-      if (f) {
-          var reader = new FileReader();
-          reader.onload = function(e) {
-              var text = e.target.result;
-            text = JSON.parse(text);
-            localStorage.setItem('mapUserMarkers', text.markers);
-            localStorage.setItem('langactive', text.langactive);
-            initUserLayerGroup();
-              alert('Imported markers from backup.')
-          };
-          reader.readAsText(f);
-      } else {
-        alert('Failed to load file');
-      }
+    w.remove();
+    var f = e.target.files[0];
+    if (f) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var text = e.target.result;
+        text = JSON.parse(text);
+        localStorage.setItem('mapUserMarkers', text.markers);
+        localStorage.setItem('langactive', text.langactive);
+        initUserLayerGroup();
+        alert('Imported markers from backup.')
+      };
+      reader.readAsText(f);
+    } else {
+      alert('Failed to load file');
+    }
   };
   var a = document.createElement('h3');
   a.className = "restoreTitle";
   a.appendChild(document.createTextNode('Select file with backup'));
   t.appendChild(a);
   t.appendChild(l);
-	w.appendChild(t);
+  w.appendChild(t);
   document.querySelector('body').appendChild(w);
 });
 // End Backup Restore 
 
 
 $('.toggle-title').click(function(){
-		$(this).toggleClass('active');
-		$(this).next('.hidden-content').slideToggle(500);
-	});
-	
-	$('.toggle-content').click(function(){
-		$(this).toggleClass('active');
-		$(this).next('.hidden-content').slideToggle(500);
-	});
-	
-	// Language visual toggle
-	var langactive = localStorage.getItem('langactive');
-  if (langactive === null) {
-    localStorage.setItem('langactive', "en");
-    $(".langswitch").find(".lang[data-lang='en']").addClass("active");
-    $(".langswitch").find(".lang[data-lang='en']").find(".checkmark").addClass("active");
-  }
-  else {
-    $(".langswitch").find(".lang[data-lang="+langactive+"]").addClass("active");
-    $(".langswitch").find(".lang[data-lang="+langactive+"]").find(".checkmark").addClass("active");
-  }
-  $(".lang").click(function(){
-    localStorage.setItem('langactive', $(this).data("lang"));
-    $(this).parent().find(".lang-text").removeClass("active");
-    $(this).find(".lang-text").addClass("active");
-    $(this).parent().find(".lang").removeClass("active");
-    $(this).addClass("active");
-    $(this).parent().find(".checkmark").removeClass("active");
-    $(this).find(".checkmark").addClass("active");
-  });
-	
-	// Save toggle state
+  $(this).toggleClass('active');
+  $(this).next('.hidden-content').slideToggle(500);
+});
+
+$('.toggle-content').click(function(){
+  $(this).toggleClass('active');
+  $(this).next('.hidden-content').slideToggle(500);
+});
+
+// Language visual toggle
+var langactive = localStorage.getItem('langactive');
+if (langactive === null) {
+  localStorage.setItem('langactive', "en");
+  $(".langswitch").find(".lang[data-lang='en']").addClass("active");
+  $(".langswitch").find(".lang[data-lang='en']").find(".checkmark").addClass("active");
+}
+else {
+  $(".langswitch").find(".lang[data-lang="+langactive+"]").addClass("active");
+  $(".langswitch").find(".lang[data-lang="+langactive+"]").find(".checkmark").addClass("active");
+}
+$(".lang").click(function(){
+  localStorage.setItem('langactive', $(this).data("lang"));
+  $(this).parent().find(".lang-text").removeClass("active");
+  $(this).find(".lang-text").addClass("active");
+  $(this).parent().find(".lang").removeClass("active");
+  $(this).addClass("active");
+  $(this).parent().find(".checkmark").removeClass("active");
+  $(this).find(".checkmark").addClass("active");
+});
+
+// Save toggle state
 $('.markers-list input').on('change', function() {
   var toggled, activemarkers = [];
   $('.markers-list input').each(function() { // run through each of the checkboxes

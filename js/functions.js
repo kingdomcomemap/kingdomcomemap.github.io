@@ -4,7 +4,7 @@ var iconsUrl = './assets/images/';
 var tilesUrl = "./map/{z}_{x}_{y}.jpg";
 var maxNativeZoom = 5;
 var mapMinZoom = 1;
-var mapMaxZoom = 8;
+var mapMaxZoom = 6;
 
 var mapSize = 8192;
 var tileSize = 256;
