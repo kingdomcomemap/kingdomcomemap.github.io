@@ -1,3 +1,5 @@
+var version = 1.3;
+var url = ('http://' + window.location.hostname + '/alpha/index.html');
 var iconsUrl = './assets/images/';
 var tilesUrl = "./bohemia_map/{z}_{x}_{y}.jpg";
 var maxNativeZoom = 5;
