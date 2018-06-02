@@ -1118,7 +1118,7 @@ if (sharedMarker != undefined) {
   var popupcontent = '<div class="popcontent">\
 <p class="mtitle">'+smTitle+'</p>\
 <p class="mdesc">'+smDesc+'</p>\
-<span class="mcoords">X: '+smY+' Y: '+smX+'</span></div>\
+<span class="mcoords">X: '+smX+' Y: '+smY+'</span></div>\
 <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
 <div id="edit-dialog" class="hide">\
 <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
