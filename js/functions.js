@@ -1,25 +1,25 @@
-var version = 1.3;
-var url = ('http://' + window.location.hostname + '/');
-var iconsUrl = './assets/images/';
-var tilesUrl = "./map/{z}_{x}_{y}.jpg";
-var maxNativeZoom = 5;
-var mapMinZoom = 1;
-var mapMaxZoom = 6;
+let  version = 1.3;
+let  url = ('http://' + window.location.hostname + '/');
+let  iconsUrl = './assets/images/';
+let  tilesUrl = "./map/{z}_{x}_{y}.jpg";
+let  maxNativeZoom = 5;
+let  mapMinZoom = 1;
+let  mapMaxZoom = 5;
 
-var mapSize = 8192;
-var tileSize = 256;
-var mapScale = mapSize / tileSize;
-var mapOffset = mapSize / mapScale / 2;
-var halfTile = tileSize / 2;
-var mapBounds = 4096;
+let  mapSize = 8192;
+let  tileSize = 256;
+let  mapScale = mapSize / tileSize;
+let  mapOffset = mapSize / mapScale / 2;
+let  halfTile = tileSize / 2;
+let  mapBounds = 4096;
 
 L.CRS.MySimple = L.extend({}, L.CRS.Simple, {
 	transformation: new L.Transformation(1 / 16, 0, -1 / 16, 256)
 });
 
-var myBounds = [[0,0],[mapBounds, mapBounds]];
+let  myBounds = [[0,0],[mapBounds, mapBounds]];
 
-var map = L.map('map', {
+let  map = L.map('map', {
   maxNativeZoom: maxNativeZoom,
   minZoom: mapMinZoom,
   maxZoom: mapMaxZoom,
@@ -55,19 +55,19 @@ window.pixelsToLatLng = function(x, y) {
   return window.map.unproject([x, y], window.map.getMaxZoom());
 };
 
-var popup = L.popup();
+let  popup = L.popup();
 
 new L.Control.Zoom({position: 'topright'}).addTo(map);
 
-var sidebar = L.control.sidebar('sidebar').addTo(map);
+let  sidebar = L.control.sidebar('sidebar').addTo(map);
 
 sidebar.open('home');
 
-var hash = new L.Hash(map);
+let  hash = new L.Hash(map);
 
 L.Control.Coordinates.include({
 	_update: function(evt) {
-		var pos = evt.latlng,
+		let  pos = evt.latlng,
 		opts = this.options;
 		if (pos) {
 			//pos = pos.wrap(); // Remove that instruction
@@ -95,11 +95,11 @@ L.control.coordinates({
 // Fix for the 1px white border
 
 function gridfix(){
-  var originalInitTile = L.GridLayer.prototype._initTile
+  let  originalInitTile = L.GridLayer.prototype._initTile
   L.GridLayer.include({
     _initTile: function (tile) {
       originalInitTile.call(this, tile);
-      var tileSize = this.getTileSize();
+      let  tileSize = this.getTileSize();
       tile.style.width = tileSize.x + 0.5 + 'px';
       tile.style.height = tileSize.y + 0.5 + 'px';
     }
@@ -108,33 +108,33 @@ function gridfix(){
 //gridfix();
 
 
-var layerGroups = [];
+let  layerGroups = [];
 
-var textLayer = [];
+let  textLayer = [];
 
-var globalMarkers = [];
-var transparentMarker = L.icon({
+let  globalMarkers = [];
+let  transparentMarker = L.icon({
         iconUrl: iconsUrl+'alpha_marker.png',
         iconSize: [1, 1],
         iconAnchor: [iWidth, iHeight],
         popupAnchor: [0, -iHeight]
       });
 
-for (var i = 0; i < textMarkers.length; i++) {
+for (let  i = 0; i < textMarkers.length; i++) {
   // If the group doesn't exists
   if (layerGroups.textmarkers == undefined) {
     // Create the group
     layerGroups.textmarkers = new L.LayerGroup();
   }
   // Add the marker
-  var textMarker = new L.marker(textMarkers[i].coords, { opacity: 0.0, icon: transparentMarker }); //opacity may be set to zero
+  let  textMarker = new L.marker(textMarkers[i].coords, { opacity: 0.0, icon: transparentMarker }); //opacity may be set to zero
   textMarker.bindTooltip(textMarkers[i].name, {permanent: true, direction: "top", className: "text-label", offset: [0, 0] });
   textMarker.addTo(layerGroups.textmarkers); // Adds the text markers to map.
   //layerGroups.textmarkers.addTo(map);
 }
 
 map.on('zoomend', function(e) {
-  var size = map.getZoom();
+  let  size = map.getZoom();
   switch (size){  // zoom level
 
     case 0:
@@ -165,9 +165,9 @@ map.on('zoomend', function(e) {
 });
 
 function getIcon(index) {
-  var icon = markers[index].icon;
+  let  icon = markers[index].icon;
 	
-  var markerIcon = L.icon({
+  let  markerIcon = L.icon({
     iconUrl: iconsUrl+icon+'.png',
     iconSize: [36,36], // size of the icon
     iconAnchor:   [18, 18], // point of the icon which will correspond to marker's location
@@ -180,7 +180,7 @@ function getIcon(index) {
 
 // GAME MARKERS
 
-for (var i = 0; i < markers.length; i++) {
+for (let  i = 0; i < markers.length; i++) {
   // if the group doesn't exists in layergroups
   if (layerGroups[markers[i].group] == undefined) {
     // Create the group
@@ -195,29 +195,29 @@ for (var i = 0; i < markers.length; i++) {
 	if (markers[i].kcditems == undefined) {
     markers[i].kcditems = "";
   }
-  var ilist = "";
-  for (var h in markers[i].kcditems) {
-		var kcditems =  markers[i].kcditems[h];
+  let  ilist = "";
+  for (let  h in markers[i].kcditems) {
+		let  kcditems =  markers[i].kcditems[h];
     ilist += '<li><i class="'+ markers[i].kcditems[h].item+'"></i><span class="iname" data-i18n="'+ markers[i].kcditems[h].item+'">'+ markers[i].kcditems[h].item.replace(/_/gi, " ")+'</span><span class="qnt">'+markers[i].kcditems[h].qnt+'</span></li>';
   }
-  var x = (markers[i].coords[1]).toFixed(0);
-  var y = (markers[i].coords[0]).toFixed(0);
+  let  x = (markers[i].coords[1]).toFixed(0);
+  let  y = (markers[i].coords[0]).toFixed(0);
   
-  var origin_x = (markers[i].coords[1]).toFixed(0);
-  var origin_y = (markers[i].coords[0]).toFixed(0);
+  let  origin_x = (markers[i].coords[1]).toFixed(0);
+  let  origin_y = (markers[i].coords[0]).toFixed(0);
 	
-  var markerUrl = (url+"?marker="+y+","+x);
+  let  markerUrl = (url+"?marker="+y+","+x);
 	markerUrl = encodeURI(markerUrl);
 
   // Add the marker
-  var marker = L.marker([x, y], {icon: getIcon(i),title: markers[i].group}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='copylink'>Copy link</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[markers[i].group]);
+  let  marker = L.marker([x, y], {icon: getIcon(i),title: markers[i].group}).bindPopup("<p class='mtitle'>"+markers[i].name + "</p><span class='mdesc'>"+ markers[i].desc +"</span><ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+origin_y+","+origin_x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='copylink'>Copy link</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[markers[i].group]);
 	globalMarkers.push(marker);
 }
 
 function getIconUsr(index) {
-  var icon = usr_markers[index].icon;
+  let  icon = usr_markers[index].icon;
 
-  var markerIcon = L.icon({
+  let  markerIcon = L.icon({
     iconUrl: iconsUrl+icon+'.png',
     iconSize: [36,36], // size of the icon
     iconAnchor:   [18, 18], // point of the icon which will correspond to marker's location
@@ -229,8 +229,8 @@ function getIconUsr(index) {
 }
 
 // USER MARKERS
-for (var i = 0; i < usr_markers.length; i++) {
-	var imarkers = usr_markers[i]
+for (let  i = 0; i < usr_markers.length; i++) {
+	let  imarkers = usr_markers[i]
   // if the group doesn't exists in layergroups
   if (layerGroups[imarkers.group] == undefined) {
     // Create the group
@@ -248,21 +248,21 @@ for (var i = 0; i < usr_markers.length; i++) {
 if (imarkers.req != undefined) {
   imarkers.req = (imarkers.req == undefined) ? "" : imarkers.req;
   imarkers.level = (imarkers.level == undefined) ? "" : imarkers.level;
-    var req = '<p class="req" data-i18n="req">Requirements:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+imarkers.req.replace(/_/gi, " ")+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+imarkers.level.replace(/_/gi, " ")+'</span></li>';
+    let  req = '<p class="req" data-i18n="req">Requirements:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+imarkers.req.replace(/_/gi, " ")+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+imarkers.level.replace(/_/gi, " ")+'</span></li>';
   } else {req = ""; }
-  var ilist = "";
-  for (var c in imarkers.items) {
+  let  ilist = "";
+  for (let  c in imarkers.items) {
     ilist += '<li><i class="'+ imarkers.items[c]+'"></i><span class="iname" data-i18n="'+ imarkers.items[c]+'">'+ imarkers.items[c].replace(/_/gi, " ")+'</span></li>';
   }
 	
-  var x = (imarkers.coords[1]);
-  var y = (imarkers.coords[0]);
+  let  x = (imarkers.coords[1]);
+  let  y = (imarkers.coords[0]);
 	
-  var markerUrl = (url+"?marker="+y+","+x);
+  let  markerUrl = (url+"?marker="+y+","+x);
 	markerUrl = encodeURI(markerUrl);
 
   // Add the marker
-  var marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.name}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
+  let  marker = L.marker([x, y], {icon: getIconUsr(i), title: imarkers.name}).bindPopup("<p class='mtitle'>"+imarkers.name + "</p><p class='mdesc'>"+ imarkers.desc +"</p><p class='mdesc'>"+ imarkers.desc2 +"</p>"+req+"<ul class='ilist'>"+ilist+"</ul><p class='original_coords'>"+y+","+x+"</p><p class='markerlink hide'>"+markerUrl+"</p><button class='copymarkerurl'><span class='sharetext'  data-i18n='share'>Share</span><span class='copiedmsg hide'>Copied</span></button>").addTo(layerGroups[imarkers.group]);
 	globalMarkers.push(marker);
 }
 
@@ -276,16 +276,16 @@ function toggle(element, layer) {
 }
 
 // TOGGLE ALL LAYERS
-var allmarkers = document.getElementById('allmarkers');
+let  allmarkers = document.getElementById('allmarkers');
 function toggleAll(element) {
 		if (element.checked) {
 			$('.markers-list input').prop('checked', true);
-			for (var key in layerGroups) {
+			for (let  key in layerGroups) {
 				map.addLayer(layerGroups[key]);
 			}
 		} else {
 			$('.markers-list input').prop('checked', false);
-			for (var keys in layerGroups) {
+			for (let  keys in layerGroups) {
 				map.removeLayer(layerGroups[keys]);
 			}
 		}
@@ -295,7 +295,7 @@ allmarkers.onchange = function() {toggleAll(this)};
 
 $(allmarkers).click(function(){
   if($(this).prop("checked") == true){
-    var toggled, activemarkers = [];
+    let  toggled, activemarkers = [];
     $('.markers-list input').each(function() {
       toggled = {id: $(this).attr('id'), value: $(this).prop('checked')};
       activemarkers.push(toggled);
@@ -326,27 +326,27 @@ $('.markers-list input').each(function() {
 
 // URL Function
 function getUrlVars() {
-var vars = {};
-var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+let  vars = {};
+let  parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
 vars[key] = value;
 });
 return vars;
 }
 
-var urlCoordinates = getUrlVars()["marker"];
+let  urlCoordinates = getUrlVars()["marker"];
 if (urlCoordinates != undefined) {
-  var markFound = false;
+  let  markFound = false;
   sidebar.close();
   if (getUrlVars()["zoom"]>=1 && getUrlVars()["zoom"]<=4) {
-    var urlZoom = getUrlVars()["zoom"];
+    let  urlZoom = getUrlVars()["zoom"];
   } else {
-    var urlZoom = 4;
+    let  urlZoom = 4;
   }
 
-  for (var l in globalMarkers){
-    var markerX = globalMarkers[l]._latlng.lat;
-    var markerY = globalMarkers[l]._latlng.lng;
-    var markerdata = (markerY+','+markerX);    
+  for (let  l in globalMarkers){
+    let  markerX = globalMarkers[l]._latlng.lat;
+    let  markerY = globalMarkers[l]._latlng.lng;
+    let  markerdata = (markerY+','+markerX);    
 
     if (markerdata == urlCoordinates){
       $('#'+globalMarkers[l].options.title).prop('checked', true);
@@ -358,10 +358,10 @@ if (urlCoordinates != undefined) {
   };
 
   if (markFound==false) {
-    var aux_y = urlCoordinates.split(",")[1];
-    var aux_x = urlCoordinates.split(",")[0];
+    let  aux_y = urlCoordinates.split(",")[1];
+    let  aux_x = urlCoordinates.split(",")[0];
     if ((aux_y <= mapBounds && aux_y>0) && (aux_x<=mapBounds && aux_x>0)) {
-      var aux_marker = L.marker([aux_y, aux_x]);        
+      let  aux_marker = L.marker([aux_y, aux_x]);        
       map.flyTo(aux_marker.getLatLng(), urlZoom);
       aux_marker = null;
     }
@@ -373,15 +373,15 @@ if (urlCoordinates != undefined) {
 // Copy function
 
 function copy(element) {
-  var $temp = $("<input>");
+  let  $temp = $("<input>");
   $("body").append($temp);
   $temp.val($(element).text()).select();
   document.execCommand("copy");
   $temp.remove();
 }
 $(document).on('click', '.copymarkerurl', function() {
-  var copy = $(this).parent().find('.markerlink');
-  var $temp = $("<input>");
+  let  copy = $(this).parent().find('.markerlink');
+  let  $temp = $("<input>");
   $("body").append($temp);
   $temp.val($(copy).text()).select();
   document.execCommand("copy");
@@ -391,9 +391,9 @@ $(document).on('click', '.copymarkerurl', function() {
 })
 
 
-var locatedGroup = L.layerGroup();
+let  locatedGroup = L.layerGroup();
 markers.forEach(function (items) {
-  var marker = L.marker(items.latLng, {
+  let  marker = L.marker(items.latLng, {
     title: items.name,
     riseOnHover: true
   }).bindPopup(items.name);
@@ -406,9 +406,9 @@ markers.forEach(function (items) {
 
 markers.forEach(function (items) {
   $('.locate').on('click', function(){
-    var locateMarker = $(this).attr('data-marker');
+    let  locateMarker = $(this).attr('data-marker');
     if(locateMarker == items.title){
-      var locatedMarkerIcon = L.icon({
+      let  locatedMarkerIcon = L.icon({
         iconUrl: iconsUrl+'alpha_marker.png',
         iconSize: [iWidth, iHeight],
         iconAnchor: [iWidth / 2, iHeight],
@@ -418,7 +418,7 @@ markers.forEach(function (items) {
       $('#'+items.group).prop('checked', true);
       map.addLayer(layerGroups[items.group]);
 
-      var locatedMarker = L.marker(items.coords, {icon: locatedMarkerIcon}).bindPopup(items.name + "<br>"+ items.desc).addTo(map);
+      let  locatedMarker = L.marker(items.coords, {icon: locatedMarkerIcon}).bindPopup(items.name + "<br>"+ items.desc).addTo(map);
       map.panTo(locatedMarker.getLatLng());
       locatedMarker.openPopup();
       locatedMarker.on('popupclose', function() {
@@ -431,7 +431,7 @@ markers.forEach(function (items) {
 // Limit input of coordinates range
 function numonly(e){
   $("#mlat,#mlon").keyup(function() {
-    var val = $(this).val().replace(/-?\d+[^0-9]+/,"");
+    let  val = $(this).val().replace(/-?\d+[^0-9]+/,"");
     if (val => 2934){
       !/^\s*$/.test(val);
       if (val > 0) {
@@ -463,7 +463,7 @@ function getAObj(obj,name) {
 };
 
 // Available markers to add on click
-var mapMarkers = 
+let  mapMarkers = 
 [
   {
 	icon:"arrow",
@@ -728,11 +728,11 @@ var mapMarkers =
 	
 ]
 
-var markerIconTypes = [];
-for (var i in mapMarkers) {
-  var icon = mapMarkers[i].icon;
-  var iWidth = mapMarkers[i].width;
-  var iHeight = mapMarkers[i].height;
+let  markerIconTypes = [];
+for (let  i in mapMarkers) {
+  let  icon = mapMarkers[i].icon;
+  let  iWidth = mapMarkers[i].width;
+  let  iHeight = mapMarkers[i].height;
   // make the icon while we are here
   markerIconTypes[i] = L.icon({
     className: "",
@@ -745,32 +745,32 @@ for (var i in mapMarkers) {
 // End available markers to add on click
 
 // User added markers
-var groupUser = [];
+let  groupUser = [];
 initUserLayerGroup();
 function initUserLayerGroup() {
-	var markersUser = [];
+	let  markersUser = [];
 	if (localStorage.mapUserMarkers == "undefined") {
 		localStorage.mapUserMarkers = "[]";
 	}
   if (localStorage.mapUserMarkers !== undefined) {
-    var storageMarkers = [];
+    let  storageMarkers = [];
 
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
 
-    for (var i = 0; i < storageMarkers.length; i++) {
-      var x = storageMarkers[i].coords.x;
-      var y = storageMarkers[i].coords.y;
-      var name = storageMarkers[i].name;
-      var icon = storageMarkers[i].icon;
-			var iconvalue = storageMarkers[i].iconvalue;
-      var iconUrl = storageMarkers[i].icon.options.iconUrl;
-      var title = storageMarkers[i].title;
-      var desc = storageMarkers[i].desc;
+    for (let  i = 0; i < storageMarkers.length; i++) {
+      let  x = storageMarkers[i].coords.x;
+      let  y = storageMarkers[i].coords.y;
+      let  name = storageMarkers[i].name;
+      let  icon = storageMarkers[i].icon;
+			let  iconvalue = storageMarkers[i].iconvalue;
+      let  iconUrl = storageMarkers[i].icon.options.iconUrl;
+      let  title = storageMarkers[i].title;
+      let  desc = storageMarkers[i].desc;
 			
-			var markerlink = (url+"?m="+y+","+x+"&title="+name+"&desc="+desc+"&icon="+iconvalue+"&");
+			let  markerlink = (url+"?m="+y+","+x+"&title="+name+"&desc="+desc+"&icon="+iconvalue+"&");
 			markerlink = encodeURI(markerlink);
 
-      var customIcon = L.icon({
+      let  customIcon = L.icon({
         iconUrl: storageMarkers[i].icon.options.iconUrl,
         iconSize: storageMarkers[i].icon.options.iconSize,
         iconAnchor: [18,18], //storageMarkers[i].icon.options.iconAnchor,
@@ -778,7 +778,7 @@ function initUserLayerGroup() {
 				className: storageMarkers[i].icon.options.className,
       });
 			
-			var popupcontent = '<div class="popcontent">\
+			let  popupcontent = '<div class="popcontent">\
 			<p class="mtitle">'+name+'</p>\
 			<p class="mdesc">'+desc+'</p>\
 			<span class="mcoords">X: '+y+' Y: '+x+'</span></div>\
@@ -790,7 +790,7 @@ function initUserLayerGroup() {
 			<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
 			<div id="iconprev" style="background-image:url(\''+iconUrl+'\')"></div>\
 			<select id="select_icon" name="icon" onchange="iconpref(this.value);">';
-      for (var j in mapMarkers) {
+      for (let  j in mapMarkers) {
         popupcontent +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
       };
       popupcontent = popupcontent+'</select>\
@@ -804,7 +804,7 @@ function initUserLayerGroup() {
 			<span class="remove-text" data-i18n="remove_text">Are you sure?</span>\
 			<button class="yes" data-i18n="yes">Yes</button>\
 			<button class="no" data-i18n="no">No</button></div>';
-      var marker = L.marker([x, y], {draggable: false,icon: customIcon}).bindPopup(popupcontent);
+      let  marker = L.marker([x, y], {draggable: false,icon: customIcon}).bindPopup(popupcontent);
 
       marker.on("popupopen", onPopupOpen);
       markersUser.push(marker);
@@ -818,14 +818,14 @@ function initUserLayerGroup() {
 // End user added markers
 
 // Patch coordinates if old version
-var actualversion = localStorage.getItem('version');
+let  actualversion = localStorage.getItem('version');
 if (actualversion === null || actualversion < version) {
   localStorage.setItem('version', version);
   console.log("version outdated")
   storageMarkers = JSON.parse(localStorage.mapUserMarkers);
-  for (var i = 0; i < storageMarkers.length; i++) {
-    var x = storageMarkers[i].coords.x;
-    var y = storageMarkers[i].coords.y;
+  for (let  i = 0; i < storageMarkers.length; i++) {
+    let  x = storageMarkers[i].coords.x;
+    let  y = storageMarkers[i].coords.y;
     x = (x/2932*2048 + 2048).toFixed(0);
     y = (y/2932*2048 + 2048).toFixed(0);
     storageMarkers[i].coords.x = x
@@ -848,7 +848,7 @@ function titlepref(value) {
 
 function removeMarkerE(lat,lon) {
   for(e in markers) {
-    var tmpm = markers[e].getLatLng();
+    let  tmpm = markers[e].getLatLng();
     if(tmpm.lat == lat && tmpm.lng == lon) {
       map.removeLayer(markers[e]);
     };
@@ -858,11 +858,11 @@ function removeMarkerE(lat,lon) {
 
 function addMarkerText(lat,long) {
   //console.log(markerIconTypes);
-  var message = '<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
+  let  message = '<div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
   <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
   <form id="addmark" method="post" action="#">\
   <select id="select_icon" name="icon" onchange="iconpref(this.value); titlepref(this.options[this.selectedIndex].innerHTML);">';
-  for (var i in mapMarkers) {
+  for (let  i in mapMarkers) {
     message +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
   };
   message = message+'</select><div class="markertitle" data-i18n="marker_title">Marker Title:</div>\
@@ -879,22 +879,22 @@ function addMarkerText(lat,long) {
   <button type="submit" class="send" data-i18n="add">Add</button>\
   </form>';
   // 
-  var ltn = {};
+  let  ltn = {};
   ltn.lat = lat;
   ltn.lng = long;
   popup.setLatLng(ltn).setContent(message).openOn(map);
   
   // Add the mark
   $('#addmark').submit(function(e){
-		var selectedIcon = $(this).find("#select_icon option:selected").text();
-    var postData = $(this).serializeArray();
-    var lat = Math.round(getAObj(postData,"mlat"));
-    var lon = Math.round(getAObj(postData,"mlon"));
+		let  selectedIcon = $(this).find("#select_icon option:selected").text();
+    let  postData = $(this).serializeArray();
+    let  lat = Math.round(getAObj(postData,"mlat"));
+    let  lon = Math.round(getAObj(postData,"mlon"));
     postData.push({"name": "lat","value":lat});
     postData.push({"name": "lon","value":lon});
 
-    var storageMarkers = [];
-    var markersUser = [];
+    let  storageMarkers = [];
+    let  markersUser = [];
 
     if (localStorage.mapUserMarkers !== undefined) {
       storageMarkers = JSON.parse(localStorage.mapUserMarkers);
@@ -912,10 +912,10 @@ function addMarkerText(lat,long) {
     });
     popup._close();
 		
-		var markerlink = (url+"?m="+lon+","+lat+"&title="+getAObj(postData,"title")+"&desc="+getAObj(postData,"desc")+"&icon="+getAObj(postData,"icon")+"&");
+		let  markerlink = (url+"?m="+lon+","+lat+"&title="+getAObj(postData,"title")+"&desc="+getAObj(postData,"desc")+"&icon="+getAObj(postData,"icon")+"&");
 		markerlink = encodeURI(markerlink);
 
-    var popupcontent = '<div class="popcontent">\
+    let  popupcontent = '<div class="popcontent">\
     <p class="mtitle">'+getAObj(postData,'title')+'</p>\
     <p class="mdesc">'+getAObj(postData,'desc')+'</p>\
     <span class="mcoords">[ '+getAObj(postData,'mlon')+' , '+getAObj(postData,'mlat')+']</span></div>\
@@ -927,7 +927,7 @@ function addMarkerText(lat,long) {
     <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
     <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
     <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
-      for (var i in mapMarkers) {
+      for (let  i in mapMarkers) {
       popupcontent +='<option value="'+i+'">'+mapMarkers[i].icon.replace(/_/gi, " ")+'</option>';
     };
     popupcontent = popupcontent+'</select>\
@@ -942,7 +942,7 @@ function addMarkerText(lat,long) {
     <button class="yes" data-i18n="yes">Yes</button>\
     <button class="no" data-i18n="no">No</button></div>'
     //
-    var newMarker = L.marker({lat: lat, lng: lon},{icon: markerIconTypes[getAObj(postData,"icon")]});
+    let  newMarker = L.marker({lat: lat, lng: lon},{icon: markerIconTypes[getAObj(postData,"icon")]});
     newMarker.bindPopup(popupcontent);
     newMarker.addTo(map);
     newMarker.on("popupopen", onPopupOpen);
@@ -956,12 +956,12 @@ function addMarkerText(lat,long) {
 }
 
 function onPopupOpen(e) {
-  var _this = this;
-  var clickedMarkerCoords = _this.getLatLng();
+  let  _this = this;
+  let  clickedMarkerCoords = _this.getLatLng();
 	console.log("clickedMarkerCoords= "+clickedMarkerCoords);
-  var clickedMarkerCoordsNew = e.target.getLatLng();
+  let  clickedMarkerCoordsNew = e.target.getLatLng();
 	console.log("clickedMarkerCoordsNew= "+clickedMarkerCoordsNew);
-  var popup = _this.getPopup();
+  let  popup = _this.getPopup();
 
   $(document).off('click', '.remove-marker')
   $(document).on('click', '.remove-marker', function() {
@@ -1036,14 +1036,14 @@ function onPopupOpen(e) {
           (clickedMarkerCoords.lat == storageMarkers[i].coords.x &&
            clickedMarkerCoords.lng == storageMarkers[i].coords.y)
          ) {
-        var editedicon = $(this).parent().find('select[name=icon]').val();
-        var editedtitle = $(this).parent().find('#editedtitle').val();
-        var editeddesc = $(this).parent().find('#editeddesc').val();
+        let  editedicon = $(this).parent().find('select[name=icon]').val();
+        let  editedtitle = $(this).parent().find('#editedtitle').val();
+        let  editeddesc = $(this).parent().find('#editeddesc').val();
 				
-				var markerlink = (url+"?m="+clickedMarkerCoords.lng+","+clickedMarkerCoords.lat+"&title="+editedtitle+"&desc="+editeddesc+"&icon="+editedicon+"&");
+				let  markerlink = (url+"?m="+clickedMarkerCoords.lng+","+clickedMarkerCoords.lat+"&title="+editedtitle+"&desc="+editeddesc+"&icon="+editedicon+"&");
 				markerlink = encodeURI(markerlink);
         
-        var editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
+        let  editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
 <p class="mdesc">'+editeddesc+'</p>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
 <span class="markerlink hide">'+markerlink+'</span>\
@@ -1054,7 +1054,7 @@ function onPopupOpen(e) {
 <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
   <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
   <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
-    for (var j in mapMarkers) {
+    for (let  j in mapMarkers) {
     editedpopup +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
   };
   editedpopup = editedpopup+'</select>\
@@ -1093,8 +1093,8 @@ $('#usermarkers').click(function(){
 // End toggle user markers */
 
 map.on('click', function (e) {
-  var lat = Math.round(e.latlng.lat);
-  var long = Math.round(e.latlng.lng);
+  let  lat = Math.round(e.latlng.lat);
+  let  long = Math.round(e.latlng.lng);
   if (long < 0 || long > 4095 || lat < 0 || lat > 4095) {
    console.log("lat: "+lat+ "long: "+long);
   } else {
@@ -1103,21 +1103,21 @@ map.on('click', function (e) {
   }
 });
 
-var sharedMarker = getUrlVars()["m"];
+let  sharedMarker = getUrlVars()["m"];
 if (sharedMarker != undefined) {
   sidebar.close();
-  var smIcon = getUrlVars()["icon"];
-  var smTitle = getUrlVars()["title"];
+  let  smIcon = getUrlVars()["icon"];
+  let  smTitle = getUrlVars()["title"];
   smTitle = decodeURIComponent(smTitle);
-  var smDesc = getUrlVars()["desc"];
+  let  smDesc = getUrlVars()["desc"];
   smDesc = decodeURIComponent(smDesc);
-  var smY = sharedMarker.split(",")[1];
-  var smX = sharedMarker.split(",")[0];
+  let  smY = sharedMarker.split(",")[1];
+  let  smX = sharedMarker.split(",")[0];
   console.log(smTitle);
   console.log(smDesc);
-  var icoUrl = (markerIconTypes[smIcon].options.iconUrl);
+  let  icoUrl = (markerIconTypes[smIcon].options.iconUrl);
 
-  var popupcontent = '<div class="popcontent">\
+  let  popupcontent = '<div class="popcontent">\
 <p class="mtitle">'+smTitle+'</p>\
 <p class="mdesc">'+smDesc+'</p>\
 <span class="mcoords">X: '+smX+' Y: '+smY+'</span></div>\
@@ -1126,7 +1126,7 @@ if (sharedMarker != undefined) {
 <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
 <div id="iconprev" style="background-image:url(\''+icoUrl+'\')"></div>\
 <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
-  for (var k in mapMarkers) {
+  for (let  k in mapMarkers) {
     popupcontent +='<option value="'+k+'">'+mapMarkers[k].icon.replace(/_/gi, " ")+'</option>';
   };
   popupcontent = popupcontent+'</select>\
@@ -1142,7 +1142,7 @@ if (sharedMarker != undefined) {
 <button class="no" data-i18n="no">No</button></div>';
 
   if ((smY <= mapBounds && smY>0) && (smX<=mapBounds && smX>0)) {
-    var sm_marker = L.marker([smY,smX], {icon: markerIconTypes[smIcon]}).bindPopup(popupcontent).addTo(map);       
+    let  sm_marker = L.marker([smY,smX], {icon: markerIconTypes[smIcon]}).bindPopup(popupcontent).addTo(map);       
     map.flyTo(sm_marker.getLatLng(), 4);
     sm_marker.on("popupopen", onPopupOpenShared);
     sm_marker.openPopup();
@@ -1151,17 +1151,17 @@ if (sharedMarker != undefined) {
 
 // Edit and save shared marker
 function onPopupOpenShared() {
-  var _this = this;
-  var clickedMarkerCoords = _this.getLatLng();
-  var popup = _this.getPopup();
-  var smIcon = getUrlVars()["icon"];
-  var smTitle = getUrlVars()["title"];
+  let  _this = this;
+  let  clickedMarkerCoords = _this.getLatLng();
+  let  popup = _this.getPopup();
+  let  smIcon = getUrlVars()["icon"];
+  let  smTitle = getUrlVars()["title"];
   smTitle = decodeURIComponent(smTitle);
-  var smDesc = getUrlVars()["desc"];
+  let  smDesc = getUrlVars()["desc"];
   smDesc = decodeURIComponent(smDesc);
-  var smY = sharedMarker.split(",")[1];
-  var smX = sharedMarker.split(",")[0];
-  var icoUrl = (markerIconTypes[smIcon].options.iconUrl);
+  let  smY = sharedMarker.split(",")[1];
+  let  smX = sharedMarker.split(",")[0];
+  let  icoUrl = (markerIconTypes[smIcon].options.iconUrl);
 
   $(document).off('click', '.remove-marker')
   $(document).on('click', '.remove-marker', function() {
@@ -1205,11 +1205,11 @@ function onPopupOpenShared() {
   $(document).off('click', '.save-marker')
   $(document).on('click', '.save-marker', function() {
     storageMarkers = JSON.parse(localStorage.mapUserMarkers);
-        var editedicon = $(this).parent().find('select[name=icon]').val();
-        var editedtitle = $(this).parent().find('#editedtitle').val();
-        var editeddesc = $(this).parent().find('#editeddesc').val();
+        let  editedicon = $(this).parent().find('select[name=icon]').val();
+        let  editedtitle = $(this).parent().find('#editedtitle').val();
+        let  editeddesc = $(this).parent().find('#editeddesc').val();
         
-        var editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
+        let  editedpopup ='<div class="popcontent"><p class="mtitle">'+editedtitle+'</p>\
 <p class="mdesc">'+editeddesc+'</p>\
 <span class="mcoords">[ '+clickedMarkerCoords.lng+' , '+clickedMarkerCoords.lat+']</span></div>\
 <button class="edit-marker" data-i18n="edit_marker">Edit marker</button>\
@@ -1217,7 +1217,7 @@ function onPopupOpenShared() {
 <div class="chooseIcon" data-i18n="choose_icon">Choose Icon:</div>\
   <div id="iconprev" style="background-image:url(\''+markerIconTypes[0].options.iconUrl+'\')"></div>\
   <select id="select_icon" name="icon" onchange="iconpref(this.value);">';
-    for (var j in mapMarkers) {
+    for (let  j in mapMarkers) {
     editedpopup +='<option value="'+j+'">'+mapMarkers[j].icon.replace(/_/gi, " ")+'</option>';
   };
   editedpopup = editedpopup+'</select>\
@@ -1253,13 +1253,13 @@ function onPopupOpenShared() {
 }
 
 function getFormattedTime() {
-    var today = new Date();
-    var y = today.getFullYear();
-    var m = ("0" + (today.getMonth() + 1)).slice(-2)
-    var d = today.getDate();
-    var hour = today.getHours();
-    var min = today.getMinutes();
-    var s = today.getSeconds();
+    let  today = new Date();
+    let  y = today.getFullYear();
+    let  m = ("0" + (today.getMonth() + 1)).slice(-2)
+    let  d = today.getDate();
+    let  hour = today.getHours();
+    let  min = today.getMinutes();
+    let  s = today.getSeconds();
     return y + "-" + m + "-" + d + "_" + hour + "." + min;
 }
 
@@ -1280,16 +1280,16 @@ $(document).on('click', '.clearno', function() {
 });
 
 $('.backupls').on('click', function(e) {
-  var backup = {};
-  var mapUserMarkers = localStorage.mapUserMarkers;
-  var langactive = localStorage.langactive;
+  let  backup = {};
+  let  mapUserMarkers = localStorage.mapUserMarkers;
+  let  langactive = localStorage.langactive;
   backup.markers = mapUserMarkers;
   backup.langactive = langactive;
 
-  var json = JSON.stringify(backup);
-  var base = btoa(json);
-  var href = 'data:text/javascript;charset=utf-8;base64,' + base;
-  var link = document.createElement('a');
+  let  json = JSON.stringify(backup);
+  let  base = btoa(json);
+  let  href = 'data:text/javascript;charset=utf-8;base64,' + base;
+  let  link = document.createElement('a');
     link.setAttribute('download', 'kcdmap_'+getFormattedTime()+'.json');
   link.setAttribute('href', href);
   document.querySelector('body').appendChild(link);
@@ -1298,11 +1298,11 @@ $('.backupls').on('click', function(e) {
 });
 
 $('.restorels').on('click', function(e) {
-	var w = document.createElement('div');
+	let  w = document.createElement('div');
   w.className = "restoreWindowOverlay";
-  var t = document.createElement('div');
+  let  t = document.createElement('div');
   t.className = "restoreWindow";
-  var a = document.createElement('a');
+  let a = document.createElement('a');
   a.className = "restoreWindowX";
   a.appendChild(document.createTextNode('×'));
   a.setAttribute('href', '#');
@@ -1311,16 +1311,16 @@ $('.restorels').on('click', function(e) {
       w.remove();
   };
 
-  var l = document.createElement('input');
+  let  l = document.createElement('input');
   l.setAttribute('type', 'file');
   l.setAttribute('id', 'fileinput');
   l.onchange = function(e) {
 			w.remove();
-      var f = e.target.files[0];
+      let  f = e.target.files[0];
       if (f) {
-          var reader = new FileReader();
+          let  reader = new FileReader();
           reader.onload = function(e) {
-              var text = e.target.result;
+              let  text = e.target.result;
             text = JSON.parse(text);
             localStorage.setItem('mapUserMarkers', text.markers);
             localStorage.setItem('langactive', text.langactive);
@@ -1332,10 +1332,10 @@ $('.restorels').on('click', function(e) {
         alert('Failed to load file');
       }
   };
-  var a = document.createElement('h3');
-  a.className = "restoreTitle";
-  a.appendChild(document.createTextNode('Select file with backup'));
-  t.appendChild(a);
+  let h3 = document.createElement('h3');
+  h3.className = "restoreTitle";
+  h3.appendChild(document.createTextNode('Select file with backup'));
+  t.appendChild(h3);
   t.appendChild(l);
 	w.appendChild(t);
   document.querySelector('body').appendChild(w);
@@ -1354,7 +1354,7 @@ $('.toggle-title').click(function(){
 	});
 	
 	// Language visual toggle
-	var langactive = localStorage.getItem('langactive');
+	let  langactive = localStorage.getItem('langactive');
   if (langactive === null) {
     localStorage.setItem('langactive', "en");
     $(".langswitch").find(".lang[data-lang='en']").addClass("active");
@@ -1376,7 +1376,7 @@ $('.toggle-title').click(function(){
 	
 	// Save toggle state
 $('.markers-list input').on('change', function() {
-  var toggled, activemarkers = [];
+  let  toggled, activemarkers = [];
   $('.markers-list input').each(function() { // run through each of the checkboxes
     toggled = {id: $(this).attr('id'), value: $(this).prop('checked')};
     activemarkers.push(toggled);
@@ -1384,9 +1384,9 @@ $('.markers-list input').on('change', function() {
   localStorage.setItem("activemarkers", JSON.stringify(activemarkers));
 });
 
-var activemarkers = JSON.parse(localStorage.getItem('activemarkers'));
+let  activemarkers = JSON.parse(localStorage.getItem('activemarkers'));
 if (localStorage.activemarkers !== undefined) {
-  for (var i=0; i<activemarkers.length; i++) {
+  for (let  i=0; i<activemarkers.length; i++) {
     $('#' + activemarkers[i].id ).prop('checked', activemarkers[i].value);
     if (activemarkers[i].value) {
       $('#allmarkers').prop('checked', false);
