@@ -203,8 +203,8 @@ for (var i = 0; i < markers.length; i++) {
   var x = (markers[i].coords[1]).toFixed(0);
   var y = (markers[i].coords[0]).toFixed(0);
   
-  var origin_x = (markers[i].coords[1]);
-  var origin_y = (markers[i].coords[0]);
+  var origin_x = (markers[i].coords[1]).toFixed(0);
+  var origin_y = (markers[i].coords[0]).toFixed(0);
 	
   var markerUrl = (url+"?marker="+y+","+x);
 	markerUrl = encodeURI(markerUrl);
