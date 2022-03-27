@@ -116,8 +116,8 @@ let  globalMarkers = [];
 let  transparentMarker = L.icon({
         iconUrl: iconsUrl+'alpha_marker.png',
         iconSize: [1, 1],
-        iconAnchor: [iWidth, iHeight],
-        popupAnchor: [0, -iHeight]
+        iconAnchor: [18, 18],
+        popupAnchor: [0, -18]
       });
 
 for (let  i = 0; i < textMarkers.length; i++) {
