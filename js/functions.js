@@ -245,11 +245,12 @@ for (let  i = 0; i < usr_markers.length; i++) {
   if (imarkers.items == undefined) {
     imarkers.items = "";
   }
-if (imarkers.req != undefined) {
+  let req = "";
+  if (imarkers.req != undefined) {
   imarkers.req = (imarkers.req == undefined) ? "" : imarkers.req;
   imarkers.level = (imarkers.level == undefined) ? "" : imarkers.level;
-    let  req = '<p class="req" data-i18n="req">Requirements:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+imarkers.req.replace(/_/gi, " ")+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+imarkers.level.replace(/_/gi, " ")+'</span></li>';
-  } else {req = ""; }
+    req = '<p class="req" data-i18n="req">Requirements:</p><ul class="ilist"><li><i class="'+imarkers.req+'"></i><span class="iname" data-i18n="'+imarkers.req+'">'+imarkers.req.replace(/_/gi, " ")+'</span><span class="ilevel '+imarkers.level+'" data-i18n="'+imarkers.level+'">'+imarkers.level.replace(/_/gi, " ")+'</span></li>';
+  }
   let  ilist = "";
   for (let  c in imarkers.items) {
     ilist += '<li><i class="'+ imarkers.items[c]+'"></i><span class="iname" data-i18n="'+ imarkers.items[c]+'">'+ imarkers.items[c].replace(/_/gi, " ")+'</span></li>';
