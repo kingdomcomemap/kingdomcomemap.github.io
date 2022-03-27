@@ -100,8 +100,8 @@ function gridfix(){
     _initTile: function (tile) {
       originalInitTile.call(this, tile);
       var tileSize = this.getTileSize();
-      tile.style.width = tileSize.x + 0.5 + 'px';
-      tile.style.height = tileSize.y + 0.5 + 'px';
+      tile.style.width = tileSize.x + 1 + 'px';
+      tile.style.height = tileSize.y + 1 + 'px';
     }
   });
 };
