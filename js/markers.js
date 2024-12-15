@@ -6500,6 +6500,11 @@ Spade to bury Henry's parents
 "group": "camp",
 "icon": "camp",
 "coords": [2280.542969,3793.338623],
-},	
-
+},
+{	
+"name": "<span data-i18n='conciliation_cross'>Conciliation Cross</span>",
+"group": "conciliation_cross",
+"icon": "conciliation_cross",
+"coords": [1378,3676],
+},
 ]
